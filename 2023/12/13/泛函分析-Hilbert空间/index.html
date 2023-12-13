@@ -291,7 +291,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.7k
+                    4.6k
                 </div>
                 
 
@@ -308,166 +308,888 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Hilbert空间"><a href="#Hilbert空间" class="headerlink" title="Hilbert空间"></a>Hilbert空间</h1><h2 id="内积空间"><a href="#内积空间" class="headerlink" title="内积空间"></a>内积空间</h2><h3 id="内积"><a href="#内积" class="headerlink" title="内积"></a>内积</h3><p><strong>内积空间</strong>：设 $E$ 是 $K$中的向量，称函数$\langle \cdot,\cdot \rangle:E\to K$ 是 $E$ 中的内积，若满足</p>
+                <h1 id="hilbert空间">Hilbert空间</h1>
+<h2 id="内积空间">内积空间</h2>
+<h3 id="内积">内积</h3>
+<p><strong>内积空间</strong>：设 <span class="math inline">\(E\)</span>
+是 <span class="math inline">\(K\)</span>中的向量，称函数<span
+class="math inline">\(\langle \cdot,\cdot \rangle:E\to K\)</span> 是
+<span class="math inline">\(E\)</span> 中的内积，若满足</p>
 <ul>
-<li>$\langle x,x\rangle\ge 0,\forall x\in E;\langle x,x\rangle&#x3D;0\Longleftrightarrow x&#x3D;0$</li>
-<li>$\langle x,y\rangle &#x3D;\overline{\langle y,x \rangle},\forall x,y\in E$</li>
-<li>$\langle \lambda x,y\rangle&#x3D;\lambda\langle x,y\rangle,\forall x,y\in E$</li>
-<li>$\langle x+y,z\rangle &#x3D;\langle x,z\rangle +\langle y,z\rangle,\forall x,y,z\in E$</li>
+<li><span class="math inline">\(\langle x,x\rangle\ge 0,\forall x\in
+E;\langle x,x\rangle=0\Longleftrightarrow x=0\)</span></li>
+<li><span class="math inline">\(\langle x,y\rangle =\overline{\langle
+y,x \rangle},\forall x,y\in E\)</span></li>
+<li><span class="math inline">\(\langle \lambda
+x,y\rangle=\lambda\langle x,y\rangle,\forall x,y\in E\)</span></li>
+<li><span class="math inline">\(\langle x+y,z\rangle =\langle x,z\rangle
++\langle y,z\rangle,\forall x,y,z\in E\)</span></li>
 </ul>
-<p>称$(E,\langle \cdot,\cdot\rangle)$为内积空间</p>
+<p>称<span class="math inline">\((E,\langle
+\cdot,\cdot\rangle)\)</span>为内积空间</p>
 <div class="note info no-icon"><ul>
-<li>$\langle x,\lambda y\rangle &#x3D;\overline{\lambda}\langle x,y\rangle,\forall x,y\in E$</li>
-<li>$\langle z,x+y\rangle &#x3D; \langle z,x\rangle +\langle z,y\rangle,\forall x,y,z\in E$</li>
+<li><span class="math inline">\(\langle x,\lambda y\rangle
+=\overline{\lambda}\langle x,y\rangle,\forall x,y\in E\)</span></li>
+<li><span class="math inline">\(\langle z,x+y\rangle = \langle
+z,x\rangle +\langle z,y\rangle,\forall x,y,z\in E\)</span></li>
 </ul>
 </div>
-
-<h3 id="柯西不等式"><a href="#柯西不等式" class="headerlink" title="柯西不等式"></a>柯西不等式</h3><p><strong>Cauchy不等式</strong>：设$(E,\langle \cdot,\cdot\rangle)$是一个内积空间，则有<br>$$<br>\begin{align*}<br>    \left|\langle x,y\rangle\right|^2 \le \langle x,x\rangle \langle y,y\rangle<br>\end{align*}<br>$$<br>当且仅当$x&#x3D;\lambda y; or; y&#x3D;0$等号成立</p>
+<h3 id="柯西不等式">柯西不等式</h3>
+<p><strong>Cauchy不等式</strong>：设<span
+class="math inline">\((E,\langle
+\cdot,\cdot\rangle)\)</span>是一个内积空间，则有 <span
+class="math display">\[
+\begin{align*}
+    \left|\langle x,y\rangle\right|^2 \le \langle x,x\rangle \langle
+y,y\rangle
+\end{align*}
+\]</span> 当且仅当<span class="math inline">\(x=\lambda y\; or\;
+y=0\)</span>等号成立</p>
 <p><strong>证明</strong>：</p>
 <ul>
-<li>当$y&#x3D;0$时，不等式显然成立</li>
-<li>当$y\ne 0$时，令$\mu\in K$，则<br>  $$<br>  \begin{align*}<br>      0\le \langle x-\mu y,x-\mu y\rangle &#x3D; \langle x,x\rangle -\mu\langle y,x\rangle -\overline{\mu}\langle x,y\rangle +\left|\mu\right|^2 \langle y,y\rangle<br>  \end{align*}<br>  $$<br>  令$\mu&#x3D;\frac{\langle x,y\rangle}{\langle y,y\rangle}$，则可以得到<br>  $$<br>  \begin{align*}<br>      0\le \langle x,x\rangle - \frac{\left|\langle x,y\rangle\right|^2 }{\langle y,y\rangle}<br>  \end{align*}<br>  $$<br>  等号成立当且仅当$x&#x3D;\lambda y$</li>
+<li>当<span class="math inline">\(y=0\)</span>时，不等式显然成立</li>
+<li>当<span class="math inline">\(y\ne 0\)</span>时，令<span
+class="math inline">\(\mu\in K\)</span>，则 <span
+class="math display">\[
+      \begin{align*}
+          0\le \langle x-\mu y,x-\mu y\rangle = \langle x,x\rangle
+-\mu\langle y,x\rangle -\overline{\mu}\langle x,y\rangle
++\left|\mu\right|^2 \langle y,y\rangle
+      \end{align*}
+  \]</span> 令<span class="math inline">\(\mu=\frac{\langle
+x,y\rangle}{\langle y,y\rangle}\)</span>，则可以得到 <span
+class="math display">\[
+      \begin{align*}
+          0\le \langle x,x\rangle - \frac{\left|\langle
+x,y\rangle\right|^2 }{\langle y,y\rangle}
+      \end{align*}
+  \]</span> 等号成立当且仅当<span class="math inline">\(x=\lambda
+y\)</span></li>
 </ul>
-<hr>
-<p><strong>内积诱导范数</strong>：设$\langle \cdot,\cdot\rangle$是线性空间$E$上的内积，则可以在$E$上定义范数<br>$$<br>    \begin{align*}<br>        \left| x\right| &#x3D;\sqrt{\langle x,x\rangle},\quad \forall x\in E<br>    \end{align*}<br>$$<br>称为内积诱导范数</p>
-<h3 id="Hilbert空间-1"><a href="#Hilbert空间-1" class="headerlink" title="Hilbert空间"></a>Hilbert空间</h3><p><strong>Hilbert空间</strong>：若内积空间$E$在内积诱导范数$\left| \cdot \right|$下完备，则称$E$是$Hilbert$空间</p>
-<p><strong>内积连续性定理</strong>：设${x_{n}},{y_{n}},x,y\in E,n&#x3D;1,2,\cdots$，且有$x_{n}\to x,y_{n}\to y$，则有<br>$$<br>    \begin{align*}<br>        \langle x_{n},y_{n}\rangle \to \langle x,y\rangle<br>    \end{align*}<br>$$</p>
-<p><strong>证明</strong>：由于$y_n\to y$，则存在$C&gt;0$使得$\left| y_n\right| \le C,\forall n\in N$，则<br>$$<br>    \begin{align*}<br>        \left|\langle x,y\rangle -\langle x_n ,y_n\rangle\right| &amp;\le \left|\langle x,y\rangle -\langle x,y_n\rangle\right|+\left|\langle x,y_n\rangle-\langle x_n,y_n\rangle\right|\<br>        &amp;\le \left| x\right| \left| y-y_n\right| +\left| x-x_n\right| \left| y_n\right| \<br>        &amp;\le \left| x\right| \left| y-y_n\right| +C\left| x-x_n\right|<br>    \end{align*}<br>$$<br>从而有$\left|\langle x,y\rangle -\langle x_n,y_n\rangle\right|\to 0; as; n\to \infty$</p>
-<hr>
-<p><strong>平行四边形法则</strong>：设$E$是内积空间，$E$上的内积诱导范数$\left| \cdot \right| $满足<br>$$<br>    \begin{align*}<br>        \left| x+y\right|^2 + \left| x-y\right|^2 &#x3D; 2(\left| x\right|^2 + \left| y\right|^2),\quad \forall x,y\in E<br>    \end{align*}<br>$$</p>
-<p><strong>证明</strong>：<br>$$<br>    \begin{align*}<br>        &amp;\left| x+y\right|^2 &#x3D; \langle x+y,x+y\rangle &#x3D; \left| x\right| ^2 +\langle x,y\rangle+\langle y,x\rangle +\left| y\right| ^2\<br>        &amp;\left| x-y\right|^2 &#x3D; \langle x-y,x-y\rangle &#x3D; \left| x\right| ^2 -\langle x,y\rangle-\langle y,x\rangle +\left| y\right| ^2<br>    \end{align*}<br>$$<br>从而有<br>$$<br>    \begin{align*}<br>        \left| x+y\right|^2 + \left| x-y\right|^2 &#x3D; 2(\left| x\right|^2 + \left| y\right|^2),\quad \forall x,y\in E<br>    \end{align*}<br>$$</p>
-<hr>
-<p><strong>乘积空间内积</strong>：设$H,K$是Hilbert空间，其内积为$\langle \cdot,\cdot \rangle_{H},\langle \cdot,\cdot\rangle_{K}$，则$H\times K$是Hilbert空间，且有内积<br>$$<br>    \begin{align*}<br>        \langle (x,\xi),(y,\eta)\rangle_{H\times K} :&#x3D; \langle x,y\rangle_{H}+\langle \xi,\eta\rangle_{K},\quad \forall x,y\in H; and; \xi,\eta \in K<br>    \end{align*}<br>$$</p>
-<p><strong>证明</strong>：$\forall x,y\in H,\xi,\eta\in K$，则</p>
-<ul>
-<li>$\langle(x,\xi),(x,\xi)\rangle_{H\times K}&#x3D;\langle x,x\rangle_{H}+\langle \xi,\xi\rangle_{K}\ge 0$，若$\langle x,x\rangle_{H}+\langle \xi,\xi\rangle_{K}&#x3D;0$，则有$x&#x3D;0,\xi &#x3D;0$，即$(x,\xi)&#x3D;0$</li>
-<li>$\forall \widetilde{x}\in H,\widetilde{\xi}\in K$，则有<br>  $$<br>  \begin{align*}<br>      &amp;\langle (x,\xi)+(\widetilde{x},\widetilde{\xi}),(y,\eta)\rangle_{H\times K}\<br>      &#x3D;&amp; \langle x+\widetilde{x},y\rangle_{H}+\langle \xi +\widetilde{\xi},\eta\rangle_{K}\<br>      &#x3D;&amp; [\langle x,y\rangle <em>{H}+\langle \xi,\eta\rangle <em>{K}]+[\langle \widetilde{x},y\rangle</em>{H}+ \langle \widetilde{\xi},\eta\rangle</em>{K}]\<br>      &#x3D;&amp; \langle(x,\xi),(y,\eta)\rangle_{H\times K}+\langle(\tilde{x},\tilde{\xi}),(y,\eta)\rangle_{H\times K}<br>  \end{align*}<br>  $$</li>
-<li>$\forall \alpha \in K$，<br>  $$<br>  \begin{align*}<br>      \begin{aligned}<br>          &amp;\langle\alpha(x,\xi),(y,\eta)\rangle_{H\times K} \<br>          &#x3D;&amp; \begin{aligned}\langle\alpha x,y\rangle_H+\langle\alpha\xi,\eta\rangle_K&#x3D;\alpha\langle x,y\rangle_H+\alpha\langle\xi,\eta\rangle_K\end{aligned}  \<br>          &#x3D;&amp; \alpha\langle(x,\xi),(y,\eta)\rangle_{H\times K}.<br>      \end{aligned}<br>  \end{align*}<br>  $$</li>
-<li>由于<br>  $$<br>  \begin{align*}<br>      \begin{array}{rl}\langle(x,\xi),(y,\eta)\rangle_{H\times K}&#x3D;\langle x,y\rangle_H+\langle\xi,\eta\rangle_K&#x3D;\overline{\langle y,x\rangle}<em>H+\overline{\langle\xi,\eta\rangle}<em>K&#x3D;\overline{\langle(y,\eta),(x,\xi)\rangle}</em>{H\times K}\end{array}<br>  \end{align*}<br>  $$<br>因此，$\langle (x,\xi),(y,\eta)\rangle</em>{H\times K} :&#x3D; \langle x,y\rangle_{H}+\langle \xi,\eta\rangle_{K}$是内积，同时由于<br>$$<br>  \begin{align*}<br>  \left| (x,\xi)\right|<em>{H\times K}&#x3D;\sqrt{\left| x\right|</em>{H}^2 + \left| \xi\right|_{K}^2}<br>  \end{align*}<br>$$<br>从而有$H\times K$在此范数下完备</li>
-</ul>
-<hr>
-<h2 id="最优逼近"><a href="#最优逼近" class="headerlink" title="最优逼近"></a>最优逼近</h2><h3 id="最优逼近元"><a href="#最优逼近元" class="headerlink" title="最优逼近元"></a>最优逼近元</h3><p><strong>最有逼近元素</strong>：设$X$是度量空间，$B\subset X,x\in X\setminus B$，若存在    $\widetilde{x}\in B,\ s.t.$<br>$$<br>    \begin{align*}<br>        d(x,\widetilde{x})&#x3D;d(x,B)<br>    \end{align*}<br>$$<br>则称 $\widetilde{x}$ 为 $x$ 到$B$的最优逼近，也称为最优逼近元素</p>
-<p><strong>最优逼近元存在唯一性定理</strong>：设$B$是$Hilbert$空间$H$的闭凸集，设$x\in H\setminus B$，则存在唯一元 $\widetilde{x}\in B,\ s.t.$<br>$$<br>    \begin{align*}<br>        \left| x - \widetilde{x}\right| &#x3D; \inf_{y\in B}\left| x-y\right|<br>    \end{align*}<br>$$</p>
-<p><strong>证明</strong>：令$d:&#x3D;d(x,B)$，对于$\forall n\in N$，存在$y_n\in B$使得<br>$$<br>    \begin{align*}<br>        d\le \left| x-y_n\right| &lt;d+\frac{1}{n}<br>    \end{align*}<br>$$<br>下面说明${y_n}$是$Cauchy$列，事实上<br>$$<br>    \begin{align*}<br>        2|x-y_n|^2+2|x-y_m|^2&#x3D;|2x-y_n-y_m|^2+|y_n-y_m|^2<br>    \end{align*}<br>$$<br>由于$B$是凸集，故$\frac{y_n + y_m}{2}\in B$且<br>$$<br>    \begin{align*}<br>        |2x-y_n-y_m|^2&#x3D;4|x-\frac{y_n+y_m}2|^2\geq4d^2<br>    \end{align*}<br>$$<br>因此，可以得到<br>$$<br>    \begin{align*}<br>        \begin{aligned}<br>            |y_n-y_m|^2&amp; &#x3D;\quad 2|x-y_{n}|^{2}+2|x-y_{m}|^{2}-|2x-y_{n}-y_{m}|^{2}  \<br>            &amp;\leq\quad2(d+\frac1n)^2+2(d+\frac1m)^2-4d^2 \<br>            &amp;&#x3D;\quad\frac{4d}n+\frac{4d}m+\frac2{n^2}+\frac2{m^2}\to0\quad\text{as }m,n\to\infty.<br>        \end{aligned}<br>    \end{align*}<br>$$<br>由$H$的完备性，可知 $\exists \widetilde{x}\in H$使得 $y_n\to \widetilde{x}$</p>
-<p>由于<br>$$<br>    \begin{align*}<br>        |x-\tilde{x}|&#x3D;\lim_{n\to\infty}|x-y_n|&#x3D;d<br>    \end{align*}<br>$$<br>从而 $\widetilde{x}$ 即为所求</p>
-<hr>
-<p><strong>推论</strong>：设$L$是$Hilbert$空间$H$的闭子空间，$x\in H\setminus L$，则存在唯一的 $l\in L,\ s.t.$<br>$$<br>    \begin{align*}<br>        \left| x-l\right| &#x3D; d(x,L)<br>    \end{align*}<br>$$</p>
-<h3 id="正交"><a href="#正交" class="headerlink" title="正交"></a>正交</h3><p><strong>正交</strong>：	设$H$是$Hilbert$空间，$x,y\in H$，称$x,y$是正交的，若满足$\langle x,y\rangle &#x3D; 0$，记为 $x\perp y$</p>
-<div class="note info no-icon"><p>设$S\subset H$，记号$x\perp S\Longleftrightarrow x\perp y,\forall y\in S$</p>
+<hr />
+<p><strong>内积诱导范数</strong>：设<span class="math inline">\(\langle
+\cdot,\cdot\rangle\)</span>是线性空间<span
+class="math inline">\(E\)</span>上的内积，则可以在<span
+class="math inline">\(E\)</span>上定义范数 <span class="math display">\[
+    \begin{align*}
+        \left\| x\right\| =\sqrt{\langle x,x\rangle},\quad \forall x\in
+E
+    \end{align*}
+\]</span> 称为内积诱导范数</p>
+<h3 id="hilbert空间-1">Hilbert空间</h3>
+<p><strong>Hilbert空间</strong>：若内积空间<span
+class="math inline">\(E\)</span>在内积诱导范数<span
+class="math inline">\(\left\| \cdot \right\|\)</span>下完备，则称<span
+class="math inline">\(E\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间</p>
+<p><strong>内积连续性定理</strong>：设<span
+class="math inline">\(\{x_{n}\},\{y_{n}\},x,y\in
+E,n=1,2,\cdots\)</span>，且有<span class="math inline">\(x_{n}\to
+x,y_{n}\to y\)</span>，则有 <span class="math display">\[
+    \begin{align*}
+        \langle x_{n},y_{n}\rangle \to \langle x,y\rangle
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：由于<span class="math inline">\(y_n\to
+y\)</span>，则存在<span class="math inline">\(C&gt;0\)</span>使得<span
+class="math inline">\(\left\| y_n\right\| \le C,\forall n\in
+N\)</span>，则 <span class="math display">\[
+    \begin{align*}
+        \left|\langle x,y\rangle -\langle x_n ,y_n\rangle\right|
+&amp;\le \left|\langle x,y\rangle -\langle
+x,y_n\rangle\right|+\left|\langle x,y_n\rangle-\langle
+x_n,y_n\rangle\right|\\
+        &amp;\le \left\| x\right\| \left\| y-y_n\right\| +\left\|
+x-x_n\right\| \left\| y_n\right\| \\
+        &amp;\le \left\| x\right\| \left\| y-y_n\right\| +C\left\|
+x-x_n\right\|
+    \end{align*}
+\]</span> 从而有<span class="math inline">\(\left|\langle x,y\rangle
+-\langle x_n,y_n\rangle\right|\to 0\; as\; n\to \infty\)</span></p>
+<hr />
+<p><strong>平行四边形法则</strong>：设<span
+class="math inline">\(E\)</span>是内积空间，<span
+class="math inline">\(E\)</span>上的内积诱导范数$| | $满足 <span
+class="math display">\[
+    \begin{align*}
+        \left\| x+y\right\|^2 + \left\| x-y\right\|^2 = 2(\left\|
+x\right\|^2 + \left\| y\right\|^2),\quad \forall x,y\in E
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>： <span class="math display">\[
+    \begin{align*}
+        &amp;\left\| x+y\right\|^2 = \langle x+y,x+y\rangle = \left\|
+x\right\| ^2 +\langle x,y\rangle+\langle y,x\rangle +\left\| y\right\|
+^2\\
+        &amp;\left\| x-y\right\|^2 = \langle x-y,x-y\rangle = \left\|
+x\right\| ^2 -\langle x,y\rangle-\langle y,x\rangle +\left\| y\right\|
+^2
+    \end{align*}
+\]</span> 从而有 <span class="math display">\[
+    \begin{align*}
+        \left\| x+y\right\|^2 + \left\| x-y\right\|^2 = 2(\left\|
+x\right\|^2 + \left\| y\right\|^2),\quad \forall x,y\in E
+    \end{align*}
+\]</span></p>
+<hr />
+<p><strong>乘积空间内积</strong>：设<span
+class="math inline">\(H,K\)</span>是Hilbert空间，其内积为<span
+class="math inline">\(\langle \cdot,\cdot \rangle_{H},\langle
+\cdot,\cdot\rangle_{K}\)</span>，则<span class="math inline">\(H\times
+K\)</span>是Hilbert空间，且有内积 <span class="math display">\[
+    \begin{align*}
+        \langle (x,\xi),(y,\eta)\rangle_{H\times K} := \langle
+x,y\rangle_{H}+\langle \xi,\eta\rangle_{K},\quad \forall x,y\in H\;
+and\; \xi,\eta \in K
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：<span class="math inline">\(\forall x,y\in
+H,\xi,\eta\in K\)</span>，则 - <span
+class="math inline">\(\langle(x,\xi),(x,\xi)\rangle_{H\times K}=\langle
+x,x\rangle_{H}+\langle \xi,\xi\rangle_{K}\ge 0\)</span>，若<span
+class="math inline">\(\langle x,x\rangle_{H}+\langle
+\xi,\xi\rangle_{K}=0\)</span>，则有<span class="math inline">\(x=0,\xi
+=0\)</span>，即<span class="math inline">\((x,\xi)=0\)</span> - <span
+class="math inline">\(\forall \widetilde{x}\in H,\widetilde{\xi}\in
+K\)</span>，则有 <span class="math display">\[
+        \begin{align*}
+            &amp;\langle
+(x,\xi)+(\widetilde{x},\widetilde{\xi}),(y,\eta)\rangle_{H\times K}\\
+            =&amp; \langle x+\widetilde{x},y\rangle_{H}+\langle \xi
++\widetilde{\xi},\eta\rangle_{K}\\
+            =&amp; [\langle x,y\rangle _{H}+\langle \xi,\eta\rangle
+_{K}]+[\langle \widetilde{x},y\rangle_{H}+ \langle
+\widetilde{\xi},\eta\rangle_{K}]\\
+            =&amp; \langle(x,\xi),(y,\eta)\rangle_{H\times
+K}+\langle(\tilde{x},\tilde{\xi}),(y,\eta)\rangle_{H\times K}
+        \end{align*}
+    \]</span> - <span class="math inline">\(\forall \alpha \in
+K\)</span>， <span class="math display">\[
+        \begin{align*}
+            \begin{aligned}
+                &amp;\langle\alpha(x,\xi),(y,\eta)\rangle_{H\times K} \\
+                =&amp; \begin{aligned}\langle\alpha
+x,y\rangle_H+\langle\alpha\xi,\eta\rangle_K=\alpha\langle
+x,y\rangle_H+\alpha\langle\xi,\eta\rangle_K\end{aligned}  \\
+                =&amp; \alpha\langle(x,\xi),(y,\eta)\rangle_{H\times K}.
+            \end{aligned}
+        \end{align*}
+    \]</span> - 由于 <span class="math display">\[
+    \begin{align*}
+            \begin{array}{rl}\langle(x,\xi),(y,\eta)\rangle_{H\times
+K}=\langle x,y\rangle_H+\langle\xi,\eta\rangle_K=\overline{\langle
+y,x\rangle}_H+\overline{\langle\xi,\eta\rangle}_K=\overline{\langle(y,\eta),(x,\xi)\rangle}_{H\times
+K}\end{array}
+        \end{align*}
+    \]</span> 因此，<span class="math inline">\(\langle
+(x,\xi),(y,\eta)\rangle_{H\times K} := \langle x,y\rangle_{H}+\langle
+\xi,\eta\rangle_{K}\)</span>是内积，同时由于 <span
+class="math display">\[
+    \begin{align*}
+        \left\| (x,\xi)\right\|_{H\times K}=\sqrt{\left\|
+x\right\|_{H}^2 + \left\| \xi\right\|_{K}^2}
+    \end{align*}
+\]</span> 从而有<span class="math inline">\(H\times
+K\)</span>在此范数下完备</p>
+<hr />
+<h2 id="最优逼近">最优逼近</h2>
+<h3 id="最优逼近元">最优逼近元</h3>
+<p><strong>最有逼近元素</strong>：设<span
+class="math inline">\(X\)</span>是度量空间，<span
+class="math inline">\(B\subset X,x\in X\setminus B\)</span>，若存在
+<span class="math inline">\(\widetilde{x}\in B,\ s.t.\)</span> <span
+class="math display">\[
+    \begin{align*}
+        d(x,\widetilde{x})=d(x,B)
+    \end{align*}
+\]</span> 则称 <span class="math inline">\(\widetilde{x}\)</span> 为
+<span class="math inline">\(x\)</span> 到<span
+class="math inline">\(B\)</span>的最优逼近，也称为最优逼近元素</p>
+<p><strong>最优逼近元存在唯一性定理</strong>：设<span
+class="math inline">\(B\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间<span
+class="math inline">\(H\)</span>的闭凸集，设<span
+class="math inline">\(x\in H\setminus B\)</span>，则存在唯一元 <span
+class="math inline">\(\widetilde{x}\in B,\ s.t.\)</span> <span
+class="math display">\[
+    \begin{align*}
+        \left\| x - \widetilde{x}\right\| = \inf_{y\in B}\left\|
+x-y\right\|
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：令<span
+class="math inline">\(d:=d(x,B)\)</span>，对于<span
+class="math inline">\(\forall n\in N\)</span>，存在<span
+class="math inline">\(y_n\in B\)</span>使得 <span
+class="math display">\[
+    \begin{align*}
+        d\le \left\| x-y_n\right\| &lt;d+\frac{1}{n}
+    \end{align*}
+\]</span> 下面说明<span class="math inline">\(\{y_n\}\)</span>是<span
+class="math inline">\(Cauchy\)</span>列，事实上 <span
+class="math display">\[
+    \begin{align*}
+        2\|x-y_n\|^2+2\|x-y_m\|^2=\|2x-y_n-y_m\|^2+\|y_n-y_m\|^2
+    \end{align*}
+\]</span> 由于<span class="math inline">\(B\)</span>是凸集，故<span
+class="math inline">\(\frac{y_n + y_m}{2}\in B\)</span>且 <span
+class="math display">\[
+    \begin{align*}
+        \|2x-y_n-y_m\|^2=4\|x-\frac{y_n+y_m}2\|^2\geq4d^2
+    \end{align*}
+\]</span> 因此，可以得到 <span class="math display">\[
+    \begin{align*}
+        \begin{aligned}
+            \|y_n-y_m\|^2&amp; =\quad
+2\|x-y_{n}\|^{2}+2\|x-y_{m}\|^{2}-\|2x-y_{n}-y_{m}\|^{2}  \\
+            &amp;\leq\quad2(d+\frac1n)^2+2(d+\frac1m)^2-4d^2 \\
+            &amp;=\quad\frac{4d}n+\frac{4d}m+\frac2{n^2}+\frac2{m^2}\to0\quad\text{as
+}m,n\to\infty.
+        \end{aligned}
+    \end{align*}
+\]</span> 由<span class="math inline">\(H\)</span>的完备性，可知 <span
+class="math inline">\(\exists \widetilde{x}\in H\)</span>使得 <span
+class="math inline">\(y_n\to \widetilde{x}\)</span></p>
+<p>由于 <span class="math display">\[
+    \begin{align*}
+        \|x-\tilde{x}\|=\lim_{n\to\infty}\|x-y_n\|=d
+    \end{align*}
+\]</span> 从而 <span class="math inline">\(\widetilde{x}\)</span>
+即为所求</p>
+<hr />
+<p><strong>推论</strong>：设<span
+class="math inline">\(L\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间<span
+class="math inline">\(H\)</span>的闭子空间，<span
+class="math inline">\(x\in H\setminus L\)</span>，则存在唯一的 <span
+class="math inline">\(l\in L,\ s.t.\)</span> <span
+class="math display">\[
+    \begin{align*}
+        \left\| x-l\right\| = d(x,L)
+    \end{align*}
+\]</span></p>
+<h3 id="正交">正交</h3>
+<p><strong>正交</strong>： 设<span
+class="math inline">\(H\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间，<span
+class="math inline">\(x,y\in H\)</span>，称<span
+class="math inline">\(x,y\)</span>是正交的，若满足<span
+class="math inline">\(\langle x,y\rangle = 0\)</span>，记为 <span
+class="math inline">\(x\perp y\)</span></p>
+<div class="note info no-icon"><p>设<span class="math inline">\(S\subset H\)</span>，记号<span
+class="math inline">\(x\perp S\Longleftrightarrow x\perp y,\forall y\in
+S\)</span></p>
 </div>
-
-<p><strong>勾股定理</strong>：	若$x\perp y$，则有<br>$$<br>    \begin{align*}<br>        \left| x+y\right|^2 &#x3D; \left| x\right|^2 + \left| y\right|^2<br>    \end{align*}<br>$$</p>
-<p><strong>证明</strong>：<br>$$<br>    \begin{align*}<br>        \left| x+y\right|^2 &amp;&#x3D;\langle x+y,x+y\rangle\<br>        &amp;&#x3D; \langle x,x\rangle+\langle y,y\rangle\<br>        &amp;&#x3D; \left| x\right|^2 + \left| y \right|^2<br>    \end{align*}<br>$$</p>
-<hr>
-<p><strong>定理</strong>：设$H$是$Hilbert$空间，$L$是$H$的闭子空间，$x\in H\setminus L,l\in L$，则有<br>$$<br>    \begin{align*}<br>        \left| x-l \right| &#x3D; d(x,L)\Longleftrightarrow (x-l)\perp L<br>    \end{align*}<br>$$</p>
+<p><strong>勾股定理</strong>： 若<span class="math inline">\(x\perp
+y\)</span>，则有 <span class="math display">\[
+    \begin{align*}
+        \left\| x+y\right\|^2 = \left\| x\right\|^2 + \left\|
+y\right\|^2
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>： <span class="math display">\[
+    \begin{align*}
+        \left\| x+y\right\|^2 &amp;=\langle x+y,x+y\rangle\\
+        &amp;= \langle x,x\rangle+\langle y,y\rangle\\
+        &amp;= \left\| x\right\|^2 + \left\| y \right\|^2
+    \end{align*}
+\]</span></p>
+<hr />
+<p><strong>定理</strong>：设<span
+class="math inline">\(H\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间，<span
+class="math inline">\(L\)</span>是<span
+class="math inline">\(H\)</span>的闭子空间，<span
+class="math inline">\(x\in H\setminus L,l\in L\)</span>，则有 <span
+class="math display">\[
+    \begin{align*}
+        \left\| x-l \right\| = d(x,L)\Longleftrightarrow (x-l)\perp L
+    \end{align*}
+\]</span></p>
 <p><strong>证明</strong>：</p>
 <ul>
 <li><p>必要性</p>
-<p>  $\forall y\in L,\lambda \in K$，则有<br>  $$<br>  \begin{align*}<br>  |x-\ell +\lambda y|^2 \ge | x-\ell |^2<br>  \end{align*}<br>  $$<br>  从而<br>  $$<br>  \begin{align*}<br>  \langle x-\ell+\lambda y,x-\ell+\lambda y\rangle\geq\langle x-\ell,x-\ell\rangle<br>  \end{align*}<br>  $$<br>  即<br>  $$<br>  \begin{align*}<br>  \lambda \langle y,x-\ell\rangle +\overline{\lambda} \langle x-\ell,y\rangle +\left|\lambda\right|^2 |y|^2\ge 0<br>  \end{align*}<br>  $$<br>  令$\lambda &#x3D; t\frac{\left|\langle y,x-\ell\rangle\right|}{\langle y,x-\ell\rangle},t\in R,t&lt;0$，从而<br>  $$<br>  \begin{align*}<br>  2t\left|\langle y,x-\ell\rangle \right|+t^2|y|^2\ge 0<br>  \end{align*}<br>  $$<br>  即有<br>  $$<br>  \begin{align*}<br>  \left|\langle x-\ell ,y\rangle\right|\le -\frac{1}{2}t|y|^2<br>  \end{align*}<br>  $$<br>  由$t$的任意性，令$t\to 0^{-}$，故<br>  $$<br>  \begin{align*}<br>  \langle x-\ell,y\rangle &#x3D; 0<br>  \end{align*}<br>  $$</p>
-</li>
+<p><span class="math inline">\(\forall y\in L,\lambda \in
+K\)</span>，则有 <span class="math display">\[
+  \begin{align*}
+      \|x-\ell +\lambda y\|^2 \ge \| x-\ell \|^2
+  \end{align*}
+  \]</span> 从而 <span class="math display">\[
+  \begin{align*}
+      \langle x-\ell+\lambda y,x-\ell+\lambda y\rangle\geq\langle
+x-\ell,x-\ell\rangle
+  \end{align*}
+  \]</span> 即 <span class="math display">\[
+  \begin{align*}
+      \lambda \langle y,x-\ell\rangle +\overline{\lambda} \langle
+x-\ell,y\rangle +\left|\lambda\right|^2 \|y\|^2\ge 0
+  \end{align*}
+  \]</span> 令<span class="math inline">\(\lambda = t\frac{\left|\langle
+y,x-\ell\rangle\right|}{\langle y,x-\ell\rangle},t\in
+R,t&lt;0\)</span>，从而 <span class="math display">\[
+  \begin{align*}
+      2t\left|\langle y,x-\ell\rangle \right|+t^2\|y\|^2\ge 0
+  \end{align*}
+  \]</span> 即有 <span class="math display">\[
+  \begin{align*}
+      \left|\langle x-\ell ,y\rangle\right|\le -\frac{1}{2}t\|y\|^2
+  \end{align*}
+  \]</span> 由<span class="math inline">\(t\)</span>的任意性，令<span
+class="math inline">\(t\to 0^{-}\)</span>，故 <span
+class="math display">\[
+  \begin{align*}
+      \langle x-\ell,y\rangle = 0
+  \end{align*}
+  \]</span></p></li>
 <li><p>充分性</p>
-<p>  $\forall y\in L$，有$l-y\in L$，则有$(x-l)\perp (l-y)$，从而<br>  $$<br>  \begin{align*}<br>  \left| x-y\right| ^2 &#x3D; |(x-\ell)+(\ell-y)|^2&#x3D;|x-\ell|^2+|\ell-y|^2\ge \left| x-\ell \right|^2<br>  \end{align*}<br>  $$<br>  因此，$| x-\ell |&#x3D;d(x,L)$</p>
-</li>
+<p><span class="math inline">\(\forall y\in L\)</span>，有<span
+class="math inline">\(l-y\in L\)</span>，则有<span
+class="math inline">\((x-l)\perp (l-y)\)</span>，从而 <span
+class="math display">\[
+  \begin{align*}
+      \left\| x-y\right\| ^2 =
+\|(x-\ell)+(\ell-y)\|^2=\|x-\ell\|^2+\|\ell-y\|^2\ge \left\| x-\ell
+\right\|^2
+  \end{align*}
+  \]</span> 因此，<span class="math inline">\(\| x-\ell
+\|=d(x,L)\)</span></p></li>
 </ul>
-<hr>
-<p><strong>定理</strong>：	设H是Hilbert空间，B是H的闭凸集，$\widetilde{x}\in B,x\in H\setminus B$，则下列命题等价</p>
+<hr />
+<p><strong>定理</strong>： 设H是Hilbert空间，B是H的闭凸集，<span
+class="math inline">\(\widetilde{x}\in B,x\in H\setminus
+B\)</span>，则下列命题等价</p>
 <ul>
-<li>$\left| x-\widetilde{x}\right| &#x3D; d(x,B)$</li>
-<li>$Re(x-\widetilde{x},b-\widetilde{x})\le 0,\quad \forall b\in B$</li>
-<li>$Re(x-b,\widetilde{x}-b)\ge 0,\quad \forall b\in B$</li>
+<li><span class="math inline">\(\left\| x-\widetilde{x}\right\| =
+d(x,B)\)</span></li>
+<li><span class="math inline">\(Re(x-\widetilde{x},b-\widetilde{x})\le
+0,\quad \forall b\in B\)</span></li>
+<li><span class="math inline">\(Re(x-b,\widetilde{x}-b)\ge 0,\quad
+\forall b\in B\)</span></li>
 </ul>
 <p><strong>证明</strong>：</p>
 <ul>
-<li><p>$(1)\Longrightarrow (2)$<br>  $\forall b\in B,0&lt;\lambda&lt;1$，则有<br>  $$<br>  \begin{align*}<br>  (1-\lambda)\widetilde{x}+\lambda b &#x3D; \widetilde{x}+\lambda (b-\widetilde{x})\in B<br>  \end{align*}<br>  $$<br>  因此，可以得到<br>  $$<br>  \begin{align*}<br>  |x-\widetilde{x}|^2\leq|x-(\widetilde{x}+\lambda(b-\widetilde{x}))|^2<br>  \end{align*}<br>  $$<br>  即<br>  $$<br>  \begin{align*}<br>  &amp;\begin{array}{rcl}|x-\widetilde{x}|^2\le |x-\widetilde{x}|^2-2\mathrm{Re}\langle x-\widetilde{x},\lambda(b-\widetilde{x})\rangle+|\lambda|^2|b-\widetilde{x}|^2\end{array}\<br>  \Longrightarrow \quad&amp;2\mathrm{Re}\langle x-\widetilde{x},\lambda(b-\widetilde{x})\rangle\leq\lambda^2|b-\widetilde{x}|^2\<br>  \Longrightarrow \quad&amp;2\mathrm{Re}\langle x-\widetilde x,b-\widetilde x\rangle\leq\lambda|b-\widetilde x|^{2}<br>  \end{align*}<br>  $$<br>  令$\lambda \to 0^{+}$，从而有<br>  $$<br>  \begin{align*}<br>  \mathrm{Re}\langle x-\widetilde{x},b-\widetilde{x}\rangle\leq0<br>  \end{align*}<br>  $$</p>
-</li>
-<li><p>$(2)\Longrightarrow (3)$</p>
-<p>  $\forall b\in B$，有<br>  $$<br>  \begin{align*}<br>  \mathrm{Re}\langle x-\widetilde{x},b-\widetilde{x}\rangle&#x3D;\mathrm{Re}\langle(x-b)+(b-\widetilde{x}),b-\widetilde{x}\rangle\leq0.<br>  \end{align*}<br>  $$<br>  这表明<br>  $$<br>  \begin{align*}<br>  &amp;\mathrm{Re}\langle x-b,b-\widetilde{x}\rangle+|b-\widetilde{x}|^2\leq0\<br>  \Longrightarrow\quad &amp;\mathrm{Re}\langle x-b,b-\widetilde{x}\rangle\leq0\<br>  \Longrightarrow\quad&amp;\mathrm{Re}\langle x-b,\widetilde{x}-b\rangle\ge 0<br>  \end{align*}<br>  $$</p>
-</li>
-<li><p>$(3)\Longrightarrow (1)$</p>
-<p>  $\forall b\in B,0&lt;\lambda &lt;1$，则<br>  $$<br>  \begin{align*}<br>  \widetilde{x}+\lambda(b-\widetilde{x})\in B<br>  \end{align*}<br>  $$<br>  且<br>  $$<br>  \begin{align*}<br>  \mathrm{Re}\langle x-[\widetilde{x}+\lambda(b-\widetilde{x})],\widetilde{x}-[\widetilde{x}+\lambda(b-\widetilde{x})]\rangle\geq0<br>  \end{align*}<br>  $$<br>  这表明<br>  $$<br>  \begin{align*}<br>  &amp;\mathrm{Re}(-\langle x-\widetilde{x},\lambda(b-\widetilde{x})\rangle+\lambda^{2}|b-\widetilde{x}|^{2})\geq0\<br>  \Longrightarrow \quad &amp;\lambda|b-\widetilde{x}|^2\geq\mathrm{Re}\langle x-\widetilde{x},b-\widetilde{x}\rangle<br>  \end{align*}<br>  $$<br>  令$\lambda \to 0^{+}$，可得<br>  $$<br>  \begin{align*}<br>  \mathrm{Re}\langle x-\widetilde{x},b-\widetilde{x}\rangle\leq0<br>  \end{align*}<br>  $$<br>  从而<br>  $$<br>  \begin{align*}<br>  \begin{aligned}<br>      \begin{aligned}|x-b|^2\end{aligned}&amp; &#x3D;|(x-\widetilde{x})+(\widetilde{x}-b)|^2  \<br>      &amp;&#x3D;\langle(x-\widetilde{x})+(\widetilde{x}-b),(x-\widetilde{x})+(\widetilde{x}-b)\rangle  \<br>      &amp;&#x3D;|x-\widetilde{x}|^2+2\mathrm{Re}\langle x-\widetilde{x},\widetilde{x}-b\rangle+|\widetilde{x}-b|^2 \<br>      &amp;\geq|x-\widetilde{x}|^{2}<br>  \end{aligned}<br>  \end{align*}<br>  $$<br>  即$\left| x-\widetilde{x}\right| &#x3D;d(x,B)$</p>
-</li>
+<li><p><span class="math inline">\((1)\Longrightarrow (2)\)</span> <span
+class="math inline">\(\forall b\in B,0&lt;\lambda&lt;1\)</span>，则有
+<span class="math display">\[
+  \begin{align*}
+      (1-\lambda)\widetilde{x}+\lambda b = \widetilde{x}+\lambda
+(b-\widetilde{x})\in B
+  \end{align*}
+  \]</span> 因此，可以得到 <span class="math display">\[
+  \begin{align*}
+      \|x-\widetilde{x}\|^2\leq\|x-(\widetilde{x}+\lambda(b-\widetilde{x}))\|^2
+  \end{align*}
+  \]</span> 即 <span class="math display">\[
+  \begin{align*}
+      &amp;\begin{array}{rcl}\|x-\widetilde{x}\|^2\le
+\|x-\widetilde{x}\|^2-2\mathrm{Re}\langle
+x-\widetilde{x},\lambda(b-\widetilde{x})\rangle+|\lambda|^2\|b-\widetilde{x}\|^2\end{array}\\
+      \Longrightarrow \quad&amp;2\mathrm{Re}\langle
+x-\widetilde{x},\lambda(b-\widetilde{x})\rangle\leq\lambda^2\|b-\widetilde{x}\|^2\\
+      \Longrightarrow \quad&amp;2\mathrm{Re}\langle x-\widetilde
+x,b-\widetilde x\rangle\leq\lambda\|b-\widetilde x\|^{2}
+  \end{align*}
+  \]</span> 令<span class="math inline">\(\lambda \to
+0^{+}\)</span>，从而有 <span class="math display">\[
+  \begin{align*}
+      \mathrm{Re}\langle x-\widetilde{x},b-\widetilde{x}\rangle\leq0
+  \end{align*}
+  \]</span></p></li>
+<li><p><span class="math inline">\((2)\Longrightarrow (3)\)</span></p>
+<p><span class="math inline">\(\forall b\in B\)</span>，有 <span
+class="math display">\[
+  \begin{align*}
+      \mathrm{Re}\langle
+x-\widetilde{x},b-\widetilde{x}\rangle=\mathrm{Re}\langle(x-b)+(b-\widetilde{x}),b-\widetilde{x}\rangle\leq0.
+  \end{align*}
+  \]</span> 这表明 <span class="math display">\[
+  \begin{align*}
+      &amp;\mathrm{Re}\langle
+x-b,b-\widetilde{x}\rangle+\|b-\widetilde{x}\|^2\leq0\\
+      \Longrightarrow\quad &amp;\mathrm{Re}\langle
+x-b,b-\widetilde{x}\rangle\leq0\\
+      \Longrightarrow\quad&amp;\mathrm{Re}\langle
+x-b,\widetilde{x}-b\rangle\ge 0
+  \end{align*}
+  \]</span></p></li>
+<li><p><span class="math inline">\((3)\Longrightarrow (1)\)</span></p>
+<p><span class="math inline">\(\forall b\in B,0&lt;\lambda
+&lt;1\)</span>，则 <span class="math display">\[
+  \begin{align*}
+      \widetilde{x}+\lambda(b-\widetilde{x})\in B
+  \end{align*}
+  \]</span> 且 <span class="math display">\[
+  \begin{align*}
+      \mathrm{Re}\langle
+x-[\widetilde{x}+\lambda(b-\widetilde{x})],\widetilde{x}-[\widetilde{x}+\lambda(b-\widetilde{x})]\rangle\geq0
+  \end{align*}
+  \]</span> 这表明 <span class="math display">\[
+  \begin{align*}
+      &amp;\mathrm{Re}(-\langle
+x-\widetilde{x},\lambda(b-\widetilde{x})\rangle+\lambda^{2}\|b-\widetilde{x}\|^{2})\geq0\\
+      \Longrightarrow \quad
+&amp;\lambda\|b-\widetilde{x}\|^2\geq\mathrm{Re}\langle
+x-\widetilde{x},b-\widetilde{x}\rangle
+  \end{align*}
+  \]</span> 令<span class="math inline">\(\lambda \to
+0^{+}\)</span>，可得 <span class="math display">\[
+  \begin{align*}
+      \mathrm{Re}\langle x-\widetilde{x},b-\widetilde{x}\rangle\leq0
+  \end{align*}
+  \]</span> 从而 <span class="math display">\[
+  \begin{align*}
+      \begin{aligned}
+          \begin{aligned}\|x-b\|^2\end{aligned}&amp;
+=\|(x-\widetilde{x})+(\widetilde{x}-b)\|^2  \\
+          &amp;=\langle(x-\widetilde{x})+(\widetilde{x}-b),(x-\widetilde{x})+(\widetilde{x}-b)\rangle  \\
+          &amp;=\|x-\widetilde{x}\|^2+2\mathrm{Re}\langle
+x-\widetilde{x},\widetilde{x}-b\rangle+\|\widetilde{x}-b\|^2 \\
+          &amp;\geq\|x-\widetilde{x}\|^{2}
+      \end{aligned}
+  \end{align*}
+  \]</span> 即<span class="math inline">\(\left\|
+x-\widetilde{x}\right\| =d(x,B)\)</span></p></li>
 </ul>
-<hr>
-<p><strong>推论</strong>：设$H$是$Hilbert$空间，$B$是$H$的闭凸集，$x,y\in H$，设 $\widetilde{x},\widetilde{y}$ 是 $x,y$ 的最优逼近元素，则有<br>$$<br>    \begin{align*}<br>        \left| \widetilde{x}-\widetilde{y}\right| \le \left| x-y\right|<br>    \end{align*}<br>$$</p>
-<p><strong>证明</strong>：<br>设$b\in B$，已知满足<br>$$<br>    \begin{align*}<br>        \mathrm{Re}\langle x-\widetilde{x},b-\widetilde{x}\rangle\leq0,\quad \mathrm{Re}\langle y-\widetilde{y},b-\widetilde{y}\rangle\leq0<br>    \end{align*}<br>$$<br>则有<br>$$<br>    \begin{align*}<br>        &amp;\mathrm{Re}\langle x-\widetilde{x},\widetilde{y}-\widetilde{x}\rangle+\mathrm{Re}\langle y-\widetilde{y},\widetilde{x}-\widetilde{y}\rangle\leq0\<br>        \Longrightarrow \quad &amp; \mathrm{Re}\langle y-x+\widetilde{x}-\widetilde{y},\widetilde{x}-\widetilde{y}\rangle\leq0\<br>        \Longrightarrow \quad &amp; \mathrm{Re}\langle y-x,\widetilde{x}-\widetilde{y}\rangle+|\widetilde{x}-\widetilde{y}|^2\leq0<br>    \end{align*}<br>$$<br>因此<br>$$<br>    \begin{align*}<br>        \begin{aligned}<br>            |\widetilde{x}-\widetilde{y}|^{2}&amp;\leq\text{Re}\langle x-y,\widetilde{x}-\widetilde{y}\rangle \<br>            &amp;\leq|\langle x-y,\widetilde{x}-\widetilde{y}\rangle| \<br>            &amp;\leq|x-y||\widetilde{x}-\widetilde{y}|<br>        \end{aligned}<br>    \end{align*}<br>$$<br>即<br>$$<br>    \begin{align*}<br>        \left| \widetilde{x}-\widetilde{y}\right| \le \left| x-y\right|<br>    \end{align*}<br>$$</p>
-<hr>
-<h2 id="正交分解"><a href="#正交分解" class="headerlink" title="正交分解"></a>正交分解</h2><h3 id="正交补"><a href="#正交补" class="headerlink" title="正交补"></a>正交补</h3><p><strong>正交补</strong>：设$X$是内积空间，$x\in X$，$S\subset X$</p>
+<hr />
+<p><strong>推论</strong>：设<span
+class="math inline">\(H\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间，<span
+class="math inline">\(B\)</span>是<span
+class="math inline">\(H\)</span>的闭凸集，<span
+class="math inline">\(x,y\in H\)</span>，设 <span
+class="math inline">\(\widetilde{x},\widetilde{y}\)</span> 是 <span
+class="math inline">\(x,y\)</span> 的最优逼近元素，则有 <span
+class="math display">\[
+    \begin{align*}
+        \left\| \widetilde{x}-\widetilde{y}\right\| \le \left\|
+x-y\right\|
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>： 设<span class="math inline">\(b\in
+B\)</span>，已知满足 <span class="math display">\[
+    \begin{align*}
+        \mathrm{Re}\langle
+x-\widetilde{x},b-\widetilde{x}\rangle\leq0,\quad \mathrm{Re}\langle
+y-\widetilde{y},b-\widetilde{y}\rangle\leq0
+    \end{align*}
+\]</span> 则有 <span class="math display">\[
+    \begin{align*}
+        &amp;\mathrm{Re}\langle
+x-\widetilde{x},\widetilde{y}-\widetilde{x}\rangle+\mathrm{Re}\langle
+y-\widetilde{y},\widetilde{x}-\widetilde{y}\rangle\leq0\\
+        \Longrightarrow \quad &amp; \mathrm{Re}\langle
+y-x+\widetilde{x}-\widetilde{y},\widetilde{x}-\widetilde{y}\rangle\leq0\\
+        \Longrightarrow \quad &amp; \mathrm{Re}\langle
+y-x,\widetilde{x}-\widetilde{y}\rangle+\|\widetilde{x}-\widetilde{y}\|^2\leq0
+    \end{align*}
+\]</span> 因此 <span class="math display">\[
+    \begin{align*}
+        \begin{aligned}
+            \|\widetilde{x}-\widetilde{y}\|^{2}&amp;\leq\text{Re}\langle
+x-y,\widetilde{x}-\widetilde{y}\rangle \\
+            &amp;\leq|\langle x-y,\widetilde{x}-\widetilde{y}\rangle| \\
+            &amp;\leq\|x-y\|\|\widetilde{x}-\widetilde{y}\|
+        \end{aligned}
+    \end{align*}
+\]</span> 即 <span class="math display">\[
+    \begin{align*}
+        \left\| \widetilde{x}-\widetilde{y}\right\| \le \left\|
+x-y\right\|
+    \end{align*}
+\]</span></p>
+<hr />
+<h2 id="正交分解">正交分解</h2>
+<h3 id="正交补">正交补</h3>
+<p><strong>正交补</strong>：设<span
+class="math inline">\(X\)</span>是内积空间，<span
+class="math inline">\(x\in X\)</span>，<span
+class="math inline">\(S\subset X\)</span></p>
 <ul>
-<li>定义 $x^{\perp} &#x3D; {y\in X:\langle x,y\rangle &#x3D; 0}$ 为 $x$ 的正交补</li>
-<li>定义 $S^{\perp}&#x3D;{y\in X:\langle x,y\rangle&#x3D; 0,\forall x\in S}$ 为 $S$ 的正交补</li>
+<li>定义 <span class="math inline">\(x^{\perp} = \{y\in X:\langle
+x,y\rangle = 0\}\)</span> 为 <span class="math inline">\(x\)</span>
+的正交补</li>
+<li>定义 <span class="math inline">\(S^{\perp}=\{y\in X:\langle
+x,y\rangle= 0,\forall x\in S\}\)</span> 为 <span
+class="math inline">\(S\)</span> 的正交补</li>
 </ul>
 <div class="note info no-icon"><ul>
-<li>$x^{\perp}$是X的闭子空间</li>
-<li>$S^{\perp}&#x3D;(\overline{S})^{\perp}$</li>
+<li><span class="math inline">\(x^{\perp}\)</span>是X的闭子空间</li>
+<li><span
+class="math inline">\(S^{\perp}=(\overline{S})^{\perp}\)</span></li>
 </ul>
 </div>
-
-<p><strong>定理</strong>：设$X$是内积空间，$S,S_{1}\subset X$，则有</p>
+<p><strong>定理</strong>：设<span
+class="math inline">\(X\)</span>是内积空间，<span
+class="math inline">\(S,S_{1}\subset X\)</span>，则有</p>
 <ul>
-<li>$S^{\perp}$是X的闭子空间，$S\bigcap S^{\perp}&#x3D;{0}$</li>
-<li>$S\subset S^{\perp\perp}$</li>
-<li>$S\subset S_{1}\Longrightarrow S_{1}^{\perp}\subset S^{\perp}$</li>
-<li>$S^{\perp}&#x3D;S^{\perp\perp\perp}$</li>
+<li><span class="math inline">\(S^{\perp}\)</span>是X的闭子空间，<span
+class="math inline">\(S\bigcap S^{\perp}=\{0\}\)</span></li>
+<li><span class="math inline">\(S\subset S^{\perp\perp}\)</span></li>
+<li><span class="math inline">\(S\subset S_{1}\Longrightarrow
+S_{1}^{\perp}\subset S^{\perp}\)</span></li>
+<li><span
+class="math inline">\(S^{\perp}=S^{\perp\perp\perp}\)</span></li>
 </ul>
 <p><strong>证明</strong>：</p>
 <ul>
-<li><p>由于$S^{\perp}&#x3D;\bigcap_{x\in S}x^{\perp}$，可知$S^{\perp}$是$X$的闭子空间，若$x_{0}\in S\bigcap S^{\perp}$，则有$\langle x_0,x_{0}\rangle&#x3D;0$，即$x_0&#x3D;0$</p>
-</li>
-<li><p>设$x\in S$，任取$y\in S^{\perp}$，则有$\langle x,y\rangle&#x3D;0$，即$x\perp S^{\perp}$，因此$x\in S^{\perp\perp}$</p>
-</li>
-<li><p>对于任意$z\in S_1^{\perp}$，则有$\langle z,v\rangle&#x3D;0,\forall v\in S_1$，由于$S\subset S_1$，因此$\langle z,v\rangle&#x3D;0,\forall v\in S$，故$z\in S^{\perp}$</p>
-</li>
-<li><p>由(2)可知，$S^{\perp}\subset S^{\perp\perp\perp}$，由于$S\subset S^{\perp\perp}$结合(3)可知，$S^{\perp\perp\perp}\subset S^{\perp}$</p>
-<p> 因此$S^{\perp}&#x3D;S^{\perp\perp\perp}$</p>
-</li>
+<li><p>由于<span class="math inline">\(S^{\perp}=\bigcap_{x\in
+S}x^{\perp}\)</span>，可知<span
+class="math inline">\(S^{\perp}\)</span>是<span
+class="math inline">\(X\)</span>的闭子空间，若<span
+class="math inline">\(x_{0}\in S\bigcap S^{\perp}\)</span>，则有<span
+class="math inline">\(\langle x_0,x_{0}\rangle=0\)</span>，即<span
+class="math inline">\(x_0=0\)</span></p></li>
+<li><p>设<span class="math inline">\(x\in S\)</span>，任取<span
+class="math inline">\(y\in S^{\perp}\)</span>，则有<span
+class="math inline">\(\langle x,y\rangle=0\)</span>，即<span
+class="math inline">\(x\perp S^{\perp}\)</span>，因此<span
+class="math inline">\(x\in S^{\perp\perp}\)</span></p></li>
+<li><p>对于任意<span class="math inline">\(z\in
+S_1^{\perp}\)</span>，则有<span class="math inline">\(\langle
+z,v\rangle=0,\forall v\in S_1\)</span>，由于<span
+class="math inline">\(S\subset S_1\)</span>，因此<span
+class="math inline">\(\langle z,v\rangle=0,\forall v\in
+S\)</span>，故<span class="math inline">\(z\in
+S^{\perp}\)</span></p></li>
+<li><p>由(2)可知，<span class="math inline">\(S^{\perp}\subset
+S^{\perp\perp\perp}\)</span>，由于<span class="math inline">\(S\subset
+S^{\perp\perp}\)</span>结合(3)可知，<span
+class="math inline">\(S^{\perp\perp\perp}\subset S^{\perp}\)</span></p>
+<p>因此<span
+class="math inline">\(S^{\perp}=S^{\perp\perp\perp}\)</span></p></li>
 </ul>
-<hr>
-<p><strong>定理</strong>：设$H$是$Hilbert$空间，$M$是$H$的闭子空间，$x\in H$，若$y$是$x$在$M$中的投影，即<br>$$<br>    \begin{align*}<br>        \left| x-y\right| &#x3D;\inf{\left| x-z\right| :z\in M}<br>    \end{align*}<br>$$<br>则$(x-y)\perp M$，相反地，若$y_{1}\in M$，满足<br>$$<br>    \begin{align*}<br>        (x-y_{1})\perp M<br>    \end{align*}<br>$$<br>则有<br>$$<br>    \begin{align*}<br>        \left| x-y_{1}\right|&#x3D; \inf{\left| x-u\right|:u\in M}<br>    \end{align*}<br>$$</p>
+<hr />
+<p><strong>定理</strong>：设<span
+class="math inline">\(H\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间，<span
+class="math inline">\(M\)</span>是<span
+class="math inline">\(H\)</span>的闭子空间，<span
+class="math inline">\(x\in H\)</span>，若<span
+class="math inline">\(y\)</span>是<span
+class="math inline">\(x\)</span>在<span
+class="math inline">\(M\)</span>中的投影，即 <span
+class="math display">\[
+    \begin{align*}
+        \left\| x-y\right\| =\inf\{\left\| x-z\right\| :z\in M\}
+    \end{align*}
+\]</span> 则<span class="math inline">\((x-y)\perp
+M\)</span>，相反地，若<span class="math inline">\(y_{1}\in
+M\)</span>，满足 <span class="math display">\[
+    \begin{align*}
+        (x-y_{1})\perp M
+    \end{align*}
+\]</span> 则有 <span class="math display">\[
+    \begin{align*}
+        \left\| x-y_{1}\right\|= \inf\{\left\| x-u\right\|:u\in M\}
+    \end{align*}
+\]</span></p>
 <p><strong>证明</strong>：</p>
 <ul>
-<li>对于任意$z\in M,||z||&#x3D;1$，都有$z’&#x3D;y+\langle(x-y),z\rangle z\in M$且有<br>  $$<br>  \begin{align*}<br>  ||x-y||^2  &amp;\le ||x-z’||^2 &#x3D; \langle x-z’,x-z’\rangle\<br>  &amp;&#x3D;\langle (x-y)-\langle(x-y),z\rangle z,(x-y)-\langle(x-y),z\rangle z\rangle\<br>  &amp;&#x3D; ||x-y||^2 -|\langle x-y,z\rangle|^2<br>  \end{align*}<br>  $$<br>  这表明$\langle x-y,z\rangle&#x3D;0$，因此$(x-y)\perp M$</li>
-<li>若$u\in M$，则有$(x-y_1)\perp (y_1-u)$，且由<br>  $$<br>  \begin{align*}<br>  ||x-u||^2 &amp;&#x3D; ||(x-y_1)+(y_1-u)||^2\<br>          &amp;&#x3D; ||x-y_1||^2 + ||y_1-u||^2\<br>          &amp;\ge ||x-y_1||^2<br>  \end{align*}<br>  $$<br>  因此，$||x-y_1||&#x3D;\inf{||x-u||:u\in M}$</li>
+<li>对于任意<span class="math inline">\(z\in
+M,||z||=1\)</span>，都有<span
+class="math inline">\(z&#39;=y+\langle(x-y),z\rangle z\in M\)</span>且有
+<span class="math display">\[
+  \begin{align*}
+      ||x-y||^2  &amp;\le ||x-z&#39;||^2 = \langle
+x-z&#39;,x-z&#39;\rangle\\
+      &amp;=\langle (x-y)-\langle(x-y),z\rangle
+z,(x-y)-\langle(x-y),z\rangle z\rangle\\
+      &amp;= ||x-y||^2 -|\langle x-y,z\rangle|^2
+  \end{align*}
+  \]</span> 这表明<span class="math inline">\(\langle
+x-y,z\rangle=0\)</span>，因此<span class="math inline">\((x-y)\perp
+M\)</span></li>
+<li>若<span class="math inline">\(u\in M\)</span>，则有<span
+class="math inline">\((x-y_1)\perp (y_1-u)\)</span>，且由 <span
+class="math display">\[
+  \begin{align*}
+      ||x-u||^2 &amp;= ||(x-y_1)+(y_1-u)||^2\\
+              &amp;= ||x-y_1||^2 + ||y_1-u||^2\\
+              &amp;\ge ||x-y_1||^2
+  \end{align*}
+  \]</span> 因此，<span
+class="math inline">\(||x-y_1||=\inf\{||x-u||:u\in M\}\)</span></li>
 </ul>
-<hr>
-<h3 id="正交分解定理"><a href="#正交分解定理" class="headerlink" title="正交分解定理"></a>正交分解定理</h3><p><strong>正交分解定理</strong>：设$H$是$Hilbert$空间，$M$是$H$的闭子空间，则<br>$$<br>    \begin{align*}<br>        H&#x3D;M\oplus M^{\perp}<br>    \end{align*}<br>$$<br>且$M&#x3D;M^{\perp\perp}$</p>
-<p><strong>证明</strong>：设$x\in H$，由于$M$是$H$的闭子空间，从而存在唯一向量$y\in M$使得<br>$$<br>    \begin{align*}<br>        |x-y|&#x3D;\inf{|x-z|:z\in M},\quad (x-y)\perp M<br>    \end{align*}<br>$$<br>故<br>$$<br>    \begin{align*}<br>        x&#x3D; y+(x-y),\quad y\in M,x-y\in M^{\perp}<br>    \end{align*}<br>$$<br>由于$M\bigcap M^{\perp}&#x3D;{0}$，从而有$H&#x3D;M\oplus M^{\perp}$</p>
-<p>显然有$M\subset M^{\perp\perp}$，对于$\forall z\in M^{\perp\perp}$，若$z&#x3D;z_1 +z_2,z_1\in M,z_2 \in M^{\perp}$，由于$z,z_1\in M^{\perp\perp}$，因此$z_2\in M^{\perp\perp}$</p>
-<p>故$z_2\in M^{\perp}\bigcap M^{\perp\perp}&#x3D;{0}$，从而有$M^{\perp\perp}\subset M$，故$M&#x3D;M^{\perp\perp}$</p>
-<hr>
-<h2 id="正交化"><a href="#正交化" class="headerlink" title="正交化"></a>正交化</h2><h3 id="正交族"><a href="#正交族" class="headerlink" title="正交族"></a>正交族</h3><p><strong>正交族</strong>：称集族${e_{i}}<em>{i\in I}$是Hilbert空间的正交族，若满足<br>$$<br>    \begin{align*}<br>        \langle e</em>{i},e_{j}\rangle &#x3D;\begin{cases}<br>            1,\quad if; i&#x3D;j\<br>            0,\quad if; i\ne j<br>        \end{cases}<br>    \end{align*}<br>$$</p>
-<p><strong>定理</strong>：若${e_{i}}<em>{i\in I}$是非零正交族，则${e</em>{i}}_{i\in I}$线性无关</p>
-<p><strong>证明</strong>：$\forall n\in N,e_{i_1},e_{i_2},\cdots,e_{i_n}$，令$\lambda_1 e_{i_1}+\lambda_2 e_{i_2}+\cdots+\lambda_n e_{i_n}&#x3D;0$，则有<br>$$<br>    \begin{align*}<br>        &amp;\langle\lambda_1e_{i_1}+\lambda_2e_{i_2}+\cdots+\lambda_ne_{i_n},e_{i_1}\rangle&#x3D;0\<br>        \Longrightarrow \quad&amp;\lambda_1\langle e_{i_1},e_{i_1}\rangle&#x3D;0\<br>        \Longrightarrow \quad &amp;\lambda_1&#x3D;0<br>    \end{align*}<br>$$<br>同理可得，$\lambda_2&#x3D;\lambda_3&#x3D;\cdots&#x3D;\lambda_n&#x3D;0$</p>
-<hr>
-<h3 id="Gram-Schmidt正交化"><a href="#Gram-Schmidt正交化" class="headerlink" title="Gram-Schmidt正交化"></a>Gram-Schmidt正交化</h3><p><strong>Gram-Schmidt正交化</strong>：设$H$是$Hilbert$空间，$F&#x3D;{x_{n}:n\in N}$是$H$的线性无关的可数集族，则存在正交族${e_{n}:n\in N}$，使得<br>$$<br>    \begin{align*}<br>        span{e_{1},e_{2},\cdots,e_{n}}&#x3D;span{x_{1},x_{2},\cdots,x_{n}},\quad \forall n\in N<br>    \end{align*}<br>$$</p>
-<p><strong>证明</strong>：令<br>$$<br>    \begin{align*}<br>        &amp;e_1&#x3D;\frac{x_1}{||x_1||}\<br>        &amp;u_2&#x3D;x_2-\langle x_2,e_1\rangle e_1,\quad e_2&#x3D;\frac{u_2}{||u_2||}<br>    \end{align*}<br>$$<br>则有$\langle e_1,e_2\rangle &#x3D;0,||e_1||&#x3D;||e_2||&#x3D;1$</p>
-<p>一般来说，设${e_1,e_2,\cdots,e_n-1}$是正交族满足<br>$$<br>    \begin{align*}<br>        span{e_1,e_2,\cdots,e_{n-1}}&#x3D;span{x_1,x_2,\cdots,x_{n-1}}<br>    \end{align*}<br>$$<br>令<br>$$<br>    \begin{align*}<br>        u_n&#x3D;x_n-\sum_{i&#x3D;1}^{n-1}\langle x_n,e_i\rangle e_i,\quad e_n&#x3D;\frac{u_n}{||u_n||}<br>    \end{align*}<br>$$<br>则有$\langle e_n,e_i\rangle,\forall i&#x3D;1,2,\cdots,n-1,\quad ||e_n||&#x3D;1$且<br>$$<br>    \begin{align*}<br>        span{e_1,e_2,\cdots,e_n}&#x3D;span{x_1,x_2,\cdots,x_n}<br>    \end{align*}<br>$$<br>由归纳法得证</p>
-<hr>
-<h3 id="正交基"><a href="#正交基" class="headerlink" title="正交基"></a>正交基</h3><p><strong>正交基</strong>：设$H$是$Hilbert$空间，$H$中正交向量的极大族称为$H$的正交基</p>
-<p><strong>定理</strong>：设$H$是$Hilbert$空间，$\mathcal{E} &#x3D; {e_{\lambda}:\lambda\in \Lambda}$是$H$的正交基，则$\forall x\in H$，可以被唯一的表示为<br>$$<br>    \begin{align*}<br>        x&#x3D;\sum_{\lambda\in \Lambda}c_{\lambda}e_{\lambda}<br>    \end{align*}<br>$$<br>且有<br>$$<br>    \begin{align*}<br>        \left| x\right|^2 &#x3D; \sum_{\lambda\in \Lambda}\left|c_{\lambda}\right|^2<br>    \end{align*}<br>$$</p>
-<p><strong>证明</strong>：</p>
+<hr />
+<h3 id="正交分解定理">正交分解定理</h3>
+<p><strong>正交分解定理</strong>：设<span
+class="math inline">\(H\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间，<span
+class="math inline">\(M\)</span>是<span
+class="math inline">\(H\)</span>的闭子空间，则 <span
+class="math display">\[
+    \begin{align*}
+        H=M\oplus M^{\perp}
+    \end{align*}
+\]</span> 且<span class="math inline">\(M=M^{\perp\perp}\)</span></p>
+<p><strong>证明</strong>：设<span class="math inline">\(x\in
+H\)</span>，由于<span class="math inline">\(M\)</span>是<span
+class="math inline">\(H\)</span>的闭子空间，从而存在唯一向量<span
+class="math inline">\(y\in M\)</span>使得 <span class="math display">\[
+    \begin{align*}
+        \|x-y\|=\inf\{\|x-z\|:z\in M\},\quad (x-y)\perp M
+    \end{align*}
+\]</span> 故 <span class="math display">\[
+    \begin{align*}
+        x= y+(x-y),\quad y\in M,x-y\in M^{\perp}
+    \end{align*}
+\]</span> 由于<span class="math inline">\(M\bigcap
+M^{\perp}=\{0\}\)</span>，从而有<span class="math inline">\(H=M\oplus
+M^{\perp}\)</span></p>
+<p>显然有<span class="math inline">\(M\subset
+M^{\perp\perp}\)</span>，对于<span class="math inline">\(\forall z\in
+M^{\perp\perp}\)</span>，若<span class="math inline">\(z=z_1 +z_2,z_1\in
+M,z_2 \in M^{\perp}\)</span>，由于<span class="math inline">\(z,z_1\in
+M^{\perp\perp}\)</span>，因此<span class="math inline">\(z_2\in
+M^{\perp\perp}\)</span></p>
+<p>故<span class="math inline">\(z_2\in M^{\perp}\bigcap
+M^{\perp\perp}=\{0\}\)</span>，从而有<span
+class="math inline">\(M^{\perp\perp}\subset M\)</span>，故<span
+class="math inline">\(M=M^{\perp\perp}\)</span></p>
+<hr />
+<h2 id="正交化">正交化</h2>
+<h3 id="正交族">正交族</h3>
+<p><strong>正交族</strong>：称集族<span
+class="math inline">\(\{e_{i}\}_{i\in
+I}\)</span>是Hilbert空间的正交族，若满足 <span class="math display">\[
+    \begin{align*}
+        \langle e_{i},e_{j}\rangle =\begin{cases}
+            1,\quad if\; i=j\\
+            0,\quad if\; i\ne j
+        \end{cases}
+    \end{align*}
+\]</span></p>
+<p><strong>定理</strong>：若<span class="math inline">\(\{e_{i}\}_{i\in
+I}\)</span>是非零正交族，则<span class="math inline">\(\{e_{i}\}_{i\in
+I}\)</span>线性无关</p>
+<p><strong>证明</strong>：<span class="math inline">\(\forall n\in
+N,e_{i_1},e_{i_2},\cdots,e_{i_n}\)</span>，令<span
+class="math inline">\(\lambda_1 e_{i_1}+\lambda_2
+e_{i_2}+\cdots+\lambda_n e_{i_n}=0\)</span>，则有 <span
+class="math display">\[
+    \begin{align*}
+        &amp;\langle\lambda_1e_{i_1}+\lambda_2e_{i_2}+\cdots+\lambda_ne_{i_n},e_{i_1}\rangle=0\\
+        \Longrightarrow \quad&amp;\lambda_1\langle
+e_{i_1},e_{i_1}\rangle=0\\
+        \Longrightarrow \quad &amp;\lambda_1=0
+    \end{align*}
+\]</span> 同理可得，<span
+class="math inline">\(\lambda_2=\lambda_3=\cdots=\lambda_n=0\)</span></p>
+<hr />
+<h3 id="gram-schmidt正交化">Gram-Schmidt正交化</h3>
+<p><strong>Gram-Schmidt正交化</strong>：设<span
+class="math inline">\(H\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间，<span
+class="math inline">\(F=\{x_{n}:n\in N\}\)</span>是<span
+class="math inline">\(H\)</span>的线性无关的可数集族，则存在正交族<span
+class="math inline">\(\{e_{n}:n\in N\}\)</span>，使得 <span
+class="math display">\[
+    \begin{align*}
+        span\{e_{1},e_{2},\cdots,e_{n}\}=span\{x_{1},x_{2},\cdots,x_{n}\},\quad
+\forall n\in N
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：令 <span class="math display">\[
+    \begin{align*}
+        &amp;e_1=\frac{x_1}{||x_1||}\\
+        &amp;u_2=x_2-\langle x_2,e_1\rangle e_1,\quad
+e_2=\frac{u_2}{||u_2||}
+    \end{align*}
+\]</span> 则有<span class="math inline">\(\langle e_1,e_2\rangle
+=0,||e_1||=||e_2||=1\)</span></p>
+<p>一般来说，设<span
+class="math inline">\(\{e_1,e_2,\cdots,e_n-1\}\)</span>是正交族满足
+<span class="math display">\[
+    \begin{align*}
+        span\{e_1,e_2,\cdots,e_{n-1}\}=span\{x_1,x_2,\cdots,x_{n-1}\}
+    \end{align*}
+\]</span> 令 <span class="math display">\[
+    \begin{align*}
+        u_n=x_n-\sum_{i=1}^{n-1}\langle x_n,e_i\rangle e_i,\quad
+e_n=\frac{u_n}{||u_n||}
+    \end{align*}
+\]</span> 则有<span class="math inline">\(\langle e_n,e_i\rangle,\forall
+i=1,2,\cdots,n-1,\quad ||e_n||=1\)</span>且 <span
+class="math display">\[
+    \begin{align*}
+        span\{e_1,e_2,\cdots,e_n\}=span\{x_1,x_2,\cdots,x_n\}
+    \end{align*}
+\]</span> 由归纳法得证</p>
+<hr />
+<h3 id="正交基">正交基</h3>
+<p><strong>正交基</strong>：设<span
+class="math inline">\(H\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间，<span
+class="math inline">\(H\)</span>中正交向量的极大族称为<span
+class="math inline">\(H\)</span>的正交基</p>
+<p><strong>定理</strong>：设<span
+class="math inline">\(H\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间，<span
+class="math inline">\(\mathcal{E} = \{e_{\lambda}:\lambda\in
+\Lambda\}\)</span>是<span
+class="math inline">\(H\)</span>的正交基，则<span
+class="math inline">\(\forall x\in H\)</span>，可以被唯一的表示为 <span
+class="math display">\[
+    \begin{align*}
+        x=\sum_{\lambda\in \Lambda}c_{\lambda}e_{\lambda}
+    \end{align*}
+\]</span> 且有 <span class="math display">\[
+    \begin{align*}
+        \left\| x\right\|^2 = \sum_{\lambda\in
+\Lambda}\left|c_{\lambda}\right|^2
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>： - 设下列求和收敛 <span
+class="math display">\[
+        \begin{align*}
+            y=\sum_{\lambda\in \Lambda}\langle x,e_{\lambda}\rangle
+e_{\lambda}
+        \end{align*}
+    \]</span> 则有 <span class="math display">\[
+        \begin{align*}
+            \langle x-y,e_\beta\rangle&amp;=\langle
+x,e_\beta\rangle-\sum_{\lambda\in\Lambda}\langle
+x,e_\lambda\rangle\langle e_\lambda,e_\beta\rangle\\
+            &amp;=\langle x,e_{\beta}-\langle x,e_{\beta}\rangle\\
+            &amp;=0,\quad \forall \beta\in \Lambda
+        \end{align*}
+    \]</span> 因此，<span class="math inline">\((x-y)\perp
+e_{\lambda},\forall \lambda\in \Lambda\)</span>，由<span
+class="math inline">\(\mathcal{E}\)</span>的极大性，可以得到<span
+class="math inline">\(x-y=0\Longrightarrow x=y\)</span></p>
 <ul>
-<li><p>设下列求和收敛<br>  $$<br>  \begin{align*}<br>      y&#x3D;\sum_{\lambda\in \Lambda}\langle x,e_{\lambda}\rangle e_{\lambda}<br>  \end{align*}<br>  $$<br>  则有<br>  $$<br>  \begin{align*}<br>      \langle x-y,e_\beta\rangle&amp;&#x3D;\langle x,e_\beta\rangle-\sum_{\lambda\in\Lambda}\langle x,e_\lambda\rangle\langle e_\lambda,e_\beta\rangle\<br>      &amp;&#x3D;\langle x,e_{\beta}-\langle x,e_{\beta}\rangle\<br>      &amp;&#x3D;0,\quad \forall \beta\in \Lambda<br>  \end{align*}<br>  $$<br>  因此，$(x-y)\perp e_{\lambda},\forall \lambda\in \Lambda$，由$\mathcal{E}$的极大性，可以得到$x-y&#x3D;0\Longrightarrow x&#x3D;y$</p>
-</li>
-<li><p>为了满足$\sum_{\lambda\in \Lambda}\langle x,e_{\lambda}\rangle e_{\lambda}$收敛，考虑网<br>  $$<br>  \begin{align*}<br>      {x_F:&#x3D;\sum_{\lambda\in F}\langle x,e_{\lambda}\rangle e_{\lambda}:F\subset \Lambda,card(F)&lt;\infty}<br>  \end{align*}<br>  $$<br>  $\forall F\subset \Lambda,card(F)&lt;\infty$，注意到<br>  $$<br>  \begin{align*}<br>      ||x_F||^2&#x3D;\langle x_F,x_F\rangle &amp;&#x3D;\langle \sum_{\lambda\in F}\langle x,e_{\lambda}\rangle e_{\lambda},\sum_{\beta\in F}\langle x,e_{\beta}\rangle e_{\beta}\rangle\<br>      &amp;&#x3D;\sum_{\lambda\in F}\sum_{\beta\in F}\langle x,e_{\lambda}\rangle \overline{\langle x,e_{\beta}\rangle}\langle e_{\lambda},e_{\beta}\rangle\<br>      &amp;&#x3D; \sum_{\lambda\in F}|\langle x,e_{\lambda}\rangle|^2<br>  \end{align*}<br>  $$</p>
-</li>
-<li><p>下面说明$||x_F||^2&#x3D;\sum_{\lambda\in F}|\langle x,e_{\lambda}\rangle|^2\le ||x||^2$</p>
-<p>  事实上，由于$(x-x_F)\perp x_F$，则<br>  $$<br>  \begin{align*}<br>      |x|^2&#x3D;|x-x_F|^2+|x_F|^2\geq|x_F|^2<br>  \end{align*}<br>  $$<br>  进一步<br>  $$<br>  \begin{align*}<br>      \sum_{\lambda\in\Lambda}|\langle x,e_\lambda\rangle|^2\leq|x|^2&lt;\infty<br>  \end{align*}<br>  $$<br>  这表明，$\forall \epsilon&gt;0,{\lambda\in \Lambda:|\langle x,e_{\lambda}\rangle|&gt;\epsilon}$是有限的，因此至多可数个$\langle x,e_{\lambda}\rangle$非零，从而级数和<br>  $$<br>  \begin{align*}<br>      \sum_{\lambda\in \Lambda}\langle x,e_{\lambda}\rangle e_{\lambda}&#x3D;\sum_{n&#x3D;1}^{\infty}\langle x,e_{\lambda_n}\rangle e_{\lambda_n}<br>  \end{align*}<br>  $$<br>  是可数和，由$\mathcal{E}$的极大性，可以得到$\overline{span{\mathcal{E}}}&#x3D;H$，则对于$\forall \eta&gt;0$，存在一个有限集合$F_0\subset \Lambda$使得<br>  $$<br>  \begin{align*}<br>      ||x-\sum_{\lambda\in F_0}c_{\lambda}e_{\lambda}||&lt;\eta<br>  \end{align*}<br>  $$<br>  对于任一有限子集$F_0\subset F\subset \Lambda$，可以得到<br>  $$<br>  \begin{align*}<br>      ||x-\sum_{\lambda\in F_0}c_\lambda e_\lambda||&#x3D;||x-\sum_{\lambda\in F}\langle x,e_{\lambda}\rangle e_\lambda+\sum_{\lambda\in F}\langle x,e_{\lambda}\rangle e_\lambda-\sum_{\lambda\in F_0}c_\lambda e_\lambda||<br>  \end{align*}<br>  $$<br>  注意到$(x-\sum_{\lambda\in F}\langle x,e_{\lambda}\rangle e_{\lambda})\perp \sum_{\lambda\in F_0}\langle x,e_{\lambda}\rangle e_{\lambda}$，则有<br>  $$<br>  \begin{align*}<br>      |x-\sum_{\lambda\in F_0}\lambda_\lambda e_\lambda|^2&#x3D;|x-\sum_{\lambda\in F}\langle x,e_\lambda\rangle e_\lambda|^2+|\sum_{\lambda\in F}\langle x,e_\lambda\rangle e_\lambda-\sum_{\lambda\in F_0}c_\lambda e_\lambda|^2<br>  \end{align*}<br>  $$<br>  这表明<br>  $$<br>  \begin{align*}<br>      |x-\sum_{\lambda\in F}\langle x,e_\lambda\rangle e_\lambda|\leq|x-\sum_{\lambda\in F_0}c_\lambda e_\lambda|&lt;\eta<br>  \end{align*}<br>  $$<br>  进一步，由$x_F\perp(x-x_F)$<br>  $$<br>  \begin{align*}<br>      |x|^2 &amp;&#x3D;|x_F|^2+|x-x_F|^2\<br>      &amp;&#x3D;\sum_{\lambda\in F}|\langle x,e_{\lambda}|^2+||x-x_F||^2<br>  \end{align*}<br>  $$<br>  由于$||x-x_F||\to 0$，则有<br>  $$<br>  \begin{align*}<br>      ||x||^2 &#x3D;\sum_{\lambda\in \Lambda}|\langle x,e_{\lambda}|^2<br>  \end{align*}<br>  $$<br>  最后，若$x&#x3D;\sum_{\lambda\in \Lambda}c_\lambda e_\lambda$，则<br>  $$<br>  \begin{align*}<br>      \langle x,e_\beta\rangle&#x3D;\sum_{\lambda\in\Lambda}\langle c_\lambda e_\lambda,e_\beta\rangle&#x3D;c_\beta\langle e_\beta,e_\beta\rangle&#x3D;c_\beta,\quad\beta\in\Lambda<br>  \end{align*}<br>  $$<br>  因此，$x$的表示唯一</p>
-</li>
+<li><p>为了满足<span class="math inline">\(\sum_{\lambda\in
+\Lambda}\langle x,e_{\lambda}\rangle e_{\lambda}\)</span>收敛，考虑网
+<span class="math display">\[
+      \begin{align*}
+          \{x_F:=\sum_{\lambda\in F}\langle x,e_{\lambda}\rangle
+e_{\lambda}:F\subset \Lambda,card(F)&lt;\infty\}
+      \end{align*}
+  \]</span><br />
+<span class="math inline">\(\forall F\subset
+\Lambda,card(F)&lt;\infty\)</span>，注意到 <span class="math display">\[
+      \begin{align*}
+          ||x_F||^2=\langle x_F,x_F\rangle &amp;=\langle
+\sum_{\lambda\in F}\langle x,e_{\lambda}\rangle
+e_{\lambda},\sum_{\beta\in F}\langle x,e_{\beta}\rangle
+e_{\beta}\rangle\\
+          &amp;=\sum_{\lambda\in F}\sum_{\beta\in F}\langle
+x,e_{\lambda}\rangle \overline{\langle x,e_{\beta}\rangle}\langle
+e_{\lambda},e_{\beta}\rangle\\
+          &amp;= \sum_{\lambda\in F}|\langle x,e_{\lambda}\rangle|^2
+      \end{align*}
+  \]</span></p></li>
+<li><p>下面说明<span class="math inline">\(||x_F||^2=\sum_{\lambda\in
+F}|\langle x,e_{\lambda}\rangle|^2\le ||x||^2\)</span></p>
+<p>事实上，由于<span class="math inline">\((x-x_F)\perp x_F\)</span>，则
+<span class="math display">\[
+      \begin{align*}
+          \|x\|^2=\|x-x_F\|^2+\|x_F\|^2\geq\|x_F\|^2
+      \end{align*}
+  \]</span> 进一步 <span class="math display">\[
+      \begin{align*}
+          \sum_{\lambda\in\Lambda}|\langle
+x,e_\lambda\rangle|^2\leq\|x\|^2&lt;\infty
+      \end{align*}
+  \]</span> 这表明，<span class="math inline">\(\forall
+\epsilon&gt;0,\{\lambda\in \Lambda:|\langle
+x,e_{\lambda}\rangle|&gt;\epsilon\}\)</span>是有限的，因此至多可数个<span
+class="math inline">\(\langle
+x,e_{\lambda}\rangle\)</span>非零，从而级数和 <span
+class="math display">\[
+      \begin{align*}
+          \sum_{\lambda\in \Lambda}\langle x,e_{\lambda}\rangle
+e_{\lambda}=\sum_{n=1}^{\infty}\langle x,e_{\lambda_n}\rangle
+e_{\lambda_n}
+      \end{align*}
+  \]</span> 是可数和，由<span
+class="math inline">\(\mathcal{E}\)</span>的极大性，可以得到<span
+class="math inline">\(\overline{span\{\mathcal{E}}\}=H\)</span>，则对于<span
+class="math inline">\(\forall \eta&gt;0\)</span>，存在一个有限集合<span
+class="math inline">\(F_0\subset \Lambda\)</span>使得 <span
+class="math display">\[
+      \begin{align*}
+          ||x-\sum_{\lambda\in F_0}c_{\lambda}e_{\lambda}||&lt;\eta
+      \end{align*}
+  \]</span> 对于任一有限子集<span class="math inline">\(F_0\subset
+F\subset \Lambda\)</span>，可以得到 <span class="math display">\[
+      \begin{align*}
+          ||x-\sum_{\lambda\in F_0}c_\lambda
+e_\lambda||=||x-\sum_{\lambda\in F}\langle x,e_{\lambda}\rangle
+e_\lambda+\sum_{\lambda\in F}\langle x,e_{\lambda}\rangle
+e_\lambda-\sum_{\lambda\in F_0}c_\lambda e_\lambda||
+      \end{align*}
+  \]</span> 注意到<span class="math inline">\((x-\sum_{\lambda\in
+F}\langle x,e_{\lambda}\rangle e_{\lambda})\perp \sum_{\lambda\in
+F_0}\langle x,e_{\lambda}\rangle e_{\lambda}\)</span>，则有 <span
+class="math display">\[
+      \begin{align*}
+          \|x-\sum_{\lambda\in F_0}\lambda_\lambda
+e_\lambda\|^2=\|x-\sum_{\lambda\in F}\langle x,e_\lambda\rangle
+e_\lambda\|^2+\|\sum_{\lambda\in F}\langle x,e_\lambda\rangle
+e_\lambda-\sum_{\lambda\in F_0}c_\lambda e_\lambda\|^2
+      \end{align*}
+  \]</span> 这表明 <span class="math display">\[
+      \begin{align*}
+          \|x-\sum_{\lambda\in F}\langle x,e_\lambda\rangle
+e_\lambda\|\leq\|x-\sum_{\lambda\in F_0}c_\lambda e_\lambda\|&lt;\eta
+      \end{align*}
+  \]</span> 进一步，由<span
+class="math inline">\(x_F\perp(x-x_F)\)</span> <span
+class="math display">\[
+      \begin{align*}
+          \|x\|^2 &amp;=\|x_F\|^2+\|x-x_F\|^2\\
+          &amp;=\sum_{\lambda\in F}|\langle x,e_{\lambda}|^2+||x-x_F||^2
+      \end{align*}
+  \]</span> 由于<span class="math inline">\(||x-x_F||\to
+0\)</span>，则有 <span class="math display">\[
+      \begin{align*}
+          ||x||^2 =\sum_{\lambda\in \Lambda}|\langle x,e_{\lambda}|^2
+      \end{align*}
+  \]</span> 最后，若<span class="math inline">\(x=\sum_{\lambda\in
+\Lambda}c_\lambda e_\lambda\)</span>，则 <span class="math display">\[
+      \begin{align*}
+          \langle x,e_\beta\rangle=\sum_{\lambda\in\Lambda}\langle
+c_\lambda e_\lambda,e_\beta\rangle=c_\beta\langle
+e_\beta,e_\beta\rangle=c_\beta,\quad\beta\in\Lambda
+      \end{align*}
+  \]</span> 因此，<span
+class="math inline">\(x\)</span>的表示唯一</p></li>
 </ul>
-<hr>
-<p><strong>定理</strong>：$Hilbert$空间$H$的每一组正交基都有相同的势，也称为$H$的维数</p>
-<p><strong>证明</strong>：设$\mathcal{E}_1,\mathcal{E}_2$是$H$的两组正交基</p>
+<hr />
+<p><strong>定理</strong>：<span
+class="math inline">\(Hilbert\)</span>空间<span
+class="math inline">\(H\)</span>的每一组正交基都有相同的势，也称为<span
+class="math inline">\(H\)</span>的维数</p>
+<p><strong>证明</strong>：设<span
+class="math inline">\(\mathcal{E}_1,\mathcal{E}_2\)</span>是<span
+class="math inline">\(H\)</span>的两组正交基</p>
 <ul>
-<li>若$\mathcal{E}_1$有限，则$\mathcal{E}_1$是$H$的Hamel基，这表明，$\mathcal{E}_2$也是有限的，$\mathcal{E}_2$也是Hamel基，故$card(\mathcal{E}_1)&#x3D;card(\mathcal{E}_2)$</li>
-<li>若$card(\mathcal{E}_1)&#x3D;\infty,card(\mathcal{E}_2)&#x3D;\infty$，对于$\forall e\in \mathcal{E}_1$，定义<br>  $$<br>  \begin{align*}<br>      S_e&#x3D;{f\in \mathcal{E}_2}<br>  \end{align*}<br>  $$</li>
+<li>若<span class="math inline">\(\mathcal{E}_1\)</span>有限，则<span
+class="math inline">\(\mathcal{E}_1\)</span>是<span
+class="math inline">\(H\)</span>的Hamel基，这表明，<span
+class="math inline">\(\mathcal{E}_2\)</span>也是有限的，<span
+class="math inline">\(\mathcal{E}_2\)</span>也是Hamel基，故<span
+class="math inline">\(card(\mathcal{E}_1)=card(\mathcal{E}_2)\)</span></li>
+<li>若<span
+class="math inline">\(card(\mathcal{E}_1)=\infty,card(\mathcal{E}_2)=\infty\)</span>，对于<span
+class="math inline">\(\forall e\in \mathcal{E}_1\)</span>，定义 <span
+class="math display">\[
+      \begin{align*}
+          S_e=\{f\in \mathcal{E}_2\}
+      \end{align*}
+  \]</span></li>
 </ul>
-<hr>
-<p><strong>定理</strong>：双射线性映射$T:H_{1}\to H_{2}$是等距同构，当且仅当$T$是保内积算子</p>
+<hr />
+<p><strong>定理</strong>：双射线性映射<span
+class="math inline">\(T:H_{1}\to H_{2}\)</span>是等距同构，当且仅当<span
+class="math inline">\(T\)</span>是保内积算子</p>
 <p><strong>证明</strong>：</p>
-<hr>
-<p><strong>定理</strong>：Hilbert空间$H_{1},H_{2}$是同构的，当且仅当维数相同</p>
+<hr />
+<p><strong>定理</strong>：Hilbert空间<span
+class="math inline">\(H_{1},H_{2}\)</span>是同构的，当且仅当维数相同</p>
 <p><strong>证明</strong>：</p>
-<hr>
+<hr />
 
                 
             </div>
@@ -572,12 +1294,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%8F%92%E5%80%BC%E6%B3%95/">
-                        <span class="chip bg-color">插值法</span>
-                    </a>
-                    
                     <a href="/tags/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90/">
                         <span class="chip bg-color">数值分析</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8F%92%E5%80%BC%E6%B3%95/">
+                        <span class="chip bg-color">插值法</span>
                     </a>
                     
                 </div>

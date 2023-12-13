@@ -291,7 +291,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.5k
                 </div>
                 
 
@@ -308,91 +308,400 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Banach空间"><a href="#Banach空间" class="headerlink" title="Banach空间"></a>Banach空间</h1><h2 id="赋范空间"><a href="#赋范空间" class="headerlink" title="赋范空间"></a>赋范空间</h2><h3 id="范数"><a href="#范数" class="headerlink" title="范数"></a>范数</h3><p><strong>赋范空间</strong>：设E是K上的线性空间，定义范数$\left | \cdot \right |:&#x3D;E\rightarrow R_{+}$，称$(E,\left | \cdot \right | )$为赋范空间，若满足</p>
-<ul>
-<li>$\left | x \right |\ge 0,\quad \forall x\in E$</li>
-<li>$\left | x \right |&#x3D;0\Longleftrightarrow x&#x3D;0$</li>
-<li>$\left | \lambda x \right |&#x3D;\left|\lambda\right|\left | x \right |,\quad \forall \lambda \in K,\forall x\in E$</li>
-<li>$\left | x+y \right |\le \left | x \right |+\left | y \right | $</li>
-</ul>
-<div class="note info no-icon"><p>赋范空间是一个度量空间，$d(x,y)&#x3D;\left | x-y \right | $</p>
+                <h1 id="banach空间">Banach空间</h1>
+<h2 id="赋范空间">赋范空间</h2>
+<h3 id="范数">范数</h3>
+<p><strong>赋范空间</strong>：设E是K上的线性空间，定义范数<span
+class="math inline">\(\left \| \cdot \right \|:=E\rightarrow
+R_{+}\)</span>，称<span class="math inline">\((E,\left \| \cdot \right
+\| )\)</span>为赋范空间，若满足 - <span class="math inline">\(\left \| x
+\right \|\ge 0,\quad \forall x\in E\)</span> - <span
+class="math inline">\(\left \| x \right \|=0\Longleftrightarrow
+x=0\)</span> - <span class="math inline">\(\left \| \lambda x \right
+\|=\left|\lambda\right|\left \| x \right \|,\quad \forall \lambda \in
+K,\forall x\in E\)</span> - $| x+y || x |+| y | $</p>
+<div class="note info no-icon"><p>赋范空间是一个度量空间，$d(x,y)=| x-y | $</p>
 </div>
-
-<h3 id="Holder不等式"><a href="#Holder不等式" class="headerlink" title="Holder不等式"></a>Holder不等式</h3><p><strong>Holder不等式</strong>：设$(\Omega,\mu)$是可测空间，令$1&lt; p&lt;\infty$，存在 $1&lt;q&lt;\infty$，满足 $\frac{1}{p}+\frac{1}{q}&#x3D;1$，对于任意 $f\in L^{p}(\Omega,\mu),g\in L^{q}(\Omega,\mu)$ ，则 $fg\in L^{1}(\Omega,\mu)$ 且有<br>$$<br>\begin{equation*}<br>    \left| fg \right|<em>{1}&#x3D;\int</em>{\Omega}\left|fg\right|d\mu\le(\int_{\Omega}\left|f\right|^{p}d\mu)^{\frac{1}{p}}(\int_{\Omega}\left|g\right|^{q}d\mu)^{\frac{1}{q}}&#x3D;\left| f\right|<em>{p}\left| g\right|</em>{q}<br>\end{equation*}<br>$$</p>
-<p><strong>证明</strong>：考虑函数<br>$$<br>\begin{align*}<br>    &amp;\varphi(t)&#x3D;\frac{t^{p}}{p}+\frac{1}{q}-t,\quad t\in \left[0,\infty\right)\<br>    \Longrightarrow &amp; \varphi’(t)&#x3D;t^{p-1}-1,\varphi’’(t)&#x3D;(p-1)t^{p-2}\<br>    \Longrightarrow &amp; \varphi(t)\ge \varphi(1)&#x3D;0,\quad \forall t \in \left[0,\infty\right)\<br>    \Longrightarrow &amp; \frac{t^{p}}{p}+\frac{1}{q}\ge t,\quad t\in \left[0,\infty\right)<br>\end{align*}<br>$$<br>特别地，令$t&#x3D;uv^{\frac{1}{1-p}},\quad u,v\ge 0$，有<br>$$<br>\begin{equation*}<br>    uv\le \frac{u^{p}}{p}+\frac{v^{q}}{q}<br>\end{equation*}<br>$$<br>现在，令$u&#x3D;\frac{\left|f(t)\right|}{\left| f \right|<em>{p}},v&#x3D;\frac{\left|g(t)\right|}{\left| g \right|</em>{q}}$对于任何固定的$t\in \Omega$，则有<br>$$<br>\begin{equation*}<br>    \frac{\left|f(t)g(t)\right|}{\left| f \right|<em>{p}\left| g \right|</em>{q}}\le \frac{\left|f(t)\right|^p}{p\left| f \right|<em>{p}^p}+\frac{\left|g(t)\right|^q}{q\left| g \right|</em>{q}^q},\quad \forall t\in \Omega<br>\end{equation*}<br>$$<br>因此<br>$$<br>\begin{align*}<br>    \frac{\int_{\Omega}\left|fg\right|d\mu}{\left| f \right|<em>{p}\left| g \right|</em>{q}} &amp;\le \frac{1}{p}\frac{\int_{\Omega}\left|f\right|^pd\mu}{\left| f\right|<em>{p}^p}+\frac{1}{q}\frac{\int</em>{\Omega}\left|g\right|^qd\mu}{\left| g\right|<em>{q}^{q}}\<br>        &amp;&#x3D;\frac{1}{p}+\frac{1}{q}&#x3D;1<br>\end{align*}<br>$$<br>从而<br>$$<br>\begin{equation*}<br>    \left| fg \right|</em>{1}\le \left| f \right|<em>{p}\left| g \right|</em>{q}<br>\end{equation*}<br>$$</p>
-<hr>
-<h3 id="Minkowski不等式"><a href="#Minkowski不等式" class="headerlink" title="Minkowski不等式"></a>Minkowski不等式</h3><p><strong>Minkowski不等式</strong>：设$p\ge 1,f,g\in L^{p}(\Omega,\mu)$，则有<br>$$<br>\begin{equation*}<br>    \left| f+g \right|<em>{p}\le \left| f\right|</em>{p}+\left| g\right|<em>{p}<br>\end{equation*}<br>$$<br>即<br>$$<br>\begin{equation*}<br>    (\int</em>{\Omega}\left|f+g\right|^p d\mu)^{\frac{1}{p}}\le (\int_{\Omega}\left|f\right|^p d\mu)^{\frac{1}{p}}+(\int_{\Omega}\left|g\right|^{p}d\mu)^{\frac{1}{p}}<br>\end{equation*}<br>$$</p>
+<h3 id="holder不等式">Holder不等式</h3>
+<p><strong>Holder不等式</strong>：设<span
+class="math inline">\((\Omega,\mu)\)</span>是可测空间，令<span
+class="math inline">\(1&lt; p&lt;\infty\)</span>，存在 <span
+class="math inline">\(1&lt;q&lt;\infty\)</span>，满足 <span
+class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>，对于任意 <span
+class="math inline">\(f\in L^{p}(\Omega,\mu),g\in
+L^{q}(\Omega,\mu)\)</span> ，则 <span class="math inline">\(fg\in
+L^{1}(\Omega,\mu)\)</span> 且有 <span class="math display">\[
+\begin{equation*}
+    \left\| fg
+\right\|_{1}=\int_{\Omega}\left|fg\right|d\mu\le(\int_{\Omega}\left|f\right|^{p}d\mu)^{\frac{1}{p}}(\int_{\Omega}\left|g\right|^{q}d\mu)^{\frac{1}{q}}=\left\|
+f\right\|_{p}\left\| g\right\|_{q}
+\end{equation*}
+\]</span></p>
+<p><strong>证明</strong>：考虑函数 <span class="math display">\[
+\begin{align*}
+    &amp;\varphi(t)=\frac{t^{p}}{p}+\frac{1}{q}-t,\quad t\in
+\left[0,\infty\right)\\
+    \Longrightarrow &amp;
+\varphi&#39;(t)=t^{p-1}-1,\varphi&#39;&#39;(t)=(p-1)t^{p-2}\\
+    \Longrightarrow &amp; \varphi(t)\ge \varphi(1)=0,\quad \forall t \in
+\left[0,\infty\right)\\
+    \Longrightarrow &amp; \frac{t^{p}}{p}+\frac{1}{q}\ge t,\quad t\in
+\left[0,\infty\right)
+\end{align*}
+\]</span> 特别地，令<span
+class="math inline">\(t=uv^{\frac{1}{1-p}},\quad u,v\ge 0\)</span>，有
+<span class="math display">\[
+\begin{equation*}
+    uv\le \frac{u^{p}}{p}+\frac{v^{q}}{q}
+\end{equation*}
+\]</span> 现在，令<span
+class="math inline">\(u=\frac{\left|f(t)\right|}{\left\| f
+\right\|_{p}},v=\frac{\left|g(t)\right|}{\left\| g
+\right\|_{q}}\)</span>对于任何固定的<span class="math inline">\(t\in
+\Omega\)</span>，则有 <span class="math display">\[
+\begin{equation*}
+    \frac{\left|f(t)g(t)\right|}{\left\| f \right\|_{p}\left\| g
+\right\|_{q}}\le \frac{\left|f(t)\right|^p}{p\left\| f
+\right\|_{p}^p}+\frac{\left|g(t)\right|^q}{q\left\| g
+\right\|_{q}^q},\quad \forall t\in \Omega
+\end{equation*}
+\]</span> 因此 <span class="math display">\[
+\begin{align*}
+    \frac{\int_{\Omega}\left|fg\right|d\mu}{\left\| f
+\right\|_{p}\left\| g \right\|_{q}} &amp;\le
+\frac{1}{p}\frac{\int_{\Omega}\left|f\right|^pd\mu}{\left\|
+f\right\|_{p}^p}+\frac{1}{q}\frac{\int_{\Omega}\left|g\right|^qd\mu}{\left\|
+g\right\|_{q}^{q}}\\
+        &amp;=\frac{1}{p}+\frac{1}{q}=1
+\end{align*}
+\]</span> 从而 <span class="math display">\[
+\begin{equation*}
+    \left\| fg \right\|_{1}\le \left\| f \right\|_{p}\left\| g
+\right\|_{q}
+\end{equation*}
+\]</span></p>
+<hr />
+<h3 id="minkowski不等式">Minkowski不等式</h3>
+<p><strong>Minkowski不等式</strong>：设<span class="math inline">\(p\ge
+1,f,g\in L^{p}(\Omega,\mu)\)</span>，则有 <span class="math display">\[
+\begin{equation*}
+    \left\| f+g \right\|_{p}\le \left\| f\right\|_{p}+\left\|
+g\right\|_{p}
+\end{equation*}
+\]</span> 即 <span class="math display">\[
+\begin{equation*}
+    (\int_{\Omega}\left|f+g\right|^p d\mu)^{\frac{1}{p}}\le
+(\int_{\Omega}\left|f\right|^p
+d\mu)^{\frac{1}{p}}+(\int_{\Omega}\left|g\right|^{p}d\mu)^{\frac{1}{p}}
+\end{equation*}
+\]</span></p>
 <p><strong>证明</strong>：</p>
 <ul>
-<li>当$p&#x3D;1$时，结果显然</li>
-<li>当$p&gt;1$时，<br>  $$<br>  \begin{align*}<br>  \left| f+g \right|<em>{p}^{p}&amp;&#x3D;\int</em>{\Omega}\left|f+g\right|^p d\mu&#x3D;\int_{\Omega}\left|f+g\right|^{p-1}\left|f+g\right|d\mu\<br>  &amp;\le \int_{\Omega}\left|f+g\right|^{p-1}(\left|f\right|+\left|g\right|)d\mu\<br>  &amp;\le \left| \left|f+g\right|^{p-1}\right|<em>{q}\left| f\right|</em>{p}+\left| \left|f+g\right|^{p-1}\right|<em>{q}\left| g\right|</em>{p}\<br>  &amp;&#x3D; \left| \left|f+g\right|^{p-1}\right|<em>{q}(\left| f\right|</em>{p}+\left| g\right|<em>{p})<br>  \end{align*}<br>  $$<br>  另一方面，有<br>  $$<br>  \begin{align*}<br>  \left|\left|f+g\right|^{p-1}\right|</em>{q} &amp;&#x3D;(\int_{\Omega}(\left|f+g\right|^{p-1})^q d\mu)^{\frac{1}{q}}\<br>  &amp;&#x3D;[(\int_{\Omega}\left|f+g\right|^{p}d\mu)^{\frac{1}{p}}]^{\frac{p}{q}}\<br>  &amp;&#x3D;\left| f+g \right|<em>{p}^{\frac{p}{q}}&#x3D;\left| f+g\right|</em>{p}^{p-1}<br>  \end{align*}<br>  $$<br>  这意味着<br>  $$<br>  \begin{align*}<br>  &amp;\left| f+g\right|<em>{p}^{p}\le \left| f+g\right|</em>{p}^{p-1}(\left| f\right|<em>{p}+\left| g\right|</em>{p})\<br>  \Longrightarrow &amp; \left| f+g\right|<em>{p}\le \left| f\right|</em>{p}+\left| g\right|_{p}<br>  \end{align*}<br>  $$</li>
+<li>当<span class="math inline">\(p=1\)</span>时，结果显然</li>
+<li>当<span class="math inline">\(p&gt;1\)</span>时， <span
+class="math display">\[
+  \begin{align*}
+      \left\| f+g \right\|_{p}^{p}&amp;=\int_{\Omega}\left|f+g\right|^p
+d\mu=\int_{\Omega}\left|f+g\right|^{p-1}\left|f+g\right|d\mu\\
+      &amp;\le
+\int_{\Omega}\left|f+g\right|^{p-1}(\left|f\right|+\left|g\right|)d\mu\\
+      &amp;\le \left\| \left|f+g\right|^{p-1}\right\|_{q}\left\|
+f\right\|_{p}+\left\| \left|f+g\right|^{p-1}\right\|_{q}\left\|
+g\right\|_{p}\\
+      &amp;= \left\| \left|f+g\right|^{p-1}\right\|_{q}(\left\|
+f\right\|_{p}+\left\| g\right\|_{p})
+  \end{align*}
+  \]</span> 另一方面，有 <span class="math display">\[
+  \begin{align*}
+      \left\|\left|f+g\right|^{p-1}\right\|_{q}
+&amp;=(\int_{\Omega}(\left|f+g\right|^{p-1})^q d\mu)^{\frac{1}{q}}\\
+      &amp;=[(\int_{\Omega}\left|f+g\right|^{p}d\mu)^{\frac{1}{p}}]^{\frac{p}{q}}\\
+      &amp;=\left\| f+g \right\|_{p}^{\frac{p}{q}}=\left\|
+f+g\right\|_{p}^{p-1}
+  \end{align*}
+  \]</span> 这意味着 <span class="math display">\[
+  \begin{align*}
+      &amp;\left\| f+g\right\|_{p}^{p}\le \left\|
+f+g\right\|_{p}^{p-1}(\left\| f\right\|_{p}+\left\| g\right\|_{p})\\
+      \Longrightarrow &amp; \left\| f+g\right\|_{p}\le \left\|
+f\right\|_{p}+\left\| g\right\|_{p}
+  \end{align*}
+  \]</span></li>
 </ul>
-<hr>
-<h3 id="等价范数"><a href="#等价范数" class="headerlink" title="等价范数"></a>等价范数</h3><p> <strong>范数等价</strong>：设$\left| \cdot \right|<em>{1},\left| \cdot \right|</em>{2}$是向量空间E上的范数，称$\left| \cdot \right|<em>{1},\left| \cdot \right|</em>{2}$等价，若满足$\exists \alpha,\beta&gt;0,s.t.$<br> $$<br>    \begin{equation*}<br>        \alpha \left| x \right|<em>{1}\le \left| x\right|</em>{2}\le \beta\left| x\right|_{1},\quad \forall x\in E<br>    \end{equation*}<br>$$</p>
+<hr />
+<h3 id="等价范数">等价范数</h3>
+<p><strong>范数等价</strong>：设<span class="math inline">\(\left\|
+\cdot \right\|_{1},\left\| \cdot
+\right\|_{2}\)</span>是向量空间E上的范数，称<span
+class="math inline">\(\left\| \cdot \right\|_{1},\left\| \cdot
+\right\|_{2}\)</span>等价，若满足<span class="math inline">\(\exists
+\alpha,\beta&gt;0,s.t.\)</span> <span class="math display">\[
+    \begin{equation*}
+        \alpha \left\| x \right\|_{1}\le \left\| x\right\|_{2}\le
+\beta\left\| x\right\|_{1},\quad \forall x\in E
+    \end{equation*}
+\]</span></p>
 <p><strong>有限空间范数等价定理</strong>：有限维线性空间上所有范数都等价</p>
-<p><strong>证明</strong>：只需证明任一范数$||\cdot||$都与2-范数$||\cdot||_2$等价</p>
-<p>设$dim E&#x3D;n$，${e_{1},e_{2},\cdots,e_{n}}$是$E$的一个基，即$\forall x\in E$，有唯一表示<br>$$<br>    x&#x3D;\sum_{i&#x3D;1}^{n}x_{i}e_{i},\quad x_{i}\in K<br>$$<br>现在<br>$$<br>    \begin{align*}<br>        ||x|| &amp;&#x3D; ||x_1e_1+x_2e_2+\cdots x_ne_n||\<br>        &amp;\le |x_1|||e_1||+|x_2|||e_2||+\cdots+|x_n|||e_n||\<br>        &amp;\le (\sum_{i&#x3D;1}^{n}|x_i|^2)^{\frac{1}{2}}(\sum_{i&#x3D;1}^{n}||e_i||^2)^{\frac{1}{2}}\<br>        &amp;&#x3D; \beta ||x||_2<br>    \end{align*}<br>$$</p>
-<p>由范数的三角不等式可知，函数<br>$$<br>    \varphi:(x_1,x_2,\cdots,x_n)\in K^{n}\longmapsto ||x||\in R^{+}<br>$$<br>连续</p>
-<p>因此函数$\varphi$在紧集${(x_1,x_2,\cdots,x_n)\in K^{n}:(\sum_{i&#x3D;1}^{n}|x_i|^2)^{\frac{1}{2}}&#x3D;1}$上能取得最小值$\alpha$，即<br>$$<br>    \frac{||x||}{||x||_2}\ge \alpha,\quad \forall x\in E,x\ne 0<br>$$<br>因此<br>$$<br>    \alpha||x||_2\le ||x||\le \beta ||x||_2,\quad \forall x\in E<br>$$</p>
-<hr>
-<h2 id="Banach空间-1"><a href="#Banach空间-1" class="headerlink" title="Banach空间"></a>Banach空间</h2><h3 id="柯西列"><a href="#柯西列" class="headerlink" title="柯西列"></a>柯西列</h3><p><strong>柯西列</strong>：称${x_{n}}<em>{n&#x3D;1}^{\infty}$是赋范空间E中基本列（或Cauchy列）是指$\forall \epsilon&gt;0,\exists N,\ s.t.$<br>$$<br>\begin{equation*}<br>    \left| x</em>{n}-x_{m}\right| &lt;\epsilon,\quad \forall n,m\ge N<br>\end{equation*}<br>$$</p>
-<div class="note info no-icon"><p>对于任意的赋范空间，不是所有柯西列都收敛</p>
-</div>
-
-<h3 id="Banach空间-2"><a href="#Banach空间-2" class="headerlink" title="Banach空间"></a>Banach空间</h3><p><strong>Banach空间</strong>：称赋范空间$E$为$Banach$空间，若每一个柯西列都在$E$中收敛</p>
+<p><strong>证明</strong>：只需证明任一范数<span
+class="math inline">\(||\cdot||\)</span>都与2-范数<span
+class="math inline">\(||\cdot||_2\)</span>等价</p>
+<p>设<span class="math inline">\(dim E=n\)</span>，<span
+class="math inline">\(\{e_{1},e_{2},\cdots,e_{n}\}\)</span>是<span
+class="math inline">\(E\)</span>的一个基，即<span
+class="math inline">\(\forall x\in E\)</span>，有唯一表示 <span
+class="math display">\[
+    x=\sum_{i=1}^{n}x_{i}e_{i},\quad x_{i}\in K
+\]</span> 现在 <span class="math display">\[
+    \begin{align*}
+        ||x|| &amp;= ||x_1e_1+x_2e_2+\cdots x_ne_n||\\
+        &amp;\le |x_1|||e_1||+|x_2|||e_2||+\cdots+|x_n|||e_n||\\
+        &amp;\le
+(\sum_{i=1}^{n}|x_i|^2)^{\frac{1}{2}}(\sum_{i=1}^{n}||e_i||^2)^{\frac{1}{2}}\\
+        &amp;= \beta ||x||_2
+    \end{align*}
+\]</span></p>
+<p>由范数的三角不等式可知，函数 <span class="math display">\[
+    \varphi:(x_1,x_2,\cdots,x_n)\in K^{n}\longmapsto ||x||\in R^{+}
+\]</span> 连续</p>
+<p>因此函数<span class="math inline">\(\varphi\)</span>在紧集<span
+class="math inline">\(\{(x_1,x_2,\cdots,x_n)\in
+K^{n}:(\sum_{i=1}^{n}|x_i|^2)^{\frac{1}{2}}=1\}\)</span>上能取得最小值<span
+class="math inline">\(\alpha\)</span>，即 <span class="math display">\[
+    \frac{||x||}{||x||_2}\ge \alpha,\quad \forall x\in E,x\ne 0
+\]</span> 因此 <span class="math display">\[
+    \alpha||x||_2\le ||x||\le \beta ||x||_2,\quad \forall x\in E
+\]</span></p>
+<hr />
+<h2 id="banach空间-1">Banach空间</h2>
+<h3 id="柯西列">柯西列</h3>
+<p><strong>柯西列</strong>：称<span
+class="math inline">\(\{x_{n}\}_{n=1}^{\infty}\)</span>是赋范空间E中基本列（或Cauchy列）是指<span
+class="math inline">\(\forall \epsilon&gt;0,\exists N,\ s.t.\)</span>
+<span class="math display">\[
+\begin{equation*}
+    \left\| x_{n}-x_{m}\right\| &lt;\epsilon,\quad \forall n,m\ge N
+\end{equation*}
+\]</span> <div class="note info no-icon"><p>对于任意的赋范空间，不是所有柯西列都收敛</p>
+</div></p>
+<h3 id="banach空间-2">Banach空间</h3>
+<p><strong>Banach空间</strong>：称赋范空间<span
+class="math inline">\(E\)</span>为<span
+class="math inline">\(Banach\)</span>空间，若每一个柯西列都在<span
+class="math inline">\(E\)</span>中收敛</p>
 <p><strong>无穷维Banach空间</strong>：无穷维的Banach空间的线性空间的维数不可数</p>
-<p><strong>证明</strong>：反证，设${x_1,x_2,\cdots}$是无穷维$Banach$空间$E$的可数基，设$E_n$是$E$的闭子空间，且满足<br>$$<br>    E&#x3D;\bigcup_{n&#x3D;1}^{\infty}E_n,\quad E_n&#x3D;span{x_1,x_2,\cdots,x_n}<br>$$<br>由Baire纲定理知，至少有一个$E_n$是非无处稠的，即<br>$$<br>    B(x,r)\subset E_n\subset \overline{E_n},\quad \exists x\in E,r&gt;0<br>$$<br>由于$E_n$是子空间，因此<br>$$<br>    E&#x3D;\bigcup_{k&#x3D;1}^{\infty}kB(x,r)\subset \bigcup_{k&#x3D;1}^{\infty}kE_n&#x3D;E_n<br>$$<br>从而有 $dim E&#x3D;dim E_n&#x3D;n&lt;\infty$，矛盾！</p>
-<hr>
+<p><strong>证明</strong>：反证，设<span
+class="math inline">\(\{x_1,x_2,\cdots\}\)</span>是无穷维<span
+class="math inline">\(Banach\)</span>空间<span
+class="math inline">\(E\)</span>的可数基，设<span
+class="math inline">\(E_n\)</span>是<span
+class="math inline">\(E\)</span>的闭子空间，且满足 <span
+class="math display">\[
+    E=\bigcup_{n=1}^{\infty}E_n,\quad E_n=span\{x_1,x_2,\cdots,x_n\}
+\]</span> 由Baire纲定理知，至少有一个<span
+class="math inline">\(E_n\)</span>是非无处稠的，即 <span
+class="math display">\[
+    B(x,r)\subset E_n\subset \overline{E_n},\quad \exists x\in E,r&gt;0
+\]</span> 由于<span class="math inline">\(E_n\)</span>是子空间，因此
+<span class="math display">\[
+    E=\bigcup_{k=1}^{\infty}kB(x,r)\subset
+\bigcup_{k=1}^{\infty}kE_n=E_n
+\]</span> 从而有 <span class="math inline">\(dim E=dim
+E_n=n&lt;\infty\)</span>，矛盾！</p>
+<hr />
 <div class="note info no-icon"><p><strong>Banach空间</strong></p>
 <ul>
-<li>$l^p&#x3D;{{\xi_{k}}:\sum_{k}^{\infty}\left|\xi_{k}\right|^{p}&lt;\infty}, \ when \  1\le p \le \infty$</li>
-<li>$L^{p}[a,b]&#x3D;{x(t):\int_{a}^b \left|x(t)\right|^{p}dt&lt;\infty}, \ when \ 1\le p \le \infty$</li>
+<li><span
+class="math inline">\(l^p=\{\{\xi_{k}\}:\sum_{k}^{\infty}\left|\xi_{k}\right|^{p}&lt;\infty\},
+\ when \  1\le p \le \infty\)</span></li>
+<li><span class="math inline">\(L^{p}[a,b]=\{x(t):\int_{a}^b
+\left|x(t)\right|^{p}dt&lt;\infty\}, \ when \ 1\le p \le
+\infty\)</span></li>
 </ul>
 </div>
-
 <p><strong>有限维完备性</strong>：有限维赋范空间X一定是Banach空间</p>
-<p><strong>证明</strong>：设 $dim \ X&#x3D;n$，则$X$与$K^n$同胚，由于$K^n$是完备的，因此$X$是完备的</p>
-<hr>
+<p><strong>证明</strong>：设 <span class="math inline">\(dim \
+X=n\)</span>，则<span class="math inline">\(X\)</span>与<span
+class="math inline">\(K^n\)</span>同胚，由于<span
+class="math inline">\(K^n\)</span>是完备的，因此<span
+class="math inline">\(X\)</span>是完备的</p>
+<hr />
 <p><strong>定理</strong>：赋范空间X的有限维子空间M是闭子空间</p>
-<p><strong>证明</strong>：设${x_{n}}$是X中的收敛子列，满足$x_{n}\in M$</p>
-<p>设$x&#x3D;\lim\limits_{n\to \infty}x_{n}$，只需证明$x\in M$，事实上，${x_{n}}$是柯西列，M是完备的，因此$x\in M$</p>
-<hr>
-<h3 id="Riesz引理"><a href="#Riesz引理" class="headerlink" title="Riesz引理"></a>Riesz引理</h3><p><strong>Riesz引理</strong>：设$(X,\left | \cdot \right |)$是赋范空间，Y是X的闭子空间，$Y\ne X$，则对于任意$\epsilon&gt;0$，存在$e\in X,||e||&#x3D;1$，使得<br>$$<br>    \begin{equation*}<br>        dist(e,y)\ge 1-\epsilon,\quad \forall y\in Y<br>    \end{equation*}<br>$$</p>
-<p><strong>证明</strong>：由于$Y\ne X$，从而 $\exists x\in X\setminus Y$，令<br>$$<br>    \begin{equation*}<br>        d:&#x3D;\inf{\left| x-y\right| :y\in Y}&gt;0<br>    \end{equation*}<br>$$<br>$\forall \epsilon\in (0,1), \ \exists y_{0}\in Y, \ s.t.$<br>$$<br>    \begin{equation*}<br>        d\le \left| x-y_{0}\right| &lt;\frac{d}{1-\epsilon}<br>    \end{equation*}<br>$$<br>令<br>$$<br>    \begin{equation*}<br>        e:&#x3D;\frac{x-y_{0}}{\left| x-y_{0}\right| }\ \Rightarrow \ \left| e\right| &#x3D;1<br>    \end{equation*}<br>$$<br>$\forall y\in Y$<br>$$<br>    \begin{align*}<br>        \left| e-y\right| &amp;&#x3D; \left| \frac{x-y_{0}}{\left| x-y_{0}\right| }-y \right| \<br>        &amp;&#x3D; \frac{1}{\left| x-y_{0}\right| }\left| x-(y_{0}+\left| x-y_{0}\right| y)\right| \<br>        &amp;\ge \frac{1-\epsilon}{d}d&#x3D;1-\epsilon<br>    \end{align*}<br>$$</p>
-<hr>
-<p><strong>定理</strong>：设$E$是无穷维赋范空间，则单位球$B_{E}:&#x3D;{x\in E:\left| x\right| \le 1}$和单位球面$S_{E}:&#x3D;{x\in E:\left| x\right| &#x3D;1}$都不是紧集</p>
+<p><strong>证明</strong>：设<span
+class="math inline">\(\{x_{n}\}\)</span>是X中的收敛子列，满足<span
+class="math inline">\(x_{n}\in M\)</span></p>
+<p>设<span class="math inline">\(x=\lim\limits_{n\to
+\infty}x_{n}\)</span>，只需证明<span class="math inline">\(x\in
+M\)</span>，事实上，<span
+class="math inline">\(\{x_{n}\}\)</span>是柯西列，M是完备的，因此<span
+class="math inline">\(x\in M\)</span></p>
+<hr />
+<h3 id="riesz引理">Riesz引理</h3>
+<p><strong>Riesz引理</strong>：设<span class="math inline">\((X,\left \|
+\cdot \right \|)\)</span>是赋范空间，Y是X的闭子空间，<span
+class="math inline">\(Y\ne X\)</span>，则对于任意<span
+class="math inline">\(\epsilon&gt;0\)</span>，存在<span
+class="math inline">\(e\in X,||e||=1\)</span>，使得 <span
+class="math display">\[
+    \begin{equation*}
+        dist(e,y)\ge 1-\epsilon,\quad \forall y\in Y
+    \end{equation*}
+\]</span></p>
+<p><strong>证明</strong>：由于<span class="math inline">\(Y\ne
+X\)</span>，从而 <span class="math inline">\(\exists x\in X\setminus
+Y\)</span>，令 <span class="math display">\[
+    \begin{equation*}
+        d:=\inf\{\left\| x-y\right\| :y\in Y\}&gt;0
+    \end{equation*}
+\]</span> <span class="math inline">\(\forall \epsilon\in (0,1), \
+\exists y_{0}\in Y, \ s.t.\)</span> <span class="math display">\[
+    \begin{equation*}
+        d\le \left\| x-y_{0}\right\| &lt;\frac{d}{1-\epsilon}
+    \end{equation*}
+\]</span> 令 <span class="math display">\[
+    \begin{equation*}
+        e:=\frac{x-y_{0}}{\left\| x-y_{0}\right\| }\ \Rightarrow \
+\left\| e\right\| =1
+    \end{equation*}
+\]</span> <span class="math inline">\(\forall y\in Y\)</span> <span
+class="math display">\[
+    \begin{align*}
+        \left\| e-y\right\| &amp;= \left\| \frac{x-y_{0}}{\left\|
+x-y_{0}\right\| }-y \right\| \\
+        &amp;= \frac{1}{\left\| x-y_{0}\right\| }\left\|
+x-(y_{0}+\left\| x-y_{0}\right\| y)\right\| \\
+        &amp;\ge \frac{1-\epsilon}{d}d=1-\epsilon
+    \end{align*}
+\]</span></p>
+<hr />
+<p><strong>定理</strong>：设<span
+class="math inline">\(E\)</span>是无穷维赋范空间，则单位球<span
+class="math inline">\(B_{E}:=\{x\in E:\left\| x\right\| \le
+1\}\)</span>和单位球面<span class="math inline">\(S_{E}:=\{x\in
+E:\left\| x\right\| =1\}\)</span>都不是紧集</p>
 <p><strong>证明</strong>：只需证明单位球面或单位球不是列紧集</p>
-<p>设 $dim\ E&#x3D;\infty$，$\exists{e_{n}}\subset E$线性无关</p>
-<p>令$E_{n}&#x3D;span{e_{1},\cdots,e_{n}}$，则$E_{n}\subseteq E_{n+1}$且$E_{n}$是$E_{n+1}$的闭子空间</p>
-<p>$\forall n,\ \exists x_{n}\in E_{n}, \ \left| x_{n}\right|&#x3D;1,\ s.t.$<br>$$<br>\begin{equation*}<br>    d(x_{n},E_{n+1})\ge \frac{1}{2}<br>\end{equation*}<br>$$<br>从而<br>$$<br>\begin{equation*}<br>    \left| x_{n}-x_{m}\right| \ge \frac{1}{2},\ \forall n,m,\ n\ne m<br>\end{equation*}<br>$$<br>即${x_{n}}$没有收敛子列，从而$S_E、B_E$都不是列紧集，更不是紧集</p>
-<hr>
-<div class="note info no-icon"><p>紧性$\Longleftrightarrow$列紧性+闭性</p>
+<p>设 <span class="math inline">\(dim\ E=\infty\)</span>，<span
+class="math inline">\(\exists\{e_{n}\}\subset E\)</span>线性无关</p>
+<p>令<span
+class="math inline">\(E_{n}=span\{e_{1},\cdots,e_{n}\}\)</span>，则<span
+class="math inline">\(E_{n}\subseteq E_{n+1}\)</span>且<span
+class="math inline">\(E_{n}\)</span>是<span
+class="math inline">\(E_{n+1}\)</span>的闭子空间</p>
+<p><span class="math inline">\(\forall n,\ \exists x_{n}\in E_{n}, \
+\left\| x_{n}\right\|=1,\ s.t.\)</span> <span class="math display">\[
+\begin{equation*}
+    d(x_{n},E_{n+1})\ge \frac{1}{2}
+\end{equation*}
+\]</span> 从而 <span class="math display">\[
+\begin{equation*}
+    \left\| x_{n}-x_{m}\right\| \ge \frac{1}{2},\ \forall n,m,\ n\ne m
+\end{equation*}
+\]</span> 即<span
+class="math inline">\(\{x_{n}\}\)</span>没有收敛子列，从而<span
+class="math inline">\(S_E、B_E\)</span>都不是列紧集，更不是紧集</p>
+<hr />
+<div class="note info no-icon"><p>紧性<span
+class="math inline">\(\Longleftrightarrow\)</span>列紧性+闭性</p>
 </div>
-
-<h3 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h3><p><strong>收敛级数</strong>：设${x_{n}}<em>{n\in N}\subset E$，令$S</em>{n}&#x3D;\sum_{i}^{n}x_{i}$，<br>若${S_{n}}<em>{n\in N}$收敛到$S\in E$，则称序列$\sum</em>{i}^{\infty}x_{i}$ 收敛到 $S$，且记为 $ S&#x3D;\sum_{i}^{\infty}x_{i}$</p>
-<p><strong>Banach空间的收敛性</strong>：设$E$是$Banach$空间，序列$\sum_{i&#x3D;1}^{\infty}x_{i}$收敛当且仅当，对于$\forall \epsilon&gt;0,\ \exists N,\ s.t.$<br>$$<br>\begin{align*}<br>    \left| \sum_{i&#x3D;n}^{n+p}x_{i}\right| &lt;\epsilon,\quad \forall n&gt;N,p\in N<br>\end{align*}<br>$$</p>
-<p><strong>绝对收敛</strong>：称 $\sum_{i&#x3D;1}^{\infty}x_{i}$ 绝对收敛，若满足 $\sum_{i&#x3D;1}^{\infty}\left| x_{i}\right|$ 在$E$中收敛</p>
-<p><strong>定理</strong>：$E$是$Banach$空间当且仅当$E$中任意一个绝对收敛序列都收敛</p>
+<h3 id="级数">级数</h3>
+<p><strong>收敛级数</strong>：设<span
+class="math inline">\(\{x_{n}\}_{n\in N}\subset E\)</span>，令<span
+class="math inline">\(S_{n}=\sum_{i}^{n}x_{i}\)</span>， 若<span
+class="math inline">\(\{S_{n}\}_{n\in N}\)</span>收敛到<span
+class="math inline">\(S\in E\)</span>，则称序列<span
+class="math inline">\(\sum_{i}^{\infty}x_{i}\)</span> 收敛到 <span
+class="math inline">\(S\)</span>，且记为 $ S=<em>{i}^{}x</em>{i}$</p>
+<p><strong>Banach空间的收敛性</strong>：设<span
+class="math inline">\(E\)</span>是<span
+class="math inline">\(Banach\)</span>空间，序列<span
+class="math inline">\(\sum_{i=1}^{\infty}x_{i}\)</span>收敛当且仅当，对于<span
+class="math inline">\(\forall \epsilon&gt;0,\ \exists N,\ s.t.\)</span>
+<span class="math display">\[
+\begin{align*}
+    \left\| \sum_{i=n}^{n+p}x_{i}\right\| &lt;\epsilon,\quad \forall
+n&gt;N,p\in N
+\end{align*}
+\]</span></p>
+<p><strong>绝对收敛</strong>：称 <span
+class="math inline">\(\sum_{i=1}^{\infty}x_{i}\)</span> 绝对收敛，若满足
+<span class="math inline">\(\sum_{i=1}^{\infty}\left\|
+x_{i}\right\|\)</span> 在<span
+class="math inline">\(E\)</span>中收敛</p>
+<p><strong>定理</strong>：<span class="math inline">\(E\)</span>是<span
+class="math inline">\(Banach\)</span>空间当且仅当<span
+class="math inline">\(E\)</span>中任意一个绝对收敛序列都收敛</p>
 <p><strong>证明</strong>：</p>
 <ul>
-<li><p>必要性：显然成立</p>
-</li>
-<li><p>充分性：设赋范空间$E$中任一绝对收敛序列都收敛</p>
-<p>  任取E中柯西列${x_{n}}<em>{n\in N}$，则有${\left| x</em>{n}\right| }<em>{n\in N}$是有界序列，即存在$C&gt;0$使得$\left| x</em>{n}\right|\le C,;\forall n&#x3D;1,2,\cdots$</p>
-<p>  选取子列${x_{n_{k}}}$满足<br>  $$<br>  \begin{align*}<br>  \left| x_{n_{k}}-x_{n_{k-1}}\right|&lt;\frac{1}{2^k},\quad \forall k&gt;2<br>  \end{align*}<br>  $$<br>  取$x_{n_{1}}&#x3D;x_{1}$，因此，序列$x_{n_{1}}+\sum_{k&#x3D;2}^{\infty}\left| x_{n_{k}}-x_{n_{k-1}}\right|$收敛</p>
-<p>  即序列$x_{n_{1}}+\sum_{k&#x3D;2}^{\infty}(x_{n_{k}}-x_{n_{k-1}})$绝对收敛</p>
-<p>  由假设知，序列$x_{n_{1}}+\sum_{k&#x3D;2}^{\infty}(x_{n_{k}}-x_{n_{k-1}})$收敛，记$x&#x3D;x_{n_{1}}+\sum_{k&#x3D;2}^{\infty}(x_{n_{k}}-x_{n_{k-1}})$，于是<br>  $$<br>  \begin{align*}<br>  x &amp;&#x3D; \lim\limits_{m\to \infty}(x_{n_{1}}+(x_{n_{2}}-x_{n_{1}}) +\cdots+(x_{n_{m}}-x_{n_{m-1}})  )\<br>  &amp;&#x3D;\lim\limits_{m\to \infty}x_{n_{m}}<br>  \end{align*}<br>  $$<br>  下面我们证明$x&#x3D;\lim\limits_{n\to \infty}x_{n}$，事实上，对于$\forall \epsilon&gt;0,\ \exists N_{1}&gt;0,\ s.t.$<br>  $$<br>  \begin{align*}<br>  \left| x_{n+p}-x_{n}\right| &lt;\frac{\epsilon}{2},\quad \forall n&gt;N_{1},p\in N<br>  \end{align*}<br>  $$<br>  同时，$\exists N_{2}&gt;0,\ s.t.$<br>  $$<br>  \begin{align*}<br>  \left| x_{n_{k}}-x\right|&lt;\frac{\epsilon}{2},\quad \forall n_{k}&gt;N_{2}<br>  \end{align*}<br>  $$<br>  令$N&#x3D;\max{N_{1},N_{2}}$，则对于$\forall n&gt;N$，选取$n_{k_{0}}&gt;N$，<br>  $$<br>  \begin{align*}<br>  \left| x_{n}-x\right| &amp;\le \left| x_{n}-x_{n_{k_{0}}}\right| + \left| x_{n_{k_{0}}}-x\right|\<br>  &amp;&lt; \frac{\epsilon}{2}+\frac{\epsilon}{2} &#x3D;\epsilon<br>  \end{align*}<br>  $$<br>  由此，$x&#x3D;\lim\limits_{n\to \infty}x_{n}$</p>
-</li>
+<li><p>必要性：显然成立</p></li>
+<li><p>充分性：设赋范空间<span
+class="math inline">\(E\)</span>中任一绝对收敛序列都收敛</p>
+<p>任取E中柯西列<span class="math inline">\(\{x_{n}\}_{n\in
+N}\)</span>，则有<span class="math inline">\(\{\left\| x_{n}\right\|
+\}_{n\in N}\)</span>是有界序列，即存在<span
+class="math inline">\(C&gt;0\)</span>使得<span
+class="math inline">\(\left\| x_{n}\right\|\le C,\;\forall
+n=1,2,\cdots\)</span></p>
+<p>选取子列<span class="math inline">\(\{x_{n_{k}}\}\)</span>满足 <span
+class="math display">\[
+  \begin{align*}
+      \left\| x_{n_{k}}-x_{n_{k-1}}\right\|&lt;\frac{1}{2^k},\quad
+\forall k&gt;2
+  \end{align*}
+  \]</span> 取<span
+class="math inline">\(x_{n_{1}}=x_{1}\)</span>，因此，序列<span
+class="math inline">\(x_{n_{1}}+\sum_{k=2}^{\infty}\left\|
+x_{n_{k}}-x_{n_{k-1}}\right\|\)</span>收敛</p>
+<p>即序列<span
+class="math inline">\(x_{n_{1}}+\sum_{k=2}^{\infty}(x_{n_{k}}-x_{n_{k-1}})\)</span>绝对收敛</p>
+<p>由假设知，序列<span
+class="math inline">\(x_{n_{1}}+\sum_{k=2}^{\infty}(x_{n_{k}}-x_{n_{k-1}})\)</span>收敛，记<span
+class="math inline">\(x=x_{n_{1}}+\sum_{k=2}^{\infty}(x_{n_{k}}-x_{n_{k-1}})\)</span>，于是
+<span class="math display">\[
+  \begin{align*}
+      x &amp;= \lim\limits_{m\to \infty}(x_{n_{1}}+(x_{n_{2}}-x_{n_{1}})
++\cdots+(x_{n_{m}}-x_{n_{m-1}})  )\\
+      &amp;=\lim\limits_{m\to \infty}x_{n_{m}}
+  \end{align*}
+  \]</span> 下面我们证明<span class="math inline">\(x=\lim\limits_{n\to
+\infty}x_{n}\)</span>，事实上，对于<span class="math inline">\(\forall
+\epsilon&gt;0,\ \exists N_{1}&gt;0,\ s.t.\)</span> <span
+class="math display">\[
+  \begin{align*}
+      \left\| x_{n+p}-x_{n}\right\| &lt;\frac{\epsilon}{2},\quad \forall
+n&gt;N_{1},p\in N
+  \end{align*}
+  \]</span> 同时，<span class="math inline">\(\exists N_{2}&gt;0,\
+s.t.\)</span> <span class="math display">\[
+  \begin{align*}
+      \left\| x_{n_{k}}-x\right\|&lt;\frac{\epsilon}{2},\quad \forall
+n_{k}&gt;N_{2}
+  \end{align*}
+  \]</span> 令<span
+class="math inline">\(N=\max\{N_{1},N_{2}\}\)</span>，则对于<span
+class="math inline">\(\forall n&gt;N\)</span>，选取<span
+class="math inline">\(n_{k_{0}}&gt;N\)</span>， <span
+class="math display">\[
+  \begin{align*}
+      \left\| x_{n}-x\right\| &amp;\le \left\|
+x_{n}-x_{n_{k_{0}}}\right\| + \left\| x_{n_{k_{0}}}-x\right\|\\
+      &amp;&lt; \frac{\epsilon}{2}+\frac{\epsilon}{2} =\epsilon
+  \end{align*}
+  \]</span> 由此，<span class="math inline">\(x=\lim\limits_{n\to
+\infty}x_{n}\)</span></p></li>
 </ul>
-<hr>
-<h3 id="可分"><a href="#可分" class="headerlink" title="可分"></a>可分</h3><p><strong>可分</strong>：称赋范空间$E$是可分的，若$E$存在可数稠子集$M$</p>
-<div class="note info no-icon"><p><strong>可分$Banach$空间</strong></p>
+<hr />
+<h3 id="可分">可分</h3>
+<p><strong>可分</strong>：称赋范空间<span
+class="math inline">\(E\)</span>是可分的，若<span
+class="math inline">\(E\)</span>存在可数稠子集<span
+class="math inline">\(M\)</span></p>
+<div class="note info no-icon"><p><strong>可分<span
+class="math inline">\(Banach\)</span>空间</strong></p>
 <ul>
-<li>$c_{0},c,C[a,b]$是可分的</li>
-<li>$l^{p},L^{p}[a,b]$是可分的，$1\le p&lt;\infty$</li>
+<li><span class="math inline">\(c_{0},c,C[a,b]\)</span>是可分的</li>
+<li><span class="math inline">\(l^{p},L^{p}[a,b]\)</span>是可分的，<span
+class="math inline">\(1\le p&lt;\infty\)</span></li>
 </ul>
 </div>
-
 
                 
             </div>
