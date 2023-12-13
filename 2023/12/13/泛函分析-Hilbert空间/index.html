@@ -291,7 +291,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    3.3k
                 </div>
                 
 
@@ -799,6 +799,154 @@ x-y\right\|
 \]</span></p>
 <hr />
 <h2 id="正交分解">正交分解</h2>
+<h3 id="正交补">正交补</h3>
+<p><strong>正交补</strong>：设<span
+class="math inline">\(X\)</span>是内积空间，<span
+class="math inline">\(x\in X\)</span>，<span
+class="math inline">\(S\subset X\)</span></p>
+<ul>
+<li>定义 <span class="math inline">\(x^{\perp} = \{y\in X:\langle
+x,y\rangle = 0\}\)</span> 为 <span class="math inline">\(x\)</span>
+的正交补</li>
+<li>定义 <span class="math inline">\(S^{\perp}=\{y\in X:\langle
+x,y\rangle= 0,\forall x\in S\}\)</span> 为 <span
+class="math inline">\(S\)</span> 的正交补</li>
+</ul>
+<div class="note info no-icon"><ul>
+<li><span class="math inline">\(x^{\perp}\)</span>是X的闭子空间</li>
+<li><span
+class="math inline">\(S^{\perp}=(\overline{S})^{\perp}\)</span></li>
+</ul>
+</div>
+<p><strong>定理</strong>：设<span
+class="math inline">\(X\)</span>是内积空间，<span
+class="math inline">\(S,S_{1}\subset X\)</span>，则有</p>
+<ul>
+<li><span class="math inline">\(S^{\perp}\)</span>是X的闭子空间，<span
+class="math inline">\(S\bigcap S^{\perp}=\{0\}\)</span></li>
+<li><span class="math inline">\(S\subset S^{\perp\perp}\)</span></li>
+<li><span class="math inline">\(S\subset S_{1}\Longrightarrow
+S_{1}^{\perp}\subset S^{\perp}\)</span></li>
+<li><span
+class="math inline">\(S^{\perp}=S^{\perp\perp\perp}\)</span></li>
+</ul>
+<p><strong>证明</strong>：</p>
+<ul>
+<li><p>由于<span class="math inline">\(S^{\perp}=\bigcap_{x\in
+S}x^{\perp}\)</span>，可知<span
+class="math inline">\(S^{\perp}\)</span>是<span
+class="math inline">\(X\)</span>的闭子空间，若<span
+class="math inline">\(x_{0}\in S\bigcap S^{\perp}\)</span>，则有<span
+class="math inline">\(\langle x_0,x_{0}\rangle=0\)</span>，即<span
+class="math inline">\(x_0=0\)</span></p></li>
+<li><p>设<span class="math inline">\(x\in S\)</span>，任取<span
+class="math inline">\(y\in S^{\perp}\)</span>，则有<span
+class="math inline">\(\langle x,y\rangle=0\)</span>，即<span
+class="math inline">\(x\perp S^{\perp}\)</span>，因此<span
+class="math inline">\(x\in S^{\perp\perp}\)</span></p></li>
+<li><p>对于任意<span class="math inline">\(z\in
+S_1^{\perp}\)</span>，则有<span class="math inline">\(\langle
+z,v\rangle=0,\forall v\in S_1\)</span>，由于<span
+class="math inline">\(S\subset S_1\)</span>，因此<span
+class="math inline">\(\langle z,v\rangle=0,\forall v\in
+S\)</span>，故<span class="math inline">\(z\in
+S^{\perp}\)</span></p></li>
+<li><p>由(2)可知，<span class="math inline">\(S^{\perp}\subset
+S^{\perp\perp\perp}\)</span>，由于<span class="math inline">\(S\subset
+S^{\perp\perp}\)</span>结合(3)可知，<span
+class="math inline">\(S^{\perp\perp\perp}\subset S^{\perp}\)</span></p>
+<p>因此<span
+class="math inline">\(S^{\perp}=S^{\perp\perp\perp}\)</span></p></li>
+</ul>
+<hr />
+<p><strong>定理</strong>：设<span
+class="math inline">\(H\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间，<span
+class="math inline">\(M\)</span>是<span
+class="math inline">\(H\)</span>的闭子空间，<span
+class="math inline">\(x\in H\)</span>，若<span
+class="math inline">\(y\)</span>是<span
+class="math inline">\(x\)</span>在<span
+class="math inline">\(M\)</span>中的投影，即 <span
+class="math display">\[
+    \begin{align*}
+        \left\| x-y\right\| =\inf\{\left\| x-z\right\| :z\in M\}
+    \end{align*}
+\]</span> 则<span class="math inline">\((x-y)\perp
+M\)</span>，相反地，若<span class="math inline">\(y_{1}\in
+M\)</span>，满足 <span class="math display">\[
+    \begin{align*}
+        (x-y_{1})\perp M
+    \end{align*}
+\]</span> 则有 <span class="math display">\[
+    \begin{align*}
+        \left\| x-y_{1}\right\|= \inf\{\left\| x-u\right\|:u\in M\}
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：</p>
+<ul>
+<li>对于任意<span class="math inline">\(z\in
+M,||z||=1\)</span>，都有<span
+class="math inline">\(z&#39;=y+\langle(x-y),z\rangle z\in M\)</span>且有
+<span class="math display">\[
+  \begin{align*}
+      ||x-y||^2  &amp;\le ||x-z&#39;||^2 = \langle
+x-z&#39;,x-z&#39;\rangle\\
+      &amp;=\langle (x-y)-\langle(x-y),z\rangle
+z,(x-y)-\langle(x-y),z\rangle z\rangle\\
+      &amp;= ||x-y||^2 -|\langle x-y,z\rangle|^2
+  \end{align*}
+  \]</span> 这表明<span class="math inline">\(\langle
+x-y,z\rangle=0\)</span>，因此<span class="math inline">\((x-y)\perp
+M\)</span></li>
+<li>若<span class="math inline">\(u\in M\)</span>，则有<span
+class="math inline">\((x-y_1)\perp (y_1-u)\)</span>，且由 <span
+class="math display">\[
+  \begin{align*}
+      ||x-u||^2 &amp;= ||(x-y_1)+(y_1-u)||^2\\
+              &amp;= ||x-y_1||^2 + ||y_1-u||^2\\
+              &amp;\ge ||x-y_1||^2
+  \end{align*}
+  \]</span> 因此，<span
+class="math inline">\(||x-y_1||=\inf\{||x-u||:u\in M\}\)</span></li>
+</ul>
+<hr />
+<h3 id="正交分解定理">正交分解定理</h3>
+<p><strong>正交分解定理</strong>：设<span
+class="math inline">\(H\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间，<span
+class="math inline">\(M\)</span>是<span
+class="math inline">\(H\)</span>的闭子空间，则 <span
+class="math display">\[
+    \begin{align*}
+        H=M\oplus M^{\perp}
+    \end{align*}
+\]</span> 且<span class="math inline">\(M=M^{\perp\perp}\)</span></p>
+<p><strong>证明</strong>：设<span class="math inline">\(x\in
+H\)</span>，由于<span class="math inline">\(M\)</span>是<span
+class="math inline">\(H\)</span>的闭子空间，从而存在唯一向量<span
+class="math inline">\(y\in M\)</span>使得 <span class="math display">\[
+    \begin{align*}
+        \|x-y\|=\inf\{\|x-z\|:z\in M\},\quad (x-y)\perp M
+    \end{align*}
+\]</span> 故 <span class="math display">\[
+    \begin{align*}
+        x= y+(x-y),\quad y\in M,x-y\in M^{\perp}
+    \end{align*}
+\]</span> 由于<span class="math inline">\(M\bigcap
+M^{\perp}=\{0\}\)</span>，从而有<span class="math inline">\(H=M\oplus
+M^{\perp}\)</span></p>
+<p>显然有<span class="math inline">\(M\subset
+M^{\perp\perp}\)</span>，对于<span class="math inline">\(\forall z\in
+M^{\perp\perp}\)</span>，若<span class="math inline">\(z=z_1 +z_2,z_1\in
+M,z_2 \in M^{\perp}\)</span>，由于<span class="math inline">\(z,z_1\in
+M^{\perp\perp}\)</span>，因此<span class="math inline">\(z_2\in
+M^{\perp\perp}\)</span></p>
+<p>故<span class="math inline">\(z_2\in M^{\perp}\bigcap
+M^{\perp\perp}=\{0\}\)</span>，从而有<span
+class="math inline">\(M^{\perp\perp}\subset M\)</span>，故<span
+class="math inline">\(M=M^{\perp\perp}\)</span></p>
+<hr />
 <h2 id="正交化">正交化</h2>
 
                 
