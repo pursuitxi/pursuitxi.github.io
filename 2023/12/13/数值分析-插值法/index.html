@@ -283,7 +283,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    596
+                    1.1k
                 </div>
                 
 
@@ -378,7 +378,83 @@ class="math display">\[
 \end{equation*}
    \]</span></p>
 </div>
+<p><strong>拉格朗日插值多项式</strong>：形如 <span
+class="math display">\[
+    \begin{equation*}
+        L_{n}(x)=\sum_{k=0}^{n}y_{k}l_{k}(x)
+    \end{equation*}
+\]</span> 的插值多项式<span
+class="math inline">\(L_{n}(x)\)</span>称为拉格朗日插值多项式</p>
+<h3 id="插值余项与误差估计">插值余项与误差估计</h3>
+<p><strong>定理</strong>：设<span
+class="math inline">\(f^{(n)}(x)\)</span>在<span
+class="math inline">\([a,b]\)</span>上连续，<span
+class="math inline">\(f^{(n+1)}(x)\)</span>在<span
+class="math inline">\((a,b)\)</span>内存在，节点<span
+class="math inline">\(a\le x_{0}&lt;x_{1}&lt;\cdots&lt;x_{n}\le
+b\)</span>，<span
+class="math inline">\(L_{n}(x)\)</span>是满足条件的插值多项式，则对任何<span
+class="math inline">\(x\in [a,b]\)</span>，插值余项 <span
+class="math display">\[
+    \begin{equation*}
+        R_{n}(x)=f(x)-L_{n}(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}\omega_{n+1}(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_{0})(x-x_{1})\cdots(x-x_{n})
+    \end{equation*}
+\]</span> 这里<span class="math inline">\(\xi \in
+(a,b)\)</span>且依赖于x</p>
+<p><strong>证明</strong>：容易得到 <span class="math display">\[
+    R_n(x)= f(x)-L_n(x)=T(x)(x-x_0)(x-x_1)\cdots(x-x_n)
+\]</span> 为了求出<span
+class="math inline">\(T(x)\)</span>，构造辅助函数 <span
+class="math display">\[
+    F(t)= f(t)- L_n(t)-T(x)(t-x_0)(t-x_1)\cdots(t-x_n),\quad (x\ne
+x_1,x_2,\cdots,x_n)
+\]</span> 可得<span class="math inline">\(F(t)\)</span>在区间<span
+class="math inline">\([a,b]\)</span>上有<span
+class="math inline">\(x,x_0,x_1,\cdots,x_n\)</span>共<span
+class="math inline">\(n+2\)</span>个零点，由罗尔定理，可知<span
+class="math inline">\(F&#39;(t)\)</span>在区间<span
+class="math inline">\([a,b]\)</span>上至少有<span
+class="math inline">\(n+1\)</span>个零点，以此类推，最后知在区间<span
+class="math inline">\((a,b)\)</span>上存在一点<span
+class="math inline">\(\xi\)</span>，使得<span
+class="math inline">\(F^{(n+1)}(\xi)=0\)</span>，即 <span
+class="math display">\[
+    \begin{align*}
+        &amp;f^{(n+1)}(\xi)-(n+1)!\cdot T(x)=0\\
+        \Longrightarrow&amp; T(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}\\
+        \Longrightarrow &amp;
+R_{n}(x)=f(x)-L_{n}(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_{0})(x-x_{1})\cdots(x-x_{n})
+    \end{align*}
+\]</span></p>
+<hr />
 <h2 id="牛顿插值">牛顿插值</h2>
+<h3 id="差商">差商</h3>
+<p><strong>差商</strong>： - 称<span
+class="math inline">\(f[x_{0},x_{k}]=\frac{f(x_{k})-f(x_{0})}{x_{k}-x_{0}}\)</span>为函数<span
+class="math inline">\(f(x)\)</span>关于<span
+class="math inline">\(x_{0},x_{k}\)</span>的一阶差商 - <span
+class="math inline">\(f[x_{0},x_{1},x_{k}]=\frac{f[x_{0},x_{k}]-f[x_{0},x_{1}]}{x_{k}-x_{1}}\)</span>称为<span
+class="math inline">\(f(x)\)</span>的二阶差商 - 一般地，称 <span
+class="math display">\[
+    \begin{equation*}
+        f[x_{0},x_{1},\cdots,x_{k}]=\frac{f[x_{0},\cdots,x_{k-2},x_{k}]-f[x_{0},x_{1},\cdots,x_{k-1}]}{x_{k}-x_{k-1}}
+    \end{equation*}
+    \]</span> 为<span class="math inline">\(f(x)\)</span>的k阶差商</p>
+<div class="note info no-icon"><ul>
+<li>差商与节点的排序无关，称为差商的对称性，即 <span
+class="math display">\[
+  \begin{equation*}
+      f[x_{0},x_{1},\cdots,x_{k}]=f[x_{1},x_{0},\cdots,x_{k}]=\cdots=f[x_{1},\cdots,x_{k},x_{0}]
+  \end{equation*}
+\]</span></li>
+<li>n阶差商与导数的关系为 <span class="math display">\[
+  \begin{equation*}
+      f[x_{0},x_{1},\cdots,x_{n}]=\frac{f^{(n)}(\xi)}{n!},\quad \xi
+\in[a,b]
+  \end{equation*}
+\]</span></li>
+</ul>
+</div>
 <h2 id="埃尔米特插值">埃尔米特插值</h2>
 <h2 id="分段低次插值">分段低次插值</h2>
 <h2 id="三次样条插值">三次样条插值</h2>
