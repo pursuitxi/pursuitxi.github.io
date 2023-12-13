@@ -291,7 +291,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    4.6k
                 </div>
                 
 
@@ -948,6 +948,246 @@ class="math inline">\(M^{\perp\perp}\subset M\)</span>，故<span
 class="math inline">\(M=M^{\perp\perp}\)</span></p>
 <hr />
 <h2 id="正交化">正交化</h2>
+<h3 id="正交族">正交族</h3>
+<p><strong>正交族</strong>：称集族<span
+class="math inline">\(\{e_{i}\}_{i\in
+I}\)</span>是Hilbert空间的正交族，若满足 <span class="math display">\[
+    \begin{align*}
+        \langle e_{i},e_{j}\rangle =\begin{cases}
+            1,\quad if\; i=j\\
+            0,\quad if\; i\ne j
+        \end{cases}
+    \end{align*}
+\]</span></p>
+<p><strong>定理</strong>：若<span class="math inline">\(\{e_{i}\}_{i\in
+I}\)</span>是非零正交族，则<span class="math inline">\(\{e_{i}\}_{i\in
+I}\)</span>线性无关</p>
+<p><strong>证明</strong>：<span class="math inline">\(\forall n\in
+N,e_{i_1},e_{i_2},\cdots,e_{i_n}\)</span>，令<span
+class="math inline">\(\lambda_1 e_{i_1}+\lambda_2
+e_{i_2}+\cdots+\lambda_n e_{i_n}=0\)</span>，则有 <span
+class="math display">\[
+    \begin{align*}
+        &amp;\langle\lambda_1e_{i_1}+\lambda_2e_{i_2}+\cdots+\lambda_ne_{i_n},e_{i_1}\rangle=0\\
+        \Longrightarrow \quad&amp;\lambda_1\langle
+e_{i_1},e_{i_1}\rangle=0\\
+        \Longrightarrow \quad &amp;\lambda_1=0
+    \end{align*}
+\]</span> 同理可得，<span
+class="math inline">\(\lambda_2=\lambda_3=\cdots=\lambda_n=0\)</span></p>
+<hr />
+<h3 id="gram-schmidt正交化">Gram-Schmidt正交化</h3>
+<p><strong>Gram-Schmidt正交化</strong>：设<span
+class="math inline">\(H\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间，<span
+class="math inline">\(F=\{x_{n}:n\in N\}\)</span>是<span
+class="math inline">\(H\)</span>的线性无关的可数集族，则存在正交族<span
+class="math inline">\(\{e_{n}:n\in N\}\)</span>，使得 <span
+class="math display">\[
+    \begin{align*}
+        span\{e_{1},e_{2},\cdots,e_{n}\}=span\{x_{1},x_{2},\cdots,x_{n}\},\quad
+\forall n\in N
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：令 <span class="math display">\[
+    \begin{align*}
+        &amp;e_1=\frac{x_1}{||x_1||}\\
+        &amp;u_2=x_2-\langle x_2,e_1\rangle e_1,\quad
+e_2=\frac{u_2}{||u_2||}
+    \end{align*}
+\]</span> 则有<span class="math inline">\(\langle e_1,e_2\rangle
+=0,||e_1||=||e_2||=1\)</span></p>
+<p>一般来说，设<span
+class="math inline">\(\{e_1,e_2,\cdots,e_n-1\}\)</span>是正交族满足
+<span class="math display">\[
+    \begin{align*}
+        span\{e_1,e_2,\cdots,e_{n-1}\}=span\{x_1,x_2,\cdots,x_{n-1}\}
+    \end{align*}
+\]</span> 令 <span class="math display">\[
+    \begin{align*}
+        u_n=x_n-\sum_{i=1}^{n-1}\langle x_n,e_i\rangle e_i,\quad
+e_n=\frac{u_n}{||u_n||}
+    \end{align*}
+\]</span> 则有<span class="math inline">\(\langle e_n,e_i\rangle,\forall
+i=1,2,\cdots,n-1,\quad ||e_n||=1\)</span>且 <span
+class="math display">\[
+    \begin{align*}
+        span\{e_1,e_2,\cdots,e_n\}=span\{x_1,x_2,\cdots,x_n\}
+    \end{align*}
+\]</span> 由归纳法得证</p>
+<hr />
+<p><strong>正交基</strong>：设<span
+class="math inline">\(H\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间，<span
+class="math inline">\(H\)</span>中正交向量的极大族称为<span
+class="math inline">\(H\)</span>的正交基</p>
+<p><strong>定理</strong>：设<span
+class="math inline">\(H\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间，<span
+class="math inline">\(\mathcal{E} = \{e_{\lambda}:\lambda\in
+\Lambda\}\)</span>是<span
+class="math inline">\(H\)</span>的正交基，则<span
+class="math inline">\(\forall x\in H\)</span>，可以被唯一的表示为 <span
+class="math display">\[
+    \begin{align*}
+        x=\sum_{\lambda\in \Lambda}c_{\lambda}e_{\lambda}
+    \end{align*}
+\]</span> 且有 <span class="math display">\[
+    \begin{align*}
+        \left\| x\right\|^2 = \sum_{\lambda\in
+\Lambda}\left|c_{\lambda}\right|^2
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>： - 设下列求和收敛 <span
+class="math display">\[
+        \begin{align*}
+            y=\sum_{\lambda\in \Lambda}\langle x,e_{\lambda}\rangle
+e_{\lambda}
+        \end{align*}
+    \]</span> 则有 <span class="math display">\[
+        \begin{align*}
+            \langle x-y,e_\beta\rangle&amp;=\langle
+x,e_\beta\rangle-\sum_{\lambda\in\Lambda}\langle
+x,e_\lambda\rangle\langle e_\lambda,e_\beta\rangle\\
+            &amp;=\langle x,e_{\beta}-\langle x,e_{\beta}\rangle\\
+            &amp;=0,\quad \forall \beta\in \Lambda
+        \end{align*}
+    \]</span> 因此，<span class="math inline">\((x-y)\perp
+e_{\lambda},\forall \lambda\in \Lambda\)</span></p>
+<pre><code>由$\mathcal&#123;E&#125;$的极大性，可以得到$x-y=0\Longrightarrow x=y$</code></pre>
+<ul>
+<li><p>为了满足<span class="math inline">\(\sum_{\lambda\in
+\Lambda}\langle x,e_{\lambda}\rangle e_{\lambda}\)</span>收敛，考虑网
+<span class="math display">\[
+      \begin{align*}
+          \{x_F:=\sum_{\lambda\in F}\langle x,e_{\lambda}\rangle
+e_{\lambda}:F\subset \Lambda,card(F)&lt;\infty\}
+      \end{align*}
+  \]</span><br />
+<span class="math inline">\(\forall F\subset
+\Lambda,card(F)&lt;\infty\)</span>，注意到 <span class="math display">\[
+      \begin{align*}
+          ||x_F||^2=\langle x_F,x_F\rangle &amp;=\langle
+\sum_{\lambda\in F}\langle x,e_{\lambda}\rangle
+e_{\lambda},\sum_{\beta\in F}\langle x,e_{\beta}\rangle
+e_{\beta}\rangle\\
+          &amp;=\sum_{\lambda\in F}\sum_{\beta\in F}\langle
+x,e_{\lambda}\rangle \overline{\langle x,e_{\beta}\rangle}\langle
+e_{\lambda},e_{\beta}\rangle\\
+          &amp;= \sum_{\lambda\in F}|\langle x,e_{\lambda}\rangle|^2
+      \end{align*}
+  \]</span></p></li>
+<li><p>下面说明<span class="math inline">\(||x_F||^2=\sum_{\lambda\in
+F}|\langle x,e_{\lambda}\rangle|^2\le ||x||^2\)</span></p>
+<p>事实上，由于<span class="math inline">\((x-x_F)\perp x_F\)</span>，则
+<span class="math display">\[
+      \begin{align*}
+          \|x\|^2=\|x-x_F\|^2+\|x_F\|^2\geq\|x_F\|^2
+      \end{align*}
+  \]</span> 进一步 <span class="math display">\[
+      \begin{align*}
+          \sum_{\lambda\in\Lambda}|\langle
+x,e_\lambda\rangle|^2\leq\|x\|^2&lt;\infty
+      \end{align*}
+  \]</span> 这表明，<span class="math inline">\(\forall
+\epsilon&gt;0,\{\lambda\in \Lambda:|\langle
+x,e_{\lambda}\rangle|&gt;\epsilon\}\)</span>是有限的，因此至多可数个<span
+class="math inline">\(\langle
+x,e_{\lambda}\rangle\)</span>非零，从而级数和 <span
+class="math display">\[
+      \begin{align*}
+          \sum_{\lambda\in \Lambda}\langle x,e_{\lambda}\rangle
+e_{\lambda}=\sum_{n=1}^{\infty}\langle x,e_{\lambda_n}\rangle
+e_{\lambda_n}
+      \end{align*}
+  \]</span> 是可数和，由<span
+class="math inline">\(\mathcal{E}\)</span>的极大性，可以得到<span
+class="math inline">\(\overline{span\{\mathcal{E}}\}=H\)</span>，则对于<span
+class="math inline">\(\forall \eta&gt;0\)</span>，存在一个有限集合<span
+class="math inline">\(F_0\subset \Lambda\)</span>使得 <span
+class="math display">\[
+      \begin{align*}
+          ||x-\sum_{\lambda\in F_0}c_{\lambda}e_{\lambda}||&lt;\eta
+      \end{align*}
+  \]</span> 对于任一有限子集<span class="math inline">\(F_0\subset
+F\subset \Lambda\)</span>，可以得到 <span class="math display">\[
+      \begin{align*}
+          ||x-\sum_{\lambda\in F_0}c_\lambda
+e_\lambda||=||x-\sum_{\lambda\in F}\langle x,e_{\lambda}\rangle
+e_\lambda+\sum_{\lambda\in F}\langle x,e_{\lambda}\rangle
+e_\lambda-\sum_{\lambda\in F_0}c_\lambda e_\lambda||
+      \end{align*}
+  \]</span> 注意到<span class="math inline">\((x-\sum_{\lambda\in
+F}\langle x,e_{\lambda}\rangle e_{\lambda})\perp \sum_{\lambda\in
+F_0}\langle x,e_{\lambda}\rangle e_{\lambda}\)</span>，则有 <span
+class="math display">\[
+      \begin{align*}
+          \|x-\sum_{\lambda\in F_0}\lambda_\lambda
+e_\lambda\|^2=\|x-\sum_{\lambda\in F}\langle x,e_\lambda\rangle
+e_\lambda\|^2+\|\sum_{\lambda\in F}\langle x,e_\lambda\rangle
+e_\lambda-\sum_{\lambda\in F_0}c_\lambda e_\lambda\|^2
+      \end{align*}
+  \]</span> 这表明 <span class="math display">\[
+      \begin{align*}
+          \|x-\sum_{\lambda\in F}\langle x,e_\lambda\rangle
+e_\lambda\|\leq\|x-\sum_{\lambda\in F_0}c_\lambda e_\lambda\|&lt;\eta
+      \end{align*}
+  \]</span> 进一步，由<span
+class="math inline">\(x_F\perp(x-x_F)\)</span> <span
+class="math display">\[
+      \begin{align*}
+          \|x\|^2 &amp;=\|x_F\|^2+\|x-x_F\|^2\\
+          &amp;=\sum_{\lambda\in F}|\langle x,e_{\lambda}|^2+||x-x_F||^2
+      \end{align*}
+  \]</span> 由于<span class="math inline">\(||x-x_F||\to
+0\)</span>，则有 <span class="math display">\[
+      \begin{align*}
+          ||x||^2 =\sum_{\lambda\in \Lambda}|\langle x,e_{\lambda}|^2
+      \end{align*}
+  \]</span> 最后，若<span class="math inline">\(x=\sum_{\lambda\in
+\Lambda}c_\lambda e_\lambda\)</span>，则 <span class="math display">\[
+      \begin{align*}
+          \langle x,e_\beta\rangle=\sum_{\lambda\in\Lambda}\langle
+c_\lambda e_\lambda,e_\beta\rangle=c_\beta\langle
+e_\beta,e_\beta\rangle=c_\beta,\quad\beta\in\Lambda
+      \end{align*}
+  \]</span> 因此，<span
+class="math inline">\(x\)</span>的表示唯一</p></li>
+</ul>
+<hr />
+<p><strong>定理</strong>：<span
+class="math inline">\(Hilbert\)</span>空间<span
+class="math inline">\(H\)</span>的每一组正交基都有相同的势，也称为<span
+class="math inline">\(H\)</span>的维数</p>
+<p><strong>证明</strong>：设<span
+class="math inline">\(\mathcal{E}_1,\mathcal{E}_2\)</span>是<span
+class="math inline">\(H\)</span>的两组正交基</p>
+<ul>
+<li>若<span class="math inline">\(\mathcal{E}_1\)</span>有限，则<span
+class="math inline">\(\mathcal{E}_1\)</span>是<span
+class="math inline">\(H\)</span>的Hamel基，这表明，<span
+class="math inline">\(\mathcal{E}_2\)</span>也是有限的，<span
+class="math inline">\(\mathcal{E}_2\)</span>也是Hamel基，故<span
+class="math inline">\(card(\mathcal{E}_1)=card(\mathcal{E}_2)\)</span></li>
+<li>若<span
+class="math inline">\(card(\mathcal{E}_1)=\infty,card(\mathcal{E}_2)=\infty\)</span>，对于<span
+class="math inline">\(\forall e\in \mathcal{E}_1\)</span>，定义 <span
+class="math display">\[
+      \begin{align*}
+          S_e=\{f\in \mathcal{E}_2\}
+      \end{align*}
+  \]</span></li>
+</ul>
+<hr />
+<p><strong>定理</strong>：双射线性映射<span
+class="math inline">\(T:H_{1}\to H_{2}\)</span>是等距同构，当且仅当<span
+class="math inline">\(T\)</span>是保内积算子</p>
+<p><strong>证明</strong>：</p>
+<hr />
+<p><strong>定理</strong>：Hilbert空间<span
+class="math inline">\(H_{1},H_{2}\)</span>是同构的，当且仅当维数相同</p>
+<p><strong>证明</strong>：</p>
+<hr />
 
                 
             </div>
