@@ -1,0 +1,1439 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="泛函分析-Hilbert空间, Pursuit">
+    <meta name="description" content="Hilbert空间">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>泛函分析-Hilbert空间 | Pursuit</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Pursuit</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Pursuit</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">泛函分析-Hilbert空间</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Hilbert%E7%A9%BA%E9%97%B4/">
+                                <span class="chip bg-color">Hilbert空间</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4/">
+                                <span class="chip bg-color">内积空间</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%86%85%E7%A7%AF/">
+                                <span class="chip bg-color">内积</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/">
+                                <span class="chip bg-color">泛函分析</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-13
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.6k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="hilbert空间">Hilbert空间</h1>
+<h2 id="内积空间">内积空间</h2>
+<h3 id="内积">内积</h3>
+<p><strong>内积空间</strong>：设 <span class="math inline">\(E\)</span>
+是 <span class="math inline">\(K\)</span>中的向量，称函数<span
+class="math inline">\(\langle \cdot,\cdot \rangle:E\to K\)</span> 是
+<span class="math inline">\(E\)</span> 中的内积，若满足</p>
+<ul>
+<li><span class="math inline">\(\langle x,x\rangle\ge 0,\forall x\in
+E;\langle x,x\rangle=0\Longleftrightarrow x=0\)</span></li>
+<li><span class="math inline">\(\langle x,y\rangle =\overline{\langle
+y,x \rangle},\forall x,y\in E\)</span></li>
+<li><span class="math inline">\(\langle \lambda
+x,y\rangle=\lambda\langle x,y\rangle,\forall x,y\in E\)</span></li>
+<li><span class="math inline">\(\langle x+y,z\rangle =\langle x,z\rangle
++\langle y,z\rangle,\forall x,y,z\in E\)</span></li>
+</ul>
+<p>称<span class="math inline">\((E,\langle
+\cdot,\cdot\rangle)\)</span>为内积空间</p>
+<div class="note info no-icon"><ul>
+<li><span class="math inline">\(\langle x,\lambda y\rangle
+=\overline{\lambda}\langle x,y\rangle,\forall x,y\in E\)</span></li>
+<li><span class="math inline">\(\langle z,x+y\rangle = \langle
+z,x\rangle +\langle z,y\rangle,\forall x,y,z\in E\)</span></li>
+</ul>
+</div>
+<h3 id="柯西不等式">柯西不等式</h3>
+<p><strong>Cauchy不等式</strong>：设<span
+class="math inline">\((E,\langle
+\cdot,\cdot\rangle)\)</span>是一个内积空间，则有 <span
+class="math display">\[
+\begin{align*}
+    \left|\langle x,y\rangle\right|^2 \le \langle x,x\rangle \langle
+y,y\rangle
+\end{align*}
+\]</span> 当且仅当<span class="math inline">\(x=\lambda y\; or\;
+y=0\)</span>等号成立</p>
+<p><strong>证明</strong>：</p>
+<ul>
+<li>当<span class="math inline">\(y=0\)</span>时，不等式显然成立</li>
+<li>当<span class="math inline">\(y\ne 0\)</span>时，令<span
+class="math inline">\(\mu\in K\)</span>，则 <span
+class="math display">\[
+      \begin{align*}
+          0\le \langle x-\mu y,x-\mu y\rangle = \langle x,x\rangle
+-\mu\langle y,x\rangle -\overline{\mu}\langle x,y\rangle
++\left|\mu\right|^2 \langle y,y\rangle
+      \end{align*}
+  \]</span> 令<span class="math inline">\(\mu=\frac{\langle
+x,y\rangle}{\langle y,y\rangle}\)</span>，则可以得到 <span
+class="math display">\[
+      \begin{align*}
+          0\le \langle x,x\rangle - \frac{\left|\langle
+x,y\rangle\right|^2 }{\langle y,y\rangle}
+      \end{align*}
+  \]</span> 等号成立当且仅当<span class="math inline">\(x=\lambda
+y\)</span></li>
+</ul>
+<hr />
+<p><strong>内积诱导范数</strong>：设<span class="math inline">\(\langle
+\cdot,\cdot\rangle\)</span>是线性空间<span
+class="math inline">\(E\)</span>上的内积，则可以在<span
+class="math inline">\(E\)</span>上定义范数 <span class="math display">\[
+    \begin{align*}
+        \left\| x\right\| =\sqrt{\langle x,x\rangle},\quad \forall x\in
+E
+    \end{align*}
+\]</span> 称为内积诱导范数</p>
+<h3 id="hilbert空间-1">Hilbert空间</h3>
+<p><strong>Hilbert空间</strong>：若内积空间<span
+class="math inline">\(E\)</span>在内积诱导范数<span
+class="math inline">\(\left\| \cdot \right\|\)</span>下完备，则称<span
+class="math inline">\(E\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间</p>
+<p><strong>内积连续性定理</strong>：设<span
+class="math inline">\(\{x_{n}\},\{y_{n}\},x,y\in
+E,n=1,2,\cdots\)</span>，且有<span class="math inline">\(x_{n}\to
+x,y_{n}\to y\)</span>，则有 <span class="math display">\[
+    \begin{align*}
+        \langle x_{n},y_{n}\rangle \to \langle x,y\rangle
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：由于<span class="math inline">\(y_n\to
+y\)</span>，则存在<span class="math inline">\(C&gt;0\)</span>使得<span
+class="math inline">\(\left\| y_n\right\| \le C,\forall n\in
+N\)</span>，则 <span class="math display">\[
+    \begin{align*}
+        \left|\langle x,y\rangle -\langle x_n ,y_n\rangle\right|
+&amp;\le \left|\langle x,y\rangle -\langle
+x,y_n\rangle\right|+\left|\langle x,y_n\rangle-\langle
+x_n,y_n\rangle\right|\\
+        &amp;\le \left\| x\right\| \left\| y-y_n\right\| +\left\|
+x-x_n\right\| \left\| y_n\right\| \\
+        &amp;\le \left\| x\right\| \left\| y-y_n\right\| +C\left\|
+x-x_n\right\|
+    \end{align*}
+\]</span> 从而有<span class="math inline">\(\left|\langle x,y\rangle
+-\langle x_n,y_n\rangle\right|\to 0\; as\; n\to \infty\)</span></p>
+<hr />
+<p><strong>平行四边形法则</strong>：设<span
+class="math inline">\(E\)</span>是内积空间，<span
+class="math inline">\(E\)</span>上的内积诱导范数$| | $满足 <span
+class="math display">\[
+    \begin{align*}
+        \left\| x+y\right\|^2 + \left\| x-y\right\|^2 = 2(\left\|
+x\right\|^2 + \left\| y\right\|^2),\quad \forall x,y\in E
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>： <span class="math display">\[
+    \begin{align*}
+        &amp;\left\| x+y\right\|^2 = \langle x+y,x+y\rangle = \left\|
+x\right\| ^2 +\langle x,y\rangle+\langle y,x\rangle +\left\| y\right\|
+^2\\
+        &amp;\left\| x-y\right\|^2 = \langle x-y,x-y\rangle = \left\|
+x\right\| ^2 -\langle x,y\rangle-\langle y,x\rangle +\left\| y\right\|
+^2
+    \end{align*}
+\]</span> 从而有 <span class="math display">\[
+    \begin{align*}
+        \left\| x+y\right\|^2 + \left\| x-y\right\|^2 = 2(\left\|
+x\right\|^2 + \left\| y\right\|^2),\quad \forall x,y\in E
+    \end{align*}
+\]</span></p>
+<hr />
+<p><strong>乘积空间内积</strong>：设<span
+class="math inline">\(H,K\)</span>是Hilbert空间，其内积为<span
+class="math inline">\(\langle \cdot,\cdot \rangle_{H},\langle
+\cdot,\cdot\rangle_{K}\)</span>，则<span class="math inline">\(H\times
+K\)</span>是Hilbert空间，且有内积 <span class="math display">\[
+    \begin{align*}
+        \langle (x,\xi),(y,\eta)\rangle_{H\times K} := \langle
+x,y\rangle_{H}+\langle \xi,\eta\rangle_{K},\quad \forall x,y\in H\;
+and\; \xi,\eta \in K
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：<span class="math inline">\(\forall x,y\in
+H,\xi,\eta\in K\)</span>，则 - <span
+class="math inline">\(\langle(x,\xi),(x,\xi)\rangle_{H\times K}=\langle
+x,x\rangle_{H}+\langle \xi,\xi\rangle_{K}\ge 0\)</span>，若<span
+class="math inline">\(\langle x,x\rangle_{H}+\langle
+\xi,\xi\rangle_{K}=0\)</span>，则有<span class="math inline">\(x=0,\xi
+=0\)</span>，即<span class="math inline">\((x,\xi)=0\)</span> - <span
+class="math inline">\(\forall \widetilde{x}\in H,\widetilde{\xi}\in
+K\)</span>，则有 <span class="math display">\[
+        \begin{align*}
+            &amp;\langle
+(x,\xi)+(\widetilde{x},\widetilde{\xi}),(y,\eta)\rangle_{H\times K}\\
+            =&amp; \langle x+\widetilde{x},y\rangle_{H}+\langle \xi
++\widetilde{\xi},\eta\rangle_{K}\\
+            =&amp; [\langle x,y\rangle _{H}+\langle \xi,\eta\rangle
+_{K}]+[\langle \widetilde{x},y\rangle_{H}+ \langle
+\widetilde{\xi},\eta\rangle_{K}]\\
+            =&amp; \langle(x,\xi),(y,\eta)\rangle_{H\times
+K}+\langle(\tilde{x},\tilde{\xi}),(y,\eta)\rangle_{H\times K}
+        \end{align*}
+    \]</span> - <span class="math inline">\(\forall \alpha \in
+K\)</span>， <span class="math display">\[
+        \begin{align*}
+            \begin{aligned}
+                &amp;\langle\alpha(x,\xi),(y,\eta)\rangle_{H\times K} \\
+                =&amp; \begin{aligned}\langle\alpha
+x,y\rangle_H+\langle\alpha\xi,\eta\rangle_K=\alpha\langle
+x,y\rangle_H+\alpha\langle\xi,\eta\rangle_K\end{aligned}  \\
+                =&amp; \alpha\langle(x,\xi),(y,\eta)\rangle_{H\times K}.
+            \end{aligned}
+        \end{align*}
+    \]</span> - 由于 <span class="math display">\[
+    \begin{align*}
+            \begin{array}{rl}\langle(x,\xi),(y,\eta)\rangle_{H\times
+K}=\langle x,y\rangle_H+\langle\xi,\eta\rangle_K=\overline{\langle
+y,x\rangle}_H+\overline{\langle\xi,\eta\rangle}_K=\overline{\langle(y,\eta),(x,\xi)\rangle}_{H\times
+K}\end{array}
+        \end{align*}
+    \]</span> 因此，<span class="math inline">\(\langle
+(x,\xi),(y,\eta)\rangle_{H\times K} := \langle x,y\rangle_{H}+\langle
+\xi,\eta\rangle_{K}\)</span>是内积，同时由于 <span
+class="math display">\[
+    \begin{align*}
+        \left\| (x,\xi)\right\|_{H\times K}=\sqrt{\left\|
+x\right\|_{H}^2 + \left\| \xi\right\|_{K}^2}
+    \end{align*}
+\]</span> 从而有<span class="math inline">\(H\times
+K\)</span>在此范数下完备</p>
+<hr />
+<h2 id="最优逼近">最优逼近</h2>
+<h3 id="最优逼近元">最优逼近元</h3>
+<p><strong>最有逼近元素</strong>：设<span
+class="math inline">\(X\)</span>是度量空间，<span
+class="math inline">\(B\subset X,x\in X\setminus B\)</span>，若存在
+<span class="math inline">\(\widetilde{x}\in B,\ s.t.\)</span> <span
+class="math display">\[
+    \begin{align*}
+        d(x,\widetilde{x})=d(x,B)
+    \end{align*}
+\]</span> 则称 <span class="math inline">\(\widetilde{x}\)</span> 为
+<span class="math inline">\(x\)</span> 到<span
+class="math inline">\(B\)</span>的最优逼近，也称为最优逼近元素</p>
+<p><strong>最优逼近元存在唯一性定理</strong>：设<span
+class="math inline">\(B\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间<span
+class="math inline">\(H\)</span>的闭凸集，设<span
+class="math inline">\(x\in H\setminus B\)</span>，则存在唯一元 <span
+class="math inline">\(\widetilde{x}\in B,\ s.t.\)</span> <span
+class="math display">\[
+    \begin{align*}
+        \left\| x - \widetilde{x}\right\| = \inf_{y\in B}\left\|
+x-y\right\|
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：令<span
+class="math inline">\(d:=d(x,B)\)</span>，对于<span
+class="math inline">\(\forall n\in N\)</span>，存在<span
+class="math inline">\(y_n\in B\)</span>使得 <span
+class="math display">\[
+    \begin{align*}
+        d\le \left\| x-y_n\right\| &lt;d+\frac{1}{n}
+    \end{align*}
+\]</span> 下面说明<span class="math inline">\(\{y_n\}\)</span>是<span
+class="math inline">\(Cauchy\)</span>列，事实上 <span
+class="math display">\[
+    \begin{align*}
+        2\|x-y_n\|^2+2\|x-y_m\|^2=\|2x-y_n-y_m\|^2+\|y_n-y_m\|^2
+    \end{align*}
+\]</span> 由于<span class="math inline">\(B\)</span>是凸集，故<span
+class="math inline">\(\frac{y_n + y_m}{2}\in B\)</span>且 <span
+class="math display">\[
+    \begin{align*}
+        \|2x-y_n-y_m\|^2=4\|x-\frac{y_n+y_m}2\|^2\geq4d^2
+    \end{align*}
+\]</span> 因此，可以得到 <span class="math display">\[
+    \begin{align*}
+        \begin{aligned}
+            \|y_n-y_m\|^2&amp; =\quad
+2\|x-y_{n}\|^{2}+2\|x-y_{m}\|^{2}-\|2x-y_{n}-y_{m}\|^{2}  \\
+            &amp;\leq\quad2(d+\frac1n)^2+2(d+\frac1m)^2-4d^2 \\
+            &amp;=\quad\frac{4d}n+\frac{4d}m+\frac2{n^2}+\frac2{m^2}\to0\quad\text{as
+}m,n\to\infty.
+        \end{aligned}
+    \end{align*}
+\]</span> 由<span class="math inline">\(H\)</span>的完备性，可知 <span
+class="math inline">\(\exists \widetilde{x}\in H\)</span>使得 <span
+class="math inline">\(y_n\to \widetilde{x}\)</span></p>
+<p>由于 <span class="math display">\[
+    \begin{align*}
+        \|x-\tilde{x}\|=\lim_{n\to\infty}\|x-y_n\|=d
+    \end{align*}
+\]</span> 从而 <span class="math inline">\(\widetilde{x}\)</span>
+即为所求</p>
+<hr />
+<p><strong>推论</strong>：设<span
+class="math inline">\(L\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间<span
+class="math inline">\(H\)</span>的闭子空间，<span
+class="math inline">\(x\in H\setminus L\)</span>，则存在唯一的 <span
+class="math inline">\(l\in L,\ s.t.\)</span> <span
+class="math display">\[
+    \begin{align*}
+        \left\| x-l\right\| = d(x,L)
+    \end{align*}
+\]</span></p>
+<h3 id="正交">正交</h3>
+<p><strong>正交</strong>： 设<span
+class="math inline">\(H\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间，<span
+class="math inline">\(x,y\in H\)</span>，称<span
+class="math inline">\(x,y\)</span>是正交的，若满足<span
+class="math inline">\(\langle x,y\rangle = 0\)</span>，记为 <span
+class="math inline">\(x\perp y\)</span></p>
+<div class="note info no-icon"><p>设<span class="math inline">\(S\subset H\)</span>，记号<span
+class="math inline">\(x\perp S\Longleftrightarrow x\perp y,\forall y\in
+S\)</span></p>
+</div>
+<p><strong>勾股定理</strong>： 若<span class="math inline">\(x\perp
+y\)</span>，则有 <span class="math display">\[
+    \begin{align*}
+        \left\| x+y\right\|^2 = \left\| x\right\|^2 + \left\|
+y\right\|^2
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>： <span class="math display">\[
+    \begin{align*}
+        \left\| x+y\right\|^2 &amp;=\langle x+y,x+y\rangle\\
+        &amp;= \langle x,x\rangle+\langle y,y\rangle\\
+        &amp;= \left\| x\right\|^2 + \left\| y \right\|^2
+    \end{align*}
+\]</span></p>
+<hr />
+<p><strong>定理</strong>：设<span
+class="math inline">\(H\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间，<span
+class="math inline">\(L\)</span>是<span
+class="math inline">\(H\)</span>的闭子空间，<span
+class="math inline">\(x\in H\setminus L,l\in L\)</span>，则有 <span
+class="math display">\[
+    \begin{align*}
+        \left\| x-l \right\| = d(x,L)\Longleftrightarrow (x-l)\perp L
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：</p>
+<ul>
+<li><p>必要性</p>
+<p><span class="math inline">\(\forall y\in L,\lambda \in
+K\)</span>，则有 <span class="math display">\[
+  \begin{align*}
+      \|x-\ell +\lambda y\|^2 \ge \| x-\ell \|^2
+  \end{align*}
+  \]</span> 从而 <span class="math display">\[
+  \begin{align*}
+      \langle x-\ell+\lambda y,x-\ell+\lambda y\rangle\geq\langle
+x-\ell,x-\ell\rangle
+  \end{align*}
+  \]</span> 即 <span class="math display">\[
+  \begin{align*}
+      \lambda \langle y,x-\ell\rangle +\overline{\lambda} \langle
+x-\ell,y\rangle +\left|\lambda\right|^2 \|y\|^2\ge 0
+  \end{align*}
+  \]</span> 令<span class="math inline">\(\lambda = t\frac{\left|\langle
+y,x-\ell\rangle\right|}{\langle y,x-\ell\rangle},t\in
+R,t&lt;0\)</span>，从而 <span class="math display">\[
+  \begin{align*}
+      2t\left|\langle y,x-\ell\rangle \right|+t^2\|y\|^2\ge 0
+  \end{align*}
+  \]</span> 即有 <span class="math display">\[
+  \begin{align*}
+      \left|\langle x-\ell ,y\rangle\right|\le -\frac{1}{2}t\|y\|^2
+  \end{align*}
+  \]</span> 由<span class="math inline">\(t\)</span>的任意性，令<span
+class="math inline">\(t\to 0^{-}\)</span>，故 <span
+class="math display">\[
+  \begin{align*}
+      \langle x-\ell,y\rangle = 0
+  \end{align*}
+  \]</span></p></li>
+<li><p>充分性</p>
+<p><span class="math inline">\(\forall y\in L\)</span>，有<span
+class="math inline">\(l-y\in L\)</span>，则有<span
+class="math inline">\((x-l)\perp (l-y)\)</span>，从而 <span
+class="math display">\[
+  \begin{align*}
+      \left\| x-y\right\| ^2 =
+\|(x-\ell)+(\ell-y)\|^2=\|x-\ell\|^2+\|\ell-y\|^2\ge \left\| x-\ell
+\right\|^2
+  \end{align*}
+  \]</span> 因此，<span class="math inline">\(\| x-\ell
+\|=d(x,L)\)</span></p></li>
+</ul>
+<hr />
+<p><strong>定理</strong>： 设H是Hilbert空间，B是H的闭凸集，<span
+class="math inline">\(\widetilde{x}\in B,x\in H\setminus
+B\)</span>，则下列命题等价</p>
+<ul>
+<li><span class="math inline">\(\left\| x-\widetilde{x}\right\| =
+d(x,B)\)</span></li>
+<li><span class="math inline">\(Re(x-\widetilde{x},b-\widetilde{x})\le
+0,\quad \forall b\in B\)</span></li>
+<li><span class="math inline">\(Re(x-b,\widetilde{x}-b)\ge 0,\quad
+\forall b\in B\)</span></li>
+</ul>
+<p><strong>证明</strong>：</p>
+<ul>
+<li><p><span class="math inline">\((1)\Longrightarrow (2)\)</span> <span
+class="math inline">\(\forall b\in B,0&lt;\lambda&lt;1\)</span>，则有
+<span class="math display">\[
+  \begin{align*}
+      (1-\lambda)\widetilde{x}+\lambda b = \widetilde{x}+\lambda
+(b-\widetilde{x})\in B
+  \end{align*}
+  \]</span> 因此，可以得到 <span class="math display">\[
+  \begin{align*}
+      \|x-\widetilde{x}\|^2\leq\|x-(\widetilde{x}+\lambda(b-\widetilde{x}))\|^2
+  \end{align*}
+  \]</span> 即 <span class="math display">\[
+  \begin{align*}
+      &amp;\begin{array}{rcl}\|x-\widetilde{x}\|^2\le
+\|x-\widetilde{x}\|^2-2\mathrm{Re}\langle
+x-\widetilde{x},\lambda(b-\widetilde{x})\rangle+|\lambda|^2\|b-\widetilde{x}\|^2\end{array}\\
+      \Longrightarrow \quad&amp;2\mathrm{Re}\langle
+x-\widetilde{x},\lambda(b-\widetilde{x})\rangle\leq\lambda^2\|b-\widetilde{x}\|^2\\
+      \Longrightarrow \quad&amp;2\mathrm{Re}\langle x-\widetilde
+x,b-\widetilde x\rangle\leq\lambda\|b-\widetilde x\|^{2}
+  \end{align*}
+  \]</span> 令<span class="math inline">\(\lambda \to
+0^{+}\)</span>，从而有 <span class="math display">\[
+  \begin{align*}
+      \mathrm{Re}\langle x-\widetilde{x},b-\widetilde{x}\rangle\leq0
+  \end{align*}
+  \]</span></p></li>
+<li><p><span class="math inline">\((2)\Longrightarrow (3)\)</span></p>
+<p><span class="math inline">\(\forall b\in B\)</span>，有 <span
+class="math display">\[
+  \begin{align*}
+      \mathrm{Re}\langle
+x-\widetilde{x},b-\widetilde{x}\rangle=\mathrm{Re}\langle(x-b)+(b-\widetilde{x}),b-\widetilde{x}\rangle\leq0.
+  \end{align*}
+  \]</span> 这表明 <span class="math display">\[
+  \begin{align*}
+      &amp;\mathrm{Re}\langle
+x-b,b-\widetilde{x}\rangle+\|b-\widetilde{x}\|^2\leq0\\
+      \Longrightarrow\quad &amp;\mathrm{Re}\langle
+x-b,b-\widetilde{x}\rangle\leq0\\
+      \Longrightarrow\quad&amp;\mathrm{Re}\langle
+x-b,\widetilde{x}-b\rangle\ge 0
+  \end{align*}
+  \]</span></p></li>
+<li><p><span class="math inline">\((3)\Longrightarrow (1)\)</span></p>
+<p><span class="math inline">\(\forall b\in B,0&lt;\lambda
+&lt;1\)</span>，则 <span class="math display">\[
+  \begin{align*}
+      \widetilde{x}+\lambda(b-\widetilde{x})\in B
+  \end{align*}
+  \]</span> 且 <span class="math display">\[
+  \begin{align*}
+      \mathrm{Re}\langle
+x-[\widetilde{x}+\lambda(b-\widetilde{x})],\widetilde{x}-[\widetilde{x}+\lambda(b-\widetilde{x})]\rangle\geq0
+  \end{align*}
+  \]</span> 这表明 <span class="math display">\[
+  \begin{align*}
+      &amp;\mathrm{Re}(-\langle
+x-\widetilde{x},\lambda(b-\widetilde{x})\rangle+\lambda^{2}\|b-\widetilde{x}\|^{2})\geq0\\
+      \Longrightarrow \quad
+&amp;\lambda\|b-\widetilde{x}\|^2\geq\mathrm{Re}\langle
+x-\widetilde{x},b-\widetilde{x}\rangle
+  \end{align*}
+  \]</span> 令<span class="math inline">\(\lambda \to
+0^{+}\)</span>，可得 <span class="math display">\[
+  \begin{align*}
+      \mathrm{Re}\langle x-\widetilde{x},b-\widetilde{x}\rangle\leq0
+  \end{align*}
+  \]</span> 从而 <span class="math display">\[
+  \begin{align*}
+      \begin{aligned}
+          \begin{aligned}\|x-b\|^2\end{aligned}&amp;
+=\|(x-\widetilde{x})+(\widetilde{x}-b)\|^2  \\
+          &amp;=\langle(x-\widetilde{x})+(\widetilde{x}-b),(x-\widetilde{x})+(\widetilde{x}-b)\rangle  \\
+          &amp;=\|x-\widetilde{x}\|^2+2\mathrm{Re}\langle
+x-\widetilde{x},\widetilde{x}-b\rangle+\|\widetilde{x}-b\|^2 \\
+          &amp;\geq\|x-\widetilde{x}\|^{2}
+      \end{aligned}
+  \end{align*}
+  \]</span> 即<span class="math inline">\(\left\|
+x-\widetilde{x}\right\| =d(x,B)\)</span></p></li>
+</ul>
+<hr />
+<p><strong>推论</strong>：设<span
+class="math inline">\(H\)</span>是<span
+class="math inline">\(Hilbert\)</span>空间，<span
+class="math inline">\(B\)</span>是<span
+class="math inline">\(H\)</span>的闭凸集，<span
+class="math inline">\(x,y\in H\)</span>，设 <span
+class="math inline">\(\widetilde{x},\widetilde{y}\)</span> 是 <span
+class="math inline">\(x,y\)</span> 的最优逼近元素，则有 <span
+class="math display">\[
+    \begin{align*}
+        \left\| \widetilde{x}-\widetilde{y}\right\| \le \left\|
+x-y\right\|
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>： 设<span class="math inline">\(b\in
+B\)</span>，已知满足 <span class="math display">\[
+    \begin{align*}
+        \mathrm{Re}\langle
+x-\widetilde{x},b-\widetilde{x}\rangle\leq0,\quad \mathrm{Re}\langle
+y-\widetilde{y},b-\widetilde{y}\rangle\leq0
+    \end{align*}
+\]</span> 则有 <span class="math display">\[
+    \begin{align*}
+        &amp;\mathrm{Re}\langle
+x-\widetilde{x},\widetilde{y}-\widetilde{x}\rangle+\mathrm{Re}\langle
+y-\widetilde{y},\widetilde{x}-\widetilde{y}\rangle\leq0\\
+        \Longrightarrow \quad &amp; \mathrm{Re}\langle
+y-x+\widetilde{x}-\widetilde{y},\widetilde{x}-\widetilde{y}\rangle\leq0\\
+        \Longrightarrow \quad &amp; \mathrm{Re}\langle
+y-x,\widetilde{x}-\widetilde{y}\rangle+\|\widetilde{x}-\widetilde{y}\|^2\leq0
+    \end{align*}
+\]</span> 因此 <span class="math display">\[
+    \begin{align*}
+        \begin{aligned}
+            \|\widetilde{x}-\widetilde{y}\|^{2}&amp;\leq\text{Re}\langle
+x-y,\widetilde{x}-\widetilde{y}\rangle \\
+            &amp;\leq|\langle x-y,\widetilde{x}-\widetilde{y}\rangle| \\
+            &amp;\leq\|x-y\|\|\widetilde{x}-\widetilde{y}\|
+        \end{aligned}
+    \end{align*}
+\]</span> 即 <span class="math display">\[
+    \begin{align*}
+        \left\| \widetilde{x}-\widetilde{y}\right\| \le \left\|
+x-y\right\|
+    \end{align*}
+\]</span></p>
+<hr />
+<h2 id="正交分解">正交分解</h2>
+<h2 id="正交化">正交化</h2>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Hilbert%E7%A9%BA%E9%97%B4/">
+                                    <span class="chip bg-color">Hilbert空间</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4/">
+                                    <span class="chip bg-color">内积空间</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%86%85%E7%A7%AF/">
+                                    <span class="chip bg-color">内积</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/">
+                                    <span class="chip bg-color">泛函分析</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/12/13/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90-Hilbert%E7%A9%BA%E9%97%B4/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="泛函分析-Hilbert空间">
+                        
+                        <span class="card-title">泛函分析-Hilbert空间</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Hilbert空间
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Wang
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hilbert%E7%A9%BA%E9%97%B4/">
+                        <span class="chip bg-color">Hilbert空间</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4/">
+                        <span class="chip bg-color">内积空间</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%86%85%E7%A7%AF/">
+                        <span class="chip bg-color">内积</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">泛函分析</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/12/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90-Banach%E7%A9%BA%E9%97%B4/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="泛函分析-Banach空间">
+                        
+                        <span class="card-title">泛函分析-Banach空间</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Banach空间
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Wang
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">泛函分析</span>
+                    </a>
+                    
+                    <a href="/tags/Banach%E7%A9%BA%E9%97%B4/">
+                        <span class="chip bg-color">Banach空间</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%B5%8B%E8%8C%83%E7%A9%BA%E9%97%B4/">
+                        <span class="chip bg-color">赋范空间</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%8C%83%E6%95%B0/">
+                        <span class="chip bg-color">范数</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023</span>
+            
+            <a href="/about" target="_blank">Wang</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2023";
+                        var startMonth = "2";
+                        var startDate = "13";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/pursuitxi" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1678121180@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1678121180" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1678121180" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

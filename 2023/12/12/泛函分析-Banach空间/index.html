@@ -1,0 +1,1339 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="泛函分析-Banach空间, Pursuit">
+    <meta name="description" content="Banach空间">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>泛函分析-Banach空间 | Pursuit</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Pursuit</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Pursuit</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">泛函分析-Banach空间</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/">
+                                <span class="chip bg-color">泛函分析</span>
+                            </a>
+                        
+                            <a href="/tags/Banach%E7%A9%BA%E9%97%B4/">
+                                <span class="chip bg-color">Banach空间</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%B5%8B%E8%8C%83%E7%A9%BA%E9%97%B4/">
+                                <span class="chip bg-color">赋范空间</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%8C%83%E6%95%B0/">
+                                <span class="chip bg-color">范数</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-12
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.5k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="banach空间">Banach空间</h1>
+<h2 id="赋范空间">赋范空间</h2>
+<h3 id="范数">范数</h3>
+<p><strong>赋范空间</strong>：设E是K上的线性空间，定义范数<span
+class="math inline">\(\left \| \cdot \right \|:=E\rightarrow
+R_{+}\)</span>，称<span class="math inline">\((E,\left \| \cdot \right
+\| )\)</span>为赋范空间，若满足 - <span class="math inline">\(\left \| x
+\right \|\ge 0,\quad \forall x\in E\)</span> - <span
+class="math inline">\(\left \| x \right \|=0\Longleftrightarrow
+x=0\)</span> - <span class="math inline">\(\left \| \lambda x \right
+\|=\left|\lambda\right|\left \| x \right \|,\quad \forall \lambda \in
+K,\forall x\in E\)</span> - $| x+y || x |+| y | $</p>
+<div class="note info no-icon"><p>赋范空间是一个度量空间，$d(x,y)=| x-y | $</p>
+</div>
+<h3 id="holder不等式">Holder不等式</h3>
+<p><strong>Holder不等式</strong>：设<span
+class="math inline">\((\Omega,\mu)\)</span>是可测空间，令<span
+class="math inline">\(1&lt; p&lt;\infty\)</span>，存在 <span
+class="math inline">\(1&lt;q&lt;\infty\)</span>，满足 <span
+class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>，对于任意 <span
+class="math inline">\(f\in L^{p}(\Omega,\mu),g\in
+L^{q}(\Omega,\mu)\)</span> ，则 <span class="math inline">\(fg\in
+L^{1}(\Omega,\mu)\)</span> 且有 <span class="math display">\[
+\begin{equation*}
+    \left\| fg
+\right\|_{1}=\int_{\Omega}\left|fg\right|d\mu\le(\int_{\Omega}\left|f\right|^{p}d\mu)^{\frac{1}{p}}(\int_{\Omega}\left|g\right|^{q}d\mu)^{\frac{1}{q}}=\left\|
+f\right\|_{p}\left\| g\right\|_{q}
+\end{equation*}
+\]</span></p>
+<p><strong>证明</strong>：考虑函数 <span class="math display">\[
+\begin{align*}
+    &amp;\varphi(t)=\frac{t^{p}}{p}+\frac{1}{q}-t,\quad t\in
+\left[0,\infty\right)\\
+    \Longrightarrow &amp;
+\varphi&#39;(t)=t^{p-1}-1,\varphi&#39;&#39;(t)=(p-1)t^{p-2}\\
+    \Longrightarrow &amp; \varphi(t)\ge \varphi(1)=0,\quad \forall t \in
+\left[0,\infty\right)\\
+    \Longrightarrow &amp; \frac{t^{p}}{p}+\frac{1}{q}\ge t,\quad t\in
+\left[0,\infty\right)
+\end{align*}
+\]</span> 特别地，令<span
+class="math inline">\(t=uv^{\frac{1}{1-p}},\quad u,v\ge 0\)</span>，有
+<span class="math display">\[
+\begin{equation*}
+    uv\le \frac{u^{p}}{p}+\frac{v^{q}}{q}
+\end{equation*}
+\]</span> 现在，令<span
+class="math inline">\(u=\frac{\left|f(t)\right|}{\left\| f
+\right\|_{p}},v=\frac{\left|g(t)\right|}{\left\| g
+\right\|_{q}}\)</span>对于任何固定的<span class="math inline">\(t\in
+\Omega\)</span>，则有 <span class="math display">\[
+\begin{equation*}
+    \frac{\left|f(t)g(t)\right|}{\left\| f \right\|_{p}\left\| g
+\right\|_{q}}\le \frac{\left|f(t)\right|^p}{p\left\| f
+\right\|_{p}^p}+\frac{\left|g(t)\right|^q}{q\left\| g
+\right\|_{q}^q},\quad \forall t\in \Omega
+\end{equation*}
+\]</span> 因此 <span class="math display">\[
+\begin{align*}
+    \frac{\int_{\Omega}\left|fg\right|d\mu}{\left\| f
+\right\|_{p}\left\| g \right\|_{q}} &amp;\le
+\frac{1}{p}\frac{\int_{\Omega}\left|f\right|^pd\mu}{\left\|
+f\right\|_{p}^p}+\frac{1}{q}\frac{\int_{\Omega}\left|g\right|^qd\mu}{\left\|
+g\right\|_{q}^{q}}\\
+        &amp;=\frac{1}{p}+\frac{1}{q}=1
+\end{align*}
+\]</span> 从而 <span class="math display">\[
+\begin{equation*}
+    \left\| fg \right\|_{1}\le \left\| f \right\|_{p}\left\| g
+\right\|_{q}
+\end{equation*}
+\]</span></p>
+<hr />
+<h3 id="minkowski不等式">Minkowski不等式</h3>
+<p><strong>Minkowski不等式</strong>：设<span class="math inline">\(p\ge
+1,f,g\in L^{p}(\Omega,\mu)\)</span>，则有 <span class="math display">\[
+\begin{equation*}
+    \left\| f+g \right\|_{p}\le \left\| f\right\|_{p}+\left\|
+g\right\|_{p}
+\end{equation*}
+\]</span> 即 <span class="math display">\[
+\begin{equation*}
+    (\int_{\Omega}\left|f+g\right|^p d\mu)^{\frac{1}{p}}\le
+(\int_{\Omega}\left|f\right|^p
+d\mu)^{\frac{1}{p}}+(\int_{\Omega}\left|g\right|^{p}d\mu)^{\frac{1}{p}}
+\end{equation*}
+\]</span></p>
+<p><strong>证明</strong>：</p>
+<ul>
+<li>当<span class="math inline">\(p=1\)</span>时，结果显然</li>
+<li>当<span class="math inline">\(p&gt;1\)</span>时， <span
+class="math display">\[
+  \begin{align*}
+      \left\| f+g \right\|_{p}^{p}&amp;=\int_{\Omega}\left|f+g\right|^p
+d\mu=\int_{\Omega}\left|f+g\right|^{p-1}\left|f+g\right|d\mu\\
+      &amp;\le
+\int_{\Omega}\left|f+g\right|^{p-1}(\left|f\right|+\left|g\right|)d\mu\\
+      &amp;\le \left\| \left|f+g\right|^{p-1}\right\|_{q}\left\|
+f\right\|_{p}+\left\| \left|f+g\right|^{p-1}\right\|_{q}\left\|
+g\right\|_{p}\\
+      &amp;= \left\| \left|f+g\right|^{p-1}\right\|_{q}(\left\|
+f\right\|_{p}+\left\| g\right\|_{p})
+  \end{align*}
+  \]</span> 另一方面，有 <span class="math display">\[
+  \begin{align*}
+      \left\|\left|f+g\right|^{p-1}\right\|_{q}
+&amp;=(\int_{\Omega}(\left|f+g\right|^{p-1})^q d\mu)^{\frac{1}{q}}\\
+      &amp;=[(\int_{\Omega}\left|f+g\right|^{p}d\mu)^{\frac{1}{p}}]^{\frac{p}{q}}\\
+      &amp;=\left\| f+g \right\|_{p}^{\frac{p}{q}}=\left\|
+f+g\right\|_{p}^{p-1}
+  \end{align*}
+  \]</span> 这意味着 <span class="math display">\[
+  \begin{align*}
+      &amp;\left\| f+g\right\|_{p}^{p}\le \left\|
+f+g\right\|_{p}^{p-1}(\left\| f\right\|_{p}+\left\| g\right\|_{p})\\
+      \Longrightarrow &amp; \left\| f+g\right\|_{p}\le \left\|
+f\right\|_{p}+\left\| g\right\|_{p}
+  \end{align*}
+  \]</span></li>
+</ul>
+<hr />
+<h3 id="等价范数">等价范数</h3>
+<p><strong>范数等价</strong>：设<span class="math inline">\(\left\|
+\cdot \right\|_{1},\left\| \cdot
+\right\|_{2}\)</span>是向量空间E上的范数，称<span
+class="math inline">\(\left\| \cdot \right\|_{1},\left\| \cdot
+\right\|_{2}\)</span>等价，若满足<span class="math inline">\(\exists
+\alpha,\beta&gt;0,s.t.\)</span> <span class="math display">\[
+    \begin{equation*}
+        \alpha \left\| x \right\|_{1}\le \left\| x\right\|_{2}\le
+\beta\left\| x\right\|_{1},\quad \forall x\in E
+    \end{equation*}
+\]</span></p>
+<p><strong>有限空间范数等价定理</strong>：有限维线性空间上所有范数都等价</p>
+<p><strong>证明</strong>：只需证明任一范数<span
+class="math inline">\(||\cdot||\)</span>都与2-范数<span
+class="math inline">\(||\cdot||_2\)</span>等价</p>
+<p>设<span class="math inline">\(dim E=n\)</span>，<span
+class="math inline">\(\{e_{1},e_{2},\cdots,e_{n}\}\)</span>是<span
+class="math inline">\(E\)</span>的一个基，即<span
+class="math inline">\(\forall x\in E\)</span>，有唯一表示 <span
+class="math display">\[
+    x=\sum_{i=1}^{n}x_{i}e_{i},\quad x_{i}\in K
+\]</span> 现在 <span class="math display">\[
+    \begin{align*}
+        ||x|| &amp;= ||x_1e_1+x_2e_2+\cdots x_ne_n||\\
+        &amp;\le |x_1|||e_1||+|x_2|||e_2||+\cdots+|x_n|||e_n||\\
+        &amp;\le
+(\sum_{i=1}^{n}|x_i|^2)^{\frac{1}{2}}(\sum_{i=1}^{n}||e_i||^2)^{\frac{1}{2}}\\
+        &amp;= \beta ||x||_2
+    \end{align*}
+\]</span></p>
+<p>由范数的三角不等式可知，函数 <span class="math display">\[
+    \varphi:(x_1,x_2,\cdots,x_n)\in K^{n}\longmapsto ||x||\in R^{+}
+\]</span> 连续</p>
+<p>因此函数<span class="math inline">\(\varphi\)</span>在紧集<span
+class="math inline">\(\{(x_1,x_2,\cdots,x_n)\in
+K^{n}:(\sum_{i=1}^{n}|x_i|^2)^{\frac{1}{2}}=1\}\)</span>上能取得最小值<span
+class="math inline">\(\alpha\)</span>，即 <span class="math display">\[
+    \frac{||x||}{||x||_2}\ge \alpha,\quad \forall x\in E,x\ne 0
+\]</span> 因此 <span class="math display">\[
+    \alpha||x||_2\le ||x||\le \beta ||x||_2,\quad \forall x\in E
+\]</span></p>
+<hr />
+<h2 id="banach空间-1">Banach空间</h2>
+<h3 id="柯西列">柯西列</h3>
+<p><strong>柯西列</strong>：称<span
+class="math inline">\(\{x_{n}\}_{n=1}^{\infty}\)</span>是赋范空间E中基本列（或Cauchy列）是指<span
+class="math inline">\(\forall \epsilon&gt;0,\exists N,\ s.t.\)</span>
+<span class="math display">\[
+\begin{equation*}
+    \left\| x_{n}-x_{m}\right\| &lt;\epsilon,\quad \forall n,m\ge N
+\end{equation*}
+\]</span> <div class="note info no-icon"><p>对于任意的赋范空间，不是所有柯西列都收敛</p>
+</div></p>
+<h3 id="banach空间-2">Banach空间</h3>
+<p><strong>Banach空间</strong>：称赋范空间<span
+class="math inline">\(E\)</span>为<span
+class="math inline">\(Banach\)</span>空间，若每一个柯西列都在<span
+class="math inline">\(E\)</span>中收敛</p>
+<p><strong>无穷维Banach空间</strong>：无穷维的Banach空间的线性空间的维数不可数</p>
+<p><strong>证明</strong>：反证，设<span
+class="math inline">\(\{x_1,x_2,\cdots\}\)</span>是无穷维<span
+class="math inline">\(Banach\)</span>空间<span
+class="math inline">\(E\)</span>的可数基，设<span
+class="math inline">\(E_n\)</span>是<span
+class="math inline">\(E\)</span>的闭子空间，且满足 <span
+class="math display">\[
+    E=\bigcup_{n=1}^{\infty}E_n,\quad E_n=span\{x_1,x_2,\cdots,x_n\}
+\]</span> 由Baire纲定理知，至少有一个<span
+class="math inline">\(E_n\)</span>是非无处稠的，即 <span
+class="math display">\[
+    B(x,r)\subset E_n\subset \overline{E_n},\quad \exists x\in E,r&gt;0
+\]</span> 由于<span class="math inline">\(E_n\)</span>是子空间，因此
+<span class="math display">\[
+    E=\bigcup_{k=1}^{\infty}kB(x,r)\subset
+\bigcup_{k=1}^{\infty}kE_n=E_n
+\]</span> 从而有 <span class="math inline">\(dim E=dim
+E_n=n&lt;\infty\)</span>，矛盾！</p>
+<hr />
+<div class="note info no-icon"><p><strong>Banach空间</strong></p>
+<ul>
+<li><span
+class="math inline">\(l^p=\{\{\xi_{k}\}:\sum_{k}^{\infty}\left|\xi_{k}\right|^{p}&lt;\infty\},
+\ when \  1\le p \le \infty\)</span></li>
+<li><span class="math inline">\(L^{p}[a,b]=\{x(t):\int_{a}^b
+\left|x(t)\right|^{p}dt&lt;\infty\}, \ when \ 1\le p \le
+\infty\)</span></li>
+</ul>
+</div>
+<p><strong>有限维完备性</strong>：有限维赋范空间X一定是Banach空间</p>
+<p><strong>证明</strong>：设 <span class="math inline">\(dim \
+X=n\)</span>，则<span class="math inline">\(X\)</span>与<span
+class="math inline">\(K^n\)</span>同胚，由于<span
+class="math inline">\(K^n\)</span>是完备的，因此<span
+class="math inline">\(X\)</span>是完备的</p>
+<hr />
+<p><strong>定理</strong>：赋范空间X的有限维子空间M是闭子空间</p>
+<p><strong>证明</strong>：设<span
+class="math inline">\(\{x_{n}\}\)</span>是X中的收敛子列，满足<span
+class="math inline">\(x_{n}\in M\)</span></p>
+<p>设<span class="math inline">\(x=\lim\limits_{n\to
+\infty}x_{n}\)</span>，只需证明<span class="math inline">\(x\in
+M\)</span>，事实上，<span
+class="math inline">\(\{x_{n}\}\)</span>是柯西列，M是完备的，因此<span
+class="math inline">\(x\in M\)</span></p>
+<hr />
+<h3 id="riesz引理">Riesz引理</h3>
+<p><strong>Riesz引理</strong>：设<span class="math inline">\((X,\left \|
+\cdot \right \|)\)</span>是赋范空间，Y是X的闭子空间，<span
+class="math inline">\(Y\ne X\)</span>，则对于任意<span
+class="math inline">\(\epsilon&gt;0\)</span>，存在<span
+class="math inline">\(e\in X,||e||=1\)</span>，使得 <span
+class="math display">\[
+    \begin{equation*}
+        dist(e,y)\ge 1-\epsilon,\quad \forall y\in Y
+    \end{equation*}
+\]</span></p>
+<p><strong>证明</strong>：由于<span class="math inline">\(Y\ne
+X\)</span>，从而 <span class="math inline">\(\exists x\in X\setminus
+Y\)</span>，令 <span class="math display">\[
+    \begin{equation*}
+        d:=\inf\{\left\| x-y\right\| :y\in Y\}&gt;0
+    \end{equation*}
+\]</span> <span class="math inline">\(\forall \epsilon\in (0,1), \
+\exists y_{0}\in Y, \ s.t.\)</span> <span class="math display">\[
+    \begin{equation*}
+        d\le \left\| x-y_{0}\right\| &lt;\frac{d}{1-\epsilon}
+    \end{equation*}
+\]</span> 令 <span class="math display">\[
+    \begin{equation*}
+        e:=\frac{x-y_{0}}{\left\| x-y_{0}\right\| }\ \Rightarrow \
+\left\| e\right\| =1
+    \end{equation*}
+\]</span> <span class="math inline">\(\forall y\in Y\)</span> <span
+class="math display">\[
+    \begin{align*}
+        \left\| e-y\right\| &amp;= \left\| \frac{x-y_{0}}{\left\|
+x-y_{0}\right\| }-y \right\| \\
+        &amp;= \frac{1}{\left\| x-y_{0}\right\| }\left\|
+x-(y_{0}+\left\| x-y_{0}\right\| y)\right\| \\
+        &amp;\ge \frac{1-\epsilon}{d}d=1-\epsilon
+    \end{align*}
+\]</span></p>
+<hr />
+<p><strong>定理</strong>：设<span
+class="math inline">\(E\)</span>是无穷维赋范空间，则单位球<span
+class="math inline">\(B_{E}:=\{x\in E:\left\| x\right\| \le
+1\}\)</span>和单位球面<span class="math inline">\(S_{E}:=\{x\in
+E:\left\| x\right\| =1\}\)</span>都不是紧集</p>
+<p><strong>证明</strong>：只需证明单位球面或单位球不是列紧集</p>
+<p>设 <span class="math inline">\(dim\ E=\infty\)</span>，<span
+class="math inline">\(\exists\{e_{n}\}\subset E\)</span>线性无关</p>
+<p>令<span
+class="math inline">\(E_{n}=span\{e_{1},\cdots,e_{n}\}\)</span>，则<span
+class="math inline">\(E_{n}\subseteq E_{n+1}\)</span>且<span
+class="math inline">\(E_{n}\)</span>是<span
+class="math inline">\(E_{n+1}\)</span>的闭子空间</p>
+<p><span class="math inline">\(\forall n,\ \exists x_{n}\in E_{n}, \
+\left\| x_{n}\right\|=1,\ s.t.\)</span> <span class="math display">\[
+\begin{equation*}
+    d(x_{n},E_{n+1})\ge \frac{1}{2}
+\end{equation*}
+\]</span> 从而 <span class="math display">\[
+\begin{equation*}
+    \left\| x_{n}-x_{m}\right\| \ge \frac{1}{2},\ \forall n,m,\ n\ne m
+\end{equation*}
+\]</span> 即<span
+class="math inline">\(\{x_{n}\}\)</span>没有收敛子列，从而<span
+class="math inline">\(S_E、B_E\)</span>都不是列紧集，更不是紧集</p>
+<hr />
+<div class="note info no-icon"><p>紧性<span
+class="math inline">\(\Longleftrightarrow\)</span>列紧性+闭性</p>
+</div>
+<h3 id="级数">级数</h3>
+<p><strong>收敛级数</strong>：设<span
+class="math inline">\(\{x_{n}\}_{n\in N}\subset E\)</span>，令<span
+class="math inline">\(S_{n}=\sum_{i}^{n}x_{i}\)</span>， 若<span
+class="math inline">\(\{S_{n}\}_{n\in N}\)</span>收敛到<span
+class="math inline">\(S\in E\)</span>，则称序列<span
+class="math inline">\(\sum_{i}^{\infty}x_{i}\)</span> 收敛到 <span
+class="math inline">\(S\)</span>，且记为 $ S=<em>{i}^{}x</em>{i}$</p>
+<p><strong>Banach空间的收敛性</strong>：设<span
+class="math inline">\(E\)</span>是<span
+class="math inline">\(Banach\)</span>空间，序列<span
+class="math inline">\(\sum_{i=1}^{\infty}x_{i}\)</span>收敛当且仅当，对于<span
+class="math inline">\(\forall \epsilon&gt;0,\ \exists N,\ s.t.\)</span>
+<span class="math display">\[
+\begin{align*}
+    \left\| \sum_{i=n}^{n+p}x_{i}\right\| &lt;\epsilon,\quad \forall
+n&gt;N,p\in N
+\end{align*}
+\]</span></p>
+<p><strong>绝对收敛</strong>：称 <span
+class="math inline">\(\sum_{i=1}^{\infty}x_{i}\)</span> 绝对收敛，若满足
+<span class="math inline">\(\sum_{i=1}^{\infty}\left\|
+x_{i}\right\|\)</span> 在<span
+class="math inline">\(E\)</span>中收敛</p>
+<p><strong>定理</strong>：<span class="math inline">\(E\)</span>是<span
+class="math inline">\(Banach\)</span>空间当且仅当<span
+class="math inline">\(E\)</span>中任意一个绝对收敛序列都收敛</p>
+<p><strong>证明</strong>：</p>
+<ul>
+<li><p>必要性：显然成立</p></li>
+<li><p>充分性：设赋范空间<span
+class="math inline">\(E\)</span>中任一绝对收敛序列都收敛</p>
+<p>任取E中柯西列<span class="math inline">\(\{x_{n}\}_{n\in
+N}\)</span>，则有<span class="math inline">\(\{\left\| x_{n}\right\|
+\}_{n\in N}\)</span>是有界序列，即存在<span
+class="math inline">\(C&gt;0\)</span>使得<span
+class="math inline">\(\left\| x_{n}\right\|\le C,\;\forall
+n=1,2,\cdots\)</span></p>
+<p>选取子列<span class="math inline">\(\{x_{n_{k}}\}\)</span>满足 <span
+class="math display">\[
+  \begin{align*}
+      \left\| x_{n_{k}}-x_{n_{k-1}}\right\|&lt;\frac{1}{2^k},\quad
+\forall k&gt;2
+  \end{align*}
+  \]</span> 取<span
+class="math inline">\(x_{n_{1}}=x_{1}\)</span>，因此，序列<span
+class="math inline">\(x_{n_{1}}+\sum_{k=2}^{\infty}\left\|
+x_{n_{k}}-x_{n_{k-1}}\right\|\)</span>收敛</p>
+<p>即序列<span
+class="math inline">\(x_{n_{1}}+\sum_{k=2}^{\infty}(x_{n_{k}}-x_{n_{k-1}})\)</span>绝对收敛</p>
+<p>由假设知，序列<span
+class="math inline">\(x_{n_{1}}+\sum_{k=2}^{\infty}(x_{n_{k}}-x_{n_{k-1}})\)</span>收敛，记<span
+class="math inline">\(x=x_{n_{1}}+\sum_{k=2}^{\infty}(x_{n_{k}}-x_{n_{k-1}})\)</span>，于是
+<span class="math display">\[
+  \begin{align*}
+      x &amp;= \lim\limits_{m\to \infty}(x_{n_{1}}+(x_{n_{2}}-x_{n_{1}})
++\cdots+(x_{n_{m}}-x_{n_{m-1}})  )\\
+      &amp;=\lim\limits_{m\to \infty}x_{n_{m}}
+  \end{align*}
+  \]</span> 下面我们证明<span class="math inline">\(x=\lim\limits_{n\to
+\infty}x_{n}\)</span>，事实上，对于<span class="math inline">\(\forall
+\epsilon&gt;0,\ \exists N_{1}&gt;0,\ s.t.\)</span> <span
+class="math display">\[
+  \begin{align*}
+      \left\| x_{n+p}-x_{n}\right\| &lt;\frac{\epsilon}{2},\quad \forall
+n&gt;N_{1},p\in N
+  \end{align*}
+  \]</span> 同时，<span class="math inline">\(\exists N_{2}&gt;0,\
+s.t.\)</span> <span class="math display">\[
+  \begin{align*}
+      \left\| x_{n_{k}}-x\right\|&lt;\frac{\epsilon}{2},\quad \forall
+n_{k}&gt;N_{2}
+  \end{align*}
+  \]</span> 令<span
+class="math inline">\(N=\max\{N_{1},N_{2}\}\)</span>，则对于<span
+class="math inline">\(\forall n&gt;N\)</span>，选取<span
+class="math inline">\(n_{k_{0}}&gt;N\)</span>， <span
+class="math display">\[
+  \begin{align*}
+      \left\| x_{n}-x\right\| &amp;\le \left\|
+x_{n}-x_{n_{k_{0}}}\right\| + \left\| x_{n_{k_{0}}}-x\right\|\\
+      &amp;&lt; \frac{\epsilon}{2}+\frac{\epsilon}{2} =\epsilon
+  \end{align*}
+  \]</span> 由此，<span class="math inline">\(x=\lim\limits_{n\to
+\infty}x_{n}\)</span></p></li>
+</ul>
+<hr />
+<h3 id="可分">可分</h3>
+<p><strong>可分</strong>：称赋范空间<span
+class="math inline">\(E\)</span>是可分的，若<span
+class="math inline">\(E\)</span>存在可数稠子集<span
+class="math inline">\(M\)</span></p>
+<div class="note info no-icon"><p><strong>可分<span
+class="math inline">\(Banach\)</span>空间</strong></p>
+<ul>
+<li><span class="math inline">\(c_{0},c,C[a,b]\)</span>是可分的</li>
+<li><span class="math inline">\(l^{p},L^{p}[a,b]\)</span>是可分的，<span
+class="math inline">\(1\le p&lt;\infty\)</span></li>
+</ul>
+</div>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/">
+                                    <span class="chip bg-color">泛函分析</span>
+                                </a>
+                            
+                                <a href="/tags/Banach%E7%A9%BA%E9%97%B4/">
+                                    <span class="chip bg-color">Banach空间</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%B5%8B%E8%8C%83%E7%A9%BA%E9%97%B4/">
+                                    <span class="chip bg-color">赋范空间</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%8C%83%E6%95%B0/">
+                                    <span class="chip bg-color">范数</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/12/13/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90-Hilbert%E7%A9%BA%E9%97%B4/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="泛函分析-Hilbert空间">
+                        
+                        <span class="card-title">泛函分析-Hilbert空间</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Hilbert空间
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Wang
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hilbert%E7%A9%BA%E9%97%B4/">
+                        <span class="chip bg-color">Hilbert空间</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%86%85%E7%A7%AF%E7%A9%BA%E9%97%B4/">
+                        <span class="chip bg-color">内积空间</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%86%85%E7%A7%AF/">
+                        <span class="chip bg-color">内积</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">泛函分析</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/12/%E6%95%B0%E7%90%86%E6%96%B9%E7%A8%8B-%E4%BD%8D%E5%8A%BF%E6%96%B9%E7%A8%8B/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="数理方程-位势方程">
+                        
+                        <span class="card-title">数理方程-位势方程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本章讨论位势方程(Poisson方程)
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Wang
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E7%90%86%E6%96%B9%E7%A8%8B/">
+                        <span class="chip bg-color">数理方程</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BD%8D%E5%8A%BF%E6%96%B9%E7%A8%8B/">
+                        <span class="chip bg-color">位势方程</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9F%BA%E6%9C%AC%E8%A7%A3/">
+                        <span class="chip bg-color">基本解</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%B0%83%E5%92%8C%E5%87%BD%E6%95%B0/">
+                        <span class="chip bg-color">调和函数</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023</span>
+            
+            <a href="/about" target="_blank">Wang</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2023";
+                        var startMonth = "2";
+                        var startDate = "13";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/pursuitxi" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1678121180@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1678121180" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1678121180" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
