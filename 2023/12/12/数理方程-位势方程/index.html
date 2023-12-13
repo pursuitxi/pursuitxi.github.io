@@ -291,7 +291,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.9k
+                    3k
                 </div>
                 
 
@@ -308,510 +308,64 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="位势方程">位势方程</h1>
-<h2 id="基本解">基本解</h2>
-<h3 id="基本解推导">基本解推导</h3>
-<p>计算Laplace方程基本解 <span class="math display">\[
-    \bigtriangleup E(r)= \delta(r)
-\]</span> 注意基本解<span class="math inline">\(E(r)\)</span>只与<span
-class="math inline">\(r=|x|\)</span>有关，因此 <span
-class="math display">\[
-    \frac{\partial}{\partial x_i} = \frac{\partial}{\partial
-r}\cdot\frac{\partial r}{\partial
-x_i}=\frac{x_i}{r}\cdot\frac{\partial}{\partial r}
-\]</span> <span class="math display">\[
-    \begin{aligned}
-        \frac{\partial^2}{\partial x_{i}^2}=\frac{\partial}{\partial
-x_i}(\frac{x_i}{r}\cdot\frac{\partial}{\partial
-r})&amp;=\frac{1}{r}\frac{\partial}{\partial
-r}+x_i\frac{\partial}{\partial
-r}\cdot\frac{x_i}{r}\frac{\partial}{\partial
-r}(\frac{1}{r})+(\frac{x_i}{r})^2\frac{\partial^2}{\partial r^2}\\
-        &amp;=(\frac{1}{r}-\frac{x_i^2}{r^3})\frac{\partial}{\partial
-r}+\frac{x_i^2}{r^2}\frac{\partial^2}{\partial r^2}
-    \end{aligned}
-\]</span> 从而 <span class="math display">\[
-    \bigtriangleup E = \frac{n-1}{r}\frac{\partial E}{\partial
-r}+\frac{\partial^2 E}{\partial r^2}=\delta(r)
-\]</span> 令<span class="math inline">\(\frac{\partial E}{\partial
-r}=w(r)\)</span>，可得 <span class="math display">\[
-    w&#39;+\frac{n-1}{r}w=\delta(r)
-\]</span> 两边乘上<span class="math inline">\(r^{n-1}\)</span>得到 <span
-class="math display">\[
-    \frac{d(r^{n-1}w)}{dr}=r^{n-1}\delta(r)
-\]</span> 由<span
-class="math inline">\(\delta\)</span>的广义函数性质，从而有 <span
-class="math display">\[
-    \frac{d(r^{n-1}w)}{dr}=0\Longrightarrow r^{n-1}w=c
-\]</span> 即 <span class="math display">\[
-    E&#39;(r)=w=\frac{c}{r^{n-1}}
-\]</span> 解得 <span class="math display">\[
-    \left\{\begin{matrix}
-     E = c\ln r,\quad n=2 \\
-     E = c\;r^{2-n},\quad n\ge 3
-\end{matrix}\right.
-\]</span></p>
-<h3 id="基本解-1">基本解</h3>
-<p><strong>Laplace基本解</strong>：对于<span class="math inline">\(x\in
-R^{n},x\ne 0\)</span>，Laplace方程的基本解为 <span
-class="math display">\[
-    \begin{align*}
-            \Gamma(x)=\begin{cases}
-                -\frac{1}{2\pi}\ln \left|x\right|,\quad n=2\\
-                \frac{1}{n(n-2)|B(0,1)|}\frac{1}{\left|x\right|^{n-2}},\quad
-n\ge 3
-            \end{cases}
-        \end{align*}
-\]</span></p>
-<div class="note info no-icon"><p>由基本解的性质，对于非齐次位势方程 <span class="math display">\[
-    -\Delta u = f
-\]</span> 函数 <span class="math display">\[
-    u(x)=\Gamma\ast f = \int_{R^{n}}\Gamma(x-y)f(y)dy
-\]</span> 是方程的解</p>
+                <h1 id="位势方程"><a href="#位势方程" class="headerlink" title="位势方程"></a>位势方程</h1><h2 id="基本解"><a href="#基本解" class="headerlink" title="基本解"></a>基本解</h2><h3 id="基本解推导"><a href="#基本解推导" class="headerlink" title="基本解推导"></a>基本解推导</h3><p>计算Laplace方程基本解<br>$$<br>    \bigtriangleup E(r)&#x3D; \delta(r)<br>$$<br>注意基本解$E(r)$只与$r&#x3D;|x|$有关，因此<br>$$<br>    \frac{\partial}{\partial x_i} &#x3D; \frac{\partial}{\partial r}\cdot\frac{\partial r}{\partial x_i}&#x3D;\frac{x_i}{r}\cdot\frac{\partial}{\partial r}<br>$$<br>$$<br>    \begin{aligned}<br>        \frac{\partial^2}{\partial x_{i}^2}&#x3D;\frac{\partial}{\partial x_i}(\frac{x_i}{r}\cdot\frac{\partial}{\partial r})&amp;&#x3D;\frac{1}{r}\frac{\partial}{\partial r}+x_i\frac{\partial}{\partial r}\cdot\frac{x_i}{r}\frac{\partial}{\partial r}(\frac{1}{r})+(\frac{x_i}{r})^2\frac{\partial^2}{\partial r^2}\<br>        &amp;&#x3D;(\frac{1}{r}-\frac{x_i^2}{r^3})\frac{\partial}{\partial r}+\frac{x_i^2}{r^2}\frac{\partial^2}{\partial r^2}<br>    \end{aligned}<br>$$<br>从而<br>$$<br>    \bigtriangleup E &#x3D; \frac{n-1}{r}\frac{\partial E}{\partial r}+\frac{\partial^2 E}{\partial r^2}&#x3D;\delta(r)<br>$$<br>令$\frac{\partial E}{\partial r}&#x3D;w(r)$，可得<br>$$<br>    w’+\frac{n-1}{r}w&#x3D;\delta(r)<br>$$<br>两边乘上$r^{n-1}$得到<br>$$<br>    \frac{d(r^{n-1}w)}{dr}&#x3D;r^{n-1}\delta(r)<br>$$<br>由$\delta$的广义函数性质，从而有<br>$$<br>    \frac{d(r^{n-1}w)}{dr}&#x3D;0\Longrightarrow r^{n-1}w&#x3D;c<br>$$<br>即<br>$$<br>    E’(r)&#x3D;w&#x3D;\frac{c}{r^{n-1}}<br>$$<br>解得<br>$$<br>    \left{\begin{matrix}<br>     E &#x3D; c\ln r,\quad n&#x3D;2 \<br>     E &#x3D; c;r^{2-n},\quad n\ge 3<br>\end{matrix}\right.<br>$$</p>
+<h3 id="基本解-1"><a href="#基本解-1" class="headerlink" title="基本解"></a>基本解</h3><p><strong>Laplace基本解</strong>：对于$x\in R^{n},x\ne 0$，Laplace方程的基本解为<br>$$<br>    \begin{align*}<br>            \Gamma(x)&#x3D;\begin{cases}<br>                -\frac{1}{2\pi}\ln \left|x\right|,\quad n&#x3D;2\<br>                \frac{1}{n(n-2)|B(0,1)|}\frac{1}{\left|x\right|^{n-2}},\quad n\ge 3<br>            \end{cases}<br>        \end{align*}<br>$$</p>
+<div class="note info no-icon"><p>由基本解的性质，对于非齐次位势方程<br>$$<br>    -\Delta u &#x3D; f<br>$$<br>函数<br>$$<br>    u(x)&#x3D;\Gamma\ast f &#x3D; \int_{R^{n}}\Gamma(x-y)f(y)dy<br>$$<br>是方程的解</p>
 </div>
-<h2 id="调和函数">调和函数</h2>
-<h3 id="平均值公式">平均值公式</h3>
-<p><strong>平均值公式定理</strong>：设<span class="math inline">\(u\in
-C^2(\Omega)\)</span>为调和函数，则对于任意球<span
-class="math inline">\(B(x,r)\subset \Omega\)</span>，满足 <span
-class="math display">\[
-    u(x)=\frac{1}{|\partial B(x,r)|}\int_{\partial B(x,r)}u(y)dS_y =
-\frac{1}{|B(x,r)|}\int_{B(x,r)}u(y)dy
-\]</span> <strong>证明</strong>：</p>
+
+<h2 id="调和函数"><a href="#调和函数" class="headerlink" title="调和函数"></a>调和函数</h2><h3 id="平均值公式"><a href="#平均值公式" class="headerlink" title="平均值公式"></a>平均值公式</h3><p><strong>平均值公式定理</strong>：设$u\in C^2(\Omega)$为调和函数，则对于任意球$B(x,r)\subset \Omega$，满足<br>$$<br>    u(x)&#x3D;\frac{1}{|\partial B(x,r)|}\int_{\partial B(x,r)}u(y)dS_y &#x3D; \frac{1}{|B(x,r)|}\int_{B(x,r)}u(y)dy<br>$$<br><strong>证明</strong>：</p>
 <ul>
-<li>令 <span class="math display">\[
-  \begin{aligned}
-      \phi(r)=\frac{1}{|\partial B(x,r)|}\int_{\partial B(x,r)}u(y)dS_y
-  \end{aligned}
-  \]</span> 作平移和伸缩变换，则 <span class="math display">\[
-  \begin{aligned}
-      \phi(r)=\frac{1}{|\partial B(0,1)|}\int_{\partial
-B(0,1)}u(x+rz)dS_z
-  \end{aligned}
-  \]</span> 对<span
-class="math inline">\(z\)</span>求微商，由Gauss-Green公式可得 <span
-class="math display">\[
-  \begin{aligned}
-      \phi&#39;(r) &amp;= \frac{1}{|\partial B(0,1)|}\int_{\partial
-B(0,1)}\mathcal{D}u(x+rz)zdS(z)\\
-      &amp;= \frac{1}{|\partial B(x,r)|}\int_{\partial
-B(x,r)}\mathcal{D}u(y)\frac{y-x}{r}dS_y\\
-      &amp;= \frac{1}{|\partial B(x,r)|}\int_{\partial
-B(x,r)}\frac{\partial u(y)}{\partial n}dS_y\\
-      &amp;= \frac{1}{|\partial B(x,r)|}\int_{B(x,r)}\bigtriangleup
-u(y)dy=0
-  \end{aligned}
-  \]</span> 于是<span
-class="math inline">\(\phi(r)\)</span>是一个常数，由<span
-class="math inline">\(u(x)\)</span>的连续性，从而 <span
-class="math display">\[
-  \begin{aligned}
-      u(x)=\lim\limits_{r\to 0^{+}}\phi(r)=\phi(0)=\phi(r)
-  \end{aligned}
-  \]</span> 即 <span class="math display">\[
-  \begin{aligned}
-      u(x)=\frac{1}{|\partial B(x,r)|}\int_{\partial B(x,r)}u(y)dS_y
-  \end{aligned}
-  \]</span></li>
-<li>注意到 <span class="math display">\[
-\begin{align*}
-     \int_{B(x,r)}u(y)dy=\int_{0}^{r}\int_{\partial B(x,t)}u(y)dS_ydt
-\end{align*}
-\]</span> 再利用上式，则 <span class="math display">\[
-\begin{align*}
-     \int_{B(x,r)}u(y)dy &amp;= u(x)\int_{0}^{r}|\partial B(x,t)|dt\\
-     &amp;= |B(x,r)|u(x)
-\end{align*}
-\]</span> 即 <span class="math display">\[
-\begin{align*}
-     u(x)=\frac{1}{|B(x,r)|}\int_{B(x,r)}u(y)dy
-\end{align*}
-\]</span></li>
+<li>令<br>  $$<br>  \begin{aligned}<br>  \phi(r)&#x3D;\frac{1}{|\partial B(x,r)|}\int_{\partial B(x,r)}u(y)dS_y<br>  \end{aligned}<br>  $$<br>  作平移和伸缩变换，则<br>  $$<br>  \begin{aligned}<br>  \phi(r)&#x3D;\frac{1}{|\partial B(0,1)|}\int_{\partial B(0,1)}u(x+rz)dS_z<br>  \end{aligned}<br>  $$<br>  对$z$求微商，由Gauss-Green公式可得<br>  $$<br>  \begin{aligned}<br>  \phi’(r) &amp;&#x3D; \frac{1}{|\partial B(0,1)|}\int_{\partial B(0,1)}\mathcal{D}u(x+rz)zdS(z)\<br>  &amp;&#x3D; \frac{1}{|\partial B(x,r)|}\int_{\partial B(x,r)}\mathcal{D}u(y)\frac{y-x}{r}dS_y\<br>  &amp;&#x3D; \frac{1}{|\partial B(x,r)|}\int_{\partial B(x,r)}\frac{\partial u(y)}{\partial n}dS_y\<br>  &amp;&#x3D; \frac{1}{|\partial B(x,r)|}\int_{B(x,r)}\bigtriangleup u(y)dy&#x3D;0<br>  \end{aligned}<br>  $$<br>  于是$\phi(r)$是一个常数，由$u(x)$的连续性，从而<br>  $$<br>  \begin{aligned}<br>  u(x)&#x3D;\lim\limits_{r\to 0^{+}}\phi(r)&#x3D;\phi(0)&#x3D;\phi(r)<br>  \end{aligned}<br>  $$<br>  即<br>  $$<br>  \begin{aligned}<br>  u(x)&#x3D;\frac{1}{|\partial B(x,r)|}\int_{\partial B(x,r)}u(y)dS_y<br>  \end{aligned}<br>  $$</li>
+<li>注意到<br> $$<br> \begin{align*}<br> \int_{B(x,r)}u(y)dy&#x3D;\int_{0}^{r}\int_{\partial B(x,t)}u(y)dS_ydt<br> \end{align*}<br> $$<br> 再利用上式，则<br> $$<br> \begin{align*}<br> \int_{B(x,r)}u(y)dy &amp;&#x3D; u(x)\int_{0}^{r}|\partial B(x,t)|dt\<br> &amp;&#x3D; |B(x,r)|u(x)<br> \end{align*}<br> $$<br> 即<br> $$<br> \begin{align*}<br> u(x)&#x3D;\frac{1}{|B(x,r)|}\int_{B(x,r)}u(y)dy<br> \end{align*}<br> $$</li>
 </ul>
-<hr />
-<h3 id="平均值公式逆定理">平均值公式逆定理</h3>
-<p><strong>平均值公式逆定理</strong>：设<span class="math inline">\(u\in
-C^{2}(\Omega)\)</span>满足，对任意<span
-class="math inline">\(B(x,r)\subset \Omega\)</span>，有 <span
-class="math display">\[
-    \begin{align*}
-        u(x)=\frac{1}{|\partial B(x,r)|}\int_{\partial B(x,r)}u(y)dS_y
-    \end{align*}
-    \]</span> 则<span class="math inline">\(u\)</span>是调和函数</p>
-<p><strong>证明</strong>：对于固定的<span class="math inline">\(x\in
-\Omega\)</span>，任意球<span class="math inline">\(B(x,r)\subset
-\Omega\)</span>，令 <span class="math display">\[
-    \begin{align*}
-        \phi(r)=\frac{1}{|\partial B(x,r)|}\int_{\partial
-B(x,r)}u(y)dS_y
-    \end{align*}
-    \]</span> 由假设可知，<span
-class="math inline">\(\phi(r)\)</span>是一个常数，因此 <span
-class="math display">\[
-    \begin{align*}
-        \phi&#39;(r)=0
-    \end{align*}
-    \]</span> 即 <span class="math display">\[
-    \begin{align*}
-        \phi&#39;(r)=\frac{1}{|\partial
-B(x,r)|}\int_{B(x,r)}\bigtriangleup u(y)dy=0
-    \end{align*}
-    \]</span> 于是 <span class="math display">\[
-    \begin{align*}
-        \frac{1}{|\partial B(x,r)|}\int_{B(x,r)}\bigtriangleup u(y)dy=0
-    \end{align*}
-    \]</span> 令<span class="math inline">\(r\to 0\)</span>，由<span
-class="math inline">\(\bigtriangleup u(x)\)</span>的连续性，则 <span
-class="math display">\[
-    \begin{align*}
-        \bigtriangleup u(x)=0
-    \end{align*}
-    \]</span></p>
-<hr />
-<h3 id="极值原理">极值原理</h3>
-<p><strong>极值原理</strong>：设<span
-class="math inline">\(\Omega\)</span>是<span
-class="math inline">\(R^{n}\)</span>上的有界开集，<span
-class="math inline">\(u\in C^{2}(\Omega)\bigcap
-C(\overline{\Omega})\)</span>是<span
-class="math inline">\(\Omega\)</span>上的调和函数，则 - <span
-class="math inline">\(u(x)\)</span>在<span
-class="math inline">\(\overline{\Omega}\)</span>上的最大(小)值一定在边界<span
-class="math inline">\(\partial\Omega\)</span>上取到，即 <span
-class="math display">\[
-\begin{align*}
-    \max_{\overline{\Omega}} u =\max_{\partial \Omega}u
-\end{align*}
-\]</span> - 若<span
-class="math inline">\(\Omega\)</span>连通，且存在<span
-class="math inline">\(x_{0}\in \Omega\)</span>使得调和函数<span
-class="math inline">\(u(x)\)</span>在<span
-class="math inline">\(x_{0}\)</span>点达到<span
-class="math inline">\(u(x)\)</span>在<span
-class="math inline">\(\overline{\Omega}\)</span>上的最大(小)值，则<span
-class="math inline">\(u\)</span>在<span
-class="math inline">\(\overline{\Omega}\)</span>上是常数</p>
+<hr>
+<h3 id="平均值公式逆定理"><a href="#平均值公式逆定理" class="headerlink" title="平均值公式逆定理"></a>平均值公式逆定理</h3><p><strong>平均值公式逆定理</strong>：设$u\in C^{2}(\Omega)$满足，对任意$B(x,r)\subset \Omega$，有<br>    $$<br>    \begin{align*}<br>        u(x)&#x3D;\frac{1}{|\partial B(x,r)|}\int_{\partial B(x,r)}u(y)dS_y<br>    \end{align*}<br>    $$<br>则$u$是调和函数</p>
+<p><strong>证明</strong>：对于固定的$x\in \Omega$，任意球$B(x,r)\subset \Omega$，令<br>    $$<br>    \begin{align*}<br>        \phi(r)&#x3D;\frac{1}{|\partial B(x,r)|}\int_{\partial B(x,r)}u(y)dS_y<br>    \end{align*}<br>    $$<br>    由假设可知，$\phi(r)$是一个常数，因此<br>    $$<br>    \begin{align*}<br>        \phi’(r)&#x3D;0<br>    \end{align*}<br>    $$<br>    即<br>    $$<br>    \begin{align*}<br>        \phi’(r)&#x3D;\frac{1}{|\partial B(x,r)|}\int_{B(x,r)}\bigtriangleup u(y)dy&#x3D;0<br>    \end{align*}<br>    $$<br>    于是<br>    $$<br>    \begin{align*}<br>        \frac{1}{|\partial B(x,r)|}\int_{B(x,r)}\bigtriangleup u(y)dy&#x3D;0<br>    \end{align*}<br>    $$<br>    令$r\to 0$，由$\bigtriangleup u(x)$的连续性，则<br>    $$<br>    \begin{align*}<br>        \bigtriangleup u(x)&#x3D;0<br>    \end{align*}<br>    $$</p>
+<hr>
+<h3 id="极值原理"><a href="#极值原理" class="headerlink" title="极值原理"></a>极值原理</h3><p><strong>极值原理</strong>：设$\Omega$是$R^{n}$上的有界开集，$u\in C^{2}(\Omega)\bigcap C(\overline{\Omega})$是$\Omega$上的调和函数，则</p>
+<ul>
+<li>$u(x)$在$\overline{\Omega}$上的最大(小)值一定在边界$\partial\Omega$上取到，即<br>$$<br>\begin{align*}<br>  \max_{\overline{\Omega}} u &#x3D;\max_{\partial \Omega}u<br>\end{align*}<br>$$</li>
+<li>若$\Omega$连通，且存在$x_{0}\in \Omega$使得调和函数$u(x)$在$x_{0}$点达到$u(x)$在$\overline{\Omega}$上的最大(小)值，则$u$在$\overline{\Omega}$上是常数</li>
+</ul>
 <p><strong>证明</strong>：仅就最大值的情形证明</p>
 <ul>
-<li><p>令<span class="math inline">\(w=u+\epsilon
-e^{x_1}\)</span>，容易验证</p>
+<li><p>令$w&#x3D;u+\epsilon e^{x_1}$，容易验证</p>
 <ul>
-<li><span class="math inline">\(w&gt;u\Longrightarrow
-\max_{\overline{\Omega}}u\le\max_{\overline{\Omega}}w\)</span></li>
-<li><span class="math inline">\(\Delta w=\epsilon
-e^{x_1}&gt;0\)</span>，因而<span
-class="math inline">\(w\)</span>的最大值只能在边界上取到，故<span
-class="math inline">\(\max_{\overline{\Omega}}w=\max_{\partial\Omega}w\)</span></li>
-<li><span class="math inline">\(\max_{\partial \Omega}w\le
-\max_{\partial \Omega}u+\max_{\partial \Omega}\epsilon
-e^{x_1}\)</span></li>
+<li>$w&gt;u\Longrightarrow \max_{\overline{\Omega}}u\le\max_{\overline{\Omega}}w$</li>
+<li>$\Delta w&#x3D;\epsilon e^{x_1}&gt;0$，因而$w$的最大值只能在边界上取到，故$\max_{\overline{\Omega}}w&#x3D;\max_{\partial\Omega}w$</li>
+<li>$\max_{\partial \Omega}w\le \max_{\partial \Omega}u+\max_{\partial \Omega}\epsilon e^{x_1}$</li>
 </ul>
-<p>故可得 <span class="math display">\[
-  \begin{align*}
-      \max_{\overline{\Omega}}u\le\max_{\partial
-\Omega}u+\epsilon\max_{\partial \Omega} e^{x_1}
-  \end{align*}
-  \]</span> 令<span class="math inline">\(\epsilon\to0\)</span>，则有
-<span class="math display">\[
-  \begin{align*}
-      \max_{\overline{\Omega}} u =\max_{\partial \Omega}u
-  \end{align*}
-  \]</span></p></li>
-<li><p>假设<span class="math inline">\(\exists x_{0}\in U\)</span>，满足
-<span class="math display">\[
-  \begin{align*}
-      u(x_{0})=M:=\max_{\overline{\Omega}}u
-  \end{align*}
-  \]</span> 因此，存在<span
-class="math inline">\(0&lt;r&lt;dist(x_{0},\partial\Omega)\)</span>，运用平均值公式有
-<span class="math display">\[
-  \begin{align*}
-      M=u(x_{0})=\frac{1}{|B(x,r)|}\int_{B(x,r)}u(y)dy\le M
-  \end{align*}
-  \]</span> 由此，可以得到对于<span class="math inline">\(\forall y\in
-B(x_{0},r)\)</span>，有<span
-class="math inline">\(u(y)=M\)</span>，因此，集合<span
-class="math inline">\(\{x\in \Omega:u(x)=M\}\)</span>在<span
-class="math inline">\(\Omega\)</span>中既开又闭</p>
-<p>由<span class="math inline">\(\Omega\)</span>是连通的，故<span
-class="math inline">\(\{x\in \Omega:u(x)=M\}=\Omega\)</span>，即<span
-class="math inline">\(u\)</span>在<span
-class="math inline">\(\Omega\)</span>上是常数</p></li>
+<p>  故可得<br>  $$<br>  \begin{align*}<br>      \max_{\overline{\Omega}}u\le\max_{\partial \Omega}u+\epsilon\max_{\partial \Omega} e^{x_1}<br>  \end{align*}<br>  $$<br>  令$\epsilon\to0$，则有<br>  $$<br>  \begin{align*}<br>      \max_{\overline{\Omega}} u &#x3D;\max_{\partial \Omega}u<br>  \end{align*}<br>  $$</p>
+</li>
+<li><p>假设$\exists x_{0}\in U$，满足<br>  $$<br>  \begin{align*}<br>  u(x_{0})&#x3D;M:&#x3D;\max_{\overline{\Omega}}u<br>  \end{align*}<br>  $$<br>  因此，存在$0&lt;r&lt;dist(x_{0},\partial\Omega)$，运用平均值公式有<br>  $$<br>  \begin{align*}<br>  M&#x3D;u(x_{0})&#x3D;\frac{1}{|B(x,r)|}\int_{B(x,r)}u(y)dy\le M<br>  \end{align*}<br>  $$<br>  由此，可以得到对于$\forall y\in B(x_{0},r)$，有$u(y)&#x3D;M$，因此，集合${x\in \Omega:u(x)&#x3D;M}$在$\Omega$中既开又闭</p>
+<p>  由$\Omega$是连通的，故${x\in \Omega:u(x)&#x3D;M}&#x3D;\Omega$，即$u$在$\Omega$上是常数</p>
+</li>
 </ul>
-<hr />
-<h3 id="刘维尔定理">刘维尔定理</h3>
-<p><strong>刘维尔定理</strong>：若<span
-class="math inline">\(u\)</span>是<span
-class="math inline">\(R^{n}\)</span>上的有界调和函数，则<span
-class="math inline">\(u\)</span>是常数</p>
-<p><strong>证明</strong>：设<span
-class="math inline">\(\left|u\right|\le M\)</span>，固定<span
-class="math inline">\(x\in R^{n}\)</span>，对任意<span
-class="math inline">\(r&gt;0\)</span>，在球<span
-class="math inline">\(B(x,r)\)</span>上，有 <span
-class="math display">\[
-\begin{align*}
-    \left|\mathcal{D}u(x)\right|\le
-\frac{nC_{1}}{r^{n+1}}\int_{B(x,r)}\left|u(y)\right|dy\le
-\frac{nC_{1}|B(0,1)|}{r}M
-\end{align*}
-\]</span> 令<span class="math inline">\(r\to \infty\)</span>，有 <span
-class="math display">\[
-\begin{align*}
-    \mathcal{D}u(x)\equiv 0,\quad x\in R^{n}
-\end{align*}
-\]</span> 因此<span class="math inline">\(u\)</span>是常数</p>
-<hr />
-<h3 id="哈纳克定理">哈纳克定理</h3>
-<p><strong>哈纳克定理</strong>：设<span
-class="math inline">\(\{u_{n}\}\subset C^2(\Omega)\bigcap
-C(\overline{\Omega})\)</span>是<span
-class="math inline">\(\Omega\)</span>上的调和函数列，若<span
-class="math inline">\(\{u_{n}\}\)</span>在<span
-class="math inline">\(\partial \Omega\)</span>上一致收敛，则<span
-class="math inline">\(\{u_{n}\}\)</span>在<span
-class="math inline">\(\overline{\Omega}\)</span>上一致收敛，且收敛于一个调和函数</p>
-<p><strong>证明</strong>：由极值原理知 <span class="math display">\[
-\begin{align*}
-    \max_{x\in \overline{\Omega}}\left|u_{n}-u_{m}\right|\le
-\max_{x\in\partial\Omega}\left|u_{n}-u_{m}\right|
-\end{align*}
-\]</span> 由于<span class="math inline">\(\{u_{n}\}\)</span>在<span
-class="math inline">\(\partial\Omega\)</span>上一致收敛，可知<span
-class="math inline">\(\{u_{n}\}\)</span>在<span
-class="math inline">\(\overline{\Omega}\)</span>上一致收敛，记<span
-class="math inline">\(\{u_{n}\}\)</span>一致收敛到函数<span
-class="math inline">\(u\)</span></p>
-<p>再由于<span class="math inline">\(u_{n}\)</span>满足平均值公式，即
-<span class="math display">\[
-\begin{align*}
-    u_{n}(x)=\frac{1}{|\partial B(x,r)|}\int_{\partial
-B(x,r)}u_{n}(y)dS_y
-\end{align*}
-\]</span> 由一致收敛可极限与积分换序，则有 <span class="math display">\[
-\begin{align*}
-    u(x)=\frac{1}{|\partial B(x,r)|}\int_{\partial B(x,r)}u(y)dS_y
-\end{align*}
-\]</span> 从而<span
-class="math inline">\(u(x)\)</span>满足平均值公式，故<span
-class="math inline">\(u(x)\)</span>是调和函数</p>
-<hr />
-<h3 id="可去奇点定理">可去奇点定理</h3>
-<p><strong>可去奇点定理</strong>：设<span class="math inline">\(a\in
-U\)</span>是调和函数<span
-class="math inline">\(u\)</span>的孤立有界奇点，则<span
-class="math inline">\(u\)</span>可以延拓为整个<span
-class="math inline">\(U\)</span>上的调和函数</p>
-<p><strong>证明</strong>：只需考察单位化后对<span
-class="math inline">\(B=B(0,1)\)</span>，若<span
-class="math inline">\(u\)</span>在<span
-class="math inline">\(B\setminus\{0\}\)</span>有界调和，<span
-class="math inline">\(\partial B\)</span>连续，则能延拓到整个单位球</p>
-<p>我们只需证明<span
-class="math inline">\(u\)</span>和作为Dirichlet问题的解<span
-class="math inline">\(\overline{u}\)</span>在<span
-class="math inline">\(B\setminus \{0\}\)</span>上相符即可，其中<span
-class="math inline">\(\overline{u}\)</span>满足 <span
-class="math display">\[
-\begin{align*}
-    \begin{cases}
-        \Delta \overline{u}=0,\quad \text{in$\;B(0,1)$}\\
-        \overline{u}=u,\quad \text{on$\;\partial B(0,1)$}
-    \end{cases}
-\end{align*}
-\]</span> 先设<span class="math inline">\(n&gt;2\)</span>，对<span
-class="math inline">\(\epsilon&gt;0\)</span>，定义 <span
-class="math display">\[
-\begin{align*}
-    v_{\epsilon}(x)=u-\overline{u}+\epsilon(|x|^{2-n}-1)
-\end{align*}
-\]</span> 显然有<span class="math inline">\(\Delta
-v_{\epsilon}(x)=0\)</span>且<span class="math inline">\(|x|\to
-1\)</span>时，<span class="math inline">\(v_{\epsilon}(x)\to
-0\)</span>，同时<span class="math inline">\(|x|\to0\)</span>时，<span
-class="math inline">\(v_{\epsilon}(x)\to +\infty\)</span></p>
-<p>于是对环状区域<span
-class="math inline">\(\{x:\epsilon&#39;&lt;|x|&lt;1-\epsilon&#39;\}\)</span>使用极值原理，令<span
-class="math inline">\(\epsilon&#39;\to0^+\)</span>，可知<span
-class="math inline">\(v_{\epsilon}\ge 0\)</span>在<span
-class="math inline">\(B\setminus\{0\}\)</span>上恒成立</p>
-<p>于是令<span class="math inline">\(\epsilon\to 0^+\)</span>，可知<span
-class="math inline">\(u\ge \overline{u}\)</span>，用<span
-class="math inline">\(-u\)</span>同理可得<span
-class="math inline">\(-u\ge -\overline{u}\)</span>，从而有在<span
-class="math inline">\(B\setminus\{0\}\)</span>上 <span
-class="math display">\[
-\begin{align*}
-    u=\overline{u}
-\end{align*}
-\]</span> 即<span class="math inline">\(\overline{u}\)</span>为<span
-class="math inline">\(u\)</span>在<span
-class="math inline">\(B\)</span>上的延拓</p>
-<hr />
-<h2 id="格林函数">格林函数</h2>
-<h3 id="dirichlet问题">Dirichlet问题</h3>
-<p>下面来解决Dirichlet问题 <span class="math display">\[
-\begin{align*}
-    \begin{cases}
-        -\Delta u=f,\quad in\; \Omega\\
-        u=g,\quad on\; \partial \Omega
-    \end{cases}
-\end{align*}
-\]</span> 为此我们利用基本解来构造格林函数，并以此来获得解的表达式</p>
-<p>设<span class="math inline">\(\Omega\subset
-R^{n}\)</span>是有界开集且<span
-class="math inline">\(\partial\Omega\)</span>光滑，<span
-class="math inline">\(u\in C^2(\Omega)\bigcap
-C^{1}(\overline{\Omega})\)</span>是Dirichlet问题的解</p>
-<p>固定<span class="math inline">\(x\in \Omega\)</span>，取充分小<span
-class="math inline">\(\epsilon&gt;0\)</span>，使得<span
-class="math inline">\(B(x,\epsilon)\subset \Omega\)</span>，在区域<span
-class="math inline">\(V_{\epsilon}:=\Omega\setminus
-B(x,\epsilon)\)</span>上对<span
-class="math inline">\(u(y)\)</span>和基本解<span
-class="math inline">\(\Gamma(y-x)\)</span>应用格林公式，则有 <span
-class="math display">\[
-\begin{align*}
-    &amp;\int_{V_{\epsilon}}u(y)\Delta \Gamma(y-x)-\Gamma(y-x)\Delta
-u(y)dy\\
-    =&amp; \int_{\partial V_{\epsilon}}u(y)\frac{\partial}{\partial
-\nu}\Gamma(y-x)-\Gamma(y-x)\frac{\partial u}{\partial \nu}(y)dS(y)
-\end{align*}
-\]</span> 其中<span class="math inline">\(\nu\)</span>表示<span
-class="math inline">\(\partial V_{\epsilon}\)</span>上的单位外法向量</p>
-<p>注意到，当<span class="math inline">\(x\ne y\)</span>时，<span
-class="math inline">\(\Delta\Gamma(x-y)=0\)</span>，且<span
-class="math inline">\(\epsilon\to 0\)</span>时，有 <span
-class="math display">\[
-\begin{align*}
-    \left|\int_{\partial B(x,\epsilon)}\Gamma(y-x)\frac{\partial
-u}{\partial \nu}(y)dS(y)\right|\le C\epsilon^{n-1}\max_{\partial
-B(0,\epsilon)}\left|\Gamma\right|=o(1)
-\end{align*}
-\]</span> 进一步还有 <span class="math display">\[
-\begin{align*}
-    \int_{\partial B(x,\epsilon)}u(y)\frac{\partial}{\partial
-\nu}\Gamma(y-x)dS(y)=\frac{1}{|\partial B(x,\epsilon)|}\int_{\partial
-B(x,\epsilon)}u(y)dS(y)\to u(x)
-\end{align*}
-\]</span> 从而得到 <span class="math display">\[
-\begin{align*}
-    u(x)=\int_{\partial \Omega} \Gamma(y-x)\frac{\partial u}{\partial
-\nu}(y)-u(y)\frac{\partial}{\partial \nu}\Gamma(y-x)dS(y) -
-\int_{\Omega}\Gamma(y-x)\Delta u(y) dy
-\end{align*}
-\]</span> 但是，对于Dirichlet问题来说，<span
-class="math inline">\(\frac{\partial
-u}{\partial\nu}\)</span>仍然未知，下面将通过引进一个调和函数<span
-class="math inline">\(\phi^{x}\)</span>来消掉这一项</p>
-<p>设对给定<span class="math inline">\(x\in \Omega\)</span>，函数<span
-class="math inline">\(\phi^{x}=\phi^{x}(y)\)</span>满足方程 <span
-class="math display">\[
-\begin{align*}
-    \begin{cases}
-        \Delta \phi^{x}(y)=0,\quad y\in \Omega\\
-        \phi^{x}=\Gamma(y-x),\quad y\in \partial\Omega
-    \end{cases}
-\end{align*}
-\]</span> 再次运用格林公式 <span class="math display">\[
-\begin{align*}
-    -\int_{\Omega}\phi^{x}(y)\Delta u(y)dy
-&amp;=\int_{\partial\Omega}u(y)\frac{\partial \phi^{x}}{\partial
-\nu}(y)-\phi^{x}(y)\frac{\partial u}{\partial \nu}(y)dS(y)\\
-    &amp;= \int_{\partial \Omega}u(y)\frac{\partial
-\phi^{x}}{\partial\nu}(y)-\Gamma(y-x)\frac{\partial
-u}{\partial\nu}(y)dS(y)
-\end{align*}
-\]</span> 于是有 <span class="math display">\[
-    \begin{align*}
-        u(x)=-\int_{\partial\Omega}u(y)\frac{\partial }{\partial
-\nu}(\Gamma(y-x)-\phi^{x}(y))dS(y)-\int_{\Omega}(\Gamma(y-x)-\phi^{x}(y))\Delta
-u(y)dy,\quad (x\in \Omega)
-    \end{align*}
-\]</span> 记格林函数为 <span class="math display">\[
-\begin{align*}
-        G(x,y)=\Gamma(y-x)-\phi^{x}(y)
-\end{align*}
-\]</span> 从而有 <span class="math display">\[
-\begin{align*}
-    u(x)=-\int_{\partial\Omega}u(y)\frac{\partial G}{\partial
-\nu}(x,y)dS(y)-\int_{\Omega}G(x,y)\Delta u(y)dy,\quad (x\in \Omega)
-\end{align*}
-\]</span></p>
-<div class="note info no-icon"><p>对于一般的Dirichlet问题 <span class="math display">\[
-\begin{align*}
-    \begin{cases}
-        -\Delta u=f,\quad in\; \Omega\\
-        u=g,\quad on\; \partial \Omega
-    \end{cases}
-\end{align*}
-\]</span> 由格林函数构造出的函数<span class="math inline">\(u\)</span>
-<span class="math display">\[
-    \begin{align*}
-        u(x)&amp;=-\int_{\partial\Omega}u(y)\frac{\partial G}{\partial
-\nu}(x,y)dS(y)-\int_{\Omega}G(x,y)\Delta u(y)dy,\quad (x\in \Omega)\\
-        &amp;=-\int_{\partial\Omega}g(y)\frac{\partial G}{\partial
-\nu}(x,y)dS(y)+\int_{\Omega}f(y)G(x,y)dy,\quad (x\in \Omega)
-    \end{align*}
-\]</span></p>
+<hr>
+<h3 id="刘维尔定理"><a href="#刘维尔定理" class="headerlink" title="刘维尔定理"></a>刘维尔定理</h3><p><strong>刘维尔定理</strong>：若$u$是$R^{n}$上的有界调和函数，则$u$是常数</p>
+<p><strong>证明</strong>：设$\left|u\right|\le M$，固定$x\in R^{n}$，对任意$r&gt;0$，在球$B(x,r)$上，有<br>$$<br>\begin{align*}<br>    \left|\mathcal{D}u(x)\right|\le \frac{nC_{1}}{r^{n+1}}\int_{B(x,r)}\left|u(y)\right|dy\le \frac{nC_{1}|B(0,1)|}{r}M<br>\end{align*}<br>$$<br>令$r\to \infty$，有<br>$$<br>\begin{align*}<br>    \mathcal{D}u(x)\equiv 0,\quad x\in R^{n}<br>\end{align*}<br>$$<br>因此$u$是常数</p>
+<hr>
+<h3 id="哈纳克定理"><a href="#哈纳克定理" class="headerlink" title="哈纳克定理"></a>哈纳克定理</h3><p><strong>哈纳克定理</strong>：设${u_{n}}\subset C^2(\Omega)\bigcap C(\overline{\Omega})$是$\Omega$上的调和函数列，若${u_{n}}$在$\partial \Omega$上一致收敛，则${u_{n}}$在$\overline{\Omega}$上一致收敛，且收敛于一个调和函数</p>
+<p><strong>证明</strong>：由极值原理知<br>$$<br>\begin{align*}<br>    \max_{x\in \overline{\Omega}}\left|u_{n}-u_{m}\right|\le \max_{x\in\partial\Omega}\left|u_{n}-u_{m}\right|<br>\end{align*}<br>$$<br>由于${u_{n}}$在$\partial\Omega$上一致收敛，可知${u_{n}}$在$\overline{\Omega}$上一致收敛，记${u_{n}}$一致收敛到函数$u$</p>
+<p>再由于$u_{n}$满足平均值公式，即<br>$$<br>\begin{align*}<br>    u_{n}(x)&#x3D;\frac{1}{|\partial B(x,r)|}\int_{\partial B(x,r)}u_{n}(y)dS_y<br>\end{align*}<br>$$<br>由一致收敛可极限与积分换序，则有<br>$$<br>\begin{align*}<br>    u(x)&#x3D;\frac{1}{|\partial B(x,r)|}\int_{\partial B(x,r)}u(y)dS_y<br>\end{align*}<br>$$<br>从而$u(x)$满足平均值公式，故$u(x)$是调和函数</p>
+<hr>
+<h3 id="可去奇点定理"><a href="#可去奇点定理" class="headerlink" title="可去奇点定理"></a>可去奇点定理</h3><p><strong>可去奇点定理</strong>：设$a\in U$是调和函数$u$的孤立有界奇点，则$u$可以延拓为整个$U$上的调和函数</p>
+<p><strong>证明</strong>：只需考察单位化后对$B&#x3D;B(0,1)$，若$u$在$B\setminus{0}$有界调和，$\partial B$连续，则能延拓到整个单位球</p>
+<p>我们只需证明$u$和作为Dirichlet问题的解$\overline{u}$在$B\setminus {0}$上相符即可，其中$\overline{u}$满足<br>$$<br>\begin{align*}<br>    \begin{cases}<br>        \Delta \overline{u}&#x3D;0,\quad \text{in$;B(0,1)$}\<br>        \overline{u}&#x3D;u,\quad \text{on$;\partial B(0,1)$}<br>    \end{cases}<br>\end{align*}<br>$$<br>先设$n&gt;2$，对$\epsilon&gt;0$，定义<br>$$<br>\begin{align*}<br>    v_{\epsilon}(x)&#x3D;u-\overline{u}+\epsilon(|x|^{2-n}-1)<br>\end{align*}<br>$$<br>显然有$\Delta v_{\epsilon}(x)&#x3D;0$且$|x|\to 1$时，$v_{\epsilon}(x)\to 0$，同时$|x|\to0$时，$v_{\epsilon}(x)\to +\infty$</p>
+<p>于是对环状区域${x:\epsilon’&lt;|x|&lt;1-\epsilon’}$使用极值原理，令$\epsilon’\to0^+$，可知$v_{\epsilon}\ge 0$在$B\setminus{0}$上恒成立</p>
+<p>于是令$\epsilon\to 0^+$，可知$u\ge \overline{u}$，用$-u$同理可得$-u\ge -\overline{u}$，从而有在$B\setminus{0}$上<br>$$<br>\begin{align*}<br>    u&#x3D;\overline{u}<br>\end{align*}<br>$$<br>即$\overline{u}$为$u$在$B$上的延拓</p>
+<hr>
+<h2 id="格林函数"><a href="#格林函数" class="headerlink" title="格林函数"></a>格林函数</h2><h3 id="Dirichlet问题"><a href="#Dirichlet问题" class="headerlink" title="Dirichlet问题"></a>Dirichlet问题</h3><p>下面来解决Dirichlet问题<br>$$<br>\begin{align*}<br>    \begin{cases}<br>        -\Delta u&#x3D;f,\quad in; \Omega\<br>        u&#x3D;g,\quad on; \partial \Omega<br>    \end{cases}<br>\end{align*}<br>$$<br>为此我们利用基本解来构造格林函数，并以此来获得解的表达式</p>
+<p>设$\Omega\subset R^{n}$是有界开集且$\partial\Omega$光滑，$u\in C^2(\Omega)\bigcap C^{1}(\overline{\Omega})$是Dirichlet问题的解</p>
+<p>固定$x\in \Omega$，取充分小$\epsilon&gt;0$，使得$B(x,\epsilon)\subset \Omega$，在区域$V_{\epsilon}:&#x3D;\Omega\setminus B(x,\epsilon)$上对$u(y)$和基本解$\Gamma(y-x)$应用格林公式，则有<br>$$<br>\begin{align*}<br>    &amp;\int_{V_{\epsilon}}u(y)\Delta \Gamma(y-x)-\Gamma(y-x)\Delta u(y)dy\<br>    &#x3D;&amp; \int_{\partial V_{\epsilon}}u(y)\frac{\partial}{\partial \nu}\Gamma(y-x)-\Gamma(y-x)\frac{\partial u}{\partial \nu}(y)dS(y)<br>\end{align*}<br>$$<br>其中$\nu$表示$\partial V_{\epsilon}$上的单位外法向量</p>
+<p>注意到，当$x\ne y$时，$\Delta\Gamma(x-y)&#x3D;0$，且$\epsilon\to 0$时，有<br>$$<br>\begin{align*}<br>    \left|\int_{\partial B(x,\epsilon)}\Gamma(y-x)\frac{\partial u}{\partial \nu}(y)dS(y)\right|\le C\epsilon^{n-1}\max_{\partial B(0,\epsilon)}\left|\Gamma\right|&#x3D;o(1)<br>\end{align*}<br>$$<br>进一步还有<br>$$<br>\begin{align*}<br>    \int_{\partial B(x,\epsilon)}u(y)\frac{\partial}{\partial \nu}\Gamma(y-x)dS(y)&#x3D;\frac{1}{|\partial B(x,\epsilon)|}\int_{\partial B(x,\epsilon)}u(y)dS(y)\to u(x)<br>\end{align*}<br>$$<br>从而得到<br>$$<br>\begin{align*}<br>    u(x)&#x3D;\int_{\partial \Omega} \Gamma(y-x)\frac{\partial u}{\partial \nu}(y)-u(y)\frac{\partial}{\partial \nu}\Gamma(y-x)dS(y) - \int_{\Omega}\Gamma(y-x)\Delta u(y) dy<br>\end{align*}<br>$$<br>但是，对于Dirichlet问题来说，$\frac{\partial u}{\partial\nu}$仍然未知，下面将通过引进一个调和函数$\phi^{x}$来消掉这一项</p>
+<p>设对给定$x\in \Omega$，函数$\phi^{x}&#x3D;\phi^{x}(y)$满足方程<br>$$<br>\begin{align*}<br>    \begin{cases}<br>        \Delta \phi^{x}(y)&#x3D;0,\quad y\in \Omega\<br>        \phi^{x}&#x3D;\Gamma(y-x),\quad y\in \partial\Omega<br>    \end{cases}<br>\end{align*}<br>$$<br>再次运用格林公式<br>$$<br>\begin{align*}<br>    -\int_{\Omega}\phi^{x}(y)\Delta u(y)dy &amp;&#x3D;\int_{\partial\Omega}u(y)\frac{\partial \phi^{x}}{\partial \nu}(y)-\phi^{x}(y)\frac{\partial u}{\partial \nu}(y)dS(y)\<br>    &amp;&#x3D; \int_{\partial \Omega}u(y)\frac{\partial \phi^{x}}{\partial\nu}(y)-\Gamma(y-x)\frac{\partial u}{\partial\nu}(y)dS(y)<br>\end{align*}<br>$$<br>于是有<br>$$<br>    \begin{align*}<br>        u(x)&#x3D;-\int_{\partial\Omega}u(y)\frac{\partial }{\partial \nu}(\Gamma(y-x)-\phi^{x}(y))dS(y)-\int_{\Omega}(\Gamma(y-x)-\phi^{x}(y))\Delta u(y)dy,\quad (x\in \Omega)<br>    \end{align*}<br>$$<br>记格林函数为<br>$$<br>\begin{align*}<br>        G(x,y)&#x3D;\Gamma(y-x)-\phi^{x}(y)<br>\end{align*}<br>$$<br>从而有<br>$$<br>\begin{align*}<br>    u(x)&#x3D;-\int_{\partial\Omega}u(y)\frac{\partial G}{\partial \nu}(x,y)dS(y)-\int_{\Omega}G(x,y)\Delta u(y)dy,\quad (x\in \Omega)<br>\end{align*}<br>$$</p>
+<div class="note info no-icon"><p>对于一般的Dirichlet问题<br>$$<br>\begin{align*}<br>    \begin{cases}<br>        -\Delta u&#x3D;f,\quad in; \Omega\<br>        u&#x3D;g,\quad on; \partial \Omega<br>    \end{cases}<br>\end{align*}<br>$$<br>由格林函数构造出的函数$u$<br>$$<br>    \begin{align*}<br>        u(x)&amp;&#x3D;-\int_{\partial\Omega}u(y)\frac{\partial G}{\partial \nu}(x,y)dS(y)-\int_{\Omega}G(x,y)\Delta u(y)dy,\quad (x\in \Omega)\<br>        &amp;&#x3D;-\int_{\partial\Omega}g(y)\frac{\partial G}{\partial \nu}(x,y)dS(y)+\int_{\Omega}f(y)G(x,y)dy,\quad (x\in \Omega)<br>    \end{align*}<br>$$</p>
 </div>
-<h3 id="格林函数性质">格林函数性质</h3>
-<p><strong>对称性</strong>：对任意<span class="math inline">\(x,y\in
-\Omega,x\ne y\)</span>，有 <span class="math display">\[
-\begin{align*}
-    G(y,x)=G(x,y)
-\end{align*}
-\]</span></p>
-<p><strong>证明</strong>：固定<span class="math inline">\(x,y\in
-\Omega,x\ne y\)</span>，令 <span class="math display">\[
-\begin{align*}
-    v(z):=G(x,z),w(z):=G(y,z)\quad(z\in \Omega).
-\end{align*}
-\]</span> 则有<span class="math inline">\(\Delta v(z)=0\; (z\ne
-x),\Delta w(z)=0\; (z\ne y)\)</span>以及<span
-class="math inline">\(w=v=0\; (z\in \partial\Omega)\)</span></p>
-<p>取充分小<span
-class="math inline">\(\epsilon&gt;0\)</span>，在区间<span
-class="math inline">\(V:=\Omega - [B(x,\epsilon)\bigcup
-B(y,\epsilon)]\)</span>有 <span class="math display">\[
-\begin{align*}
-    \int_{\partial B(x,\varepsilon)}\frac{\partial
-v}{\partial\nu}w-\frac{\partial w}{\partial\nu}vdS(z)=\int_{\partial
-B(y,\varepsilon)}\frac{\partial w}{\partial\nu}v-\frac{\partial
-v}{\partial\nu}wdS(z)
-\end{align*}
-\]</span> 由<span class="math inline">\(w\)</span>在<span
-class="math inline">\(x\)</span>附近光滑，故 <span
-class="math display">\[
-\begin{align*}
-    \left|\int_{\partial B(x,\varepsilon)}\frac{\partial
-w}{\partial\nu}vdS\right|\leq C\varepsilon^{n-1}\sup_{\partial
-B(x,\varepsilon)}|v|=o(1)\quad\mathrm{~as~}\varepsilon\to0.
-\end{align*}
-\]</span> 另一方面，<span
-class="math inline">\(v(z)=\Gamma(z-x)-\phi^{x}(z)\)</span>，<span
-class="math inline">\(\phi^{x}(z)\)</span>在<span
-class="math inline">\(\Omega\)</span>内光滑，故 <span
-class="math display">\[
-\begin{align*}
-    \lim_{\varepsilon\to0}\int_{\partial B(x,\varepsilon)}\frac{\partial
-v}{\partial\nu}wdS=\lim_{\varepsilon\to0}\int_{\partial
-B(x,\varepsilon)}\frac{\partial\Gamma}{\partial\nu}(z-x)w(z)dS=w(x),
-\end{align*}
-\]</span> 因此，当<span class="math inline">\(\epsilon\to 0\)</span>时，
-<span class="math display">\[
-\begin{align*}
-    &amp;\int_{\partial B(x,\varepsilon)}\frac{\partial
-v}{\partial\nu}w-\frac{\partial w}{\partial\nu}vdS(z)\to w(x)\\
-    &amp;\int_{\partial B(y,\varepsilon)}\frac{\partial
-w}{\partial\nu}v-\frac{\partial v}{\partial\nu}wdS(z)\to v(y)
-\end{align*}
-\]</span> 于是<span class="math inline">\(w(x)=v(y)\)</span>，即 <span
-class="math display">\[
-\begin{align*}
-    G(x,y)=G(y,x)
-\end{align*}
-\]</span></p>
+
+<h3 id="格林函数性质"><a href="#格林函数性质" class="headerlink" title="格林函数性质"></a>格林函数性质</h3><p><strong>对称性</strong>：对任意$x,y\in \Omega,x\ne y$，有<br>$$<br>\begin{align*}<br>    G(y,x)&#x3D;G(x,y)<br>\end{align*}<br>$$</p>
+<p><strong>证明</strong>：固定$x,y\in \Omega,x\ne y$，令<br>$$<br>\begin{align*}<br>    v(z):&#x3D;G(x,z),w(z):&#x3D;G(y,z)\quad(z\in \Omega).<br>\end{align*}<br>$$<br>则有$\Delta v(z)&#x3D;0; (z\ne x),\Delta w(z)&#x3D;0; (z\ne y)$以及$w&#x3D;v&#x3D;0; (z\in \partial\Omega)$</p>
+<p>取充分小$\epsilon&gt;0$，在区间$V:&#x3D;\Omega - [B(x,\epsilon)\bigcup B(y,\epsilon)]$有<br>$$<br>\begin{align*}<br>    \int_{\partial B(x,\varepsilon)}\frac{\partial v}{\partial\nu}w-\frac{\partial w}{\partial\nu}vdS(z)&#x3D;\int_{\partial B(y,\varepsilon)}\frac{\partial w}{\partial\nu}v-\frac{\partial v}{\partial\nu}wdS(z)<br>\end{align*}<br>$$<br>由$w$在$x$附近光滑，故<br>$$<br>\begin{align*}<br>    \left|\int_{\partial B(x,\varepsilon)}\frac{\partial w}{\partial\nu}vdS\right|\leq C\varepsilon^{n-1}\sup_{\partial B(x,\varepsilon)}|v|&#x3D;o(1)\quad\mathrm{<del>as</del>}\varepsilon\to0.<br>\end{align*}<br>$$<br>另一方面，$v(z)&#x3D;\Gamma(z-x)-\phi^{x}(z)$，$\phi^{x}(z)$在$\Omega$内光滑，故<br>$$<br>\begin{align*}<br>    \lim_{\varepsilon\to0}\int_{\partial B(x,\varepsilon)}\frac{\partial v}{\partial\nu}wdS&#x3D;\lim_{\varepsilon\to0}\int_{\partial B(x,\varepsilon)}\frac{\partial\Gamma}{\partial\nu}(z-x)w(z)dS&#x3D;w(x),<br>\end{align*}<br>$$<br>因此，当$\epsilon\to 0$时，<br>$$<br>\begin{align*}<br>    &amp;\int_{\partial B(x,\varepsilon)}\frac{\partial v}{\partial\nu}w-\frac{\partial w}{\partial\nu}vdS(z)\to w(x)\<br>    &amp;\int_{\partial B(y,\varepsilon)}\frac{\partial w}{\partial\nu}v-\frac{\partial v}{\partial\nu}wdS(z)\to v(y)<br>\end{align*}<br>$$<br>于是$w(x)&#x3D;v(y)$，即<br>$$<br>\begin{align*}<br>    G(x,y)&#x3D;G(y,x)<br>\end{align*}<br>$$</p>
 
                 
             </div>
@@ -916,10 +470,6 @@ class="math display">\[
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/">
-                        <span class="chip bg-color">泛函分析</span>
-                    </a>
-                    
                     <a href="/tags/Banach%E7%A9%BA%E9%97%B4/">
                         <span class="chip bg-color">Banach空间</span>
                     </a>
@@ -930,6 +480,10 @@ class="math display">\[
                     
                     <a href="/tags/%E8%8C%83%E6%95%B0/">
                         <span class="chip bg-color">范数</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">泛函分析</span>
                     </a>
                     
                 </div>
