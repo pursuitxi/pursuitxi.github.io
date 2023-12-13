@@ -283,7 +283,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.3k
                 </div>
                 
 
@@ -300,161 +300,160 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="数值分析-插值法">数值分析-插值法</h1>
+                <h1>数值分析-插值法</h1>
 <h2 id="插值问题">插值问题</h2>
 <h3 id="插值法概述">插值法概述</h3>
-<p><strong>插值法</strong>：设函数<span
-class="math inline">\(y=f(x)\)</span>在区间<span
-class="math inline">\([a,b]\)</span>上有定义，且已知在点<span
-class="math inline">\(a\le x_{0}&lt; x_{1}&lt; \cdots &lt; x_{n}\le
-b\)</span>上的值<span
-class="math inline">\(y_{0},y_{1},\cdots,y_{n}\)</span>，若存在一简单函数<span
-class="math inline">\(P(x)\)</span>，使 <span class="math display">\[  
-    \begin{equation*}
-            P(x_{i})=y_{i},\quad i=0,1,\cdots,n
-    \end{equation*}
-\]</span> 成立，就称<span class="math inline">\(P(x)\)</span>为<span
-class="math inline">\(f(x)\)</span>的插值函数，点<span
-class="math inline">\(x_{0},x_{1},\cdots,x_{n}\)</span>称为插值节点，包含插值节点的区间<span
-class="math inline">\([a,b]\)</span>称为插值区间</p>
+<p><strong>插值法</strong>：设函数$y=f(x)$在区间$[a,b]$上有定义，且已知在点$a\le x_{0}&lt; x_{1}&lt; \cdots &lt; x_{n}\le b$上的值$y_{0},y_{1},\cdots,y_{n}$，若存在一简单函数$P(x)$，使<br>
+$$	<br>
+\begin{equation*}<br>
+P(x_{i})=y_{i},\quad i=0,1,\cdots,n<br>
+\end{equation*}<br>
+$$<br>
+成立，就称$P(x)$为$f(x)$的插值函数，点$x_{0},x_{1},\cdots,x_{n}$称为插值节点，包含插值节点的区间$[a,b]$称为插值区间</p>
 <h3 id="多项式插值">多项式插值</h3>
-<p><strong>多项式插值存在性唯一性定理</strong>：设在区间<span
-class="math inline">\([a,b]\)</span>上给定n+1个点<span
-class="math inline">\(a\le x_{0}&lt; x_{1}&lt; \cdots &lt; x_{n}\le
-b\)</span>上的函数值<span
-class="math inline">\(y_{i}=f(x_{i})(i=0,1,\cdots,n)\)</span>，存在唯一次数不超过n的多项式，使
-<span class="math display">\[  
-    \begin{equation*}
-            P(x_{i})=y_{i},\quad i=0,1,\cdots,n
-    \end{equation*}
-\]</span></p>
-<p><strong>证明</strong>：由此可得关于系数<span
-class="math inline">\(a_{0},a_{1},\cdots,a_{n}\)</span>的n+1元线性方程组
-<span class="math display">\[      
-    \begin{equation*}
-            \begin{cases}
-                a_{0}+a_{1}x_{0}+\cdots+a_{n}x_{0}^{n}=y_{0}\\
-                a_{0}+a_{1}x_{1}+\cdots+a_{n}x_{1}^{n}=y_{1}\\
-                \cdots\\
-                a_{0}+a_{1}x_{n}+\cdots+a_{n}x_{n}^{n}=y_{n}\\
-            \end{cases}
-    \end{equation*}
-\]</span> 此方程组的系数矩阵为 <span class="math display">\[
-    \begin{equation*}
-        A=\begin{bmatrix}
-            1 &amp; x_{0} &amp; \cdots &amp; x_{0}^{n}\\
-            1 &amp; x_{1} &amp; \cdots &amp; x_{1}^{n}\\
-            \vdots &amp; \vdots &amp;  &amp; \vdots\\
-            1 &amp; x_{n} &amp; \cdots &amp; x_{n}^{n}\\
-        \end{bmatrix}
-    \end{equation*}
-\]</span> 由于<span class="math inline">\(x_{i}\)</span>互异，故 <span
-class="math display">\[
-    \begin{equation*}
-        det A = \prod_{i,j=0,i&gt;j}^{n-1}(x_{i}-x_{j})\ne 0
-    \end{equation*}
-\]</span> 因此，方程组的解<span
-class="math inline">\(a_{0},a_{1},\cdots,a_{n}\)</span>存在且唯一</p>
-<hr />
+<p><strong>多项式插值存在性唯一性定理</strong>：设在区间$[a,b]$上给定n+1个点$a\le x_{0}&lt; x_{1}&lt; \cdots &lt; x_{n}\le b$上的函数值$y_{i}=f(x_{i})(i=0,1,\cdots,n)$，存在唯一次数不超过n的多项式，使<br>
+$$	<br>
+\begin{equation*}<br>
+P(x_{i})=y_{i},\quad i=0,1,\cdots,n<br>
+\end{equation*}<br>
+$$</p>
+<p><strong>证明</strong>：由此可得关于系数$a_{0},a_{1},\cdots,a_{n}$的n+1元线性方程组<br>
+$$		<br>
+\begin{equation*}<br>
+\begin{cases}<br>
+a_{0}+a_{1}x_{0}+\cdots+a_{n}x_{0}^{n}=y_{0}\<br>
+a_{0}+a_{1}x_{1}+\cdots+a_{n}x_{1}^{n}=y_{1}\<br>
+\cdots\<br>
+a_{0}+a_{1}x_{n}+\cdots+a_{n}x_{n}^{n}=y_{n}\<br>
+\end{cases}<br>
+\end{equation*}<br>
+$$<br>
+此方程组的系数矩阵为<br>
+$$<br>
+\begin{equation*}<br>
+A=\begin{bmatrix}<br>
+1 &amp; x_{0} &amp; \cdots &amp; x_{0}^{n}\<br>
+1 &amp; x_{1} &amp; \cdots &amp; x_{1}^{n}\<br>
+\vdots &amp; \vdots &amp;  &amp; \vdots\<br>
+1 &amp; x_{n} &amp; \cdots &amp; x_{n}^{n}\<br>
+\end{bmatrix}<br>
+\end{equation*}<br>
+$$<br>
+由于$x_{i}$互异，故<br>
+$$<br>
+\begin{equation*}<br>
+det A = \prod_{i,j=0,i&gt;j}^{n-1}(x_{i}-x_{j})\ne 0<br>
+\end{equation*}<br>
+$$<br>
+因此，方程组的解$a_{0},a_{1},\cdots,a_{n}$存在且唯一</p>
+<hr>
 <h2 id="拉格朗日插值">拉格朗日插值</h2>
 <h3 id="拉格朗日插值多项式">拉格朗日插值多项式</h3>
-<p><strong>插值基函数</strong>：若n次多项式<span
-class="math inline">\(l_{j}(x)(j=0,1,\cdots,n)\)</span>在n+1个节点<span
-class="math inline">\(x_{0}&lt;x_{1}&lt;\cdots&lt;x_{n}\)</span>上满足条件
-<span class="math display">\[
-    \begin{equation*}
-        l_{j}(x_{k})=\begin{cases}
-            1,\quad k=j \\
-            0,\quad k\ne j
-        \end{cases}
-    \end{equation*}
-\]</span> 就称这n+1个n次多项式<span
-class="math inline">\(l_{0}(x),l_{1}(x),\cdots,l_{n}(x)\)</span>为节点<span
-class="math inline">\(x_{0},x_{1},\cdots,x_{n}\)</span>上的n次插值基函数</p>
-<div class="note info no-icon"><p>容易得到<span class="math inline">\(n\)</span>次插值基函数为 <span
-class="math display">\[
-   \begin{equation*}
-    l_{k}(x)=\frac{(x-x_{0})\cdots(x-x_{k-1})(x-x_{k+1})\cdots(x-x_{n})}{(x_{k}-x_{0})\cdots(x_{k}-x_{k-1})(x_{k}-x_{k+1})\cdots(x_{k}-x_{n})}
-\end{equation*}
-   \]</span></p>
+<p><strong>插值基函数</strong>：若n次多项式$l_{j}(x)(j=0,1,\cdots,n)$在n+1个节点$x_{0}&lt;x_{1}&lt;\cdots&lt;x_{n}$上满足条件<br>
+$$<br>
+\begin{equation*}<br>
+l_{j}(x_{k})=\begin{cases}<br>
+1,\quad k=j \<br>
+0,\quad k\ne j<br>
+\end{cases}<br>
+\end{equation*}<br>
+$$<br>
+就称这n+1个n次多项式$l_{0}(x),l_{1}(x),\cdots,l_{n}(x)$为节点$x_{0},x_{1},\cdots,x_{n}$上的n次插值基函数</p>
+<div class="note info no-icon"><p>容易得到$n$次插值基函数为<br>
+$$<br>
+\begin{equation*}<br>
+l_{k}(x)=\frac{(x-x_{0})\cdots(x-x_{k-1})(x-x_{k+1})\cdots(x-x_{n})}{(x_{k}-x_{0})\cdots(x_{k}-x_{k-1})(x_{k}-x_{k+1})\cdots(x_{k}-x_{n})}<br>
+\end{equation*}<br>
+$$</p>
 </div>
-<p><strong>拉格朗日插值多项式</strong>：形如 <span
-class="math display">\[
-    \begin{equation*}
-        L_{n}(x)=\sum_{k=0}^{n}y_{k}l_{k}(x)
-    \end{equation*}
-\]</span> 的插值多项式<span
-class="math inline">\(L_{n}(x)\)</span>称为拉格朗日插值多项式</p>
+<p><strong>拉格朗日插值多项式</strong>：形如<br>
+$$<br>
+\begin{equation*}<br>
+L_{n}(x)=\sum_{k=0}^{n}y_{k}l_{k}(x)<br>
+\end{equation*}<br>
+$$<br>
+的插值多项式$L_{n}(x)$称为拉格朗日插值多项式</p>
 <h3 id="插值余项与误差估计">插值余项与误差估计</h3>
-<p><strong>定理</strong>：设<span
-class="math inline">\(f^{(n)}(x)\)</span>在<span
-class="math inline">\([a,b]\)</span>上连续，<span
-class="math inline">\(f^{(n+1)}(x)\)</span>在<span
-class="math inline">\((a,b)\)</span>内存在，节点<span
-class="math inline">\(a\le x_{0}&lt;x_{1}&lt;\cdots&lt;x_{n}\le
-b\)</span>，<span
-class="math inline">\(L_{n}(x)\)</span>是满足条件的插值多项式，则对任何<span
-class="math inline">\(x\in [a,b]\)</span>，插值余项 <span
-class="math display">\[
-    \begin{equation*}
-        R_{n}(x)=f(x)-L_{n}(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}\omega_{n+1}(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_{0})(x-x_{1})\cdots(x-x_{n})
-    \end{equation*}
-\]</span> 这里<span class="math inline">\(\xi \in
-(a,b)\)</span>且依赖于x</p>
-<p><strong>证明</strong>：容易得到 <span class="math display">\[
-    R_n(x)= f(x)-L_n(x)=T(x)(x-x_0)(x-x_1)\cdots(x-x_n)
-\]</span> 为了求出<span
-class="math inline">\(T(x)\)</span>，构造辅助函数 <span
-class="math display">\[
-    F(t)= f(t)- L_n(t)-T(x)(t-x_0)(t-x_1)\cdots(t-x_n),\quad (x\ne
-x_1,x_2,\cdots,x_n)
-\]</span> 可得<span class="math inline">\(F(t)\)</span>在区间<span
-class="math inline">\([a,b]\)</span>上有<span
-class="math inline">\(x,x_0,x_1,\cdots,x_n\)</span>共<span
-class="math inline">\(n+2\)</span>个零点，由罗尔定理，可知<span
-class="math inline">\(F&#39;(t)\)</span>在区间<span
-class="math inline">\([a,b]\)</span>上至少有<span
-class="math inline">\(n+1\)</span>个零点，以此类推，最后知在区间<span
-class="math inline">\((a,b)\)</span>上存在一点<span
-class="math inline">\(\xi\)</span>，使得<span
-class="math inline">\(F^{(n+1)}(\xi)=0\)</span>，即 <span
-class="math display">\[
-    \begin{align*}
-        &amp;f^{(n+1)}(\xi)-(n+1)!\cdot T(x)=0\\
-        \Longrightarrow&amp; T(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}\\
-        \Longrightarrow &amp;
-R_{n}(x)=f(x)-L_{n}(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_{0})(x-x_{1})\cdots(x-x_{n})
-    \end{align*}
-\]</span></p>
-<hr />
+<p><strong>定理</strong>：设$f<sup>{(n)}(x)$在$[a,b]$上连续，$f</sup>{(n+1)}(x)$在$(a,b)$内存在，节点$a\le x_{0}&lt;x_{1}&lt;\cdots&lt;x_{n}\le b$，$L_{n}(x)$是满足条件的插值多项式，则对任何$x\in [a,b]$，插值余项<br>
+$$<br>
+\begin{equation*}<br>
+R_{n}(x)=f(x)-L_{n}(x)=\frac{f<sup>{(n+1)}(\xi)}{(n+1)!}\omega_{n+1}(x)=\frac{f</sup>{(n+1)}(\xi)}{(n+1)!}(x-x_{0})(x-x_{1})\cdots(x-x_{n})<br>
+\end{equation*}<br>
+$$<br>
+这里$\xi \in (a,b)$且依赖于x</p>
+<p><strong>证明</strong>：容易得到<br>
+$$<br>
+R_n(x)= f(x)-L_n(x)=T(x)(x-x_0)(x-x_1)\cdots(x-x_n)<br>
+$$<br>
+为了求出$T(x)$，构造辅助函数<br>
+$$<br>
+F(t)= f(t)- L_n(t)-T(x)(t-x_0)(t-x_1)\cdots(t-x_n),\quad (x\ne x_1,x_2,\cdots,x_n)<br>
+$$<br>
+可得$F(t)$在区间$[a,b]$上有$x,x_0,x_1,\cdots,x_n$共$n+2$个零点，由罗尔定理，可知$F’(t)$在区间$[a,b]$上至少有$n+1$个零点，以此类推，最后知在区间$(a,b)$上存在一点$\xi$，使得$F^{(n+1)}(\xi)=0$，即<br>
+$$<br>
+\begin{align*}<br>
+&amp;f^{(n+1)}(\xi)-(n+1)!\cdot T(x)=0\<br>
+\Longrightarrow&amp; T(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}\<br>
+\Longrightarrow &amp; R_{n}(x)=f(x)-L_{n}(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_{0})(x-x_{1})\cdots(x-x_{n})<br>
+\end{align*}<br>
+$$</p>
+<hr>
 <h2 id="牛顿插值">牛顿插值</h2>
 <h3 id="差商">差商</h3>
-<p><strong>差商</strong>： - 称<span
-class="math inline">\(f[x_{0},x_{k}]=\frac{f(x_{k})-f(x_{0})}{x_{k}-x_{0}}\)</span>为函数<span
-class="math inline">\(f(x)\)</span>关于<span
-class="math inline">\(x_{0},x_{k}\)</span>的一阶差商 - <span
-class="math inline">\(f[x_{0},x_{1},x_{k}]=\frac{f[x_{0},x_{k}]-f[x_{0},x_{1}]}{x_{k}-x_{1}}\)</span>称为<span
-class="math inline">\(f(x)\)</span>的二阶差商 - 一般地，称 <span
-class="math display">\[
-    \begin{equation*}
-        f[x_{0},x_{1},\cdots,x_{k}]=\frac{f[x_{0},\cdots,x_{k-2},x_{k}]-f[x_{0},x_{1},\cdots,x_{k-1}]}{x_{k}-x_{k-1}}
-    \end{equation*}
-    \]</span> 为<span class="math inline">\(f(x)\)</span>的k阶差商</p>
-<div class="note info no-icon"><ul>
-<li>差商与节点的排序无关，称为差商的对称性，即 <span
-class="math display">\[
-  \begin{equation*}
-      f[x_{0},x_{1},\cdots,x_{k}]=f[x_{1},x_{0},\cdots,x_{k}]=\cdots=f[x_{1},\cdots,x_{k},x_{0}]
-  \end{equation*}
-\]</span></li>
-<li>n阶差商与导数的关系为 <span class="math display">\[
-  \begin{equation*}
-      f[x_{0},x_{1},\cdots,x_{n}]=\frac{f^{(n)}(\xi)}{n!},\quad \xi
-\in[a,b]
-  \end{equation*}
-\]</span></li>
+<p><strong>差商</strong>：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>称$f[x_{0},x_{k}]=\frac{f(x_{k})-f(x_{0})}{x_{k}-x_{0}}$为函数$f(x)$关于$x_{0},x_{k}$的一阶差商</p>
+</li>
+<li class="lvl-2">
+<p>$f[x_{0},x_{1},x_{k}]=\frac{f[x_{0},x_{k}]-f[x_{0},x_{1}]}{x_{k}-x_{1}}$称为$f(x)$的二阶差商</p>
+</li>
+<li class="lvl-2">
+<p>一般地，称<br>
+$$<br>
+\begin{equation*}<br>
+f[x_{0},x_{1},\cdots,x_{k}]=\frac{f[x_{0},\cdots,x_{k-2},x_{k}]-f[x_{0},x_{1},\cdots,x_{k-1}]}{x_{k}-x_{k-1}}<br>
+\end{equation*}<br>
+$$<br>
+为$f(x)$的k阶差商</p>
+</li>
+</ul>
+<div class="note info no-icon"><ul class="lvl-0">
+<li class="lvl-2">
+<p>差商与节点的排序无关，称为差商的对称性，即<br>
+$$<br>
+\begin{equation*}<br>
+f[x_{0},x_{1},\cdots,x_{k}]=f[x_{1},x_{0},\cdots,x_{k}]=\cdots=f[x_{1},\cdots,x_{k},x_{0}]<br>
+\end{equation*}<br>
+$$</p>
+</li>
+<li class="lvl-2">
+<p>n阶差商与导数的关系为<br>
+$$<br>
+\begin{equation*}<br>
+f[x_{0},x_{1},\cdots,x_{n}]=\frac{f^{(n)}(\xi)}{n!},\quad \xi \in[a,b]<br>
+\end{equation*}<br>
+$$</p>
+</li>
 </ul>
 </div>
+<h3 id="牛顿插值多项式">牛顿插值多项式</h3>
+<p><strong>牛顿插值多项式</strong>：形如<br>
+$$<br>
+\begin{equation*}<br>
+\begin{split}<br>
+P_{n}(x)=f(x_{0})+f<a href="x-x_%7B0%7D">x_{0},x_{1}</a>+\cdots+f<a href="x-x_%7B0%7D">x_{0},x_{1},\cdots,x_{n}</a>\cdots(x-x_{n-1})<br>
+\end{split}<br>
+\end{equation*}	<br>
+$$<br>
+的插值多项式$P_{n}(x)$称为牛顿插值多项式</p>
+<h3 id="牛顿插值余项">牛顿插值余项</h3>
+<p><strong>定理</strong>：牛顿插值多项式余项满足<br>
+$$<br>
+\begin{equation*}<br>
+R(x)=f(x)-N_{n}(x)=f[x,x_{0},x_{1},\cdots,x_{n}]\prod_{i=0}^{n}(x-x_{i})<br>
+\end{equation*}<br>
+$$</p>
 <h2 id="埃尔米特插值">埃尔米特插值</h2>
 <h2 id="分段低次插值">分段低次插值</h2>
 <h2 id="三次样条插值">三次样条插值</h2>
