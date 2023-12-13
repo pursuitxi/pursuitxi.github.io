@@ -300,86 +300,569 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="数值分析-插值法"><a href="#数值分析-插值法" class="headerlink" title="数值分析-插值法"></a>数值分析-插值法</h1><h2 id="插值问题"><a href="#插值问题" class="headerlink" title="插值问题"></a>插值问题</h2><h3 id="插值法概述"><a href="#插值法概述" class="headerlink" title="插值法概述"></a>插值法概述</h3><p><strong>插值法</strong>：设函数$y&#x3D;f(x)$在区间$[a,b]$上有定义，且已知在点$a\le x_{0}&lt; x_{1}&lt; \cdots &lt; x_{n}\le b$上的值$y_{0},y_{1},\cdots,y_{n}$，若存在一简单函数$P(x)$，使<br>$$	<br>    \begin{align*}<br>            P(x_{i})&#x3D;y_{i},\quad i&#x3D;0,1,\cdots,n<br>    \end{align*}<br>$$<br>成立，就称$P(x)$为$f(x)$的插值函数，点$x_{0},x_{1},\cdots,x_{n}$称为插值节点，包含插值节点的区间$[a,b]$称为插值区间</p>
-<h3 id="多项式插值"><a href="#多项式插值" class="headerlink" title="多项式插值"></a>多项式插值</h3><p><strong>多项式插值存在性唯一性定理</strong>：设在区间$[a,b]$上给定n+1个点$a\le x_{0}&lt; x_{1}&lt; \cdots &lt; x_{n}\le b$上的函数值$y_{i}&#x3D;f(x_{i})(i&#x3D;0,1,\cdots,n)$，存在唯一次数不超过n的多项式，使<br>$$	<br>    \begin{align*}<br>            P(x_{i})&#x3D;y_{i},\quad i&#x3D;0,1,\cdots,n<br>    \end{align*}<br>$$</p>
-<p><strong>证明</strong>：由此可得关于系数$a_{0},a_{1},\cdots,a_{n}$的n+1元线性方程组<br>$$		<br>    \begin{align*}<br>        \begin{cases}<br>            a_{0}+a_{1}x_{0}+\cdots+a_{n}x_{0}^{n}&#x3D;y_{0}\<br>            a_{0}+a_{1}x_{1}+\cdots+a_{n}x_{1}^{n}&#x3D;y_{1}\<br>            \cdots\<br>            a_{0}+a_{1}x_{n}+\cdots+a_{n}x_{n}^{n}&#x3D;y_{n}\<br>        \end{cases}<br>    \end{align*}<br>$$<br>此方程组的系数矩阵为<br>$$<br>    \begin{align}<br>        A&#x3D; \begin{bmatrix}<br>            1 &amp; x_{0} &amp; \cdots &amp; x_{0}^{n}\<br>            1 &amp; x_{1} &amp; \cdots &amp; x_{1}^{n}\<br>            \vdots &amp; \vdots &amp;  &amp; \vdots\<br>            1 &amp; x_{n} &amp; \cdots &amp; x_{n}^{n}\<br>        \end{bmatrix}<br>    \end{align}<br>$$<br>由于$x_{i}$互异，故<br>$$<br>    \begin{align*}<br>        det A &#x3D; \prod_{i,j&#x3D;0,i&gt;j}^{n-1}(x_{i}-x_{j})\ne 0<br>    \end{align*}<br>$$<br>因此，方程组的解$a_{0},a_{1},\cdots,a_{n}$存在且唯一</p>
-<hr>
-<h2 id="拉格朗日插值"><a href="#拉格朗日插值" class="headerlink" title="拉格朗日插值"></a>拉格朗日插值</h2><h3 id="拉格朗日插值多项式"><a href="#拉格朗日插值多项式" class="headerlink" title="拉格朗日插值多项式"></a>拉格朗日插值多项式</h3><p><strong>插值基函数</strong>：若n次多项式$l_{j}(x)(j&#x3D;0,1,\cdots,n)$在n+1个节点$x_{0}&lt;x_{1}&lt;\cdots&lt;x_{n}$上满足条件<br>$$<br>    \begin{align*}<br>        l_{j}(x_{k})&#x3D;\begin{cases}<br>            1,\quad k&#x3D;j \<br>            0,\quad k\ne j<br>        \end{cases}<br>    \end{align*}<br>$$<br>就称这n+1个n次多项式$l_{0}(x),l_{1}(x),\cdots,l_{n}(x)$为节点$x_{0},x_{1},\cdots,x_{n}$上的n次插值基函数</p>
-<div class="note info no-icon"><p>   容易得到$n$次插值基函数为<br>   $$<br>   \begin{align*}<br>    l_{k}(x)&#x3D;\frac{(x-x_{0})\cdots(x-x_{k-1})(x-x_{k+1})\cdots(x-x_{n})}{(x_{k}-x_{0})\cdots(x_{k}-x_{k-1})(x_{k}-x_{k+1})\cdots(x_{k}-x_{n})}<br>\end{align*}<br>   $$</p>
+                <h1 id="数值分析-插值法">数值分析-插值法</h1>
+<h2 id="插值问题">插值问题</h2>
+<h3 id="插值法概述">插值法概述</h3>
+<p><strong>插值法</strong>：设函数<span
+class="math inline">\(y=f(x)\)</span>在区间<span
+class="math inline">\([a,b]\)</span>上有定义，且已知在点<span
+class="math inline">\(a\le x_{0}&lt; x_{1}&lt; \cdots &lt; x_{n}\le
+b\)</span>上的值<span
+class="math inline">\(y_{0},y_{1},\cdots,y_{n}\)</span>，若存在一简单函数<span
+class="math inline">\(P(x)\)</span>，使 <span class="math display">\[  
+    \begin{align*}
+            P(x_{i})=y_{i},\quad i=0,1,\cdots,n
+    \end{align*}
+\]</span> 成立，就称<span class="math inline">\(P(x)\)</span>为<span
+class="math inline">\(f(x)\)</span>的插值函数，点<span
+class="math inline">\(x_{0},x_{1},\cdots,x_{n}\)</span>称为插值节点，包含插值节点的区间<span
+class="math inline">\([a,b]\)</span>称为插值区间</p>
+<h3 id="多项式插值">多项式插值</h3>
+<p><strong>多项式插值存在性唯一性定理</strong>：设在区间<span
+class="math inline">\([a,b]\)</span>上给定n+1个点<span
+class="math inline">\(a\le x_{0}&lt; x_{1}&lt; \cdots &lt; x_{n}\le
+b\)</span>上的函数值<span
+class="math inline">\(y_{i}=f(x_{i})(i=0,1,\cdots,n)\)</span>，存在唯一次数不超过n的多项式，使
+<span class="math display">\[  
+    \begin{align*}
+            P(x_{i})=y_{i},\quad i=0,1,\cdots,n
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：由此可得关于系数<span
+class="math inline">\(a_{0},a_{1},\cdots,a_{n}\)</span>的n+1元线性方程组
+<span class="math display">\[      
+    \begin{align*}
+        \begin{cases}
+            a_{0}+a_{1}x_{0}+\cdots+a_{n}x_{0}^{n}=y_{0}\\
+            a_{0}+a_{1}x_{1}+\cdots+a_{n}x_{1}^{n}=y_{1}\\
+            \cdots\\
+            a_{0}+a_{1}x_{n}+\cdots+a_{n}x_{n}^{n}=y_{n}\\
+        \end{cases}
+    \end{align*}
+\]</span> 此方程组的系数矩阵为 <span class="math display">\[
+    \begin{align}
+        A= \begin{bmatrix}
+            1 &amp; x_{0} &amp; \cdots &amp; x_{0}^{n}\\
+            1 &amp; x_{1} &amp; \cdots &amp; x_{1}^{n}\\
+            \vdots &amp; \vdots &amp;  &amp; \vdots\\
+            1 &amp; x_{n} &amp; \cdots &amp; x_{n}^{n}\\
+        \end{bmatrix}
+    \end{align}
+\]</span> 由于<span class="math inline">\(x_{i}\)</span>互异，故 <span
+class="math display">\[
+    \begin{align*}
+        det A = \prod_{i,j=0,i&gt;j}^{n-1}(x_{i}-x_{j})\ne 0
+    \end{align*}
+\]</span> 因此，方程组的解<span
+class="math inline">\(a_{0},a_{1},\cdots,a_{n}\)</span>存在且唯一</p>
+<hr />
+<h2 id="拉格朗日插值">拉格朗日插值</h2>
+<h3 id="拉格朗日插值多项式">拉格朗日插值多项式</h3>
+<p><strong>插值基函数</strong>：若n次多项式<span
+class="math inline">\(l_{j}(x)(j=0,1,\cdots,n)\)</span>在n+1个节点<span
+class="math inline">\(x_{0}&lt;x_{1}&lt;\cdots&lt;x_{n}\)</span>上满足条件
+<span class="math display">\[
+    \begin{align*}
+        l_{j}(x_{k})=\begin{cases}
+            1,\quad k=j \\
+            0,\quad k\ne j
+        \end{cases}
+    \end{align*}
+\]</span> 就称这n+1个n次多项式<span
+class="math inline">\(l_{0}(x),l_{1}(x),\cdots,l_{n}(x)\)</span>为节点<span
+class="math inline">\(x_{0},x_{1},\cdots,x_{n}\)</span>上的n次插值基函数</p>
+<div class="note info no-icon"><p>容易得到<span class="math inline">\(n\)</span>次插值基函数为 <span
+class="math display">\[
+   \begin{align*}
+    l_{k}(x)=\frac{(x-x_{0})\cdots(x-x_{k-1})(x-x_{k+1})\cdots(x-x_{n})}{(x_{k}-x_{0})\cdots(x_{k}-x_{k-1})(x_{k}-x_{k+1})\cdots(x_{k}-x_{n})}
+\end{align*}
+   \]</span></p>
 </div>
-
-<p><strong>拉格朗日插值多项式</strong>：形如<br>$$<br>    \begin{align*}<br>        L_{n}(x)&#x3D;\sum_{k&#x3D;0}^{n}y_{k}l_{k}(x)<br>    \end{align*}<br>$$<br>的插值多项式$L_{n}(x)$称为拉格朗日插值多项式</p>
-<h3 id="插值余项与误差估计"><a href="#插值余项与误差估计" class="headerlink" title="插值余项与误差估计"></a>插值余项与误差估计</h3><p><strong>定理</strong>：设$f^{(n)}(x)$在$[a,b]$上连续，$f^{(n+1)}(x)$在$(a,b)$内存在，节点$a\le x_{0}&lt;x_{1}&lt;\cdots&lt;x_{n}\le b$，$L_{n}(x)$是满足条件的插值多项式，则对任何$x\in [a,b]$，插值余项<br>$$<br>    \begin{align*}<br>        R_{n}(x)&#x3D;f(x)-L_{n}(x)&#x3D;\frac{f^{(n+1)}(\xi)}{(n+1)!}\omega_{n+1}(x)&#x3D;\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_{0})(x-x_{1})\cdots(x-x_{n})<br>    \end{align*}<br>$$<br>这里$\xi \in (a,b)$且依赖于x</p>
-<p><strong>证明</strong>：容易得到<br>$$<br>    R_n(x)&#x3D; f(x)-L_n(x)&#x3D;T(x)(x-x_0)(x-x_1)\cdots(x-x_n)<br>$$<br>为了求出$T(x)$，构造辅助函数<br>$$<br>    F(t)&#x3D; f(t)- L_n(t)-T(x)(t-x_0)(t-x_1)\cdots(t-x_n),\quad (x\ne x_1,x_2,\cdots,x_n)<br>$$<br>可得$F(t)$在区间$[a,b]$上有$x,x_0,x_1,\cdots,x_n$共$n+2$个零点，由罗尔定理，可知$F’(t)$在区间$[a,b]$上至少有$n+1$个零点，以此类推，最后知在区间$(a,b)$上存在一点$\xi$，使得$F^{(n+1)}(\xi)&#x3D;0$，即<br>$$<br>    \begin{align*}<br>        &amp;f^{(n+1)}(\xi)-(n+1)!\cdot T(x)&#x3D;0\<br>        \Longrightarrow &amp; T(x)&#x3D;\frac{f^{(n+1)}(\xi)}{(n+1)!}\<br>        \Longrightarrow &amp; R_{n}(x)&#x3D;f(x)-L_{n}(x)&#x3D;\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_{0})(x-x_{1})\cdots(x-x_{n})<br>    \end{align*}<br>$$</p>
-<hr>
-<h2 id="牛顿插值"><a href="#牛顿插值" class="headerlink" title="牛顿插值"></a>牛顿插值</h2><h3 id="差商"><a href="#差商" class="headerlink" title="差商"></a>差商</h3><p><strong>差商</strong>：</p>
-<ul>
-<li>称$f[x_{0},x_{k}]&#x3D;\frac{f(x_{k})-f(x_{0})}{x_{k}-x_{0}}$为函数$f(x)$关于$x_{0},x_{k}$的一阶差商</li>
-<li>$f[x_{0},x_{1},x_{k}]&#x3D;\frac{f[x_{0},x_{k}]-f[x_{0},x_{1}]}{x_{k}-x_{1}}$称为$f(x)$的二阶差商</li>
-<li>一般地，称<br>  $$<br>  \begin{align*}<br>  f[x_{0},x_{1},\cdots,x_{k}]&#x3D;\frac{f[x_{0},\cdots,x_{k-2},x_{k}]-f[x_{0},x_{1},\cdots,x_{k-1}]}{x_{k}-x_{k-1}}<br>  \end{align*}<br>  $$<br>  为$f(x)$的k阶差商</li>
-</ul>
+<p><strong>拉格朗日插值多项式</strong>：形如 <span
+class="math display">\[
+    \begin{align*}
+        L_{n}(x)=\sum_{k=0}^{n}y_{k}l_{k}(x)
+    \end{align*}
+\]</span> 的插值多项式<span
+class="math inline">\(L_{n}(x)\)</span>称为拉格朗日插值多项式</p>
+<h3 id="插值余项与误差估计">插值余项与误差估计</h3>
+<p><strong>定理</strong>：设<span
+class="math inline">\(f^{(n)}(x)\)</span>在<span
+class="math inline">\([a,b]\)</span>上连续，<span
+class="math inline">\(f^{(n+1)}(x)\)</span>在<span
+class="math inline">\((a,b)\)</span>内存在，节点<span
+class="math inline">\(a\le x_{0}&lt;x_{1}&lt;\cdots&lt;x_{n}\le
+b\)</span>，<span
+class="math inline">\(L_{n}(x)\)</span>是满足条件的插值多项式，则对任何<span
+class="math inline">\(x\in [a,b]\)</span>，插值余项 <span
+class="math display">\[
+    \begin{align*}
+        R_{n}(x)=f(x)-L_{n}(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}\omega_{n+1}(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_{0})(x-x_{1})\cdots(x-x_{n})
+    \end{align*}
+\]</span> 这里<span class="math inline">\(\xi \in
+(a,b)\)</span>且依赖于x</p>
+<p><strong>证明</strong>：容易得到 <span class="math display">\[
+    R_n(x)= f(x)-L_n(x)=T(x)(x-x_0)(x-x_1)\cdots(x-x_n)
+\]</span> 为了求出<span
+class="math inline">\(T(x)\)</span>，构造辅助函数 <span
+class="math display">\[
+    F(t)= f(t)- L_n(t)-T(x)(t-x_0)(t-x_1)\cdots(t-x_n),\quad (x\ne
+x_1,x_2,\cdots,x_n)
+\]</span> 可得<span class="math inline">\(F(t)\)</span>在区间<span
+class="math inline">\([a,b]\)</span>上有<span
+class="math inline">\(x,x_0,x_1,\cdots,x_n\)</span>共<span
+class="math inline">\(n+2\)</span>个零点，由罗尔定理，可知<span
+class="math inline">\(F&#39;(t)\)</span>在区间<span
+class="math inline">\([a,b]\)</span>上至少有<span
+class="math inline">\(n+1\)</span>个零点，以此类推，最后知在区间<span
+class="math inline">\((a,b)\)</span>上存在一点<span
+class="math inline">\(\xi\)</span>，使得<span
+class="math inline">\(F^{(n+1)}(\xi)=0\)</span>，即 <span
+class="math display">\[
+    \begin{align*}
+        &amp;f^{(n+1)}(\xi)-(n+1)!\cdot T(x)=0\\
+        \Longrightarrow &amp; T(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}\\
+        \Longrightarrow &amp;
+R_{n}(x)=f(x)-L_{n}(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_{0})(x-x_{1})\cdots(x-x_{n})
+    \end{align*}
+\]</span></p>
+<hr />
+<h2 id="牛顿插值">牛顿插值</h2>
+<h3 id="差商">差商</h3>
+<p><strong>差商</strong>： - 称<span
+class="math inline">\(f[x_{0},x_{k}]=\frac{f(x_{k})-f(x_{0})}{x_{k}-x_{0}}\)</span>为函数<span
+class="math inline">\(f(x)\)</span>关于<span
+class="math inline">\(x_{0},x_{k}\)</span>的一阶差商 - <span
+class="math inline">\(f[x_{0},x_{1},x_{k}]=\frac{f[x_{0},x_{k}]-f[x_{0},x_{1}]}{x_{k}-x_{1}}\)</span>称为<span
+class="math inline">\(f(x)\)</span>的二阶差商 - 一般地，称 <span
+class="math display">\[
+    \begin{align*}
+        f[x_{0},x_{1},\cdots,x_{k}]=\frac{f[x_{0},\cdots,x_{k-2},x_{k}]-f[x_{0},x_{1},\cdots,x_{k-1}]}{x_{k}-x_{k-1}}
+    \end{align*}
+    \]</span> 为<span class="math inline">\(f(x)\)</span>的k阶差商</p>
 <div class="note info no-icon"><ul>
-<li>差商与节点的排序无关，称为差商的对称性，即<br>$$<br>  \begin{align*}<br>  f[x_{0},x_{1},\cdots,x_{k}]&#x3D;f[x_{1},x_{0},\cdots,x_{k}]&#x3D;\cdots&#x3D;f[x_{1},\cdots,x_{k},x_{0}]<br>  \end{align*}<br>$$</li>
-<li>n阶差商与导数的关系为<br>$$<br>  \begin{align*}<br>  f[x_{0},x_{1},\cdots,x_{n}]&#x3D;\frac{f^{(n)}(\xi)}{n!},\quad \xi \in[a,b]<br>  \end{align*}<br>$$</li>
+<li>差商与节点的排序无关，称为差商的对称性，即 <span
+class="math display">\[
+  \begin{align*}
+      f[x_{0},x_{1},\cdots,x_{k}]=f[x_{1},x_{0},\cdots,x_{k}]=\cdots=f[x_{1},\cdots,x_{k},x_{0}]
+  \end{align*}
+\]</span></li>
+<li>n阶差商与导数的关系为 <span class="math display">\[
+  \begin{align*}
+      f[x_{0},x_{1},\cdots,x_{n}]=\frac{f^{(n)}(\xi)}{n!},\quad \xi
+\in[a,b]
+  \end{align*}
+\]</span></li>
 </ul>
 </div>
-
-<h3 id="牛顿插值多项式"><a href="#牛顿插值多项式" class="headerlink" title="牛顿插值多项式"></a>牛顿插值多项式</h3><p><strong>牛顿插值多项式</strong>：形如<br>$$<br>    \begin{align*}<br>        \begin{split}<br>            P_{n}(x)&#x3D;f(x_{0})+f<a href="x-x_%7B0%7D">x_{0},x_{1}</a>+\cdots+f<a href="x-x_%7B0%7D">x_{0},x_{1},\cdots,x_{n}</a>\cdots(x-x_{n-1})<br>        \end{split}<br>    \end{align*}	<br>$$<br>的插值多项式$P_{n}(x)$称为牛顿插值多项式</p>
-<h3 id="牛顿插值余项"><a href="#牛顿插值余项" class="headerlink" title="牛顿插值余项"></a>牛顿插值余项</h3><p><strong>定理</strong>：牛顿插值多项式余项满足<br>$$<br>    \begin{align*}<br>     		R(x)&#x3D;f(x)-N_{n}(x)&#x3D;f[x,x_{0},x_{1},\cdots,x_{n}]\prod_{i&#x3D;0}^{n}(x-x_{i})<br>    \end{align*}<br>$$</p>
-<h2 id="埃尔米特插值"><a href="#埃尔米特插值" class="headerlink" title="埃尔米特插值"></a>埃尔米特插值</h2><p>插值多项式要求在插值节点上函数值相等，但有的实际问题还要求在节点上导数值相等，甚至高阶导数值也相等，将满足这种要求的插值多项式称为埃尔米特插值多项式</p>
-<h3 id="两点三次埃尔米特插值"><a href="#两点三次埃尔米特插值" class="headerlink" title="两点三次埃尔米特插值"></a>两点三次埃尔米特插值</h3><p><strong>两点三次埃尔米特插值</strong>：插值节点取为$x_{k}$及$x_{k+1}$，插值多项式为$H_{3}(x)$，满足条件<br>$$<br>    \begin{align*}<br>        \begin{cases}<br>            H_{3}(x_{k})&#x3D;y_{k},\quad H_{3}(x_{k+1})&#x3D;y_{k+1}\<br>            H’<em>{3}(x</em>{k})&#x3D;m_{k},\quad H’<em>{3}(x</em>{k+1})&#x3D;m_{k+1}<br>        \end{cases}<br>    \end{align*}<br>$$</p>
-<p><strong>解</strong>：采用基函数方法，令<br>$$<br>    \begin{align*}<br>        H_{3}(x)&#x3D;\alpha_{k}(x)y_{k}+\alpha_{k+1}(x)y_{k+1}+\beta_{k}(x)m_{k}+\beta_{k+1}(x)m_{k+1}<br>    \end{align*}<br>$$<br>其中$\alpha_{k}(x),\alpha_{k+1}(x),\beta_{k}(x),\beta_{k+1}(x)$是关于节点$x_{k}$以及$x_{k+1}$的三次埃尔米特插值基函数，它们应分别满足条件<br>$$<br>    \begin{align*}<br>        \begin{cases}<br>            \alpha_{k}(x_{k})&#x3D;1,\quad \alpha_{k}(x_{k+1})&#x3D;0,\quad \alpha’<em>{k}(x</em>{k})&#x3D;\alpha’<em>{k}(x</em>{k+1})&#x3D;0\<br>            \alpha_{k+1}(x_{k})&#x3D;0,\quad \alpha_{k+1}(x_{k+1})&#x3D;1,\quad \alpha’<em>{k+1}(x</em>{k})&#x3D;\alpha’<em>{k+1}(x</em>{k+1})&#x3D;0\<br>            \beta_{k}(x_{k})&#x3D;\beta_{k}(x_{k+1})&#x3D;0,\quad \beta_{k}’(x_{k})&#x3D;1,\quad \beta_{k}’(x_{k+1})&#x3D;0\<br>            \beta_{k+1}(x_{k})&#x3D;\beta_{k+1}(x_{k+1})&#x3D;0,\quad \beta_{k+1}’(x_{k})&#x3D;0,\quad \beta_{k+1}’(x_{k+1})&#x3D;1<br>        \end{cases}<br>    \end{align*}<br>$$<br>于是求得<br>$$<br>    \begin{align*}<br>        \alpha_{k}(x)&#x3D;(1+2\frac{x-x_{k}}{x_{k+1}-x_{k}})(\frac{x-x_{k+1}}{x_{k}-x_{k+1}})^{2}<br>    \end{align*}<br>$$<br>同理可求得<br>$$<br>\begin{align*}<br>    \alpha_{k+1}(x)&amp;&#x3D;(1+2\frac{x-x_{k+1}}{x_{k}-x_{k+1}})(\frac{x-x_{k}}{x_{k+1}-x_{k}})^{2}\<br>    \beta_{k}(x)&amp;&#x3D;(x-x_{k})(\frac{x-x_{k+1}}{x_{k}-x_{k+1}})^{2}\<br>    \beta_{k+1}(x)&amp;&#x3D;(x-x_{k+1})(\frac{x-x_{k}}{x_{k+1}-x_{k}})^{2}<br>\end{align*}<br>$$</p>
-<hr>
-<div class="note info no-icon"><p>利用重节点差商，还可以得到一种所谓的$Newton$型$Hermite$插值公式<br>$$<br>    \begin{align*}<br>        H_{3}(x)&#x3D;f(x_{0})+f<a href="x-x_%7B0%7D">x_{0},x_{0}</a>+f<a href="x-x_%7B0%7D">x_{0},x_{0},x_{1}</a>^2 + f<a href="x-x_%7B0%7D">x_{0},x_{0},x_{1},x_{1}</a>^2 (x-x_{1})<br>    \end{align*}<br>$$</p>
+<h3 id="牛顿插值多项式">牛顿插值多项式</h3>
+<p><strong>牛顿插值多项式</strong>：形如 <span class="math display">\[
+    \begin{align*}
+        \begin{split}
+            P_{n}(x)=f(x_{0})+f[x_{0},x_{1}](x-x_{0})+\cdots+f[x_{0},x_{1},\cdots,x_{n}](x-x_{0})\cdots(x-x_{n-1})
+        \end{split}
+    \end{align*}    
+\]</span> 的插值多项式<span
+class="math inline">\(P_{n}(x)\)</span>称为牛顿插值多项式</p>
+<h3 id="牛顿插值余项">牛顿插值余项</h3>
+<p><strong>定理</strong>：牛顿插值多项式余项满足 <span
+class="math display">\[
+    \begin{align*}
+            R(x)=f(x)-N_{n}(x)=f[x,x_{0},x_{1},\cdots,x_{n}]\prod_{i=0}^{n}(x-x_{i})
+    \end{align*}
+\]</span></p>
+<h2 id="埃尔米特插值">埃尔米特插值</h2>
+<p>插值多项式要求在插值节点上函数值相等，但有的实际问题还要求在节点上导数值相等，甚至高阶导数值也相等，将满足这种要求的插值多项式称为埃尔米特插值多项式</p>
+<h3 id="两点三次埃尔米特插值">两点三次埃尔米特插值</h3>
+<p><strong>两点三次埃尔米特插值</strong>：插值节点取为<span
+class="math inline">\(x_{k}\)</span>及<span
+class="math inline">\(x_{k+1}\)</span>，插值多项式为<span
+class="math inline">\(H_{3}(x)\)</span>，满足条件 <span
+class="math display">\[
+    \begin{align*}
+        \begin{cases}
+            H_{3}(x_{k})=y_{k},\quad H_{3}(x_{k+1})=y_{k+1}\\
+            H&#39;_{3}(x_{k})=m_{k},\quad H&#39;_{3}(x_{k+1})=m_{k+1}
+        \end{cases}
+    \end{align*}
+\]</span></p>
+<p><strong>解</strong>：采用基函数方法，令 <span class="math display">\[
+    \begin{align*}
+        H_{3}(x)=\alpha_{k}(x)y_{k}+\alpha_{k+1}(x)y_{k+1}+\beta_{k}(x)m_{k}+\beta_{k+1}(x)m_{k+1}
+    \end{align*}
+\]</span> 其中<span
+class="math inline">\(\alpha_{k}(x),\alpha_{k+1}(x),\beta_{k}(x),\beta_{k+1}(x)\)</span>是关于节点<span
+class="math inline">\(x_{k}\)</span>以及<span
+class="math inline">\(x_{k+1}\)</span>的三次埃尔米特插值基函数，它们应分别满足条件
+<span class="math display">\[
+    \begin{align*}
+        \begin{cases}
+            \alpha_{k}(x_{k})=1,\quad \alpha_{k}(x_{k+1})=0,\quad
+\alpha&#39;_{k}(x_{k})=\alpha&#39;_{k}(x_{k+1})=0\\
+            \alpha_{k+1}(x_{k})=0,\quad \alpha_{k+1}(x_{k+1})=1,\quad
+\alpha&#39;_{k+1}(x_{k})=\alpha&#39;_{k+1}(x_{k+1})=0\\
+            \beta_{k}(x_{k})=\beta_{k}(x_{k+1})=0,\quad
+\beta_{k}&#39;(x_{k})=1,\quad \beta_{k}&#39;(x_{k+1})=0\\
+            \beta_{k+1}(x_{k})=\beta_{k+1}(x_{k+1})=0,\quad
+\beta_{k+1}&#39;(x_{k})=0,\quad \beta_{k+1}&#39;(x_{k+1})=1
+        \end{cases}
+    \end{align*}
+\]</span> 于是求得 <span class="math display">\[
+    \begin{align*}
+        \alpha_{k}(x)=(1+2\frac{x-x_{k}}{x_{k+1}-x_{k}})(\frac{x-x_{k+1}}{x_{k}-x_{k+1}})^{2}
+    \end{align*}
+\]</span> 同理可求得 <span class="math display">\[
+\begin{align*}
+    \alpha_{k+1}(x)&amp;=(1+2\frac{x-x_{k+1}}{x_{k}-x_{k+1}})(\frac{x-x_{k}}{x_{k+1}-x_{k}})^{2}\\
+    \beta_{k}(x)&amp;=(x-x_{k})(\frac{x-x_{k+1}}{x_{k}-x_{k+1}})^{2}\\
+    \beta_{k+1}(x)&amp;=(x-x_{k+1})(\frac{x-x_{k}}{x_{k+1}-x_{k}})^{2}
+\end{align*}
+\]</span></p>
+<hr />
+<div class="note info no-icon"><p>利用重节点差商，还可以得到一种所谓的<span
+class="math inline">\(Newton\)</span>型<span
+class="math inline">\(Hermite\)</span>插值公式 <span
+class="math display">\[    
+    \begin{align*}
+        H_{3}(x)=f(x_{0})+f[x_{0},x_{0}](x-x_{0})+f[x_{0},x_{0},x_{1}](x-x_{0})^2
++ f[x_{0},x_{0},x_{1},x_{1}](x-x_{0})^2 (x-x_{1})
+    \end{align*}
+\]</span></p>
 </div>
-
-<h3 id="插值余项与误差估计-1"><a href="#插值余项与误差估计-1" class="headerlink" title="插值余项与误差估计"></a>插值余项与误差估计</h3><p><strong>两点三次埃尔米特插值余项</strong>：若$f\in C^3 [a,b],f^{(4)}(x)$在$(a,b)$存在，则对$\forall x\in [a,b]$，两点三次Hermite插值的误差为</p>
-<p>$$<br>    \begin{align*}<br>        R_{3}(x)&#x3D;f(x)-H_{3}(x)&#x3D;\frac{f^{(4)}(\xi)}{4!}(x-x_{0})^2 (x-x_{1})^2<br>    \end{align*}<br>$$</p>
-<p>其中$\xi \in (a,b)$，且依赖于$x$</p>
-<h2 id="分段低次插值"><a href="#分段低次插值" class="headerlink" title="分段低次插值"></a>分段低次插值</h2><h3 id="高次插值的病态性质"><a href="#高次插值的病态性质" class="headerlink" title="高次插值的病态性质"></a>高次插值的病态性质</h3><p>上面我们根据$[a,b]$上给出的节点插值做插值多项式$L_{n}(x)$近似$f(x)$，一般总认为$L_{n}(x)$的次数n越高逼近$f(x)$的精度越好，但实际上并非如此。</p>
-<p>这是因为对任意的插值节点，当$n\to \infty$时，$L_{n}(x)$不一定收敛于$f(x)$，即龙格现象</p>
+<h3 id="插值余项与误差估计-1">插值余项与误差估计</h3>
+<p><strong>两点三次埃尔米特插值余项</strong>：若<span
+class="math inline">\(f\in C^3 [a,b],f^{(4)}(x)\)</span>在<span
+class="math inline">\((a,b)\)</span>存在，则对<span
+class="math inline">\(\forall x\in
+[a,b]\)</span>，两点三次Hermite插值的误差为</p>
+<p><span class="math display">\[    
+    \begin{align*}
+        R_{3}(x)=f(x)-H_{3}(x)=\frac{f^{(4)}(\xi)}{4!}(x-x_{0})^2
+(x-x_{1})^2
+    \end{align*}
+\]</span></p>
+<p>其中<span class="math inline">\(\xi \in (a,b)\)</span>，且依赖于<span
+class="math inline">\(x\)</span></p>
+<h2 id="分段低次插值">分段低次插值</h2>
+<h3 id="高次插值的病态性质">高次插值的病态性质</h3>
+<p>上面我们根据<span
+class="math inline">\([a,b]\)</span>上给出的节点插值做插值多项式<span
+class="math inline">\(L_{n}(x)\)</span>近似<span
+class="math inline">\(f(x)\)</span>，一般总认为<span
+class="math inline">\(L_{n}(x)\)</span>的次数n越高逼近<span
+class="math inline">\(f(x)\)</span>的精度越好，但实际上并非如此。</p>
+<p>这是因为对任意的插值节点，当<span class="math inline">\(n\to
+\infty\)</span>时，<span
+class="math inline">\(L_{n}(x)\)</span>不一定收敛于<span
+class="math inline">\(f(x)\)</span>，即龙格现象</p>
 <center>
-    <img src='数值分析-插值法\Runge.jpg' width="50%" height="50%"/>
+<img src='数值分析-插值法\Runge.jpg' width="50%" height="50%"/>
 </center>
-
-<h3 id="分段线性插值"><a href="#分段线性插值" class="headerlink" title="分段线性插值"></a>分段线性插值</h3><p><strong>分段线性插值函数</strong>：设已知节点$a&#x3D;x_{0}&lt;x_{1}&lt;\cdots&lt;x_{n}&#x3D;b$ 上的函数值 $f_{0},f_{1},\cdots,f_{n}$，记$h_{k}&#x3D;x_{k+1}-x_{k},h&#x3D;\max_{k}h_{k}$，折线函数$I_{h}(x)$满足：</p>
+<h3 id="分段线性插值">分段线性插值</h3>
+<p><strong>分段线性插值函数</strong>：设已知节点<span
+class="math inline">\(a=x_{0}&lt;x_{1}&lt;\cdots&lt;x_{n}=b\)</span>
+上的函数值 <span
+class="math inline">\(f_{0},f_{1},\cdots,f_{n}\)</span>，记<span
+class="math inline">\(h_{k}=x_{k+1}-x_{k},h=\max_{k}h_{k}\)</span>，折线函数<span
+class="math inline">\(I_{h}(x)\)</span>满足：</p>
 <ul>
-<li>$I_{h}(x)\in C[a,b]$;</li>
-<li>$I_{h}(x_{k})&#x3D;f_{k}(k&#x3D;0,1,\cdots,n)$;</li>
-<li>$I_{h}(x)$在每个小区间$[x_{k},x_{k+1}]$上是线性函数</li>
+<li><span class="math inline">\(I_{h}(x)\in C[a,b]\)</span>;</li>
+<li><span
+class="math inline">\(I_{h}(x_{k})=f_{k}(k=0,1,\cdots,n)\)</span>;</li>
+<li><span class="math inline">\(I_{h}(x)\)</span>在每个小区间<span
+class="math inline">\([x_{k},x_{k+1}]\)</span>上是线性函数</li>
 </ul>
-<p>则称$I_{k}(x)$为分段线性插值函数</p>
-<p><strong>定理</strong>：若函数$f(x)\in C^{2}[a,b]$，则$I_{h}(x)$在$[a,b]$上一致收敛到$f(x)$</p>
-<p><strong>证明</strong>：由定义可知，分段线性插值的误差估计可以用插值余项得到<br>$$<br>    \begin{align*}<br>        \max_{x_{k}\le x\le x_{k+1}}\left|f(x)-I_{h}(x)\right|\le \frac{M_{2}}{2}\max_{x_{k}\le x\le x_{k+1}}\left|(x-x_{k})(x-x_{k+1})\right|\le \frac{M_{2}}{8}h^{2}<br>    \end{align*}<br>$$<br>其中$M_{2}&#x3D;\max_{a\le x\le b}\left|f’’(x)\right|$，由此知<br>$$<br>    \begin{align*}<br>        \lim\limits_{h\to 0}I_{h}(x)&#x3D;f(x)<br>    \end{align*}<br>$$</p>
-<hr>
-<h3 id="分段三次埃尔米特插值函数"><a href="#分段三次埃尔米特插值函数" class="headerlink" title="分段三次埃尔米特插值函数"></a>分段三次埃尔米特插值函数</h3><p>分段线性插值函数$I_{h}(x)$的导数是间断的，若在节点$x_{k}(k&#x3D;0,1,\cdots,n)$上除已知函数值$f_{k}$外还给出导数值$f’<em>{x</em>{k}}&#x3D;m_{k}(k&#x3D;0,1,\cdots,n)$，这样就可构造一个导数连续的分段插值函数$I_{h}(x)$</p>
+<p>则称<span
+class="math inline">\(I_{k}(x)\)</span>为分段线性插值函数</p>
+<p><strong>定理</strong>：若函数<span class="math inline">\(f(x)\in
+C^{2}[a,b]\)</span>，则<span
+class="math inline">\(I_{h}(x)\)</span>在<span
+class="math inline">\([a,b]\)</span>上一致收敛到<span
+class="math inline">\(f(x)\)</span></p>
+<p><strong>证明</strong>：由定义可知，分段线性插值的误差估计可以用插值余项得到
+<span class="math display">\[
+    \begin{align*}
+        \max_{x_{k}\le x\le x_{k+1}}\left|f(x)-I_{h}(x)\right|\le
+\frac{M_{2}}{2}\max_{x_{k}\le x\le
+x_{k+1}}\left|(x-x_{k})(x-x_{k+1})\right|\le \frac{M_{2}}{8}h^{2}
+    \end{align*}
+\]</span> 其中<span class="math inline">\(M_{2}=\max_{a\le x\le
+b}\left|f&#39;&#39;(x)\right|\)</span>，由此知 <span
+class="math display">\[
+    \begin{align*}
+        \lim\limits_{h\to 0}I_{h}(x)=f(x)
+    \end{align*}
+\]</span></p>
+<hr />
+<h3 id="分段三次埃尔米特插值函数">分段三次埃尔米特插值函数</h3>
+<p>分段线性插值函数<span
+class="math inline">\(I_{h}(x)\)</span>的导数是间断的，若在节点<span
+class="math inline">\(x_{k}(k=0,1,\cdots,n)\)</span>上除已知函数值<span
+class="math inline">\(f_{k}\)</span>外还给出导数值<span
+class="math inline">\(f&#39;_{x_{k}}=m_{k}(k=0,1,\cdots,n)\)</span>，这样就可构造一个导数连续的分段插值函数<span
+class="math inline">\(I_{h}(x)\)</span></p>
 <p><strong>分段三次埃尔米特插值函数</strong>：满足条件</p>
 <ul>
-<li>$I_{h}(x)\in C^{1}[a,b]$;</li>
-<li>$I_{h}(x_{k})&#x3D;f_{k},I’<em>{h}(x</em>{k})&#x3D;f’_{k}(k&#x3D;0,1,\cdots,n)$;</li>
-<li>$I_{h}(x)$在每个小区间$[x_{k},x_{k+1}]$上是三次多项式</li>
+<li><span class="math inline">\(I_{h}(x)\in C^{1}[a,b]\)</span>;</li>
+<li><span
+class="math inline">\(I_{h}(x_{k})=f_{k},I&#39;_{h}(x_{k})=f&#39;_{k}(k=0,1,\cdots,n)\)</span>;</li>
+<li><span class="math inline">\(I_{h}(x)\)</span>在每个小区间<span
+class="math inline">\([x_{k},x_{k+1}]\)</span>上是三次多项式</li>
 </ul>
 <p>称为分段三次埃尔米特插值函数</p>
-<p><strong>误差估计</strong>：设$f\in C^{4}[a,b]$，$I_{h}(x)$为$f(x)$在节点$a&#x3D;x_{0}&lt;x_{1}&lt;\cdots&lt;x_{n}&#x3D;b$上的分段三次埃尔米特插值多项式，则有<br>$$<br>    \begin{align*}<br>        \max_{a\le x\le b}\left|f(x)-I_{h}(x)\right|\le \frac{h^{4}}{384}\max_{a\le x \le b}\left|f^{(4)}(x)\right|<br>    \end{align*}<br>$$<br>其中$h&#x3D;\max_{0\le k \le n-1}(x_{k+1}-x_{k})$</p>
-<h2 id="三次样条插值"><a href="#三次样条插值" class="headerlink" title="三次样条插值"></a>三次样条插值</h2><p><strong>三次样条插值函数</strong>：设函数$S(x)\in C^{2}[a,b]$，且在每个小区间$[x_{j},x_{j+1}]$上是三次多项式，若在节点$x_{i}$上给定函数值$y_{j}&#x3D;f(x_{j})(j&#x3D;0,1,\cdots,n)$，并成立<br>$$<br>    \begin{align*}<br>        S(x_{j})&#x3D;y_{j},\quad j&#x3D;0,1,\cdots,n<br>    \end{align*}<br>$$<br>则称$S(x)$为三次样条插值函数</p>
-<p>从定义知要求出$S(x)$，在每个小区间$[x_{j},x_{j+1}]$上要确定4个待定系数，而共有n个小区间，故应确定4n个参数。根据$S(x)$在$[a,b]$上二阶导数连续，在节点$x_{j}(j&#x3D;1,2,\cdots,n-1)$处应该满足连续性条件<br>$$<br>    \begin{align*}<br>        S(x_{j}-0)&#x3D;S(x_{j}+0),\quad S’(x_{j}-0)&#x3D;S’(x_{j}+0),\quad S’’(x_{j}-0)&#x3D;S’’(x_{j}+0)<br>    \end{align*}<br>$$<br>这里共有3n-3个条件，再加上$S(x)$满足插值条件，共有4n-2个条件，因此还需要加上2个条件才能确定$S(x)$。通常，可在区间$[a,b]$的端点$a&#x3D;x_{0},b&#x3D;x_{n}$上各加一个条件（称为边界条件），可根据实际问题的要求给定。常见的有以下3种：</p>
+<p><strong>误差估计</strong>：设<span class="math inline">\(f\in
+C^{4}[a,b]\)</span>，<span
+class="math inline">\(I_{h}(x)\)</span>为<span
+class="math inline">\(f(x)\)</span>在节点<span
+class="math inline">\(a=x_{0}&lt;x_{1}&lt;\cdots&lt;x_{n}=b\)</span>上的分段三次埃尔米特插值多项式，则有
+<span class="math display">\[
+    \begin{align*}
+        \max_{a\le x\le b}\left|f(x)-I_{h}(x)\right|\le
+\frac{h^{4}}{384}\max_{a\le x \le b}\left|f^{(4)}(x)\right|
+    \end{align*}
+\]</span> 其中<span class="math inline">\(h=\max_{0\le k \le
+n-1}(x_{k+1}-x_{k})\)</span></p>
+<h2 id="三次样条插值">三次样条插值</h2>
+<p><strong>三次样条插值函数</strong>：设函数<span
+class="math inline">\(S(x)\in C^{2}[a,b]\)</span>，且在每个小区间<span
+class="math inline">\([x_{j},x_{j+1}]\)</span>上是三次多项式，若在节点<span
+class="math inline">\(x_{i}\)</span>上给定函数值<span
+class="math inline">\(y_{j}=f(x_{j})(j=0,1,\cdots,n)\)</span>，并成立
+<span class="math display">\[
+    \begin{align*}
+        S(x_{j})=y_{j},\quad j=0,1,\cdots,n
+    \end{align*}
+\]</span> 则称<span
+class="math inline">\(S(x)\)</span>为三次样条插值函数</p>
+<p>从定义知要求出<span
+class="math inline">\(S(x)\)</span>，在每个小区间<span
+class="math inline">\([x_{j},x_{j+1}]\)</span>上要确定4个待定系数，而共有n个小区间，故应确定4n个参数。根据<span
+class="math inline">\(S(x)\)</span>在<span
+class="math inline">\([a,b]\)</span>上二阶导数连续，在节点<span
+class="math inline">\(x_{j}(j=1,2,\cdots,n-1)\)</span>处应该满足连续性条件
+<span class="math display">\[
+    \begin{align*}
+        S(x_{j}-0)=S(x_{j}+0),\quad
+S&#39;(x_{j}-0)=S&#39;(x_{j}+0),\quad
+S&#39;&#39;(x_{j}-0)=S&#39;&#39;(x_{j}+0)
+    \end{align*}
+\]</span> 这里共有3n-3个条件，再加上<span
+class="math inline">\(S(x)\)</span>满足插值条件，共有4n-2个条件，因此还需要加上2个条件才能确定<span
+class="math inline">\(S(x)\)</span>。通常，可在区间<span
+class="math inline">\([a,b]\)</span>的端点<span
+class="math inline">\(a=x_{0},b=x_{n}\)</span>上各加一个条件（称为边界条件），可根据实际问题的要求给定。常见的有以下3种：</p>
 <ul>
-<li><p>已知两端的一阶导数值，即<br>  $$<br>  \begin{align*}<br>      S’(x_{0})&#x3D;f’<em>{0},\quad S’(x</em>{n})&#x3D;f’_{n}<br>  \end{align*}<br>  $$</p>
-</li>
-<li><p>已知两端的二阶导数，即<br>  $$<br>  \begin{align*}<br>      S’’(x_{0})&#x3D;f’’<em>{0},\quad S’’(x</em>{n})&#x3D;f’’_{n}<br>  \end{align*}<br>  $$</p>
-</li>
-<li><p>当$f(x)$是以$x_{n}-x_{0}$为周期的周期函数时，则要求$S(x)$也是周期函数。这时边界条件应满足<br>  $$<br>  \begin{align*}<br>      \begin{cases}<br>          S(x_{0}+0)&#x3D;S(x_{n}-0),\quad S’(x_{0}+0)&#x3D;S’(x_{n}-0)\<br>          S’’(x_{0}+0)&#x3D;S’’(x_{n}-0)<br>      \end{cases}<br>  \end{align*}<br>  $$<br>  这样确定的样条函数$S(x)$称为周期样条函数</p>
-</li>
+<li><p>已知两端的一阶导数值，即 <span class="math display">\[
+      \begin{align*}
+          S&#39;(x_{0})=f&#39;_{0},\quad S&#39;(x_{n})=f&#39;_{n}
+      \end{align*}
+  \]</span></p></li>
+<li><p>已知两端的二阶导数，即 <span class="math display">\[
+      \begin{align*}
+          S&#39;&#39;(x_{0})=f&#39;&#39;_{0},\quad
+S&#39;&#39;(x_{n})=f&#39;&#39;_{n}
+      \end{align*}
+  \]</span></p></li>
+<li><p>当<span class="math inline">\(f(x)\)</span>是以<span
+class="math inline">\(x_{n}-x_{0}\)</span>为周期的周期函数时，则要求<span
+class="math inline">\(S(x)\)</span>也是周期函数。这时边界条件应满足
+<span class="math display">\[
+      \begin{align*}
+          \begin{cases}
+              S(x_{0}+0)=S(x_{n}-0),\quad
+S&#39;(x_{0}+0)=S&#39;(x_{n}-0)\\
+              S&#39;&#39;(x_{0}+0)=S&#39;&#39;(x_{n}-0)
+          \end{cases}
+      \end{align*}
+  \]</span> 这样确定的样条函数<span
+class="math inline">\(S(x)\)</span>称为周期样条函数</p></li>
 </ul>
-<p><strong>定理</strong>：$I$型三次样条插值问题的解存在且唯一</p>
-<p><strong>证明</strong>：记$M_{i}&#x3D;s_{I}’’(x_{i}),(i&#x3D;0,1,\cdots,n)$，将其设为待定参数，由于$s_{I}(x)$在$e_{i}$上为三次多项式，故$s_{I}’’(x)$在$e_{i}$上为线性函数，于是可得$s_{I}’’(x)$的分段表达式<br>$$<br>    \begin{align*}<br>        s_{I}’’(x)&#x3D;M_{i-1}\frac{x_{i}-x}{h_{i}}+M_{i}\frac{x-x_{i-1}}{h_{i}},\ x\in e_{i},\ i&#x3D;1,2,\cdots,n<br>    \end{align*}<br>$$<br>将上式积分两次，并利用$s_{I}(x_{i-1})&#x3D;f_{i-1},s_{I}(x_{i})&#x3D;f_{i}$来确定积分常数，可得<br>$$<br>    \begin{align*}<br>        s_{I}(x)&#x3D;\frac{1}{6h_{i}}[(x_{i}-x)^3 M_{i-1}+(x-x_{i-1})^3 M_{i}]+\frac{1}{h_{i}}[(x_{i}-x)f_{i-1}+(x-x_{i-1})f_{i}]-\frac{h_{i}}{6}[(x_{i}-x)M_{i-1}+(x-x_{i-1})M_{i}],\quad x\in e_{i}<br>    \end{align*}<br>$$<br>要证$s_{I}(x)$唯一存在，只需证明$M_{i}(i&#x3D;0,1,\cdots,n)$可被唯一确定</p>
-<p>对于上述$s_{I}(x)$满足其自身和二阶导函数在整个区间$[a,b]$上连续，由连接条件，还要求一阶导数在整个区间$[a,b]$上连续，即<br>$$<br>    \begin{align*}<br>        s’<em>{I}(x</em>{j}+0)&#x3D;s’<em>{I}(x</em>{j}-0),\quad j&#x3D;1,2,\cdots,n-1<br>    \end{align*}<br>$$<br>我们有<br>$$<br>    \begin{align*}<br>        s’<em>{I}(x)&#x3D;-M</em>{i-1}\frac{(x_{i}-x)^2}{2h_{i}}+M_{i}\frac{(x-x_{i-1})^2}{2h_{i}}+\frac{f_{i}-f_{i-1}}{h_{i}}-\frac{(M_{i}-M_{i-1})h_{i}}{6},\quad x\in e_{i},\ i&#x3D;1,2,\cdots,n<br>    \end{align*}<br>$$<br>于是，单元$e_{j}$右端点的左极限和左端点的右极限分别为<br>$$<br>    \begin{align*}<br>        \begin{cases}<br>            s’<em>{I}(x</em>{j}-0)&#x3D;\frac{h_{i}}{6}M_{j-1}+\frac{h_{i}}{3}M_{j}+\frac{f_{j}-f_{j-1}}{h_{j}}\<br>            s’<em>{I}(x</em>{j-1}+0)&#x3D;-\frac{h_{j}}{3}M_{j-1}-\frac{h_{j}}{6}M_{j}+\frac{f_{j}-f_{j-1}}{h_{j}}<br>        \end{cases}<br>    \end{align*}<br>$$<br>从而有<br>$$<br>    \begin{align*}<br>        \frac{h_{j}}{6}M_{j-1}+\frac{h_{j}+h_{j+1}}{3}M_{j}+\frac{h_{j+1}}{6}M_{j+1}&#x3D;\frac{f_{j+1}-f_{j}}{h_{j+1}}-\frac{f_{j}-f_{j-1}}{h_{j}},\quad j&#x3D;1,2,\cdots,n-1<br>    \end{align*}<br>$$<br>若记<br>$$<br>    \begin{align*}<br>        \lambda_{j}&#x3D;\frac{h_{j+1}}{h_{j}+h_{j+1}},\ \mu_{j}&#x3D;1-\lambda_{j}&#x3D;\frac{h_{j}}{h_{j}+h_{j+1}},\quad j&#x3D;1,2,\cdots,n-1<br>    \end{align*}<br>$$<br>则上式可化为<br>$$<br>    \begin{align*}<br>        \mu_{j}M_{j-1}+2M_{j}+\lambda_{j}M_{j+1}&#x3D;6f[x_{j-1},x_{j},x_{j+1}],\quad j&#x3D;1,2,\cdots,n-1<br>    \end{align*}<br>$$<br>此外，$s_{I}’(x)$在端点$x_{0}$和$x_{n}$处应分别右连续和左连续，利用附加边界条件$s’<em>{I}(x</em>{0})&#x3D;f’<em>{0},s’</em>{I}(x_{n})&#x3D;f’<em>{n}$，可得<br>$$<br>    \begin{align*}<br>        \begin{cases}<br>            -\frac{h</em>{1}}{3}M_{0}-\frac{h_{1}}{6}M_{1}+\frac{f_{1}-f_{0}}{h_{1}}&#x3D;f’<em>{0}\<br>            \frac{h</em>{n}}{6}M_{n-1}+\frac{h_{n}}{3}M_{n}+\frac{f_{n}-f_{n-1}}{h_{n}}&#x3D;f’<em>{n}<br>        \end{cases}<br>    \end{align*}<br>$$<br>化简得到<br>$$<br>    \begin{align*}<br>        \begin{cases}<br>            2M</em>{0}+M_{1}&#x3D;6f[x_{0},x_{0},x_{1}]\<br>            M_{n-1}+2M_{n}&#x3D;6f[x_{n-1},x_{n},x_{n}]<br>        \end{cases}<br>    \end{align*}<br>$$<br>综合所有条件，可以得到一个关于待定参数$M_{0},M_{1},\cdots,M_{n}$的$n+1$阶线性代数方程组，其矩阵形式为<br>$$<br>    \begin{align*}<br>        \begin{bmatrix}<br>            2 &amp; 1 \<br>            \mu_{1} &amp; 2 &amp; \lambda_{1}\<br>                &amp; \mu_{2} &amp; 2 &amp; \lambda_{2}\<br>                &amp;  &amp; \ddots &amp; \ddots &amp; \ddots\<br>                &amp;  &amp;  &amp; \mu_{n-1} &amp; 2 &amp; \lambda_{n-1}\<br>                &amp;  &amp;  &amp;  &amp; 1 &amp; 2<br>        \end{bmatrix}<br>        \begin{bmatrix}<br>            M_{0}\<br>            M_{1}\<br>            M_{2}\<br>            \vdots\<br>            M_{n-1}\<br>            M_{n}<br>        \end{bmatrix}<br>        &#x3D;\begin{bmatrix}<br>            6f[x_{0},x_{0},x_{1}]\<br>            6f[x_{0},x_{1},x_{2}]\<br>            6f[x_{1},x_{2},x_{3}]\<br>            \vdots\<br>            6f[x_{n-2},x_{n-1},x_{n}]\<br>            6f[x_{n-1},x_{n},x_{n}]\<br>        \end{bmatrix}<br>    \end{align*}<br>$$<br>显然方程组的系数矩阵是严格对角占优的，因此非奇异，于是可以唯一的解出$M_{i}(i&#x3D;0,1,\cdots,n)$，从而得到$I$型三次样条插值问题的解存在且唯一</p>
-<hr>
-<h3 id="三次样条插值函数的基本性质"><a href="#三次样条插值函数的基本性质" class="headerlink" title="三次样条插值函数的基本性质"></a>三次样条插值函数的基本性质</h3><p><strong>定理</strong>：若$f\in C^2[a,b],s_{I}(x)$是$I$型三次样条插值函数，则对$\forall g\in Sp(3;\Delta)$，有<br>$$<br>    \begin{equation*}<br>        \int_{a}^{b}[f’’(x)-s_{I}’’(x)]\cdot g’’(x) dx &#x3D;0<br>    \end{equation*}<br>$$</p>
-<p><strong>证明</strong>：令$\omega(x)&#x3D;f(x)-s_{I}(x)$，则$\omega\in C^2[a,b]$，且满足<br>$$<br>    \begin{equation*}<br>        w(x_{i})&#x3D;0, \ i&#x3D;0,1,\cdots,n;\quad \omega’(a)&#x3D;\omega’(b)&#x3D;0<br>    \end{equation*}<br>$$<br>对$\forall g\in Sp(3;\Delta)$，有<br>$$<br>    \begin{align*}<br>        \int_{a}^{b}[f’’(x)-s_{I}’’(x)]\cdot g’’(x) dx&amp;&#x3D;\int_{a}^{b}\omega’’(x)g’’(x)dx&#x3D;\sum_{i&#x3D;1}^{n}\int_{e_{i}}\omega’’(x)g’’(x)dx\<br>        &amp;&#x3D;\sum_{i&#x3D;1}^{n}[\omega’(x)g’’(x)\mid_{x_{i-1}}^{x_{i}}-\int_{e_{i}}\omega’(x)g’’’(x)dx]\<br>        &amp;&#x3D;-\sum_{i&#x3D;1}^{n}g’’’(x_{i+1&#x2F;2})\cdot \int_{e_{i}}\omega’(x)dx &#x3D; 0<br>    \end{align*}<br>$$</p>
-<hr>
-<p><strong>最佳逼近定理</strong>:若$f\in C^2[a,b],s_{I}(x)$是$I$型三次样条插值函数，则对$\forall g\in Sp(3;\Delta)$，有<br>$$<br>    \begin{equation*}<br>        \int_{a}^{b}[f’’(x)-s’’<em>{I}(x)]^2 dx \le \int</em>{a}^{b}[f’’(x)-g’’(x)]^2 dx<br>    \end{equation*}<br>$$</p>
-<p><strong>证明</strong>：利用引理及Cauchy不等式，有<br>$$<br>    \begin{align*}<br>        \int_{a}^{b}[f’’(x)-s’’<em>{I}(x)]^2 dx &amp;&#x3D; \int</em>{a}^{b} [f’’(x)-s’’<em>{I}(x)]\cdot [f’’(x)-g’’(x)+g’’(x)-s’’</em>{I}(x)] dx\<br>        &amp;&#x3D; \int_{a}^{b}[f’’(x)-s’’<em>{I}(x)]\cdot [f’’(x)-g’’(x)]dx + \int</em>{a}^{b}[f’’(x)-s’’<em>{I}(x)]\cdot [g’’(x)-s’’</em>{I}(x)]dx\<br>        &amp;&#x3D; \int_{a}^{b}[f’’(x)-s’’<em>{I}(x)]\cdot [f’’(x)-g’’(x)]dx\<br>        &amp;\le \sqrt{\int</em>{a}^{b}[f’’(x)-s’’<em>{I}(x)]^2 dx}\cdot \sqrt{\int</em>{a}^{b}[f’’(x)-g’’(x)]^2 dx}<br>    \end{align*}<br>$$<br>从而<br>$$<br>    \begin{equation*}<br>        \int_{a}^{b}[f’’(x)-s’’<em>{I}(x)]^2 dx \le \int</em>{a}^{b}[f’’(x)-g’’(x)]^2 dx<br>    \end{equation*}<br>$$</p>
+<p><strong>定理</strong>：<span
+class="math inline">\(I\)</span>型三次样条插值问题的解存在且唯一</p>
+<p><strong>证明</strong>：记<span
+class="math inline">\(M_{i}=s_{I}&#39;&#39;(x_{i}),(i=0,1,\cdots,n)\)</span>，将其设为待定参数，由于<span
+class="math inline">\(s_{I}(x)\)</span>在<span
+class="math inline">\(e_{i}\)</span>上为三次多项式，故<span
+class="math inline">\(s_{I}&#39;&#39;(x)\)</span>在<span
+class="math inline">\(e_{i}\)</span>上为线性函数，于是可得<span
+class="math inline">\(s_{I}&#39;&#39;(x)\)</span>的分段表达式 <span
+class="math display">\[
+    \begin{align*}
+        s_{I}&#39;&#39;(x)=M_{i-1}\frac{x_{i}-x}{h_{i}}+M_{i}\frac{x-x_{i-1}}{h_{i}},\
+x\in e_{i},\ i=1,2,\cdots,n
+    \end{align*}
+\]</span> 将上式积分两次，并利用<span
+class="math inline">\(s_{I}(x_{i-1})=f_{i-1},s_{I}(x_{i})=f_{i}\)</span>来确定积分常数，可得
+<span class="math display">\[
+    \begin{align*}
+        s_{I}(x)&amp;=\frac{1}{6h_{i}}[(x_{i}-x)^3 M_{i-1}+(x-x_{i-1})^3
+M_{i}]\\
+        &amp;+\frac{1}{h_{i}}[(x_{i}-x)f_{i-1}+(x-x_{i-1})f_{i}]\\
+        &amp;-\frac{h_{i}}{6}[(x_{i}-x)M_{i-1}+(x-x_{i-1})M_{i}],\quad
+x\in e_{i}
+    \end{align*}
+\]</span></p>
+<p>要证<span
+class="math inline">\(s_{I}(x)\)</span>唯一存在，只需证明<span
+class="math inline">\(M_{i}(i=0,1,\cdots,n)\)</span>可被唯一确定</p>
+<p>对于上述<span
+class="math inline">\(s_{I}(x)\)</span>满足其自身和二阶导函数在整个区间<span
+class="math inline">\([a,b]\)</span>上连续，由连接条件，还要求一阶导数在整个区间<span
+class="math inline">\([a,b]\)</span>上连续，即</p>
+<p><span class="math display">\[
+    \begin{align*}
+        s&#39;_{I}(x_{j}+0)=s&#39;_{I}(x_{j}-0),\quad j=1,2,\cdots,n-1
+    \end{align*}
+\]</span></p>
+<p>我们有</p>
+<p><span class="math display">\[
+    \begin{align*}
+        s&#39;_{I}(x)=-M_{i-1}\frac{(x_{i}-x)^2}{2h_{i}}+M_{i}\frac{(x-x_{i-1})^2}{2h_{i}}+\frac{f_{i}-f_{i-1}}{h_{i}}-\frac{(M_{i}-M_{i-1})h_{i}}{6},\quad
+x\in e_{i}
+    \end{align*}
+\]</span> 于是，单元<span
+class="math inline">\(e_{j}\)</span>右端点的左极限和左端点的右极限分别为</p>
+<p><span class="math display">\[
+    \begin{align*}
+        \begin{cases}
+            s&#39;_{I}(x_{j}-0)=\frac{h_{i}}{6}M_{j-1}+\frac{h_{i}}{3}M_{j}+\frac{f_{j}-f_{j-1}}{h_{j}}\\
+            s&#39;_{I}(x_{j-1}+0)=-\frac{h_{j}}{3}M_{j-1}-\frac{h_{j}}{6}M_{j}+\frac{f_{j}-f_{j-1}}{h_{j}}
+        \end{cases}
+    \end{align*}
+\]</span></p>
+<p>从而有</p>
+<p><span class="math display">\[
+    \begin{align*}
+        \frac{h_{j}}{6}M_{j-1}+\frac{h_{j}+h_{j+1}}{3}M_{j}+\frac{h_{j+1}}{6}M_{j+1}=\frac{f_{j+1}-f_{j}}{h_{j+1}}-\frac{f_{j}-f_{j-1}}{h_{j}},\quad
+j=1,2,\cdots,n-1
+    \end{align*}
+\]</span> 若记 <span class="math display">\[
+    \begin{align*}
+        \lambda_{j}=\frac{h_{j+1}}{h_{j}+h_{j+1}},\
+\mu_{j}=1-\lambda_{j}=\frac{h_{j}}{h_{j}+h_{j+1}},\quad j=1,2,\cdots,n-1
+    \end{align*}
+\]</span> 则上式可化为 <span class="math display">\[
+    \begin{align*}
+        \mu_{j}M_{j-1}+2M_{j}+\lambda_{j}M_{j+1}=6f[x_{j-1},x_{j},x_{j+1}],\quad
+j=1,2,\cdots,n-1
+    \end{align*}
+\]</span> 此外，<span
+class="math inline">\(s_{I}&#39;(x)\)</span>在端点<span
+class="math inline">\(x_{0}\)</span>和<span
+class="math inline">\(x_{n}\)</span>处应分别右连续和左连续，利用附加边界条件<span
+class="math inline">\(s&#39;_{I}(x_{0})=f&#39;_{0},s&#39;_{I}(x_{n})=f&#39;_{n}\)</span>，可得
+<span class="math display">\[
+    \begin{align*}
+        \begin{cases}
+            -\frac{h_{1}}{3}M_{0}-\frac{h_{1}}{6}M_{1}+\frac{f_{1}-f_{0}}{h_{1}}=f&#39;_{0}\\
+            \frac{h_{n}}{6}M_{n-1}+\frac{h_{n}}{3}M_{n}+\frac{f_{n}-f_{n-1}}{h_{n}}=f&#39;_{n}
+        \end{cases}
+    \end{align*}
+\]</span> 化简得到 <span class="math display">\[
+    \begin{align*}
+        \begin{cases}
+            2M_{0}+M_{1}=6f[x_{0},x_{0},x_{1}]\\
+            M_{n-1}+2M_{n}=6f[x_{n-1},x_{n},x_{n}]
+        \end{cases}
+    \end{align*}
+\]</span> 综合所有条件，可以得到一个关于待定参数<span
+class="math inline">\(M_{0},M_{1},\cdots,M_{n}\)</span>的<span
+class="math inline">\(n+1\)</span>阶线性代数方程组，其矩阵形式为 <span
+class="math display">\[
+    \begin{align*}
+        \begin{bmatrix}
+            2 &amp; 1 \\
+            \mu_{1} &amp; 2 &amp; \lambda_{1}\\
+                &amp; \mu_{2} &amp; 2 &amp; \lambda_{2}\\
+                &amp;  &amp; \ddots &amp; \ddots &amp; \ddots\\
+                &amp;  &amp;  &amp; \mu_{n-1} &amp; 2 &amp;
+\lambda_{n-1}\\
+                &amp;  &amp;  &amp;  &amp; 1 &amp; 2
+        \end{bmatrix}
+        \begin{bmatrix}
+            M_{0}\\
+            M_{1}\\
+            M_{2}\\
+            \vdots\\
+            M_{n-1}\\
+            M_{n}
+        \end{bmatrix}
+        =\begin{bmatrix}
+            6f[x_{0},x_{0},x_{1}]\\
+            6f[x_{0},x_{1},x_{2}]\\
+            6f[x_{1},x_{2},x_{3}]\\
+            \vdots\\
+            6f[x_{n-2},x_{n-1},x_{n}]\\
+            6f[x_{n-1},x_{n},x_{n}]\\
+        \end{bmatrix}
+    \end{align*}
+\]</span>
+显然方程组的系数矩阵是严格对角占优的，因此非奇异，于是可以唯一的解出<span
+class="math inline">\(M_{i}(i=0,1,\cdots,n)\)</span>，从而得到<span
+class="math inline">\(I\)</span>型三次样条插值问题的解存在且唯一</p>
+<hr />
+<h3 id="三次样条插值函数的基本性质">三次样条插值函数的基本性质</h3>
+<p><strong>定理</strong>：若<span class="math inline">\(f\in
+C^2[a,b],s_{I}(x)\)</span>是<span
+class="math inline">\(I\)</span>型三次样条插值函数，则对<span
+class="math inline">\(\forall g\in Sp(3;\Delta)\)</span>，有 <span
+class="math display">\[
+    \begin{equation*}
+        \int_{a}^{b}[f&#39;&#39;(x)-s_{I}&#39;&#39;(x)]\cdot
+g&#39;&#39;(x) dx =0
+    \end{equation*}
+\]</span></p>
+<p><strong>证明</strong>：令<span
+class="math inline">\(\omega(x)=f(x)-s_{I}(x)\)</span>，则<span
+class="math inline">\(\omega\in C^2[a,b]\)</span>，且满足 <span
+class="math display">\[
+    \begin{equation*}
+        w(x_{i})=0, \ i=0,1,\cdots,n;\quad
+\omega&#39;(a)=\omega&#39;(b)=0
+    \end{equation*}
+\]</span> 对<span class="math inline">\(\forall g\in
+Sp(3;\Delta)\)</span>，有 <span class="math display">\[
+    \begin{align*}
+        \int_{a}^{b}[f&#39;&#39;(x)-s_{I}&#39;&#39;(x)]\cdot
+g&#39;&#39;(x)
+dx&amp;=\int_{a}^{b}\omega&#39;&#39;(x)g&#39;&#39;(x)dx=\sum_{i=1}^{n}\int_{e_{i}}\omega&#39;&#39;(x)g&#39;&#39;(x)dx\\
+        &amp;=\sum_{i=1}^{n}[\omega&#39;(x)g&#39;&#39;(x)\mid_{x_{i-1}}^{x_{i}}-\int_{e_{i}}\omega&#39;(x)g&#39;&#39;&#39;(x)dx]\\
+        &amp;=-\sum_{i=1}^{n}g&#39;&#39;&#39;(x_{i+1/2})\cdot
+\int_{e_{i}}\omega&#39;(x)dx = 0
+    \end{align*}
+\]</span></p>
+<hr />
+<p><strong>最佳逼近定理</strong>:若<span class="math inline">\(f\in
+C^2[a,b],s_{I}(x)\)</span>是<span
+class="math inline">\(I\)</span>型三次样条插值函数，则对<span
+class="math inline">\(\forall g\in Sp(3;\Delta)\)</span>，有 <span
+class="math display">\[
+    \begin{equation*}
+        \int_{a}^{b}[f&#39;&#39;(x)-s&#39;&#39;_{I}(x)]^2 dx \le
+\int_{a}^{b}[f&#39;&#39;(x)-g&#39;&#39;(x)]^2 dx
+    \end{equation*}
+\]</span></p>
+<p><strong>证明</strong>：利用引理及Cauchy不等式，有 <span
+class="math display">\[
+    \begin{align*}
+        \int_{a}^{b}[f&#39;&#39;(x)-s&#39;&#39;_{I}(x)]^2 dx &amp;=
+\int_{a}^{b} [f&#39;&#39;(x)-s&#39;&#39;_{I}(x)]\cdot
+[f&#39;&#39;(x)-g&#39;&#39;(x)+g&#39;&#39;(x)-s&#39;&#39;_{I}(x)] dx\\
+        &amp;= \int_{a}^{b}[f&#39;&#39;(x)-s&#39;&#39;_{I}(x)]\cdot
+[f&#39;&#39;(x)-g&#39;&#39;(x)]dx +
+\int_{a}^{b}[f&#39;&#39;(x)-s&#39;&#39;_{I}(x)]\cdot
+[g&#39;&#39;(x)-s&#39;&#39;_{I}(x)]dx\\
+        &amp;= \int_{a}^{b}[f&#39;&#39;(x)-s&#39;&#39;_{I}(x)]\cdot
+[f&#39;&#39;(x)-g&#39;&#39;(x)]dx\\
+        &amp;\le \sqrt{\int_{a}^{b}[f&#39;&#39;(x)-s&#39;&#39;_{I}(x)]^2
+dx}\cdot \sqrt{\int_{a}^{b}[f&#39;&#39;(x)-g&#39;&#39;(x)]^2 dx}
+    \end{align*}
+\]</span> 从而 <span class="math display">\[
+    \begin{equation*}
+        \int_{a}^{b}[f&#39;&#39;(x)-s&#39;&#39;_{I}(x)]^2 dx \le
+\int_{a}^{b}[f&#39;&#39;(x)-g&#39;&#39;(x)]^2 dx
+    \end{equation*}
+\]</span></p>
 
                 
             </div>
