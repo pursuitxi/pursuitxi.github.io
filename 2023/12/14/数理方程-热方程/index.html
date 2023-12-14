@@ -296,7 +296,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    241
+                    1.2k
                 </div>
                 
 
@@ -313,42 +313,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="热方程">热方程</h1>
-<h2 id="基本解">基本解</h2>
-<h3 id="基本解推导">基本解推导</h3>
-<p>计算热方程基本解 <span class="math display">\[
-    \begin{align*}
-        u_t-\Delta u=\delta(x,t)
-    \end{align*}
-\]</span> 对方程进行傅里叶变换，可以得到关于<span
-class="math inline">\(\hat{u}(\xi,t)\)</span>的常微分方程问题 <span
-class="math display">\[
-    \begin{align*}
-        \frac{\partial \hat{u}(\xi,t)}{\partial
-t}+|\xi|^2\hat{u}(\xi,t)=\delta(t  )
-    \end{align*}
-\]</span> 易得其解为 <span class="math display">\[
-    \begin{align*}
-        \hat{u}(\xi,t)=H(t)e^{-|\xi|^2 t}
-    \end{align*}
-\]</span> 对它作傅里叶逆变换 <span class="math display">\[
-    \begin{align*}
-        u(x,t)&amp;=F^{-1}[\hat{u}(\xi,t)]\\
-        &amp;=F^{-1}[H(t)e^{-|\xi|^2 t}]\\
-        &amp;=(2\pi)^{-n}H(t)\int_{R^n}e^{ix\cdot\xi}e^{\frac{-|\sqrt{2t}\xi|^2}{2}}d\xi\\
-        &amp;=(2\pi)^{-n}H(t)\int_{R^n}\frac{1}{\sqrt{2t}}e^{-i\frac{x}{\sqrt{2t}}\cdot\eta}e^{-|\eta|^2/2}d\eta\\
-        &amp;=\frac{H(t)}{(4\pi
-t)^{n/2}}\exp{(-\frac{\left|x\right|^2}{4t})}
-    \end{align*}
-\]</span></p>
-<p><strong>热方程基本解</strong>：函数 <span class="math display">\[
-    \begin{align*}
-        \Phi(x,t)=\frac{1}{(4\pi
-t)^{n/2}}H(t)\exp{(-\frac{\left|x\right|^2}{4t})},\quad (x\in R^{n},t\in
-R)
-    \end{align*}
-\]</span> 称为热方程的基本解</p>
+                <h1 id="热方程"><a href="#热方程" class="headerlink" title="热方程"></a>热方程</h1><h2 id="基本解"><a href="#基本解" class="headerlink" title="基本解"></a>基本解</h2><h3 id="基本解推导"><a href="#基本解推导" class="headerlink" title="基本解推导"></a>基本解推导</h3><p>计算热方程基本解<br>$$<br>    \begin{align*}<br>        u_t-\Delta u&#x3D;\delta(x,t)<br>    \end{align*}<br>$$<br>对方程进行傅里叶变换，可以得到关于$\hat{u}(\xi,t)$的常微分方程问题<br>$$<br>    \begin{align*}<br>        \frac{\partial \hat{u}(\xi,t)}{\partial t}+|\xi|^2\hat{u}(\xi,t)&#x3D;\delta(t  )<br>    \end{align*}<br>$$<br>易得其解为<br>$$<br>    \begin{align*}<br>        \hat{u}(\xi,t)&#x3D;H(t)e^{-|\xi|^2 t}<br>    \end{align*}<br>$$<br>对它作傅里叶逆变换<br>$$<br>    \begin{align*}<br>        u(x,t)&amp;&#x3D;F^{-1}[\hat{u}(\xi,t)]\<br>        &amp;&#x3D;F^{-1}[H(t)e^{-|\xi|^2 t}]\<br>        &amp;&#x3D;(2\pi)^{-n}H(t)\int_{R^n}e^{ix\cdot\xi}e^{\frac{-|\sqrt{2t}\xi|^2}{2}}d\xi\<br>        &amp;&#x3D;(2\pi)^{-n}H(t)\int_{R^n}\frac{1}{\sqrt{2t}}e^{-i\frac{x}{\sqrt{2t}}\cdot\eta}e^{-|\eta|^2&#x2F;2}d\eta\<br>        &amp;&#x3D;\frac{H(t)}{(4\pi t)^{n&#x2F;2}}\exp{(-\frac{\left|x\right|^2}{4t})}<br>    \end{align*}<br>$$</p>
+<div class="note info no-icon"><p><strong>$\delta(x,t)$作傅里叶变换</strong>：从磨光出发，$\forall \varphi\in C_{0}^{\infty}$<br>$$<br>    \begin{align*}<br>        \langle \langle \delta(x,t)\ast \Phi_{\epsilon},e^{-ix\cdot\xi}\rangle,\varphi(t)\rangle &amp; &#x3D;\int (\delta(x,t)\ast\Phi_{\epsilon})\cdot e^{-ix\cdot\xi}\cdot\varphi(t)dt\<br>        &amp;&#x3D; \langle \delta(x,t)\ast \Phi_{\epsilon},e^{-ix\cdot\xi}\varphi(t)\rangle\<br>        &amp; \longrightarrow \langle \delta(x,t),e^{-ix\cdot\xi}\varphi(t)\rangle\<br>        &amp;&#x3D; \varphi(0)&#x3D;\langle \delta(t),\varphi(t)\rangle<br>    \end{align*}<br>$$</p>
+<p>因此，$\delta(x,t)$的傅里叶变换为$\delta(t)$</p>
+</div>
 
+<p><strong>热方程基本解</strong>：函数<br>$$<br>    \begin{align*}<br>        \Phi(x,t)&#x3D;\frac{1}{(4\pi t)^{n&#x2F;2}}H(t)\exp{(-\frac{\left|x\right|^2}{4t})},\quad (x\in R^{n},t\in R)<br>    \end{align*}<br>$$<br>称为热方程的基本解</p>
+<p><strong>基本解的积分</strong>：$\forall t&gt;0$，则<br>$$<br>    \begin{align*}<br>        \int_{R^{n}}\Phi(x,t)dx&#x3D;1<br>    \end{align*}<br>$$</p>
+<p><strong>证明</strong>：$\forall t&gt;0$<br>$$<br>    \begin{align*}<br>            \begin{aligned}<br>                \int_{\mathbb{R}^n}\Phi(x,t)dx&amp; &#x3D;\frac1{(4\pi t)^{n&#x2F;2}}\int_{\mathbb{R}^n}e^{-\frac{|x|^2}{4t}}dx  \<br>                &amp;&#x3D;\frac1{\pi^{n&#x2F;2}}\int_{\mathbb{R}^n}e^{-|z|^2}dz \<br>                &amp;&#x3D;\frac1{\pi^{n&#x2F;2}}\prod_{i&#x3D;1}^n\int_{-\infty}^\infty e^{-z_i^2}dz_i&#x3D;1.<br>            \end{aligned}<br>        \end{align*}<br>$$</p>
+<hr>
+<h3 id="初值问题"><a href="#初值问题" class="headerlink" title="初值问题"></a>初值问题</h3><p>现在使用基本解来解决初值问题（柯西问题）<br>$$<br>    \begin{align*}<br>        \left.\left{\begin{array}{rl}u_t-\Delta u&#x3D;0&amp;\mathrm{in<del>}\mathbb{R}^n\times(0,\infty)\u&#x3D;g&amp;\mathrm{on</del>}\mathbb{R}^n\times{t&#x3D;0}.\end{array}\right.\right.<br>    \end{align*}<br>$$<br>类似于基本解的推导，对方程和初值进行傅里叶变换<br>$$<br>    \begin{align*}<br>        \begin{cases}<br>            \frac{\partial \hat{u}(\xi,t)}{\partial t}+|\xi|^2\hat{u}(\xi,t)&#x3D;0\<br>            \hat{u}(\xi,0)&#x3D;\hat{g}(\xi)<br>        \end{cases}<br>    \end{align*}<br>$$<br>易得解为$\hat{u}(\xi,t)&#x3D;\hat{g}(\xi)e^{-|\xi|^2t}$，对它作傅里叶逆变换，可得<br>$$<br>    \begin{align*}<br>        u(x,t)&amp;&#x3D;F^{-1}[\hat{u}(\xi,t)]\<br>        &amp;&#x3D;F^{-1}[\hat{g}(\xi)]\ast F^{-1}[e^{-|\xi|^2 t}]\<br>        &amp;&#x3D;(4\pi t)^{-n&#x2F;2}\int_{R^n}g(y)e^{\frac{-|x-y|^2}{4t}}dy<br>    \end{align*}<br>$$</p>
+<h3 id="非齐次问题"><a href="#非齐次问题" class="headerlink" title="非齐次问题"></a>非齐次问题</h3><p>现在我们来讨论非齐次初值问题<br>$$<br>    \begin{align*}<br>        \left.\left{\begin{array}{rl}u_t-\Delta u&#x3D;f&amp;\mathrm{in<del>}\mathbb{R}^n\times(0,\infty)\u&#x3D;\varphi&amp;\mathrm{on</del>}\mathbb{R}^n\times{t&#x3D;0}.\end{array}\right.\right.<br>    \end{align*}<br>$$</p>
+<p><strong>法一</strong>：从基本解入手，对于无初值条件<br>$$<br>    \begin{align*}<br>        u_t-\Delta u &#x3D; f<br>    \end{align*}<br>$$<br>存在弱解$u &#x3D; E(x,t)\ast f(x,t)$，为了类似的结果，构造辅助函数<br>$$<br>    \begin{align*}<br>        \tilde{u}(x,t) &amp;&#x3D; H(t)u(x,t)\<br>        F(x,t)&amp;&#x3D;\delta(t)\varphi(x)+H(t)f(x,t)<br>    \end{align*}<br>$$<br>此时，$\tilde{u}(x,t)&#x3D;u(x,t),(t&gt;0)$，且$\tilde{u}$满足<br>$$<br>    \begin{align*}<br>        \tilde{u}_t - \Delta\tilde{u}&#x3D;F(x,t)<br>    \end{align*}<br>$$<br>此时，由基本解的性质可得<br>$$<br>    \begin{align*}<br>        \tilde{u}(x,t)&amp;&#x3D; E(x,t)\ast F(x,t)\<br>            &amp;&#x3D;E(x,t)\ast \varphi(x)+E(x,t)\ast f(x,t)<br>    \end{align*}<br>$$<br>因此，原方程的解$u(x,t)&#x3D;\tilde{u}(x,t),(t&gt;0)$，只需验证初值条件即可</p>
+<hr>
+<p><strong>法二</strong>：从叠加原理、傅里叶变换、齐次化原理入手</p>
+<ul>
+<li><p>叠加原理，可将原非齐次方程化为<br>  $$<br>  \begin{align*}<br>      \begin{cases}<br>          u_t-\Delta u &#x3D; 0,(t&gt;0)\<br>          \quad u|<em>{t&#x3D;0} &#x3D; \varphi<br>      \end{cases}<br>      ,\quad<br>      \begin{cases}<br>          u_t-\Delta u &#x3D; f(x,t),(t&gt;0)\<br>          \quad u|</em>{t&#x3D;0} &#x3D; 0<br>      \end{cases}<br>  \end{align*}<br>  $$<br>  此时，方程的解$u(x,t)&#x3D;u_1(x,t)+u_2(x,t)$，$u_1,u_2$分别满足上述两个方程</p>
+</li>
+<li><p>由傅里叶变换可解得$u_1(x,t)$<br>  $$<br>  \begin{align*}<br>      u_1(x,t)&#x3D; E(x,t)\ast \varphi(x)&#x3D;(4\pi t)^{-n&#x2F;2}\int_{R^n}\varphi(y)e^{\frac{-|x-y|^2}{4t}}dy<br>  \end{align*}<br>  $$</p>
+</li>
+<li><p>再由齐次化原理来求解$u_2(x,t)$<br>  $$<br>  \begin{align*}<br>      u_2(x,t) &amp;&#x3D;\int_{0}^{t}E(x,t-s)\ast f(x,s) ds\<br>              &amp;&#x3D; \int_{0}^{t}\int_{R^{n}} E(x-y,t-s)\cdot f(y,s)dyds\<br>              &amp;&#x3D; E(x,t)\ast f(x,t)<br>  \end{align*}<br>  $$</p>
+</li>
+<li><p>代回原式，得到<br>  $$<br>  \begin{align*}<br>      u(x,t)&amp;&#x3D;u_1(x,t)+u_2(x,t)\<br>      &amp;&#x3D;E(x,t)\ast \varphi(x)+E(x,t)\ast f(x,t)<br>  \end{align*}<br>  $$</p>
+</li>
+</ul>
+<hr>
+<h3 id="齐次化原理"><a href="#齐次化原理" class="headerlink" title="齐次化原理"></a>齐次化原理</h3><p><strong>齐次化原理</strong>：</p>
+<p><strong>证明</strong>：</p>
+<hr>
+<h2 id="热方程解的性质"><a href="#热方程解的性质" class="headerlink" title="热方程解的性质"></a>热方程解的性质</h2><h3 id="极值原理"><a href="#极值原理" class="headerlink" title="极值原理"></a>极值原理</h3><h2 id="初边值问题"><a href="#初边值问题" class="headerlink" title="初边值问题"></a>初边值问题</h2><h3 id="分离变量法"><a href="#分离变量法" class="headerlink" title="分离变量法"></a>分离变量法</h3>
                 
             </div>
             <hr/>
