@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="数理方程-热方程, Pursuit">
-    <meta name="description" content="数理方程-热方程">
+    <meta name="keywords" content="信息论-熵, Pursuit">
+    <meta name="description" content="信息论-熵">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数理方程-热方程 | Pursuit</title>
+    <title>信息论-熵 | Pursuit</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -225,12 +225,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数理方程-热方程</h1>
+                    <h1 class="description center-align post-title">信息论-熵</h1>
                 </div>
             </div>
         </div>
@@ -254,16 +254,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E7%90%86%E6%96%B9%E7%A8%8B/">
-                                <span class="chip bg-color">数理方程</span>
+                            <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/">
+                                <span class="chip bg-color">信息论</span>
                             </a>
                         
-                            <a href="/tags/%E5%9F%BA%E6%9C%AC%E8%A7%A3/">
-                                <span class="chip bg-color">基本解</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%83%AD%E6%96%B9%E7%A8%8B/">
-                                <span class="chip bg-color">热方程</span>
+                            <a href="/tags/%E7%86%B5/">
+                                <span class="chip bg-color">熵</span>
                             </a>
                         
                     </div>
@@ -274,8 +270,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%95%B0%E7%90%86%E6%96%B9%E7%A8%8B/" class="post-category">
-                                数理方程
+                            <a href="/categories/%E4%BF%A1%E6%81%AF%E8%AE%BA/" class="post-category">
+                                信息论
                             </a>
                         
                     </div>
@@ -296,7 +292,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.8k
                 </div>
                 
 
@@ -313,201 +309,297 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="热方程">热方程</h1>
-<h2 id="基本解">基本解</h2>
-<h3 id="基本解推导">基本解推导</h3>
-<p>计算热方程基本解 <span class="math display">\[
-    \begin{align*}
-        u_t-\Delta u=\delta(x,t)
-    \end{align*}
-\]</span> 对方程进行傅里叶变换，可以得到关于<span
-class="math inline">\(\hat{u}(\xi,t)\)</span>的常微分方程问题 <span
-class="math display">\[
-    \begin{align*}
-        \frac{\partial \hat{u}(\xi,t)}{\partial
-t}+|\xi|^2\hat{u}(\xi,t)=\delta(t)
-    \end{align*}
-\]</span> 易得其解为</p>
-<p><span class="math display">\[
-    \begin{align*}
-        \hat{u}(\xi,t)=H(t)e^{-|\xi|^2 t}
-    \end{align*}
-\]</span></p>
-<p>对它作傅里叶逆变换</p>
-<p><span class="math display">\[
-    \begin{align*}
-        u(x,t) &amp; = F^{-1}[\hat{u}(\xi,t)]\\
-        &amp; = F^{-1}[H(t)e^{-|\xi|^2 t}]\\
-        &amp; =
-(2\pi)^{-n}H(t)\int_{R^n}e^{ix\cdot\xi}e^{\frac{-|\sqrt{2t}\xi|^2}{2}}d\xi\\
-        &amp; =
-(2\pi)^{-n}H(t)\int_{R^n}\frac{1}{\sqrt{2t}}e^{-i\frac{x}{\sqrt{2t}}\cdot\eta}e^{-|\eta|^2/2}d\eta\\
-        &amp; = \frac{H(t)}{(4\pi
-t)^{n/2}}\exp{(-\frac{\left|x\right|^2}{4t})}
-    \end{align*}
-\]</span></p>
-<div class="note info no-icon"><p><strong><span
-class="math inline">\(\delta(x,t)\)</span>作傅里叶变换</strong>：从磨光出发，<span
-class="math inline">\(\forall \varphi\in C_{0}^{\infty}\)</span></p>
-<p><span class="math display">\[
-    \begin{align*}
-        \langle \langle \delta(x,t)\ast
-\Phi_{\epsilon},e^{-ix\cdot\xi}\rangle,\varphi(t)\rangle &amp; =\int
-(\delta(x,t)\ast\Phi_{\epsilon})\cdot e^{-ix\cdot\xi}\cdot\varphi(t)dt\\
-        &amp;= \langle \delta(x,t)\ast
-\Phi_{\epsilon},e^{-ix\cdot\xi}\varphi(t)\rangle\\
-        &amp; \longrightarrow \langle
-\delta(x,t),e^{-ix\cdot\xi}\varphi(t)\rangle\\
-        &amp;= \varphi(0)=\langle \delta(t),\varphi(t)\rangle
-    \end{align*}
-\]</span></p>
-<p>因此，<span
-class="math inline">\(\delta(x,t)\)</span>的傅里叶变换为<span
-class="math inline">\(\delta(t)\)</span></p>
-</div>
-<p><strong>热方程基本解</strong>：函数</p>
-<p><span class="math display">\[
-    \begin{align*}
-        \Phi(x,t)=\frac{1}{(4\pi
-t)^{n/2}}H(t)\exp{(-\frac{\left|x\right|^2}{4t})},\quad (x\in R^{n},t\in
-R)
-    \end{align*}
-\]</span></p>
-<p>称为热方程的基本解</p>
-<p><strong>基本解的积分</strong>：<span class="math inline">\(\forall
-t&gt;0\)</span>，则</p>
-<p><span class="math display">\[
-    \begin{align*}
-        \int_{R^{n}}\Phi(x,t)dx=1
-    \end{align*}
-\]</span></p>
-<p><strong>证明</strong>：<span class="math inline">\(\forall
-t&gt;0\)</span></p>
-<p><span class="math display">\[
-    \begin{align*}
-            \begin{aligned}
-                \int_{\mathbb{R}^n}\Phi(x,t)dx&amp; =\frac1{(4\pi
-t)^{n/2}}\int_{\mathbb{R}^n}e^{-\frac{|x|^2}{4t}}dx  \\
-                &amp;=\frac1{\pi^{n/2}}\int_{\mathbb{R}^n}e^{-|z|^2}dz
-\\
-                &amp;=\frac1{\pi^{n/2}}\prod_{i=1}^n\int_{-\infty}^\infty
-e^{-z_i^2}dz_i=1.
-            \end{aligned}
-        \end{align*}
-\]</span></p>
-<hr />
-<h3 id="初值问题">初值问题</h3>
-<p>现在使用基本解来解决初值问题（柯西问题）</p>
-<p><span class="math display">\[
-    \begin{align*}
-        \left.\left\{\begin{array}{rl}u_t-\Delta
-u=0&amp;\mathrm{in~}\mathbb{R}^n\times(0,\infty)\\u=g&amp;\mathrm{on~}\mathbb{R}^n\times\{t=0\}.\end{array}\right.\right.
-    \end{align*}
-\]</span></p>
-<p>类似于基本解的推导，对方程和初值进行傅里叶变换</p>
-<p><span class="math display">\[
-    \begin{align*}
-        \begin{cases}
-            \frac{\partial \hat{u}(\xi,t)}{\partial
-t}+|\xi|^2\hat{u}(\xi,t)=0\\
-            \hat{u}(\xi,0)=\hat{g}(\xi)
-        \end{cases}
-    \end{align*}
-\]</span></p>
-<p>易得解为<span
-class="math inline">\(\hat{u}(\xi,t)=\hat{g}(\xi)e^{-|\xi|^2t}\)</span>，对它作傅里叶逆变换，可得</p>
-<p><span class="math display">\[
-    \begin{align*}
-        u(x,t)&amp;=F^{-1}[\hat{u}(\xi,t)]\\
-        &amp;=F^{-1}[\hat{g}(\xi)]\ast F^{-1}[e^{-|\xi|^2 t}]\\
-        &amp;=(4\pi t)^{-n/2}\int_{R^n}g(y)e^{\frac{-|x-y|^2}{4t}}dy
-    \end{align*}
-\]</span></p>
-<h3 id="非齐次问题">非齐次问题</h3>
-<p>现在我们来讨论非齐次初值问题</p>
-<p><span class="math display">\[
-    \begin{align*}
-        \left.\left\{\begin{array}{rl}u_t-\Delta
-u=f&amp;\mathrm{in~}\mathbb{R}^n\times(0,\infty)\\u=\varphi&amp;\mathrm{on~}\mathbb{R}^n\times\{t=0\}.\end{array}\right.\right.
-    \end{align*}
-\]</span></p>
-<p><strong>法一</strong>：从基本解入手，对于无初值条件 <span
-class="math display">\[
-    \begin{align*}
-        u_t-\Delta u = f
-    \end{align*}
-\]</span> 存在弱解<span class="math inline">\(u = E(x,t)\ast
-f(x,t)\)</span>，为了类似的结果，构造辅助函数 <span
-class="math display">\[
-    \begin{align*}
-        \tilde{u}(x,t) &amp;= H(t)u(x,t)\\
-        F(x,t)&amp;=\delta(t)\varphi(x)+H(t)f(x,t)
-    \end{align*}
-\]</span> 此时，<span
-class="math inline">\(\tilde{u}(x,t)=u(x,t),(t&gt;0)\)</span>，且<span
-class="math inline">\(\tilde{u}\)</span>满足 <span
-class="math display">\[
-    \begin{align*}
-        \tilde{u}_t - \Delta\tilde{u}=F(x,t)
-    \end{align*}
-\]</span> 此时，由基本解的性质可得 <span class="math display">\[
-    \begin{align*}
-        \tilde{u}(x,t)&amp;= E(x,t)\ast F(x,t)\\
-            &amp;=E(x,t)\ast \varphi(x)+E(x,t)\ast f(x,t)
-    \end{align*}
-\]</span> 因此，原方程的解<span
-class="math inline">\(u(x,t)=\tilde{u}(x,t),(t&gt;0)\)</span>，只需验证初值条件即可</p>
-<hr />
-<p><strong>法二</strong>：从叠加原理、傅里叶变换、齐次化原理入手</p>
-<ul>
-<li><p>叠加原理，可将原非齐次方程化为</p>
-<p><span class="math display">\[
-      \begin{align*}
-          \begin{cases}
-              u_t-\Delta u = 0,(t&gt;0)\\
-              \quad u|_{t=0} = \varphi
-          \end{cases}
-          ,\quad
-          \begin{cases}
-              u_t-\Delta u = f(x,t),(t&gt;0)\\
-              \quad u|_{t=0} = 0
-          \end{cases}
-      \end{align*}
-  \]</span> 此时，方程的解<span
-class="math inline">\(u(x,t)=u_1(x,t)+u_2(x,t)\)</span>，<span
-class="math inline">\(u_1,u_2\)</span>分别满足上述两个方程</p></li>
-<li><p>由傅里叶变换可解得<span class="math inline">\(u_1(x,t)\)</span>
-<span class="math display">\[
-      \begin{align*}
-          u_1(x,t)= E(x,t)\ast \varphi(x)=(4\pi
-t)^{-n/2}\int_{R^n}\varphi(y)e^{\frac{-|x-y|^2}{4t}}dy
-      \end{align*}
-  \]</span></p></li>
-<li><p>再由齐次化原理来求解<span class="math inline">\(u_2(x,t)\)</span>
-<span class="math display">\[
-      \begin{align*}
-          u_2(x,t) &amp;=\int_{0}^{t}E(x,t-s)\ast f(x,s) ds\\
-                  &amp;= \int_{0}^{t}\int_{R^{n}} E(x-y,t-s)\cdot
-f(y,s)dyds\\
-                  &amp;= E(x,t)\ast f(x,t)
-      \end{align*}
-  \]</span></p></li>
-<li><p>代回原式，得到 <span class="math display">\[
-      \begin{align*}
-          u(x,t)&amp;=u_1(x,t)+u_2(x,t)\\
-          &amp;=E(x,t)\ast \varphi(x)+E(x,t)\ast f(x,t)
-      \end{align*}
-  \]</span></p></li>
+                <h1 id="熵">熵</h1>
+<h2 id="熵-1">熵</h2>
+<p><strong>概率空间</strong>：设<span
+class="math inline">\(\mathcal{X}\)</span>是一个样本空间，<span
+class="math inline">\(\mathcal{F}\)</span>是<span
+class="math inline">\(\mathcal{X}\)</span>上的<span
+class="math inline">\(\sigma\)</span>域，P是<span
+class="math inline">\(\mathcal{F}\)</span>上的概率测度，则称<span
+class="math inline">\((\mathcal{X},\mathcal{F},P)\)</span>为概率空间</p>
+<p><strong>熵</strong>：设<span class="math inline">\(X:\mathcal{F}\to
+[0,1]\)</span>为随机变量，称<span
+class="math inline">\(H(X)\)</span>是随机变量X的熵，即为X的不确定度，若X的概率分布为P，<span
+class="math inline">\(H(X)\)</span>也可记作<span
+class="math inline">\(H(P)\)</span></p>
+<div class="note info no-icon"><ul>
+<li><span class="math inline">\(H(X)\)</span>是<span
+class="math inline">\(\{P(x)\}\)</span>上的对称连续泛函</li>
+<li>设n是一个大于2的正整数，定义 <span class="math display">\[
+      \begin{equation*}
+          h(n):=H({\frac{1}{n},\frac{1}{n},\cdots,\frac{1}{n}})
+      \end{equation*}
+  \]</span> <span class="math inline">\(h(n)\)</span>关于n不减</li>
 </ul>
+</div>
+<p><strong>Grouping property</strong>：设<span
+class="math inline">\(P=\{P_{i,j}:1\le i\le k,1\le j\le
+n_{i}\},\mathcal{X}=\{x_{i,j}:1\le i\le k,1\le j\le
+n_{i}\}\)</span>，记第i个组为 <span class="math display">\[
+    \begin{equation*}
+        \{x_{i,1},x_{i,2},\cdots,x_{i,n_{i}}\}\longrightarrow
+P_{i}=\sum_{j=1}^{n_{i}}P_{i,j}
+    \end{equation*}
+\]</span> 则有 <span class="math display">\[
+    \begin{align*}
+        H(P)&amp;=H(\{P_{i,j}:1\le i\le k,1\le j\le n_{i}\})\\
+        &amp;=H(P_{1},P_{2},\cdots,P_{k})+\sum_{i=1}^{k}P_{i}\cdot
+H(\frac{P_{i,j}}{P_{i}}:1\le j\le n_{i})
+    \end{align*}
+\]</span></p>
+<p><strong>定理</strong>：设m和n是正整数，则满足 <span
+class="math display">\[
+    \begin{equation*}
+        h(mn)=h(m)+h(n)
+    \end{equation*}
+\]</span></p>
+<p><strong>证明</strong>：应用Grouping Property 可以得到 <span
+class="math display">\[
+    \begin{align*}
+        h(mn)&amp;=H(\frac{1}{mn},\frac{1}{mn},\cdots,\frac{1}{mn})\\
+        &amp;=H(\frac{1}{m},\frac{1}{m},\cdots,\frac{1}{m})+m\frac{1}{m}H(\frac{\frac{1}{mn}}{\frac{1}{m}},\frac{\frac{1}{mn}}{\frac{1}{m}},\cdots,\frac{\frac{1}{mn}}{\frac{1}{m}})\\
+        &amp;=h(m)+h(n)
+    \end{align*}
+\]</span></p>
 <hr />
-<h3 id="齐次化原理">齐次化原理</h3>
-<p><strong>齐次化原理</strong>：</p>
+<p><strong>推论</strong>：</p>
+<ul>
+<li><span class="math inline">\(m,n,k\in Z^+,\;
+h(mnk)=h(m)+h(n)+h(k)\)</span></li>
+<li><span class="math inline">\(m_{1},m_{2},\cdots,m_{l}\in
+Z^{+},\;h(\prod_{i=1}^{l}m_{i})=\sum_{i=1}^{l}h(m_{i})\)</span></li>
+</ul>
+<p><strong>定理</strong>：设n是正整数，则有 <span
+class="math display">\[
+    \begin{equation*}
+        h(n)=\log n
+    \end{equation*}
+\]</span></p>
+<p><strong>证明</strong>：设<span class="math inline">\(m\in
+Z^+\)</span>，则<span class="math inline">\(\exists k\in
+Z^+\)</span>，s.t. <span class="math display">\[
+    \begin{equation*}
+        2^k\le m&lt;2^k+1
+    \end{equation*}
+\]</span> 故可知 <span class="math display">\[
+    \begin{equation*}
+        k=h(2^k)\le h(m)\le h(2^{k+1})=k+1
+    \end{equation*}
+\]</span> 令N为任意正整数，则有 <span class="math display">\[
+    \begin{align*}
+        &amp;[N\log n]\le h(n^N)\le [N\log n]+1\\
+        \Longrightarrow &amp;\frac{1}{N}[N\log n]\le h(n)\le
+\frac{1}{N}[N\log n]+\frac{1}{N}
+    \end{align*}
+\]</span> 由于 <span class="math display">\[
+    \begin{align*}
+        &amp;\frac{1}{N}[N\log n]\le \frac{1}{N}N \log n =\log n\\
+        &amp;\frac{1}{N}[N\log n]+\frac{1}{N}\ge \frac{1}{N}(N\log n
+-1)+\frac{1}{N}=\log n
+    \end{align*}
+\]</span> 从而有 <span class="math display">\[
+    \begin{equation*}
+        \left|h(n)-\log n\right|\le \frac{1}{N}
+    \end{equation*}
+\]</span> 由于N的任意性，知<span class="math inline">\(h(n)=\log
+n\)</span></p>
+<hr />
+<p><strong>熵</strong>：设<span class="math inline">\(X\sim
+P=\{P(x):x\in \mathcal{X}\}\)</span> <span class="math display">\[
+    \begin{equation*}
+        H(X)=\sum_{x\in \mathcal{X}}P(x)\log \frac{1}{P(x)}=-\sum_{x\in
+\mathcal{X}}P(x)\log P(x)
+    \end{equation*}
+\]</span> 称<span
+class="math inline">\(H(X)\)</span>是随机变量X在概率分布P上的熵</p>
+<p><strong>自信息</strong>：设<span class="math inline">\(X\sim
+\{P(x):x\in \mathcal{X}\}\)</span>，称X的自信息为 <span
+class="math display">\[
+    \begin{equation*}
+        i(X)=-\log P(X)
+    \end{equation*}
+\]</span></p>
+<div class="note info no-icon"><p><span class="math inline">\(H(X)=E_{P}(i(X))\)</span></p>
+</div>
+<h2 id="联合熵条件熵">联合熵、条件熵</h2>
+<p><strong>联合熵</strong>：称<span
+class="math inline">\(H(X,Y)\)</span>为联合熵，若一组离散随机变量<span
+class="math inline">\((X,Y)\sim \{p(x,y):x\in \mathcal{X},y\in
+\mathcal{Y}\}\)</span> <span class="math display">\[
+    \begin{equation*}
+        H(X,Y) = -\sum_{x\in \mathcal{X}}\sum_{y\in
+\mathcal{Y}}p(x,y)\log p(x,y)
+    \end{equation*}
+\]</span></p>
+<div class="note info no-icon"><p>对于多元随机变量，称<span
+class="math inline">\(H(X^n)\)</span>为联合熵，若<span
+class="math inline">\(X^n = (X_{1},X_{2},\cdots,X_{n})\sim
+\{p(x_{1},x_{2},\cdots,x_{n}):x_{i}\in \mathcal{X},1\le i \le
+n\}\)</span> <span class="math display">\[
+    \begin{equation*}
+        H(X^n)=-\sum_{x_{i}\in
+\mathcal{X}}p(x_{1},x_{2},\cdots,x_{n})\log p(x_{1},x_{2},\cdots,x_{n})
+    \end{equation*}
+\]</span></p>
+</div>
+<p><strong>联合自信息</strong>： 若<span class="math inline">\((X,Y)\sim
+\{p(x,y)\}\)</span>，则定义<span
+class="math inline">\((X,Y)\)</span>的联合自信息为 <span
+class="math display">\[
+    \begin{equation*}
+        i(X,Y)=-\log p(X,Y)
+    \end{equation*}
+\]</span></p>
+<div class="note info no-icon"><p>类似于单元随机变量，有 - 联合熵<span
+class="math inline">\(H(X,Y)\)</span>可以写成 <span
+class="math display">\[
+        \begin{equation*}
+            H(X,Y)=E_{P_{XY}}i(X,Y)
+        \end{equation*}
+    \]</span> - 联合熵<span
+class="math inline">\(H(X^n)\)</span>可以写成 <span
+class="math display">\[
+        \begin{equation*}
+            H(X^n)=E_{P_{X^n}}i(X^n)
+        \end{equation*}
+    \]</span></p>
+</div>
+<p><strong>条件熵</strong>：若<span class="math inline">\((X,Y)\sim
+p(x,y)\)</span>，则条件熵定义为 <span class="math display">\[
+    \begin{align*}
+        H(Y|X)&amp;=\sum_{x\in \mathcal{X}}p(x)H(Y|X=x)\\
+        &amp;=-\sum_{x\in \mathcal{X}}p(x)\sum_{y\in
+\mathcal{Y}}p(y|x)\log p(y|x)\\
+        &amp;=-\sum_{x\in \mathcal{X}}\sum_{y\in \mathcal{Y}}p(x,y)\log
+p(y|x)
+    \end{align*}
+\]</span></p>
+<div class="note info no-icon"><ul>
+<li><span class="math inline">\(H(Y|X)\ge 0\)</span></li>
+<li><span class="math inline">\(H(Y|X)\le H(Y)\)</span></li>
+</ul>
+</div>
+<p><strong>定理</strong>：<span
+class="math inline">\(H(X,Y)=H(X)+H(Y|X)\)</span></p>
 <p><strong>证明</strong>：</p>
+<p><span class="math display">\[
+    \begin{align*}
+        H(X,Y) &amp;= -\sum_{x\in \mathcal{X}}\sum_{y\in
+\mathcal{Y}}p(x,y)\log p(x,y)\\
+        &amp;=-\sum_{x\in \mathcal{X}}\sum_{y\in \mathcal{Y}}p(x,y)\log
+p(x)p(y|x)\\
+        &amp;= -\sum_{x\in \mathcal{X}}\sum_{y\in \mathcal{Y}}p(x,y)\log
+p(x)-\sum_{x\in \mathcal{X}}\sum_{y\in \mathcal{Y}}p(x,y)\log p(y|x)\\
+        &amp;= -\sum_{x\in \mathcal{X}}p(x)\log p(x)-\sum_{x\in
+\mathcal{X}}\sum_{y\in \mathcal{Y}}p(x,y)\log p(y|x)\\
+        &amp;= H(X)+H(Y|X)
+    \end{align*}
+\]</span></p>
 <hr />
-<h2 id="热方程解的性质">热方程解的性质</h2>
-<h3 id="极值原理">极值原理</h3>
-<h2 id="初边值问题">初边值问题</h2>
-<h3 id="分离变量法">分离变量法</h3>
+<div class="note info no-icon"><ul>
+<li><span class="math inline">\(H(X)\le H(X,Y)\)</span> 当且仅当 <span
+class="math inline">\(H(Y|X)=0\)</span> 等号成立</li>
+<li><span class="math inline">\(H(Y|X)\le H(X,Y)\)</span> 当且仅当 <span
+class="math inline">\(H(X)=0\)</span> 等号成立</li>
+</ul>
+</div>
+<h2 id="相对熵互信息">相对熵、互信息</h2>
+<p><strong>相对熵</strong>：设<span
+class="math inline">\(p(x),q(x)\)</span>是概率密度函数，称<span
+class="math inline">\(p(x)\)</span>与<span
+class="math inline">\(q(x)\)</span>的相对熵(Kullback-Leibler距离)为
+<span class="math display">\[
+    \begin{equation*}
+        D(p||q)=\sum_{x\in \mathcal{X}}p(x)\log \frac{p(x)}{q(x)}
+    \end{equation*}
+\]</span></p>
+<div class="note info no-icon"><ul>
+<li><span
+class="math inline">\(D(p||q)\)</span>也称作散度(divergence)</li>
+<li>定义 <span class="math inline">\(0\log \frac{0}{0}=0\)</span></li>
+</ul>
+</div>
+<p><strong>Fundamental Inf Inequality</strong>：<span
+class="math inline">\(D(p||q)\ge 0\)</span>，当且仅当<span
+class="math inline">\(p=q\)</span>时等号成立</p>
+<p><strong>证明</strong>：</p>
+<p><span class="math display">\[
+    \begin{align*}
+        D(p||q)&amp;=\sum_{x\in \mathcal{X}}p(x)\log \frac{p(x)}{q(x)}\\
+        &amp;= -\log_{2}e \sum_{x\in \mathcal{X}}p(x)\ln
+\frac{q(x)}{p(x)}\\
+        &amp;\ge -\log_{2}e \sum_{x\in
+\mathcal{X}}p(x)[\frac{q(x)}{p(x)}-1]\\
+        &amp;= -\log_{2}e[\sum_{x\in \mathcal{X}}q(x)-\sum_{x\in
+\mathcal{X}}p(x)]\\
+        &amp;=0
+    \end{align*}
+\]</span></p>
+<p><strong>条件相对熵</strong>：设<span
+class="math inline">\(p(X,Y):=\{p(x,y)\},q(X,Y):=\{q(x,y)\}\)</span>是联合概率分布，则条件相对熵为
+<span class="math display">\[
+    \begin{align*}
+        D(p(Y| X)||q(Y|X)|p(X)):=\sum_{x\in \mathcal{X}}p(x)
+D(p(Y|X=x)||q(Y|X=x))
+    \end{align*}
+\]</span></p>
+<p><strong>互信息</strong>：设<span
+class="math inline">\(X\)</span>和<span
+class="math inline">\(Y\)</span>是两个随机变量，同分布于联合概率<span
+class="math inline">\(p(x,y)\)</span>，其边际分布为<span
+class="math inline">\(p(x),p(y)\)</span>，则互信息<span
+class="math inline">\(I(X;Y)\)</span>是联合概率分布<span
+class="math inline">\(p(x,y)\)</span>与边际分布之积<span
+class="math inline">\(p(x)p(y)\)</span>的相对熵 <span
+class="math display">\[
+    \begin{align*}
+        I(X;Y) &amp;=\sum_{x\in \mathcal{X}}\sum_{y\in
+\mathcal{Y}}p(x,y)\log \frac{p(x,y)}{p(x)p(y)}\\
+        &amp;= D(p(x,y)||p(x)p(y))\\
+        &amp;= E_{p(x,y)}\log \frac{p(X,Y)}{p(X)p(Y)}
+    \end{align*}
+\]</span></p>
+<h2 id="链式法则">链式法则</h2>
+<p>我们可以重写互信息<span class="math inline">\(I(X;Y)\)</span>的定义为
+<span class="math display">\[
+    \begin{align*}
+        I(X;Y) &amp;= \sum_{x,y}p(x,y) \log \frac{p(x,y)}{p(x)p(y)}\\
+        &amp;= \sum_{x,y}p(x,y)\log \frac{p(x|y)}{p(x)}\\
+        &amp;= -\sum_{x,y}p(x,y)\log p(x) + \sum_{x,y}p(x,y)\log
+p(x|y)\\
+        &amp;= -\sum_{x}p(x)\log p(x) - (-\sum_{x,y}p(x,y)\log p(x|y))\\
+        &amp;= H(X)- H(X|Y)
+    \end{align*}
+\]</span> 因此，互信息<span class="math inline">\(I(X;Y)\)</span>是<span
+class="math inline">\(X\)</span>的不确定度在已知<span
+class="math inline">\(Y\)</span>的信息下的减少量</p>
+<p>由此，我们有 <span class="math display">\[
+    \begin{align*}
+        I(X;Y) &amp;= H(X) - H(X|Y)\\
+        &amp;= H(Y) - H(Y|X)\\
+        &amp;= H(X) + H(Y) - H(X,Y)
+    \end{align*}
+\]</span> 特别地，我们指出 <span class="math display">\[
+    \begin{align*}
+        I(X;X) = H(X) - H(X|X) = H(X)
+    \end{align*}
+\]</span></p>
+<p><strong>互信息与熵</strong>:</p>
+<p><span class="math display">\[
+    \begin{align*}
+        I(X;Y) &amp;= H(X) - H(X|Y)\\
+        I(X;Y) &amp;= H(Y) - H(Y|X)\\
+        I(X;Y) &amp;= H(X) + H(Y) - H(X,Y)\\
+        I(X;Y) &amp;= I(Y;X)\\
+        I(X;X) &amp;= H(X)
+    \end{align*}
+\]</span></p>
+<img src="/2023/12/14/%E4%BF%A1%E6%81%AF%E8%AE%BA-%E7%86%B5/entropy.jpg" class="" title="Relationship Between Entropy And Mutual Information">
+<h2 id="琴生不等式及其应用">琴生不等式及其应用</h2>
+<h2 id="log-sum-不等式及其应用">Log Sum 不等式及其应用</h2>
+<h2 id="数据处理不等式">数据处理不等式</h2>
+<h2 id="fano-不等式">Fano 不等式</h2>
 
                 
             </div>
@@ -522,16 +614,12 @@ f(y,s)dyds\\
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E7%90%86%E6%96%B9%E7%A8%8B/">
-                                    <span class="chip bg-color">数理方程</span>
+                                <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/">
+                                    <span class="chip bg-color">信息论</span>
                                 </a>
                             
-                                <a href="/tags/%E5%9F%BA%E6%9C%AC%E8%A7%A3/">
-                                    <span class="chip bg-color">基本解</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%83%AD%E6%96%B9%E7%A8%8B/">
-                                    <span class="chip bg-color">热方程</span>
+                                <a href="/tags/%E7%86%B5/">
+                                    <span class="chip bg-color">熵</span>
                                 </a>
                             
                         </div>
@@ -574,9 +662,10 @@ f(y,s)dyds\\
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2023/12/14/%E4%BF%A1%E6%81%AF%E8%AE%BA-%E7%86%B5/">
                     <div class="card-image">
@@ -594,9 +683,9 @@ f(y,s)dyds\\
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -609,6 +698,7 @@ f(y,s)dyds\\
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -631,31 +721,31 @@ f(y,s)dyds\\
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/12/13/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/">
+                <a href="/2023/12/14/%E6%95%B0%E7%90%86%E6%96%B9%E7%A8%8B-%E7%83%AD%E6%96%B9%E7%A8%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="常微分方程">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="数理方程-热方程">
                         
-                        <span class="card-title">常微分方程</span>
+                        <span class="card-title">数理方程-热方程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            常微分方程-微分方程的初等解法
+                            数理方程-热方程
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" class="post-category">
-                                    常微分方程
+                            <a href="/categories/%E6%95%B0%E7%90%86%E6%96%B9%E7%A8%8B/" class="post-category">
+                                    数理方程
                                 </a>
                             
                             
@@ -665,12 +755,16 @@ f(y,s)dyds\\
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/">
-                        <span class="chip bg-color">常微分方程</span>
+                    <a href="/tags/%E6%95%B0%E7%90%86%E6%96%B9%E7%A8%8B/">
+                        <span class="chip bg-color">数理方程</span>
                     </a>
                     
-                    <a href="/tags/%E5%88%9D%E7%AD%89%E8%A7%A3%E6%B3%95/">
-                        <span class="chip bg-color">初等解法</span>
+                    <a href="/tags/%E5%9F%BA%E6%9C%AC%E8%A7%A3/">
+                        <span class="chip bg-color">基本解</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%83%AD%E6%96%B9%E7%A8%8B/">
+                        <span class="chip bg-color">热方程</span>
                     </a>
                     
                 </div>
