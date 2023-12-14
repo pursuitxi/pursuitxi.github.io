@@ -292,7 +292,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    4.7k
                 </div>
                 
 
@@ -560,7 +560,7 @@ class="math display">\[
         &amp;= E_{p(x,y)}\log \frac{p(X,Y)}{p(X)p(Y)}
     \end{align*}
 \]</span></p>
-<h2 id="链式法则">链式法则</h2>
+<hr />
 <p>我们可以重写互信息<span class="math inline">\(I(X;Y)\)</span>的定义为
 <span class="math display">\[
     \begin{align*}
@@ -596,10 +596,478 @@ class="math inline">\(Y\)</span>的信息下的减少量</p>
     \end{align*}
 \]</span></p>
 <img src="/2023/12/14/%E4%BF%A1%E6%81%AF%E8%AE%BA-%E7%86%B5/entropy.jpg" class="" title="Relationship Between Entropy And Mutual Information">
+<p><strong>条件互信息</strong>：对于随机变量<span
+class="math inline">\(Z\)</span>，条件互信息<span
+class="math inline">\(I(X;Y|Z)\)</span>定义为 <span
+class="math display">\[
+    \begin{align*}
+        I(X;Y|Z) &amp;= \sum_{z\in \mathcal{Z}}p(z)I(X;Y|Z=z)
+    \end{align*}
+\]</span></p>
+<p><strong>定理</strong>：</p>
+<p><span class="math display">\[
+    \begin{align*}
+        I(X;Y|Z) &amp;= H(X|Z) - H(X|Y,Z)\\
+        &amp;= I(Y;X|Z) = H(Y|Z) - H(Y|X,Z)\\
+        &amp;= H(X|Z) + H(Y|Z) - H(X,Y|Z)
+    \end{align*}
+\]</span></p>
+<h2 id="链式法则">链式法则</h2>
+<p><strong>熵链式法则</strong>：</p>
+<p><span class="math display">\[
+    \begin{align*}
+        H(X_{1},X_{2},\cdots,X_{n}) &amp;= \sum_{i=1}^{n}
+H(X_{i}|X_{1},X_{2},\cdots,X_{i-1})
+    \end{align*}
+\]</span></p>
+<p><strong>法一</strong>： 重复利用二元随机变量的链式法则，有 <span
+class="math display">\[
+    \begin{align*}
+        H(X_{1},X_{2}) &amp;= H(X_{1}) + H(X_{2}|X_{1})\\
+        H(X_{1},X_{2},X_{3}) &amp;= H(X_{1}) + H(X_{2},X_{3}|X_{1})\\
+        &amp;= H(X_{1}) + H(X_{2}|X_{1}) + H(X_{3}|X_{1},X_{2})\\
+        &amp;\cdots\cdots\\
+        H(X_{1},X_{2},\cdots,X_{n}) &amp;= H(X_{1}) + H(X_{2}|X_{1}) +
+\cdots + H(X_{n}|X_{1},X_{2},\cdots,X_{n-1})\\
+        &amp;= \sum_{i=1}^{n} H(X_{i}|X_{1},X_{2},\cdots,X_{i-1})
+    \end{align*}
+\]</span></p>
+<hr />
+<p><strong>法二</strong>：由于 <span class="math display">\[
+    \begin{align*}
+        p(x_{1},x_{2},\cdots,x_{n})&amp;=
+\prod_{i=1}^{n}p(x_{i}|x_{1},x_{2},\cdots,x_{i-1})\\
+        i(x_{1},x_{2},\cdots,x_{n})&amp;=
+i(x_{1})+i(x_{2}|x_{1})+\cdots+i(x_{n}|x_{1}x_{2}\cdots x_{n-1})
+    \end{align*}
+\]</span> 故 <span class="math display">\[
+    \begin{align*}
+        H(X_{1},X_{2},\cdots,X_{n}) &amp;=
+E_{p(x_{1},x_{2},\cdots,x_{n})}i(X_{1},X_{2},\cdots,X_{n})\\
+        &amp;= \sum_{x_{i}\in
+\mathcal{X}_{i}}p(x_{1},x_{2},\cdots,x_{n})i(x_{1},x_{2},\cdots,x_{n})\\
+        &amp;= \sum_{x_{i}\in
+\mathcal{X}_{i}}p(x_{1},x_{2},\cdots,x_{n})i(x_{1})+\sum
+p(x_{1},x_{2},\cdots,x_{n})i(x_{2}|x_{1})+\cdots\\
+        &amp;=
+H(X_{1})+H(X_{2}|X_{1})+\cdots+H(X_{n}|X_{1},X_{2},\cdots,X_{n-1})\\
+        &amp;= \sum_{i=1}^{n} H(X_{i}|X_{1},X_{2},\cdots,X_{i-1})
+    \end{align*}
+\]</span></p>
+<hr />
+<p><strong>条件熵链式法则</strong>：<span
+class="math inline">\(H(X_{1},X_{2},\cdots,X_{n}|Y) = \sum_{i=1}^{n}
+H(X_{i}|X_{1},X_{2},\cdots,X_{i-1},Y)\)</span></p>
+<p><strong>互信息链式法则</strong>：</p>
+<p><span class="math display">\[
+    \begin{align*}
+        I(X_{1},X_{2},\cdots,X_{n};Y)=\sum_{i=1}^{n}I(X_{i};Y|X_{1},X_{2},\cdots,X_{i-1})
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：</p>
+<p><span class="math display">\[
+    \begin{align*}
+        I(X_{1},X_{2},\cdots,X_{n};Y) &amp;= H(X_{1},X_{2},\cdots,X_{n})
+- H(X_{1},X_{2},\cdots,X_{n}|Y)\\
+        &amp;= \sum_{i=1}^{n} H(X_{i}|X_{1},X_{2},\cdots,X_{i-1}) -
+\sum_{i=1}^{n}H(X_{i}|X_{1},X_{2},\cdots,X_{i-1},Y)\\
+        &amp;= \sum_{i=1}^{n} I(X_{i};Y|X_{1},X_{2},\cdots,X_{i-1})
+    \end{align*}
+\]</span></p>
+<hr />
+<p><strong>相对熵链式法则</strong>：</p>
+<p><span class="math display">\[
+    \begin{align*}
+        &amp;D(p(X_{1},X_{2},\cdots,X_{n})||q(X_{1},X_{2},\cdots,X_{n}))\\
+        =&amp;\sum_{i=1}^{n}D(p(X_{i}|X_{1},X_{2},\cdots,X_{i-1})||q(X_{i}|X_{1},X_{2},\cdots,X_{i-1})|p(X_{1},X_{2},\cdots,X_{i-1}))
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：</p>
+<p><span class="math display">\[
+    \begin{align*}
+        &amp;D(p(X_{1},X_{2},\cdots,X_{n})||q(X_{1},X_{2},\cdots,X_{n}))\\
+        = &amp; E_{p} \log
+\frac{p(X_{1},X_{2},\cdots,X_{n})}{q(X_{1},X_{2},\cdots,X_{n})}\\
+        = &amp; E_{p}\Big(\log\frac{p(X_{1})}{q(X_{1})} + \log
+\frac{p(X_{2}|X_{1})}{q(X_{2}|X_{1})}+\cdots+\log\frac{p(X_{n}|X_{1},X_{2},\cdots,X_{n-1})}{q(X_{n}|X_{1},X_{2},\cdots,X_{n-1})}\Big)\\
+        = &amp; D(p(X_{1})||q(X_{1})) +
+D(p(X_{2}|X_{1})||q(X_{2}|X_{1})|p(X_{1}))+\cdots\\
+        = &amp;
+\sum_{i=1}^{n}D(p(X_{i}|X_{1},X_{2},\cdots,X_{i-1})||q(X_{i}|X_{1},X_{2},\cdots,X_{i-1})|p(X_{1},X_{2},\cdots,X_{i-1}))
+    \end{align*}
+\]</span></p>
+<hr />
 <h2 id="琴生不等式及其应用">琴生不等式及其应用</h2>
+<p><strong>凸函数</strong>：称<span
+class="math inline">\(f(x)\)</span>是在<span
+class="math inline">\((a,b)\)</span>上是凸函数，若满足<span
+class="math inline">\(\forall x_{1},x_{2}\in (a,b),0\le \lambda \le
+1\)</span>，有 <span class="math display">\[
+    \begin{align*}
+        f(\lambda x_{1}+(1-\lambda)x_{2}) \le \lambda f(x_{1}) +
+(1-\lambda)f(x_{2})
+    \end{align*}
+\]</span> 称<span
+class="math inline">\(f(x)\)</span>是严格凸函数，当且仅当<span
+class="math inline">\(\lambda=1\ or\ 0\)</span>时，等号成立</p>
+<p><strong>琴生不等式</strong>：若<span
+class="math inline">\(f(x)\)</span>是凸函数，<span
+class="math inline">\(X\)</span>是随机变量，则有 <span
+class="math display">\[
+    \begin{align*}
+        Ef(X)\ge f(EX)
+    \end{align*}
+\]</span></p>
+<p><strong>信息不等式</strong>：设<span
+class="math inline">\(p(x),q(x),x\in
+\mathcal{X}\)</span>是概率密度函数，则有 <span class="math display">\[
+    \begin{align*}
+        D(p||q) \ge 0
+    \end{align*}
+\]</span> 等号成立当且仅当<span class="math inline">\(p(x)=q(x),\forall
+x\in \mathcal{X}\)</span></p>
+<p><strong>证明</strong>：设<span
+class="math inline">\(A=\{x:p(x)&gt;0\}\)</span>，则 <span
+class="math display">\[
+    \begin{align*}
+        -D(p||q) &amp;= -\sum_{x\in A} p(x)\log\frac{p(x)}{q(x)}\\
+        &amp;= \sum_{x\in A}p(x)\log\frac{q(x)}{p(x)}\\
+        &amp;\le \log\sum_{x\in A}p(x)\frac{q(x)}{p(x)}\\
+        &amp;= \log\sum_{x\in A}q(x) \le \log\sum_{x\in
+\mathcal{X}}q(x)\\
+        &amp;= 0
+    \end{align*}
+\]</span></p>
+<hr />
+<p><strong>互信息的非负性</strong>：对于任意两个随机变量<span
+class="math inline">\(X,Y\)</span>，有 <span class="math display">\[
+    \begin{align*}
+        I(X;Y)\ge 0
+    \end{align*}
+\]</span> 等号成立当且仅当<span
+class="math inline">\(X,Y\)</span>独立</p>
+<p><strong>证明</strong>：</p>
+<p><span class="math display">\[
+    \begin{align*}
+        I(X;Y) = D(p(x,y)||p(x)p(y))\ge 0
+    \end{align*}
+\]</span> 等号成立当且仅当<span
+class="math inline">\(p(x,y)=p(x)p(y)\)</span>，即<span
+class="math inline">\(X,Y\)</span>独立</p>
+<hr />
+<p><strong>定理</strong>：<span class="math inline">\(D(p(y|x)||q(y|x))
+\ge 0\)</span>，等号成立当且仅当 <span
+class="math inline">\(p(y|x)=q(y|x)\)</span></p>
+<p><strong>定理</strong>：<span class="math inline">\(I(X;Y|Z) \ge
+0\)</span>，等号成立当且仅当<span
+class="math inline">\(X,Y\)</span>在<span
+class="math inline">\(Z\)</span>下条件独立</p>
+<p><strong>最大熵分布</strong>：<span class="math inline">\(H(X)\le \log
+\left|\mathcal{X}\right|\)</span>，等号成立当且仅当X在<span
+class="math inline">\(\mathcal{X}\)</span>上服从均匀分布</p>
+<p><strong>证明</strong>：设<span
+class="math inline">\(u(x)=\frac{1}{\left|\mathcal{X}\right|}\)</span>为<span
+class="math inline">\(\mathcal{X}\)</span>上的均匀分布概率函数，<span
+class="math inline">\(p(x)\)</span>为<span
+class="math inline">\(X\)</span>的概率密度函数，则 <span
+class="math display">\[  
+    \begin{align*}
+        D(p||u)=\sum
+p(x)\log\frac{p(x)}{u(x)}=\log\left|\mathcal{X}\right|-H(x)\ge 0
+    \end{align*}
+\]</span></p>
+<hr />
+<p><strong>定理</strong>：<span class="math inline">\(H(X|Y)\le
+H(X)\)</span>，等号成立当且仅当<span
+class="math inline">\(X,Y\)</span>独立</p>
+<div class="note info no-icon"><p>直观上，这个定理表明知道另一个随机变量<span
+class="math inline">\(Y\)</span>能够降低<span
+class="math inline">\(X\)</span>的不确定度，同时也只能降低<span
+class="math inline">\(X\)</span>的不确定度，值得一提，这仅在平均时成立，特别地，<span
+class="math inline">\(H(X|Y=y)\)</span>可能大于或小于或等于<span
+class="math inline">\(H(X)\)</span>，但一定有<span
+class="math inline">\(H(X|Y)\le H(X)\)</span></p>
+</div>
+<p><strong>定理</strong>：<span
+class="math inline">\(H(X_{1},X_{2},\cdots,X_{n})\le
+\sum_{i=1}^{n}H(X_{i})\)</span>，等号成立当且仅当<span
+class="math inline">\(X_{i}\)</span>独立</p>
+<p><strong>证明</strong>：由熵链式法则 <span class="math display">\[
+    \begin{align*}
+        H(X_{1},X_{2},\cdots,X_{n}) &amp;=
+\sum_{i=1}^{n}H(X_{i}|X_{1},X_{2},\cdots,X_{i-1})\\
+        &amp;\le \sum_{i=1}^{n}H(X_{i})
+    \end{align*}
+\]</span></p>
 <h2 id="log-sum-不等式及其应用">Log Sum 不等式及其应用</h2>
+<p><strong>对数和不等式</strong>：对于非负数<span
+class="math inline">\(a_{1},a_{2},\cdots,a_{n},b_{1},b_{2},\cdots,b_{n}\)</span>，有
+<span class="math display">\[
+    \begin{align*}
+        \sum_{i=1}^{n}a_{i}\log \frac{a_{i}}{b_{i}}\ge
+\Big(\sum_{i=1}^{n}a_{i}\Big)\log\frac{\sum_{i=1}^{n}a_{i}}{\sum_{i=1}^{n}b_{i}}
+    \end{align*}
+\]</span> 当且仅当<span
+class="math inline">\(\frac{a_{i}}{b_{i}}=const\)</span>等号成立</p>
+<p><strong>证明</strong>：不失去一般性，可设<span
+class="math inline">\(a_{i}&gt;0,b_{i}&gt;0\)</span>，设<span
+class="math inline">\(f(t)=t\log t\)</span>，可知<span
+class="math inline">\(f(t)\)</span>是严格凸函数，由Jensen不等式，有
+<span class="math display">\[
+    \begin{align*}
+        \sum\alpha_{i}f(t_{i})\ge f(\sum\alpha_{i}t_{i}),\quad
+\alpha_{i}\ge 0,\sum_{i=1}\alpha_{i}=1
+    \end{align*}
+\]</span> 令<span
+class="math inline">\(\alpha_{i}=\frac{b_{i}}{\sum_{j=1}^{n}b_{j}},t_{i}=\frac{a_{i}}{b_{i}}\)</span></p>
+<p>于是得到 <span class="math display">\[
+    \begin{align*}
+        \sum\frac{a_{i}}{\sum b_{j}}\log\frac{a_{i}}{b_{i}}\ge \sum
+\frac{a_{i}}{\sum b_{j}}\log \sum\frac{a_{i}}{\sum b_{j}}
+    \end{align*}
+\]</span> 即 <span class="math display">\[
+    \begin{align*}
+        \sum_{i=1}^{n}a_{i}\log \frac{a_{i}}{b_{i}}\ge
+\Big(\sum_{i=1}^{n}a_{i}\Big)\log\frac{\sum_{i=1}^{n}a_{i}}{\sum_{i=1}^{n}b_{i}}
+    \end{align*}
+\]</span></p>
+<hr />
+<div class="note info no-icon"><p>使用对数和不等式可以证明 <span class="math display">\[
+    \begin{align*}
+        D(p||q) &amp;=\sum p(x)\log \frac{p(x)}{q(X)}\\
+        &amp;\ge \Big(\sum p(x)\Big)\log \frac{\sum p(x)}{\sum q(x)}\\
+        &amp;=1\log \frac{1}{1}=0
+    \end{align*}
+\]</span></p>
+</div>
+<p><strong>相对熵的凸性</strong>：设<span
+class="math inline">\((p_{1},q_{1}),(p_{2},q_{2})\)</span>是两组概率密度函数对，则有
+<span class="math display">\[
+    \begin{align*}
+        D(\lambda p_{1}+(1-\lambda)p_{2}||\lambda
+q_{1}+(1-\lambda)q_{2})\le \lambda
+D(p_{1}||q_{1})+(1-\lambda)D(p_{2}||q_{2}),\quad \forall \lambda\in[0,1]
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：</p>
+<p><span class="math display">\[
+    \begin{align*}
+        &amp;(\lambda p_{1}(x)+(1-\lambda)p_{2}(x))\log\frac{\lambda
+p_{1}(x)+(1-\lambda)p_{2}(x)}{\lambda q_{1}(x)+(1-\lambda)q_{2}(x)}\\
+        \le &amp; \lambda p_{1}(x)\log\frac{\lambda p_{1}(x)}{\lambda
+q_{1}(x)}+(1-\lambda)p_{2}(x)\log\frac{(1-\lambda)p_{2}(x)}{(1-\lambda)q_{2}(x)}\\
+        =&amp; \lambda
+p_{1}(x)\log\frac{p_{1}(x)}{q_{1}(x)}+(1-\lambda)p_{2}(x)\log\frac{p_{2}(x)}{q_{2}(x)}
+    \end{align*}
+\]</span> 对所有的<span class="math inline">\(x\)</span>求和即可</p>
+<hr />
+<p><strong>熵的凹性</strong>：<span
+class="math inline">\(H(p)\)</span>是关于<span
+class="math inline">\(p\)</span>的凹函数</p>
+<p><strong>证明</strong>：</p>
+<p><span class="math display">\[
+    \begin{align*}
+        H(p)=\log\left|\mathcal{X}\right|-D(p||u)
+    \end{align*}
+\]</span> 其中<span class="math inline">\(u\)</span>是<span
+class="math inline">\(\mathcal{X}\)</span>上的均匀概率分布，由<span
+class="math inline">\(D(p||u)\)</span>的凸性，可得<span
+class="math inline">\(H(p)\)</span>是凹函数</p>
+<hr />
+<p><strong>定理</strong>：设<span class="math inline">\((X,Y)\sim
+p(x,y)=p(x)p(y|x)\)</span>，互信息<span
+class="math inline">\(I(X;Y)\)</span>在固定<span
+class="math inline">\(p(y|x)\)</span>是关于<span
+class="math inline">\(p(x)\)</span>的凹函数，在固定<span
+class="math inline">\(p(x)\)</span>是关于<span
+class="math inline">\(p(y|x)\)</span>的凸函数</p>
+<p><strong>证明</strong>：</p>
+<ul>
+<li><p>由于 <span class="math display">\[
+      \begin{align*}
+          I(X;Y)=H(Y)-H(Y|X)=H(Y)-\sum_{x}p(x)H(Y|X=x)
+      \end{align*}
+  \]</span> 若<span class="math inline">\(p(y|x)\)</span>固定，则<span
+class="math inline">\(p(y)\)</span>是<span
+class="math inline">\(p(x)\)</span>的线性函数</p>
+<p>由于<span class="math inline">\(H(Y)\)</span>是关于<span
+class="math inline">\(p(y)\)</span>的凹函数，故<span
+class="math inline">\(H(Y)\)</span>也是关于<span
+class="math inline">\(p(x)\)</span>的凹函数</p>
+<p>由于<span class="math inline">\(\sum_{x}p(x)H(Y|X=x)\)</span>是<span
+class="math inline">\(p(x)\)</span>的线性函数，不影响凹凸性，从而<span
+class="math inline">\(I(X,Y)\)</span>是<span
+class="math inline">\(p(x)\)</span>的凹函数</p></li>
+<li></li>
+</ul>
+<hr />
 <h2 id="数据处理不等式">数据处理不等式</h2>
+<p><strong>马尔科夫链</strong>：称随机变量<span
+class="math inline">\(X,Y,Z\)</span>构成马尔科夫链<span
+class="math inline">\((X\rightarrow Y\rightarrow
+Z)\)</span>，若满足<span
+class="math inline">\(Z\)</span>的条件分布只依赖于<span
+class="math inline">\(Y\)</span>，与<span
+class="math inline">\(X\)</span>条件独立，即 <span
+class="math display">\[
+    \begin{align*}
+        p(x,y,z)=p(x)p(y|x)p(z|y)
+    \end{align*}
+\]</span></p>
+<div class="note info no-icon"><p>马尔科夫链的条件独立 <span class="math display">\[
+    \begin{align*}
+        p(x,z|y)=\frac{p(x,y,z)}{p(y)}=\frac{p(x,y)p(z|y)}{p(y)}=p(x|y)p(z|y)
+    \end{align*}
+\]</span></p>
+</div>
+<p><strong>数据处理不等式</strong>：若<span
+class="math inline">\(X\rightarrow Y\rightarrow Z\)</span>，则有 <span
+class="math display">\[
+    \begin{align*}
+        I(X;Y)\ge I(X;Z)
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：由链式法则，有 <span class="math display">\[
+    \begin{align*}
+            I\left(X;Y,Z\right)&amp;
+=I\left(X;Z\right)+I\left(X;Y|Z\right)  \\
+            &amp;=I\left(X;Y\right)+I\left(X;Z|Y\right)
+    \end{align*}
+\]</span> 由于<span
+class="math inline">\(X,Z\)</span>条件独立，从而有<span
+class="math inline">\(I(X;Z|Y)=0\)</span>，由于<span
+class="math inline">\(I(X;Y|Z)\ge 0\)</span>，则 <span
+class="math display">\[
+    \begin{align*}
+        I(X;Y)\ge I(X;Z)
+    \end{align*}
+\]</span></p>
+<hr />
+<p><strong>推论</strong>：令<span
+class="math inline">\(Z=g(Y)\)</span>，则有 <span
+class="math inline">\(I(X;Y)\ge I(X;g(Y))\)</span></p>
+<p><strong>推论</strong>：若<span class="math inline">\(X\rightarrow
+Y\rightarrow Z\)</span>，则有<span class="math inline">\(I(X;Y|Z)\le
+I(X;Y)\)</span></p>
+<p><strong>证明</strong>：</p>
+<p><span class="math display">\[
+    \begin{align*}
+        I\left(X;Y,Z\right)&amp;
+=I\left(X;Z\right)+I\left(X;Y|Z\right)  \\
+        &amp;=I\left(X;Y\right)+I\left(X;Z|Y\right)
+    \end{align*}
+\]</span> 由于<span class="math inline">\(I(X;Z|Y)=0,I(X;Z)\ge
+0\)</span>，故 <span class="math display">\[
+    \begin{align*}
+        I(X;Y|Z)\le I(X;Y)
+    \end{align*}
+\]</span></p>
+<hr />
 <h2 id="fano-不等式">Fano 不等式</h2>
+<p><strong>Fano 不等式</strong>：对于任意估计<span
+class="math inline">\(\hat{X}\)</span>使得<span
+class="math inline">\(X\rightarrow Y \rightarrow
+\hat{X}\)</span>，且<span class="math inline">\(P_{e}=Pr(X\ne
+\hat{X})\)</span>，则有 <span class="math display">\[
+    \begin{align*}
+        H(P_e)+P_e\log|\mathcal{X}|\geq H(X|\hat{X})\geq H(X|Y).
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：定义错误随机变量 <span class="math display">\[
+    \begin{align*}
+        \left.E=\left\{\begin{array}{ll}1&amp;\quad\text{if}\;\hat{X}\neq
+X,\\0&amp;\quad\text{if}\;\hat{X}=X.\end{array}\right.\right.
+    \end{align*}
+\]</span> 由链式法则 <span class="math display">\[
+    \begin{align*}
+            H(E,X|\hat{X})&amp;
+=H(X|\hat{X})+\underbrace{H(E|X,\hat{X})}_{=0}  \\
+            &amp;=\underbrace{H(E|\hat{X})}_{\leq
+H(P_e)}+\underbrace{H(X|E,\hat{X})}_{\leq P_e\log|\mathcal{X}|}
+    \end{align*}
+\]</span> 由于条件减少熵，故<span class="math inline">\(H(E|\hat{X})\le
+H(E)=H(P_e)\)</span>，同时由于<span
+class="math inline">\(E\)</span>是<span
+class="math inline">\(X,\hat{X}\)</span>的函数，则条件熵<span
+class="math inline">\(H(E|X,\hat{X})=0\)</span>，且有 <span
+class="math display">\[
+    \begin{align*}
+        H(X|E,\hat{X})&amp;=\mathrm{Pr}(E=0)H(X|\hat{X},E=0)+\mathrm{Pr}(E=1)H(X|\hat{X},E=1)\\
+        &amp;\le (1-P_e)0+P_e \log|\mathcal{X}|\\
+        &amp;=P_e \log|\mathcal{X}|
+    \end{align*}
+\]</span> 从而得到 <span class="math display">\[
+    \begin{align*}
+        H(P_e)+P_e\log|\mathcal{X}|\geq H(X|\hat{X})
+    \end{align*}
+\]</span> 由于<span class="math inline">\(X\rightarrow Y\rightarrow
+\hat{X}\)</span>是马尔科夫链，由数据处理不等式，有 <span
+class="math display">\[
+    \begin{align*}
+        I(X;\hat{X})\le I(X;Y)
+    \end{align*}
+\]</span> 因此 <span class="math display">\[
+    \begin{align*}
+        H(X|\hat{X})\ge H(X|Y)
+    \end{align*}
+\]</span></p>
+<hr />
+<p><strong>推论</strong>：对于任意随机变量<span
+class="math inline">\(X,Y\)</span>，令<span
+class="math inline">\(p=Pr(X\ne Y)\)</span>，则有 <span
+class="math display">\[
+    \begin{align*}
+        H(p)+p\log |\mathcal{X}|\ge H(X|Y)
+    \end{align*}
+\]</span></p>
+<p><strong>推论</strong>： 令<span class="math inline">\(P_e = Pr(X\ne
+\hat{X}),\hat{X}:\mathcal{Y}\rightarrow \mathcal{X}\)</span>，则 <span
+class="math display">\[
+    \begin{align*}
+        H(P_e) + P_e \log(|\mathcal{X}-1|) \ge H(X|Y)
+    \end{align*}
+\]</span></p>
+<p><strong>定理</strong>：设<span
+class="math inline">\(X,X&#39;\)</span>独立同分布，熵为<span
+class="math inline">\(H(X)\)</span>，则有 <span class="math display">\[
+    \begin{align*}
+        \Pr(X=X^{\prime})\geq2^{-H(X)},
+    \end{align*}
+\]</span> 等号成立当且仅当<span
+class="math inline">\(X\)</span>满足均匀分布</p>
+<p><strong>证明</strong>：设<span
+class="math inline">\(X~p(x)\)</span>，由琴生不等式，得 <span
+class="math display">\[
+    \begin{align*}
+        2^{E\log p(X)}\leq E2^{\log p(X)},
+    \end{align*}
+\]</span> 即 <span class="math display">\[
+    \begin{align*}
+        2^{-H(X)}=2^{\sum p(x)\log p(x)}\leq\sum p(x)2^{\log p(x)}=\sum
+p^2(x) = \Pr(X=X^{\prime})
+    \end{align*}
+\]</span></p>
+<hr />
+<p><strong>推论</strong>： 设<span
+class="math inline">\(X,X&#39;\)</span>独立，<span
+class="math inline">\(X~p(x),X&#39;~r(x),x,x&#39;\in
+\mathcal{X}\)</span>，则有 <span class="math display">\[
+    \begin{align*}
+        \Pr(X=X&#39;)&amp;\geq2^{-H(p)-D(p||r)},\\\Pr(X=X&#39;)&amp;\geq2^{-H(r)-D(r||p)}
+    \end{align*}
+\]</span></p>
+<p><strong>证明</strong>：</p>
+<p><span class="math display">\[
+    \begin{align*}
+        2^{-H(p)-D(p||r)} &amp;=2^{\sum p(x)\log p(x)+\sum
+p(x)\log{\frac{r(x)}{p(x)}}} \\
+        &amp;=2^{\sum p(x)\log r(x)} \\
+        &amp;\leq\sum p(x)2^{\log r(x)} \\
+        &amp;=\sum p(x)r(x) \\
+        &amp;=\Pr(X=X^{\prime}),
+    \end{align*}
+\]</span></p>
+<hr />
 
                 
             </div>
